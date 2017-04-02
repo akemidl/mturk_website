@@ -1,0 +1,173 @@
+Scenario - 
+Logfile written - 08/31/2015 16:49:16
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Manual	trial_1_onset	-9991	-9991
+0	Manual	ITI_starttime	-9980	-9980
+0	Manual	UrnsPresented_starttime	10169	10169
+0	Manual	Choice_Period_starttime	52331	52331
+0	Response	22	57432	57432	1
+0	Manual	Participant_Response_Displayed_starttime	57667	57667
+0	Manual	Outcome_Individualtrial_Displayed_starttime	109829	109829
+0	Manual	ITI_starttime	124985	124985
+0	Manual	trial_2_onset	183146	183146
+0	Manual	UrnsPresented_starttime	183158	183158
+0	Manual	Choice_Period_starttime	223313	223313
+0	Response	22	231678	231678	1
+0	Manual	Participant_Response_Displayed_starttime	231981	231981
+0	Manual	Outcome_Individualtrial_Displayed_starttime	265144	265144
+0	Manual	ITI_starttime	280301	280301
+0	Manual	trial_3_onset	321464	321464
+0	Manual	UrnsPresented_starttime	321476	321476
+0	Manual	Choice_Period_starttime	370630	370630
+0	Response	22	379935	379935	1
+0	Manual	Participant_Response_Displayed_starttime	380299	380299
+0	Manual	Outcome_Individualtrial_Displayed_starttime	438459	438459
+0	Manual	ITI_starttime	453616	453616
+0	Manual	trial_4_onset	505778	505778
+0	Manual	UrnsPresented_starttime	505790	505790
+0	Manual	Choice_Period_starttime	551943	551943
+0	Response	11	558671	558671	1
+0	Manual	Participant_Response_Displayed_starttime	558945	558945
+0	Manual	Outcome_Individualtrial_Displayed_starttime	612107	612107
+0	Manual	ITI_starttime	627264	627264
+0	Manual	trial_5_onset	673426	673426
+0	Manual	UrnsPresented_starttime	673439	673439
+0	Response	22	712137	712137	1
+0	Manual	Choice_Period_starttime	716592	716592
+0	Response	22	721187	721187	1
+0	Manual	Participant_Response_Displayed_starttime	721594	721594
+0	Manual	Outcome_Individualtrial_Displayed_starttime	748758	748758
+0	Manual	OutcomeHistoryDisplayed_starttime	763916	763916
+0	Manual	ShockOutcomeDisplayed_starttime	791102	791102
+0	Manual	shock time	816243	816243
+0	Manual	shock delivered	816243	816243
+0	Manual	shock delivered	816360	816360
+0	Manual	shock delivered	816480	816480
+0	Manual	shock delivered	816600	816600
+0	Manual	shock delivered	816720	816720
+0	Manual	ExtraITI_starttime	816843	816843
+0	Manual	trial_6_onset	854906	854906
+0	Manual	UrnsPresented_starttime	854918	854918
+0	Manual	Choice_Period_starttime	893072	893072
+0	Response	22	922622	922622	1
+0	Manual	Participant_Response_Displayed_starttime	923072	923072
+0	Manual	Outcome_Individualtrial_Displayed_starttime	949237	949237
+0	Manual	ITI_starttime	964394	964394
+0	Manual	trial_7_onset	1008557	1008557
+0	Manual	UrnsPresented_starttime	1008569	1008569
+0	Response	22	1040839	1040839	1
+0	Manual	Choice_Period_starttime	1052722	1052722
+0	Response	22	1056199	1056199	1
+0	Manual	Participant_Response_Displayed_starttime	1056391	1056391
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1098554	1098554
+0	Manual	ITI_starttime	1113711	1113711
+0	Manual	trial_8_onset	1153874	1153874
+0	Manual	UrnsPresented_starttime	1153887	1153887
+0	Manual	Choice_Period_starttime	1199040	1199040
+0	Response	22	1202866	1202866	1
+0	Manual	Participant_Response_Displayed_starttime	1203042	1203042
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1230206	1230206
+0	Manual	ITI_starttime	1245363	1245363
+0	Manual	trial_9_onset	1298525	1298525
+0	Manual	UrnsPresented_starttime	1298537	1298537
+0	Manual	Choice_Period_starttime	1344690	1344690
+0	Response	22	1361712	1361712	1
+0	Manual	Participant_Response_Displayed_starttime	1362025	1362025
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1414187	1414187
+0	Manual	ITI_starttime	1429343	1429343
+0	Manual	trial_10_onset	1484505	1484505
+0	Manual	UrnsPresented_starttime	1484517	1484517
+0	Manual	Choice_Period_starttime	1534670	1534670
+0	Response	11	1567077	1567077	1
+0	Manual	Participant_Response_Displayed_starttime	1567336	1567336
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1595500	1595500
+0	Manual	OutcomeHistoryDisplayed_starttime	1610657	1610657
+0	Manual	ShockOutcomeDisplayed_starttime	1635830	1635830
+0	Manual	shock time	1660985	1660985
+0	Manual	ExtraITI_starttime	1660989	1660989
+0	Manual	trial_11_onset	1691149	1691149
+0	Manual	UrnsPresented_starttime	1691161	1691161
+0	Response	11	1721144	1721144	1
+0	Manual	Choice_Period_starttime	1731315	1731315
+0	Response	11	1737833	1737833	1
+0	Manual	Participant_Response_Displayed_starttime	1738317	1738317
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1761481	1761481
+0	Manual	ITI_starttime	1776639	1776639
+0	Manual	trial_12_onset	1822801	1822801
+0	Manual	UrnsPresented_starttime	1822813	1822813
+0	Response	11	1857500	1857500	1
+0	Manual	Choice_Period_starttime	1861967	1861967
+0	Response	11	1864810	1864810	1
+0	Manual	Participant_Response_Displayed_starttime	1865304	1865304
+0	Manual	Outcome_Individualtrial_Displayed_starttime	1924465	1924465
+0	Manual	ITI_starttime	1939621	1939621
+0	Manual	trial_13_onset	1995783	1995783
+0	Manual	UrnsPresented_starttime	1995795	1995795
+0	Manual	Choice_Period_starttime	2036949	2036949
+0	Response	22	2042276	2042276	1
+0	Manual	Participant_Response_Displayed_starttime	2042618	2042618
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2080781	2080781
+0	Manual	ITI_starttime	2095937	2095937
+0	Manual	trial_14_onset	2149099	2149099
+0	Manual	UrnsPresented_starttime	2149112	2149112
+0	Manual	Choice_Period_starttime	2185266	2185266
+0	Response	22	2206112	2206112	1
+0	Manual	Participant_Response_Displayed_starttime	2206599	2206599
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2248762	2248762
+0	Manual	ITI_starttime	2263919	2263919
+0	Manual	trial_15_onset	2321081	2321081
+0	Manual	UrnsPresented_starttime	2321093	2321093
+0	Manual	Choice_Period_starttime	2364246	2364246
+0	Response	22	2367228	2367228	1
+0	Manual	Participant_Response_Displayed_starttime	2367582	2367582
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2391746	2391746
+0	Manual	OutcomeHistoryDisplayed_starttime	2406904	2406904
+0	Manual	ShockOutcomeDisplayed_starttime	2435076	2435076
+0	Manual	shock time	2460231	2460231
+0	Manual	shock delivered	2460231	2460231
+0	Manual	ExtraITI_starttime	2460354	2460354
+0	Manual	trial_16_onset	2497395	2497395
+0	Manual	UrnsPresented_starttime	2497407	2497407
+0	Manual	Choice_Period_starttime	2535561	2535561
+0	Response	11	2552934	2552934	1
+0	Manual	Participant_Response_Displayed_starttime	2553229	2553229
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2593391	2593391
+0	Manual	ITI_starttime	2608548	2608548
+0	Manual	trial_17_onset	2663711	2663711
+0	Manual	UrnsPresented_starttime	2663723	2663723
+0	Manual	Choice_Period_starttime	2710875	2710875
+0	Response	22	2713350	2713350	1
+0	Manual	Participant_Response_Displayed_starttime	2713545	2713545
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2736709	2736709
+0	Manual	ITI_starttime	2751866	2751866
+0	Manual	trial_18_onset	2793029	2793029
+0	Manual	UrnsPresented_starttime	2793042	2793042
+0	Manual	Choice_Period_starttime	2842195	2842195
+0	Response	11	2847247	2847247	1
+0	Manual	Participant_Response_Displayed_starttime	2847530	2847530
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2894692	2894692
+0	Manual	ITI_starttime	2909849	2909849
+0	Manual	trial_19_onset	2957011	2957011
+0	Manual	UrnsPresented_starttime	2957023	2957023
+0	Manual	Choice_Period_starttime	3003177	3003177
+0	Response	11	3021653	3021653	1
+0	Manual	Participant_Response_Displayed_starttime	3021845	3021845
+0	Manual	Outcome_Individualtrial_Displayed_starttime	3065008	3065008
+0	Manual	ITI_starttime	3080164	3080164
+0	Manual	trial_20_onset	3136325	3136325
+0	Manual	UrnsPresented_starttime	3136338	3136338
+0	Manual	Choice_Period_starttime	3180491	3180491
+0	Response	22	3188549	3188549	1
+0	Manual	Participant_Response_Displayed_starttime	3188828	3188828
+0	Manual	Outcome_Individualtrial_Displayed_starttime	3239989	3239989
+0	Manual	OutcomeHistoryDisplayed_starttime	3255145	3255145
+0	Manual	ShockOutcomeDisplayed_starttime	3275317	3275317
+0	Manual	shock time	3300473	3300473
+0	Manual	shock delivered	3300473	3300473
+0	Manual	shock delivered	3300590	3300590
+0	Manual	shock delivered	3300710	3300710
+0	Manual	shock delivered	3300830	3300830
+0	Manual	shock delivered	3300950	3300950
+0	Manual	ExtraITI_starttime	3301074	3301074

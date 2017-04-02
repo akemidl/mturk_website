@@ -1,0 +1,119 @@
+
+
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Experiments</title>
+
+
+
+</head>
+
+
+ {% block topbar_base %}
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Home</a>
+            </div>
+			
+		    <ul class="nav navbar-nav navbar-right">
+		         <li><a href="#">ID: {{MID}}</a></li>
+				  <!-- Brand 
+		         <li class="dropdown">
+		           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+		           <ul class="dropdown-menu">
+		             <li><a href="#">Action</a></li>
+		             <li><a href="#">Another action</a></li>
+		             <li><a href="#">Something else here</a></li>
+		             <li role="separator" class="divider"></li>
+		             <li><a href="#">Separated link</a></li>
+		           </ul>
+		         </li>
+					  -->
+		       </ul>
+			
+            <!-- Collect the nav links, forms, and other content for toggling 
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Visit Us</a>
+                    </li>
+
+                </ul>
+            </div>
+				-->
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+ {% endblock %}
+ 
+ {% block body_base %}
+
+ {% endblock %}
+
+
+
+
+{% block footer %}
+		<div>
+		<p style="margin:auto;width:100%;text-align:center;"></p>	
+		</div>
+
+{% endblock %}
+
+
+
+
+
+
+{% block style_base %}
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet">
+	<link href="{% static "css/heroic-features.css" %}" rel="stylesheet">
+	<link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+    <link href="{% static "css/thumbnail-gallery.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block script_base %}
+    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
+	<script src="{% static "js/jquery.js"}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/bootstrap2.min.js" %}"></script>
+	
+
+	
+{% endblock %}
+{% block extra_js %}{% endblock %}
+{% block extra_css %}{% endblock %}
+
+
+
+
+
+
+
+
+
+

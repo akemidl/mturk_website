@@ -1,0 +1,5 @@
+1 Not at all typical
+2
+3 Somewhat typical
+4
+5 Very typical

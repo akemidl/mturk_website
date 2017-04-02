@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+
+
+  <link rel="stylesheet" href="jqueryUI/jquery-ui.css">
+  <script src="jqueryUI/external/jquery/jquery.js"></script>
+  <script src="jqueryUI/jquery-ui.js"></script>
+<script>
+$(function() {
+$("#slider").draggable({
+containment: "#slidebar" ,
+   drag: function() {
+       var position = $(this).position();
+       var xPos = position.left;
+       $('#participantOffer > span').text(xPos);
+    }
+});
+});
+</script>
+
+<style>
+body {
+background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#container1 {
+display: inline-block;
+position: absolute;
+    left: 50%;
+    top: 30%;
+height: 210px;
+    width: 50%;
+}
+#container2 {
+display: inline-block;
+position: absolute;
+    top: 30%;
+height: 210px;
+    width: 50%;
+}
+
+#container3 {
+  display: inline-block;
+position: absolute;
+    top: 60%;
+    width: 100%;
+    text-align: center;
+}
+
+#right {
+display: inline-block;
+position: absolute;
+    left: 40px;
+    top: 0px;
+}
+
+#left {
+display: inline-block;
+position: absolute;
+    right: 40px;
+    top: 0px;
+}
+
+#slidebar {
+margin: auto;
+width: 50%;
+height: 20px;
+border-radius: 3px;
+background-color: #D3D3D3;
+}
+
+#slider {
+width: 0px;
+height: 16px;
+    border: 2px solid black;
+};
+</style>
+
+
+
+
+</head>
+
+<body>
+<div id="container3">
+  <div style="margin: auto; left:75%">
+  <p id="participantOffer">
+  I will pay up to &#36 <span></span>
+  </p>
+  </div>
+  <div id="slidebar""><div id="slider" class="draggable ui-widget-content"></div>
+</div>
+
+</body>
+</html>

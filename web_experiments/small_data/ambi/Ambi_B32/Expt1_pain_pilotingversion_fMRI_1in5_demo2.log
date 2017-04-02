@@ -1,0 +1,42 @@
+Scenario - 
+Logfile written - 08/31/2015 16:43:12
+
+Trial	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+0	Manual	trial_1_onset	-9990	-9990
+0	Manual	ITI_starttime	-9980	-9980
+0	Manual	UrnsPresented_starttime	10169	10169
+0	Response	33	1691954	1691954	1
+0	Manual	Choice_Period_starttime	1691986	1691986
+0	Response	11	2042105	2042105	1
+0	Response	33	2050105	2050105	1
+0	Manual	Participant_Response_Displayed_starttime	2050280	2050280
+0	Response	33	2111704	2111704	1
+0	Manual	Outcome_Individualtrial_Displayed_starttime	2111778	2111778
+0	Response	33	2188182	2188182	1
+0	Manual	ITI_starttime	2188261	2188261
+0	Response	33	2581053	2581053	1
+0	Manual	trial_2_onset	2581219	2581219
+0	Manual	UrnsPresented_starttime	2581235	2581235
+0	Response	33	3211038	3211038	1
+0	Manual	Choice_Period_starttime	3211154	3211154
+0	Response	11	3223037	3223037	1
+0	Response	33	3233117	3233117	1
+0	Manual	Participant_Response_Displayed_starttime	3233485	3233485
+0	Response	33	3266877	3266877	1
+0	Manual	Outcome_Individualtrial_Displayed_starttime	3266987	3266987
+0	Response	33	3380554	3380554	1
+0	Manual	ITI_starttime	3380631	3380631
+0	Response	33	3415833	3415833	1
+0	Manual	trial_3_onset	3415962	3415962
+0	Manual	UrnsPresented_starttime	3415976	3415976
+0	Response	33	3785265	3785265	1
+0	Manual	Choice_Period_starttime	3785425	3785425
+0	Response	22	3821984	3821984	1
+0	Response	33	3835023	3835023	1
+0	Manual	Participant_Response_Displayed_starttime	3835420	3835420
+0	Response	33	3848943	3848943	1
+0	Manual	Outcome_Individualtrial_Displayed_starttime	3849089	3849089
+0	Response	33	3906782	3906782	1
+0	Manual	ITI_starttime	3906908	3906908
+0	Quit		5187232	5187232

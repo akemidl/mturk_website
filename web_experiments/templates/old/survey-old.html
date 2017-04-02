@@ -1,0 +1,41 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+
+
+{% block body_base %}
+
+
+<div id="survey_container">
+
+<form action="processSurvey" method="post">{% csrf_token %}
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="Blank">
+	<br/>
+	
+<label for="group2">group2 </label>
+ <fieldset id="group1">
+     <input type="radio" value="" name="group1">
+     <input type="radio" value="" name="group1">
+ </fieldset>
+
+<label for="group1">group1 </label>
+<br/>
+Question asdfasfsdf
+ <fieldset id="group2">
+     <input type="radio" value="Often" name="group2">Often
+     <input type="radio" value="Sometimes" name="group2">Sometimes
+     <input type="radio" value="Never" name="group2">Never
+ </fieldset>
+    <input id="final_submit" type="submit" value="OK">
+	
+</form>
+
+</div>
+
+	
+{% endblock %}
+
+

@@ -1,0 +1,23 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+{% endblock %}
+{% block extra_css %}
+	<link href="{% static "css/surveys.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_base %}
+
+
+<div id="survey_container">
+<p>You are free at this point or at any subsequent point to choose to withdraw from one or more ofthe tasks, or to completely discontinue participating in this study. To withdraw from the study, go back to the
+Amazon Mechanical Turk website and return the HIT. You will only be compensated if you complete all of the tasks listed on the Home page.</p>
+
+<p> If you are unable to complete all the tasks for some reason. Please email the host of the HIT on Amazon Mechanical Turk</p>
+
+<p>To continue participation, press the Home button in the top left corner.</p>
+
+{% endblock %}

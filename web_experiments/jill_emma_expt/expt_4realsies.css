@@ -1,0 +1,48 @@
+
+.dot {
+height: 12px;
+width: 12px;
+border-radius: 4px;
+background-color: #ff1493;
+};
+
+body{ margin:10px; background:#CCC; }
+
+#expt_container{};
+
+
+#rectangleOverCanvas{
+  height:350;
+  width:700;
+  background-color:black;
+};
+
+
+
+
+#test{
+  border:#000 1px solid;
+};
+#test_para2{
+  color:red;
+  font-size:30;
+
+};
+
+#test_div{
+  background:#036;
+  border:#000 1px solid;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: red;
+  height:500px;
+  width:300px;
+  border-radius: 300px;
+};
+
+#button_previous{
+  position: absolute;
+  right: 40%;
+  top: 87%;
+};

@@ -1,0 +1,709 @@
+Scenario - 
+Logfile written - 08/31/2015 18:22:12
+
+Pulse	Event Type	Code	Time	TTime	Uncertainty	Duration	Uncertainty	ReqTime	ReqDur	Stim Type	Pair Index
+
+1	Pulse	222	0	0	NA
+2	Pulse	222	30000	30000	NA
+3	Pulse	222	60000	60000	NA
+4	Pulse	222	90000	90000	NA
+5	Pulse	222	120000	120000	NA
+6	Pulse	222	150000	150000	NA
+7	Pulse	222	180000	180000	NA
+8	Pulse	222	210000	210000	NA
+9	Pulse	222	240000	240000	NA
+10	Pulse	222	270000	270000	NA
+11	Pulse	222	300000	300000	NA
+12	Pulse	222	330000	330000	NA
+13	Pulse	222	360000	360000	NA
+14	Pulse	222	390000	390000	NA
+14	Manual	trial_1_onset	404761	404761
+14	Manual	FIRST_ITI_starttime	404772	404772
+15	Pulse	222	420000	420000	NA
+16	Pulse	222	450000	450000	NA
+17	Pulse	222	480000	480000	NA
+17	Manual	UrnsPresented_starttime	504950	504950
+18	Pulse	222	510000	510000	NA
+18	Manual	Choice_Period_starttime	532113	532113
+19	Pulse	222	540000	540000	NA
+19	Response	11	555595	555595	1
+19	Manual	Participant_Response_Displayed_starttime	555781	555781
+20	Pulse	222	570000	570000	NA
+20	Manual	Outcome_Individualtrial_Displayed_starttime	586945	586945
+21	Pulse	222	600000	600000	NA
+21	Manual	ITI_starttime	602100	602100
+22	Pulse	222	630000	630000	NA
+22	Manual	trial_2_onset	633264	633264
+22	Manual	UrnsPresented_starttime	633280	633280
+23	Pulse	222	660000	660000	NA
+23	Manual	Choice_Period_starttime	677431	677431
+23	Response	22	680502	680502	1
+23	Manual	Participant_Response_Displayed_starttime	680768	680768
+24	Pulse	222	690000	690000	NA
+24	Manual	Outcome_Individualtrial_Displayed_starttime	719930	719930
+25	Pulse	222	720000	720000	NA
+25	Manual	ITI_starttime	735085	735085
+26	Pulse	222	750000	750000	NA
+27	Pulse	222	780000	780000	NA
+27	Manual	trial_3_onset	787247	787247
+27	Manual	UrnsPresented_starttime	787263	787263
+28	Pulse	222	810000	810000	NA
+28	Manual	Choice_Period_starttime	812416	812416
+28	Response	22	830719	830719	1
+28	Manual	Participant_Response_Displayed_starttime	831084	831084
+29	Pulse	222	840000	840000	NA
+29	Manual	Outcome_Individualtrial_Displayed_starttime	861248	861248
+30	Pulse	222	870000	870000	NA
+30	Manual	ITI_starttime	876403	876403
+31	Pulse	222	900000	900000	NA
+31	Manual	trial_4_onset	916567	916567
+31	Manual	UrnsPresented_starttime	916582	916582
+32	Pulse	222	930000	930000	NA
+32	Manual	Choice_Period_starttime	947734	947734
+33	Pulse	222	960000	960000	NA
+33	Response	11	961726	961726	1
+33	Manual	Participant_Response_Displayed_starttime	962070	962070
+34	Pulse	222	990000	990000	NA
+34	Manual	Outcome_Individualtrial_Displayed_starttime	992233	992233
+34	Manual	ITI_starttime	1007389	1007389
+35	Pulse	222	1020000	1020000	NA
+36	Pulse	222	1050000	1050000	NA
+36	Manual	trial_5_onset	1062551	1062551
+36	Manual	UrnsPresented_starttime	1062566	1062566
+37	Pulse	222	1080000	1080000	NA
+37	Response	22	1093283	1093283	1
+37	Manual	Choice_Period_starttime	1100718	1100718
+37	Response	22	1103902	1103902	1
+37	Manual	Participant_Response_Displayed_starttime	1104388	1104388
+38	Pulse	222	1110000	1110000	NA
+38	Manual	Outcome_Individualtrial_Displayed_starttime	1132552	1132552
+39	Pulse	222	1140000	1140000	NA
+39	Manual	OutcomeHistoryDisplayed_starttime	1147707	1147707
+39	Manual	ShockOutcomeDisplayed_starttime	1168880	1168880
+40	Pulse	222	1170000	1170000	NA
+40	Manual	shock time	1194035	1194035
+40	Manual	ExtraITI_starttime	1194039	1194039
+41	Pulse	222	1200000	1200000	NA
+42	Pulse	222	1230000	1230000	NA
+42	Manual	ITI_starttime	1234197	1234197
+43	Pulse	222	1260000	1260000	NA
+44	Pulse	222	1290000	1290000	NA
+44	Manual	trial_6_onset	1291359	1291359
+44	Manual	UrnsPresented_starttime	1291374	1291374
+45	Pulse	222	1320000	1320000	NA
+45	Manual	Choice_Period_starttime	1337525	1337525
+45	Response	22	1341837	1341837	1
+45	Manual	Participant_Response_Displayed_starttime	1342194	1342194
+46	Pulse	222	1350000	1350000	NA
+47	Pulse	222	1380000	1380000	NA
+47	Manual	Outcome_Individualtrial_Displayed_starttime	1400356	1400356
+48	Pulse	222	1410000	1410000	NA
+48	Manual	ITI_starttime	1415511	1415511
+49	Pulse	222	1440000	1440000	NA
+50	Pulse	222	1470000	1470000	NA
+50	Manual	trial_7_onset	1474672	1474672
+50	Manual	UrnsPresented_starttime	1474688	1474688
+51	Pulse	222	1500000	1500000	NA
+51	Manual	Choice_Period_starttime	1517839	1517839
+51	Response	22	1520423	1520423	1
+51	Manual	Participant_Response_Displayed_starttime	1520842	1520842
+52	Pulse	222	1530000	1530000	NA
+53	Pulse	222	1560000	1560000	NA
+53	Manual	Outcome_Individualtrial_Displayed_starttime	1569004	1569004
+53	Manual	ITI_starttime	1584159	1584159
+54	Pulse	222	1590000	1590000	NA
+55	Pulse	222	1620000	1620000	NA
+55	Manual	trial_8_onset	1621323	1621323
+55	Manual	UrnsPresented_starttime	1621338	1621338
+56	Pulse	222	1650000	1650000	NA
+56	Manual	Choice_Period_starttime	1673489	1673489
+57	Pulse	222	1680000	1680000	NA
+57	Response	22	1684699	1684699	1
+57	Manual	Participant_Response_Displayed_starttime	1685157	1685157
+57	Manual	Outcome_Individualtrial_Displayed_starttime	1706322	1706322
+58	Pulse	222	1710000	1710000	NA
+58	Manual	ITI_starttime	1721478	1721478
+59	Pulse	222	1740000	1740000	NA
+59	Manual	trial_9_onset	1755642	1755642
+59	Manual	UrnsPresented_starttime	1755657	1755657
+60	Pulse	222	1770000	1770000	NA
+60	Manual	Choice_Period_starttime	1783810	1783810
+60	Response	22	1787967	1787967	1
+60	Manual	Participant_Response_Displayed_starttime	1788147	1788147
+61	Pulse	222	1800000	1800000	NA
+61	Manual	Outcome_Individualtrial_Displayed_starttime	1823310	1823310
+62	Pulse	222	1830000	1830000	NA
+62	Manual	ITI_starttime	1838465	1838465
+63	Pulse	222	1860000	1860000	NA
+63	Manual	trial_10_onset	1873629	1873629
+63	Manual	UrnsPresented_starttime	1873644	1873644
+64	Pulse	222	1890000	1890000	NA
+64	Response	22	1914024	1914024	1
+65	Pulse	222	1920000	1920000	NA
+65	Manual	Choice_Period_starttime	1927795	1927795
+65	Response	22	1935703	1935703	1
+65	Manual	Participant_Response_Displayed_starttime	1936131	1936131
+66	Pulse	222	1950000	1950000	NA
+66	Manual	Outcome_Individualtrial_Displayed_starttime	1958295	1958295
+66	Manual	OutcomeHistoryDisplayed_starttime	1973450	1973450
+67	Pulse	222	1980000	1980000	NA
+67	Manual	ShockOutcomeDisplayed_starttime	1995625	1995625
+68	Pulse	222	2010000	2010000	NA
+68	Manual	shock time	2020778	2020778
+68	Manual	shock delivered	2020779	2020779
+68	Manual	shock delivered	2020890	2020890
+68	Manual	shock delivered	2021010	2021010
+68	Manual	ExtraITI_starttime	2021134	2021134
+69	Pulse	222	2040000	2040000	NA
+69	Manual	ITI_starttime	2044276	2044276
+70	Pulse	222	2070000	2070000	NA
+70	Manual	trial_11_onset	2081441	2081441
+70	Manual	UrnsPresented_starttime	2081457	2081457
+71	Pulse	222	2100000	2100000	NA
+72	Pulse	222	2130000	2130000	NA
+72	Response	11	2134369	2134369	1
+72	Manual	Choice_Period_starttime	2134605	2134605
+72	Response	11	2147248	2147248	1
+72	Manual	Participant_Response_Displayed_starttime	2147608	2147608
+73	Pulse	222	2160000	2160000	NA
+74	Pulse	222	2190000	2190000	NA
+74	Manual	Outcome_Individualtrial_Displayed_starttime	2200769	2200769
+74	Manual	ITI_starttime	2215924	2215924
+75	Pulse	222	2220000	2220000	NA
+76	Pulse	222	2250000	2250000	NA
+76	Manual	trial_12_onset	2266086	2266086
+76	Manual	UrnsPresented_starttime	2266102	2266102
+77	Pulse	222	2280000	2280000	NA
+78	Pulse	222	2310000	2310000	NA
+78	Manual	Choice_Period_starttime	2315252	2315252
+78	Response	11	2317704	2317704	1
+78	Manual	Participant_Response_Displayed_starttime	2317922	2317922
+79	Pulse	222	2340000	2340000	NA
+80	Pulse	222	2370000	2370000	NA
+80	Manual	Outcome_Individualtrial_Displayed_starttime	2372083	2372083
+80	Manual	ITI_starttime	2387239	2387239
+81	Pulse	222	2400000	2400000	NA
+81	Manual	trial_13_onset	2424403	2424403
+81	Manual	UrnsPresented_starttime	2424419	2424419
+82	Pulse	222	2430000	2430000	NA
+83	Pulse	222	2460000	2460000	NA
+83	Manual	Choice_Period_starttime	2462570	2462570
+83	Response	22	2465131	2465131	1
+83	Manual	Participant_Response_Displayed_starttime	2465573	2465573
+84	Pulse	222	2490000	2490000	NA
+85	Pulse	222	2520000	2520000	NA
+85	Manual	Outcome_Individualtrial_Displayed_starttime	2524734	2524734
+85	Manual	ITI_starttime	2539889	2539889
+86	Pulse	222	2550000	2550000	NA
+86	Manual	trial_14_onset	2578052	2578052
+86	Manual	UrnsPresented_starttime	2578069	2578069
+87	Pulse	222	2580000	2580000	NA
+88	Pulse	222	2610000	2610000	NA
+88	Manual	Choice_Period_starttime	2611220	2611220
+88	Response	11	2624497	2624497	1
+88	Manual	Participant_Response_Displayed_starttime	2624889	2624889
+89	Pulse	222	2640000	2640000	NA
+89	Manual	Outcome_Individualtrial_Displayed_starttime	2667052	2667052
+90	Pulse	222	2670000	2670000	NA
+90	Manual	ITI_starttime	2682207	2682207
+91	Pulse	222	2700000	2700000	NA
+91	Manual	trial_15_onset	2721370	2721370
+91	Manual	UrnsPresented_starttime	2721386	2721386
+92	Pulse	222	2730000	2730000	NA
+92	Manual	Choice_Period_starttime	2749538	2749538
+92	Response	11	2759984	2759984	1
+93	Pulse	222	2760000	2760000	NA
+93	Manual	Participant_Response_Displayed_starttime	2760207	2760207
+94	Pulse	222	2790000	2790000	NA
+94	Manual	Outcome_Individualtrial_Displayed_starttime	2804369	2804369
+94	Manual	OutcomeHistoryDisplayed_starttime	2819525	2819525
+95	Pulse	222	2820000	2820000	NA
+96	Pulse	222	2850000	2850000	NA
+96	Manual	ShockOutcomeDisplayed_starttime	2856697	2856697
+97	Pulse	222	2880000	2880000	NA
+97	Manual	shock time	2881851	2881851
+97	Manual	shock delivered	2881852	2881852
+97	Manual	shock delivered	2881970	2881970
+97	Manual	ExtraITI_starttime	2882095	2882095
+97	Manual	ITI_starttime	2902183	2902183
+98	Pulse	222	2910000	2910000	NA
+99	Pulse	222	2940000	2940000	NA
+99	Manual	trial_16_onset	2959344	2959344
+99	Manual	UrnsPresented_starttime	2959360	2959360
+100	Pulse	222	2970000	2970000	NA
+101	Pulse	222	3000000	3000000	NA
+101	Manual	Choice_Period_starttime	3014510	3014510
+101	Response	22	3016878	3016878	1
+101	Manual	Participant_Response_Displayed_starttime	3017179	3017179
+102	Pulse	222	3030000	3030000	NA
+102	Manual	Outcome_Individualtrial_Displayed_starttime	3049343	3049343
+103	Pulse	222	3060000	3060000	NA
+103	Manual	ITI_starttime	3064498	3064498
+104	Pulse	222	3090000	3090000	NA
+104	Manual	trial_17_onset	3099662	3099662
+104	Manual	UrnsPresented_starttime	3099678	3099678
+105	Pulse	222	3120000	3120000	NA
+105	Manual	Choice_Period_starttime	3146829	3146829
+106	Pulse	222	3150000	3150000	NA
+106	Response	11	3153775	3153775	1
+106	Manual	Participant_Response_Displayed_starttime	3154165	3154165
+107	Pulse	222	3180000	3180000	NA
+107	Manual	Outcome_Individualtrial_Displayed_starttime	3185328	3185328
+107	Manual	ITI_starttime	3200484	3200484
+108	Pulse	222	3210000	3210000	NA
+109	Pulse	222	3240000	3240000	NA
+109	Manual	trial_18_onset	3253646	3253646
+109	Manual	UrnsPresented_starttime	3253661	3253661
+110	Pulse	222	3270000	3270000	NA
+110	Manual	Choice_Period_starttime	3294812	3294812
+111	Pulse	222	3300000	3300000	NA
+111	Response	11	3301051	3301051	1
+111	Manual	Participant_Response_Displayed_starttime	3301482	3301482
+112	Pulse	222	3330000	3330000	NA
+112	Manual	Outcome_Individualtrial_Displayed_starttime	3353643	3353643
+113	Pulse	222	3360000	3360000	NA
+113	Manual	ITI_starttime	3368799	3368799
+114	Pulse	222	3390000	3390000	NA
+114	Manual	trial_19_onset	3406962	3406962
+114	Manual	UrnsPresented_starttime	3406978	3406978
+115	Pulse	222	3420000	3420000	NA
+116	Pulse	222	3450000	3450000	NA
+116	Manual	Choice_Period_starttime	3456128	3456128
+117	Pulse	222	3480000	3480000	NA
+117	Response	11	3481197	3481197	1
+117	Manual	Participant_Response_Displayed_starttime	3481462	3481462
+117	Manual	Outcome_Individualtrial_Displayed_starttime	3509626	3509626
+118	Pulse	222	3510000	3510000	NA
+118	Manual	ITI_starttime	3524782	3524782
+119	Pulse	222	3540000	3540000	NA
+119	Manual	trial_20_onset	3556946	3556946
+119	Manual	UrnsPresented_starttime	3556962	3556962
+120	Pulse	222	3570000	3570000	NA
+120	Manual	Choice_Period_starttime	3598113	3598113
+121	Pulse	222	3600000	3600000	NA
+121	Response	22	3600774	3600774	1
+121	Manual	Participant_Response_Displayed_starttime	3601116	3601116
+122	Pulse	222	3630000	3630000	NA
+122	Manual	Outcome_Individualtrial_Displayed_starttime	3633280	3633280
+122	Manual	OutcomeHistoryDisplayed_starttime	3648435	3648435
+123	Pulse	222	3660000	3660000	NA
+123	Manual	ShockOutcomeDisplayed_starttime	3681607	3681607
+124	Pulse	222	3690000	3690000	NA
+124	Manual	shock time	3706762	3706762
+124	Manual	shock delivered	3706762	3706762
+124	Manual	shock delivered	3706880	3706880
+124	Manual	ExtraITI_starttime	3707004	3707004
+125	Pulse	222	3720000	3720000	NA
+125	Manual	ITI_starttime	3727093	3727093
+126	Pulse	222	3750000	3750000	NA
+126	Manual	trial_21_onset	3758258	3758258
+126	Manual	UrnsPresented_starttime	3758273	3758273
+127	Pulse	222	3780000	3780000	NA
+127	Manual	Choice_Period_starttime	3788425	3788425
+127	Response	22	3794330	3794330	1
+127	Manual	Participant_Response_Displayed_starttime	3794762	3794762
+128	Pulse	222	3810000	3810000	NA
+128	Manual	Outcome_Individualtrial_Displayed_starttime	3815926	3815926
+128	Manual	ITI_starttime	3831082	3831082
+129	Pulse	222	3840000	3840000	NA
+129	Manual	trial_22_onset	3867246	3867246
+129	Manual	UrnsPresented_starttime	3867261	3867261
+130	Pulse	222	3870000	3870000	NA
+131	Pulse	222	3900000	3900000	NA
+131	Manual	Choice_Period_starttime	3904413	3904413
+132	Pulse	222	3930000	3930000	NA
+132	Response	22	3932467	3932467	1
+132	Manual	Participant_Response_Displayed_starttime	3932746	3932746
+133	Pulse	222	3960000	3960000	NA
+133	Manual	Outcome_Individualtrial_Displayed_starttime	3986909	3986909
+134	Pulse	222	3990000	3990000	NA
+134	Manual	ITI_starttime	4002063	4002063
+135	Pulse	222	4020000	4020000	NA
+135	Manual	trial_23_onset	4032228	4032228
+135	Manual	UrnsPresented_starttime	4032243	4032243
+136	Pulse	222	4050000	4050000	NA
+136	Manual	Choice_Period_starttime	4078394	4078394
+137	Pulse	222	4080000	4080000	NA
+137	Response	11	4091263	4091263	1
+137	Manual	Participant_Response_Displayed_starttime	4091729	4091729
+138	Pulse	222	4110000	4110000	NA
+138	Manual	Outcome_Individualtrial_Displayed_starttime	4123893	4123893
+138	Manual	ITI_starttime	4139048	4139048
+139	Pulse	222	4140000	4140000	NA
+139	Manual	trial_24_onset	4169213	4169213
+139	Manual	UrnsPresented_starttime	4169228	4169228
+140	Pulse	222	4170000	4170000	NA
+141	Pulse	222	4200000	4200000	NA
+141	Manual	Choice_Period_starttime	4221379	4221379
+141	Response	22	4223720	4223720	1
+141	Manual	Participant_Response_Displayed_starttime	4224049	4224049
+142	Pulse	222	4230000	4230000	NA
+143	Pulse	222	4260000	4260000	NA
+143	Manual	Outcome_Individualtrial_Displayed_starttime	4267211	4267211
+143	Manual	ITI_starttime	4282366	4282366
+144	Pulse	222	4290000	4290000	NA
+145	Pulse	222	4320000	4320000	NA
+145	Manual	trial_25_onset	4338528	4338528
+145	Manual	UrnsPresented_starttime	4338543	4338543
+146	Pulse	222	4350000	4350000	NA
+147	Pulse	222	4380000	4380000	NA
+147	Manual	Choice_Period_starttime	4389693	4389693
+147	Response	22	4394086	4394086	1
+147	Manual	Participant_Response_Displayed_starttime	4394363	4394363
+148	Pulse	222	4410000	4410000	NA
+149	Pulse	222	4440000	4440000	NA
+149	Manual	Outcome_Individualtrial_Displayed_starttime	4453523	4453523
+149	Manual	OutcomeHistoryDisplayed_starttime	4468679	4468679
+150	Pulse	222	4470000	4470000	NA
+151	Pulse	222	4500000	4500000	NA
+151	Manual	ShockOutcomeDisplayed_starttime	4508851	4508851
+152	Pulse	222	4530000	4530000	NA
+152	Manual	shock time	4534005	4534005
+152	Manual	shock delivered	4534005	4534005
+152	Manual	shock delivered	4534120	4534120
+152	Manual	shock delivered	4534240	4534240
+152	Manual	ExtraITI_starttime	4534364	4534364
+153	Pulse	222	4560000	4560000	NA
+153	Manual	ITI_starttime	4566502	4566502
+154	Pulse	222	4590000	4590000	NA
+154	Manual	trial_26_onset	4604665	4604665
+154	Manual	UrnsPresented_starttime	4604681	4604681
+155	Pulse	222	4620000	4620000	NA
+155	Manual	Choice_Period_starttime	4631834	4631834
+156	Pulse	222	4650000	4650000	NA
+156	Response	22	4663250	4663250	1
+156	Manual	Participant_Response_Displayed_starttime	4663501	4663501
+157	Pulse	222	4680000	4680000	NA
+158	Pulse	222	4710000	4710000	NA
+158	Manual	Outcome_Individualtrial_Displayed_starttime	4719662	4719662
+158	Manual	ITI_starttime	4734817	4734817
+159	Pulse	222	4740000	4740000	NA
+160	Pulse	222	4770000	4770000	NA
+160	Manual	trial_27_onset	4787979	4787979
+160	Manual	UrnsPresented_starttime	4787994	4787994
+161	Pulse	222	4800000	4800000	NA
+161	Manual	Choice_Period_starttime	4816147	4816147
+162	Pulse	222	4830000	4830000	NA
+162	Response	11	4846395	4846395	1
+162	Manual	Participant_Response_Displayed_starttime	4846814	4846814
+163	Pulse	222	4860000	4860000	NA
+163	Manual	Outcome_Individualtrial_Displayed_starttime	4888976	4888976
+164	Pulse	222	4890000	4890000	NA
+164	Manual	ITI_starttime	4904132	4904132
+165	Pulse	222	4920000	4920000	NA
+166	Pulse	222	4950000	4950000	NA
+166	Manual	trial_28_onset	4954294	4954294
+166	Manual	UrnsPresented_starttime	4954310	4954310
+167	Pulse	222	4980000	4980000	NA
+167	Manual	Choice_Period_starttime	4982462	4982462
+167	Response	22	4986912	4986912	1
+167	Manual	Participant_Response_Displayed_starttime	4987132	4987132
+168	Pulse	222	5010000	5010000	NA
+168	Manual	Outcome_Individualtrial_Displayed_starttime	5024295	5024295
+168	Manual	ITI_starttime	5039450	5039450
+169	Pulse	222	5040000	5040000	NA
+170	Pulse	222	5070000	5070000	NA
+170	Manual	trial_29_onset	5081614	5081614
+170	Manual	UrnsPresented_starttime	5081629	5081629
+171	Pulse	222	5100000	5100000	NA
+171	Manual	Choice_Period_starttime	5124780	5124780
+172	Pulse	222	5130000	5130000	NA
+172	Response	11	5140648	5140648	1
+172	Manual	Participant_Response_Displayed_starttime	5141115	5141115
+173	Pulse	222	5160000	5160000	NA
+173	Manual	Outcome_Individualtrial_Displayed_starttime	5182279	5182279
+174	Pulse	222	5190000	5190000	NA
+174	Manual	ITI_starttime	5197433	5197433
+175	Pulse	222	5220000	5220000	NA
+175	Manual	trial_30_onset	5233597	5233597
+175	Manual	UrnsPresented_starttime	5233612	5233612
+176	Pulse	222	5250000	5250000	NA
+176	Manual	Choice_Period_starttime	5279763	5279763
+177	Pulse	222	5280000	5280000	NA
+177	Response	11	5284905	5284905	1
+177	Manual	Participant_Response_Displayed_starttime	5285099	5285099
+178	Pulse	222	5310000	5310000	NA
+178	Manual	Outcome_Individualtrial_Displayed_starttime	5322262	5322262
+178	Manual	OutcomeHistoryDisplayed_starttime	5337418	5337418
+179	Pulse	222	5340000	5340000	NA
+180	Pulse	222	5370000	5370000	NA
+180	Manual	ShockOutcomeDisplayed_starttime	5372591	5372591
+180	Manual	shock time	5397745	5397745
+180	Manual	ExtraITI_starttime	5397749	5397749
+181	Pulse	222	5400000	5400000	NA
+182	Pulse	222	5430000	5430000	NA
+182	Manual	ITI_starttime	5431908	5431908
+183	Pulse	222	5460000	5460000	NA
+184	Pulse	222	5490000	5490000	NA
+184	Manual	trial_31_onset	5492069	5492069
+184	Manual	UrnsPresented_starttime	5492084	5492084
+184	Manual	Choice_Period_starttime	5517237	5517237
+185	Pulse	222	5520000	5520000	NA
+185	Response	22	5522980	5522980	1
+185	Manual	Participant_Response_Displayed_starttime	5523240	5523240
+186	Pulse	222	5550000	5550000	NA
+187	Pulse	222	5580000	5580000	NA
+187	Manual	Outcome_Individualtrial_Displayed_starttime	5583401	5583401
+187	Manual	ITI_starttime	5598556	5598556
+188	Pulse	222	5610000	5610000	NA
+188	Manual	trial_32_onset	5630721	5630721
+188	Manual	UrnsPresented_starttime	5630736	5630736
+189	Pulse	222	5640000	5640000	NA
+190	Pulse	222	5670000	5670000	NA
+190	Manual	Choice_Period_starttime	5675887	5675887
+190	Response	11	5678686	5678686	1
+190	Manual	Participant_Response_Displayed_starttime	5678890	5678890
+191	Pulse	222	5700000	5700000	NA
+192	Pulse	222	5730000	5730000	NA
+192	Manual	Outcome_Individualtrial_Displayed_starttime	5734051	5734051
+192	Manual	ITI_starttime	5749206	5749206
+193	Pulse	222	5760000	5760000	NA
+194	Pulse	222	5790000	5790000	NA
+194	Manual	trial_33_onset	5808368	5808368
+194	Manual	UrnsPresented_starttime	5808383	5808383
+195	Pulse	222	5820000	5820000	NA
+195	Manual	Choice_Period_starttime	5839536	5839536
+196	Pulse	222	5850000	5850000	NA
+196	Response	22	5850272	5850272	1
+196	Manual	Participant_Response_Displayed_starttime	5850538	5850538
+197	Pulse	222	5880000	5880000	NA
+197	Manual	Outcome_Individualtrial_Displayed_starttime	5903700	5903700
+198	Pulse	222	5910000	5910000	NA
+198	Manual	ITI_starttime	5918855	5918855
+199	Pulse	222	5940000	5940000	NA
+199	Manual	trial_34_onset	5963018	5963018
+199	Manual	UrnsPresented_starttime	5963034	5963034
+200	Pulse	222	5970000	5970000	NA
+201	Pulse	222	6000000	6000000	NA
+201	Manual	Choice_Period_starttime	6017184	6017184
+202	Pulse	222	6030000	6030000	NA
+202	Response	11	6043327	6043327	1
+202	Manual	Participant_Response_Displayed_starttime	6043518	6043518
+203	Pulse	222	6060000	6060000	NA
+203	Manual	Outcome_Individualtrial_Displayed_starttime	6088680	6088680
+204	Pulse	222	6090000	6090000	NA
+204	Manual	ITI_starttime	6103835	6103835
+205	Pulse	222	6120000	6120000	NA
+205	Manual	trial_35_onset	6144998	6144998
+205	Manual	UrnsPresented_starttime	6145014	6145014
+206	Pulse	222	6150000	6150000	NA
+206	Manual	Choice_Period_starttime	6177166	6177166
+207	Pulse	222	6180000	6180000	NA
+207	Response	11	6201344	6201344	1
+207	Manual	Participant_Response_Displayed_starttime	6201834	6201834
+208	Pulse	222	6210000	6210000	NA
+209	Pulse	222	6240000	6240000	NA
+209	Manual	Outcome_Individualtrial_Displayed_starttime	6243997	6243997
+209	Manual	OutcomeHistoryDisplayed_starttime	6259151	6259151
+210	Pulse	222	6270000	6270000	NA
+210	Manual	ShockOutcomeDisplayed_starttime	6297323	6297323
+211	Pulse	222	6300000	6300000	NA
+211	Manual	shock time	6322477	6322477
+211	Manual	ExtraITI_starttime	6322481	6322481
+212	Pulse	222	6330000	6330000	NA
+212	Manual	ITI_starttime	6356640	6356640
+213	Pulse	222	6360000	6360000	NA
+213	Manual	trial_36_onset	6387805	6387805
+213	Manual	UrnsPresented_starttime	6387820	6387820
+214	Pulse	222	6390000	6390000	NA
+215	Pulse	222	6420000	6420000	NA
+215	Manual	Choice_Period_starttime	6421972	6421972
+215	Response	22	6426558	6426558	1
+215	Manual	Participant_Response_Displayed_starttime	6426975	6426975
+215	Manual	Outcome_Individualtrial_Displayed_starttime	6448140	6448140
+216	Pulse	222	6450000	6450000	NA
+216	Manual	ITI_starttime	6463295	6463295
+217	Pulse	222	6480000	6480000	NA
+217	Manual	trial_37_onset	6505459	6505459
+217	Manual	UrnsPresented_starttime	6505474	6505474
+218	Pulse	222	6510000	6510000	NA
+219	Pulse	222	6540000	6540000	NA
+219	Manual	Choice_Period_starttime	6553625	6553625
+219	Response	11	6565595	6565595	1
+219	Manual	Participant_Response_Displayed_starttime	6565961	6565961
+220	Pulse	222	6570000	6570000	NA
+220	Manual	Outcome_Individualtrial_Displayed_starttime	6596125	6596125
+221	Pulse	222	6600000	6600000	NA
+221	Manual	ITI_starttime	6611279	6611279
+222	Pulse	222	6630000	6630000	NA
+222	Manual	trial_38_onset	6642444	6642444
+222	Manual	UrnsPresented_starttime	6642460	6642460
+223	Pulse	222	6660000	6660000	NA
+223	Manual	Choice_Period_starttime	6681610	6681610
+223	Response	22	6684153	6684153	1
+223	Manual	Participant_Response_Displayed_starttime	6684614	6684614
+224	Pulse	222	6690000	6690000	NA
+225	Pulse	222	6720000	6720000	NA
+225	Manual	Outcome_Individualtrial_Displayed_starttime	6720777	6720777
+225	Manual	ITI_starttime	6735933	6735933
+226	Pulse	222	6750000	6750000	NA
+227	Pulse	222	6780000	6780000	NA
+227	Manual	trial_39_onset	6786095	6786095
+227	Manual	UrnsPresented_starttime	6786111	6786111
+228	Pulse	222	6810000	6810000	NA
+229	Pulse	222	6840000	6840000	NA
+229	Manual	Choice_Period_starttime	6840261	6840261
+229	Response	22	6847689	6847689	1
+229	Manual	Participant_Response_Displayed_starttime	6847930	6847930
+230	Pulse	222	6870000	6870000	NA
+231	Pulse	222	6900000	6900000	NA
+231	Manual	Outcome_Individualtrial_Displayed_starttime	6904091	6904091
+231	Manual	ITI_starttime	6919246	6919246
+232	Pulse	222	6930000	6930000	NA
+233	Pulse	222	6960000	6960000	NA
+233	Manual	trial_40_onset	6979407	6979407
+233	Manual	UrnsPresented_starttime	6979422	6979422
+234	Pulse	222	6990000	6990000	NA
+234	Manual	Choice_Period_starttime	7017574	7017574
+235	Pulse	222	7020000	7020000	NA
+235	Response	22	7022725	7022725	1
+235	Manual	Participant_Response_Displayed_starttime	7022911	7022911
+235	Manual	Outcome_Individualtrial_Displayed_starttime	7046075	7046075
+236	Pulse	222	7050000	7050000	NA
+236	Manual	OutcomeHistoryDisplayed_starttime	7061230	7061230
+237	Pulse	222	7080000	7080000	NA
+237	Manual	ShockOutcomeDisplayed_starttime	7089404	7089404
+238	Pulse	222	7110000	7110000	NA
+238	Manual	shock time	7114558	7114558
+238	Manual	ExtraITI_starttime	7114562	7114562
+239	Pulse	222	7140000	7140000	NA
+239	Manual	ITI_starttime	7149721	7149721
+240	Pulse	222	7170000	7170000	NA
+240	Manual	trial_41_onset	7184885	7184885
+240	Manual	UrnsPresented_starttime	7184901	7184901
+241	Pulse	222	7200000	7200000	NA
+241	Manual	Choice_Period_starttime	7218053	7218053
+241	Response	11	7221600	7221600	1
+241	Manual	Participant_Response_Displayed_starttime	7222055	7222055
+242	Pulse	222	7230000	7230000	NA
+243	Pulse	222	7260000	7260000	NA
+243	Manual	Outcome_Individualtrial_Displayed_starttime	7266219	7266219
+243	Manual	ITI_starttime	7281373	7281373
+244	Pulse	222	7290000	7290000	NA
+245	Pulse	222	7320000	7320000	NA
+245	Manual	trial_42_onset	7337535	7337535
+245	Manual	UrnsPresented_starttime	7337551	7337551
+246	Pulse	222	7350000	7350000	NA
+246	Manual	Choice_Period_starttime	7365703	7365703
+246	Response	22	7370167	7370167	1
+246	Manual	Participant_Response_Displayed_starttime	7370373	7370373
+247	Pulse	222	7380000	7380000	NA
+247	Manual	Outcome_Individualtrial_Displayed_starttime	7400537	7400537
+248	Pulse	222	7410000	7410000	NA
+248	Manual	ITI_starttime	7415692	7415692
+249	Pulse	222	7440000	7440000	NA
+250	Pulse	222	7470000	7470000	NA
+250	Manual	trial_43_onset	7470854	7470854
+250	Manual	UrnsPresented_starttime	7470869	7470869
+251	Pulse	222	7500000	7500000	NA
+251	Manual	Choice_Period_starttime	7509020	7509020
+251	Response	22	7512723	7512723	1
+251	Manual	Participant_Response_Displayed_starttime	7513024	7513024
+252	Pulse	222	7530000	7530000	NA
+252	Manual	Outcome_Individualtrial_Displayed_starttime	7556186	7556186
+253	Pulse	222	7560000	7560000	NA
+253	Manual	ITI_starttime	7571342	7571342
+254	Pulse	222	7590000	7590000	NA
+254	Manual	trial_44_onset	7613505	7613505
+254	Manual	UrnsPresented_starttime	7613521	7613521
+255	Pulse	222	7620000	7620000	NA
+256	Pulse	222	7650000	7650000	NA
+256	Manual	Choice_Period_starttime	7658672	7658672
+256	Response	11	7672610	7672610	1
+256	Manual	Participant_Response_Displayed_starttime	7673007	7673007
+257	Pulse	222	7680000	7680000	NA
+257	Manual	Outcome_Individualtrial_Displayed_starttime	7702171	7702171
+258	Pulse	222	7710000	7710000	NA
+258	Manual	ITI_starttime	7717326	7717326
+259	Pulse	222	7740000	7740000	NA
+259	Manual	trial_45_onset	7753490	7753490
+259	Manual	UrnsPresented_starttime	7753505	7753505
+260	Pulse	222	7770000	7770000	NA
+261	Pulse	222	7800000	7800000	NA
+261	Manual	Choice_Period_starttime	7805655	7805655
+261	Response	11	7812726	7812726	1
+261	Manual	Participant_Response_Displayed_starttime	7812991	7812991
+262	Pulse	222	7830000	7830000	NA
+262	Manual	Outcome_Individualtrial_Displayed_starttime	7850157	7850157
+263	Pulse	222	7860000	7860000	NA
+263	Manual	OutcomeHistoryDisplayed_starttime	7865310	7865310
+264	Pulse	222	7890000	7890000	NA
+264	Manual	ShockOutcomeDisplayed_starttime	7894483	7894483
+264	Manual	shock time	7919637	7919637
+264	Manual	ExtraITI_starttime	7919641	7919641
+265	Pulse	222	7920000	7920000	NA
+266	Pulse	222	7950000	7950000	NA
+266	Manual	ITI_starttime	7953800	7953800
+267	Pulse	222	7980000	7980000	NA
+267	Manual	trial_46_onset	7989964	7989964
+267	Manual	UrnsPresented_starttime	7989980	7989980
+268	Pulse	222	8010000	8010000	NA
+269	Pulse	222	8040000	8040000	NA
+269	Manual	Choice_Period_starttime	8041130	8041130
+269	Response	22	8046621	8046621	1
+269	Manual	Participant_Response_Displayed_starttime	8046800	8046800
+270	Pulse	222	8070000	8070000	NA
+270	Manual	Outcome_Individualtrial_Displayed_starttime	8083963	8083963
+270	Manual	ITI_starttime	8099118	8099118
+271	Pulse	222	8100000	8100000	NA
+271	Manual	trial_47_onset	8129282	8129282
+271	Manual	UrnsPresented_starttime	8129297	8129297
+272	Pulse	222	8130000	8130000	NA
+273	Pulse	222	8160000	8160000	NA
+273	Manual	Choice_Period_starttime	8160450	8160450
+273	Response	11	8164098	8164098	1
+273	Manual	Participant_Response_Displayed_starttime	8164453	8164453
+274	Pulse	222	8190000	8190000	NA
+274	Manual	Outcome_Individualtrial_Displayed_starttime	8216616	8216616
+275	Pulse	222	8220000	8220000	NA
+275	Manual	ITI_starttime	8231770	8231770
+276	Pulse	222	8250000	8250000	NA
+276	Manual	trial_48_onset	8263935	8263935
+276	Manual	UrnsPresented_starttime	8263950	8263950
+277	Pulse	222	8280000	8280000	NA
+278	Pulse	222	8310000	8310000	NA
+278	Manual	Choice_Period_starttime	8311100	8311100
+278	Response	22	8315945	8315945	1
+278	Manual	Participant_Response_Displayed_starttime	8316436	8316436
+279	Pulse	222	8340000	8340000	NA
+279	Manual	Outcome_Individualtrial_Displayed_starttime	8359599	8359599
+280	Pulse	222	8370000	8370000	NA
+280	Manual	ITI_starttime	8374754	8374754
+281	Pulse	222	8400000	8400000	NA
+281	Manual	trial_49_onset	8404919	8404919
+281	Manual	UrnsPresented_starttime	8404935	8404935
+282	Pulse	222	8430000	8430000	NA
+282	Manual	Choice_Period_starttime	8432087	8432087
+282	Response	22	8439642	8439642	1
+282	Manual	Participant_Response_Displayed_starttime	8440090	8440090
+283	Pulse	222	8460000	8460000	NA
+283	Manual	Outcome_Individualtrial_Displayed_starttime	8489252	8489252
+284	Pulse	222	8490000	8490000	NA
+284	Manual	ITI_starttime	8504407	8504407
+285	Pulse	222	8520000	8520000	NA
+285	Manual	trial_50_onset	8534572	8534572
+285	Manual	UrnsPresented_starttime	8534587	8534587
+286	Pulse	222	8550000	8550000	NA
+287	Pulse	222	8580000	8580000	NA
+287	Manual	Choice_Period_starttime	8589738	8589738
+287	Response	11	8593188	8593188	1
+287	Manual	Participant_Response_Displayed_starttime	8593407	8593407
+288	Pulse	222	8610000	8610000	NA
+289	Pulse	222	8640000	8640000	NA
+289	Manual	Outcome_Individualtrial_Displayed_starttime	8651568	8651568
+289	Manual	OutcomeHistoryDisplayed_starttime	8666723	8666723
+290	Pulse	222	8670000	8670000	NA
+290	Manual	ShockOutcomeDisplayed_starttime	8689896	8689896
+291	Pulse	222	8700000	8700000	NA
+291	Manual	shock time	8715051	8715051
+291	Manual	ExtraITI_starttime	8715055	8715055
+292	Pulse	222	8730000	8730000	NA
+292	Manual	ITI_starttime	8751213	8751213
+293	Pulse	222	8760000	8760000	NA
+294	Pulse	222	8790000	8790000	NA
+295	Pulse	222	8820000	8820000	NA
+296	Pulse	222	8850000	8850000	NA
+297	Pulse	222	8880000	8880000	NA
+298	Pulse	222	8910000	8910000	NA
+299	Pulse	222	8940000	8940000	NA
+300	Pulse	222	8970000	8970000	NA

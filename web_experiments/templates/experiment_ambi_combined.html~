@@ -1,0 +1,125 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+<script src="{% static "js/experiment_ambi_combined.js" %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+	<link href="{% static "css/experiment_ambi.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_base %}
+
+
+<script>
+
+	
+	var prop_left_t = "{{p_l|safe}}"
+	var prop_right_t = "{{p_r|safe}}"
+	var mag_left_t = "{{mag_l|safe}}"
+	var mag_right_t ="{{mag_r|safe}}"
+	var revealed_left_t = "{{r_l|safe}}"
+	var revealed_right_t = "{{r_r|safe}}"
+
+	var prop_left_p = "{{p_l_p|safe}}"
+	var prop_right_p = "{{p_r_p|safe}}"
+	var mag_left_p = "{{mag_l_p|safe}}"
+	var mag_right_p ="{{mag_r_p|safe}}"
+	var revealed_left_p = "{{r_l_p|safe}}"
+	var revealed_right_p = "{{r_r_p|safe}}"
+
+	prop_left_t = prop_left_t.replace("[", "").replace("]", "").split(",")
+	prop_right_t = prop_right_t.replace("[", "").replace("]", "").split(",")
+	mag_left_t = mag_left_t.replace("[", "").replace("]", "").split(",")
+	mag_right_t = mag_right_t.replace("[", "").replace("]", "").split(",")
+	revealed_left_t = revealed_left_t.replace("[", "").replace("]", "").split(",")
+	revealed_right_t = revealed_right_t.replace("[", "").replace("]", "").split(",")
+
+	prop_left_p = prop_left_p.replace("[", "").replace("]", "").split(",")
+	prop_right_p = prop_right_p.replace("[", "").replace("]", "").split(",")
+	mag_left_p = mag_left_p.replace("[", "").replace("]", "").split(",")
+	mag_right_p = mag_right_p.replace("[", "").replace("]", "").split(",")
+	revealed_left_p = revealed_left_p.replace("[", "").replace("]", "").split(",")
+	revealed_right_p = revealed_right_p.replace("[", "").replace("]", "").split(",")
+
+	var XOlist = "{{XOlist|safe}}"
+	var XOlist_p = "{{XOlist_p|safe}}"
+
+	var outcome_type = "{{outcome_type|safe}}"
+	//XOlist = XOlist.split("]")
+
+</script>
+
+
+<div id="wider_container">
+
+		<div id="instr_container">
+			<p class="exp_text" id="instruct"></p>
+			<a id="button_previous" href="#" class="btn btn-primary">Go Back</a> 
+			<a id="button_continue" href="#" class="btn btn-primary">Continue</a> 
+
+			<div class="exp_text" id="thanks"></div>
+				<p  id="thanks1">You have completed the experiment! </p>
+				<p  id="thanks2">Your bonus will be computed based on your performance relative to other participants. You will receive a bonus within 1 week.</p>
+			<a id="button_return_home" href="/" class="btn btn-primary">Return Home</a> 
+
+		</div>
+				
+	
+		<div id="exp_container">
+
+				<div class="exp_text" id="fixation">
+					<p>+<p>
+				</div>
+	
+				<div class="exp_text" id="noresp"><p><p></div>	
+				<div class="exp_text" id="outcome"><p><p></div>
+				<div class="exp_text" id="outcome5"><p><p></div>
+				<div class="exp_text" id="summary_text"><p><p></div>
+
+				
+				<p class="exp_text" id="trialcounter">Completed: 0/{{num_trials}}</p>	
+				<p class="exp_text" id="pointscounter">Points: 0</p>	
+				<p class="exp_text" id="mag_left">Mag</p>	
+				<p class="exp_text" id="mag_right">Mag</p>	
+				<p id="urn_left"></p>
+				<p id="urn_right"></p>
+
+				<div id='outall'>
+				<div id="out1" class="outs" ><p></p>_</div>
+				<div id="out2" class="outs" ><p></p>_</div>
+				<div id="out3" class="outs" ><p></p>_</div>
+				<div id="out4" class="outs" ><p></p>_</div>
+				<div id="out5" class="outs" ><p></p>_</div>
+		
+				</div>
+
+				
+
+		</div>
+			
+
+				
+				
+
+			
+		
+</div>
+
+		
+		
+
+	
+	
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}
+
+
+

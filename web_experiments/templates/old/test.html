@@ -1,0 +1,41 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load metron_tags %}
+
+
+
+{% block head_title %}pinax-project-account{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+
+
+{% block body_base %}
+
+<div class="bg"></div>
+    <div class="jumbotron">
+        <div class="container">
+            {% include "_messages.html" %}
+            <h1>{% blocktrans %}Welcome to<br>Chris Gagne{% endblocktrans %}</h1>
+            <p>
+                {% blocktrans %}
+                It is a foundation
+                suitable for most sites that have user accounts.
+                {% endblocktrans %}
+            </p>
+           
+        </div> 
+</div>
+
+
+            <p class="lead">
+                {% blocktrans %}
+                <b>Pinax</b> asdfasdfasdfadfasdfadsfifferent.
+				link <a href="/jstest" class="btn btn-primary">Time</a>
+                {% endblocktrans %}
+            </p>
+
+
+
+{% endblock %}

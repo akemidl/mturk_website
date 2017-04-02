@@ -1,0 +1,21 @@
+
+/* QUESTIONNAIRES */
+#survey_container {
+		position: relative;
+		margin-top: 5%;
+	    margin-bottom: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 5%;
+		border: 1px solid #F0F0F0 ;
+		box-shadow: 1px 1px 2px #F0F0F0; 
+		
+		vertical-align: top;
+		z-index: 0;
+		background: #F8F8F8; /*http://www.w3schools.com/html/html_colors.asp*/
+		width: 600px;
+		perspective: 500px;
+		-webkit-perspective: 500px;
+}
+
+

@@ -1,0 +1,144 @@
+
+{% extends "site_base2.html" %}
+{% load staticfiles %}
+
+
+{% block extra_css %}
+<link rel="stylesheet" type="text/css" href="expt_4realsies.css"/>
+<!--this is to get the jsPsych stylesheet to apply basic set of visual styles to make expt look nice...-->
+<link type="text/css" rel="stylesheet" href="jspsych-5.0.3/css/jspsych.css"/>
+<link rel="stylesheet" href="jqueryUI_latest/jquery-ui.min.css">
+{% endblock %}
+
+{% block extra_js %}
+<!--this is to get the Maths library as wasn't working before without it, not quite sure if this is what fixed it actually...-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.js"></script>
+
+<!--these are the old ones, now we downloaded a new version-->
+<script src="jqueryUI/external/jquery/jquery.js"></script>
+
+<!--this is to get the jQuery UI library-->
+<!--<script type='text/javascript' src="jqueryUI/jquery-ui.js"></script>
+<link rel="stylesheet" href="jqueryUI/jquery-ui.css">-->
+
+<!--links to the new version-->
+<script src="jqueryUI_latest/external/jquery/jquery.js"></script>
+<script src="jqueryUI_latest/jquery-ui.min.js"></script>
+
+
+<!--this is to get the jsPsych library-->
+<script src="jspsych-5.0.3/jspsych.js"></script>
+
+<!--to load the jspsych-text plugin to be able to show some text on the screen-->
+<script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+{% endblock %}
+
+<style>
+/*Jill's style sheet*/
+body {
+background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+    margin:auto;
+    top: 40%;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    /*background-color: green;*/
+}
+
+#slidebar {
+position: inline-block;
+margin:auto;
+width: 50%;
+height: 20px;
+border-radius: 1px solid black;
+background-color: #D3D3D3;
+}
+
+#slidebar_hidden {
+margin: auto;
+margin-top: 10px;
+width: 50%;
+height: 16px;
+border-radius: 1px solid black;
+background-color: white; /*red*/
+}
+
+#slider {
+margin-top:10px;
+width: 0px;
+height: 16px;
+    border: 3px solid black;
+}
+
+#outcomebar {
+width: 0px;
+height: 20px;
+border-radius: 3px;
+border: 1px solid black;
+margin: auto;
+}
+
+</style>
+
+{% block body_base %}
+
+    <div id="first_div" style="margin-left:10%; margin-right:10%; margin-top:5%"> <!--background-color:green; -->
+        <div style="float:left"> <!--background-color:orange; -->
+            <button id="button_previous" type="button">Previous</button>
+        </div>
+        <div style="margin-left:93%"> <!--background-color:pink; -->
+            <button id="button_continue" type="button">Continue</button>
+        </div>
+    </div>
+    <div id="second_div" style="margin-left:10%; margin-right:10%; width:80%; height:200px;"><!--background-color:blue;-->
+        <p class="exp_text" id="instruct" style="text-align:center; padding-left:15%; padding-right:15%;"></p>
+        <p id="test_para" style="text-align:center; color:red; font-size:50px; padding-top:10%">I am a test para</p>
+    </div>
+
+    <div id="third_div" style="color:red">
+      <canvas id="mycanvas" style="width:100%; height:40%"></canvas>
+    </div>
+
+    <!--for choice buttons-->
+    <div id="fourth_div" style="margin-left:10%; margin-right:10%; width:80%; height:150px;min-width: 600px;"><!--background-color:blue;-->
+        <div id="button_text_div" style="width:100%; height:50px;"><!--background-color:purple;-->
+            <p id="button_text_para" style="text-align:center;">Press left arrow key for left, right arrow key for right<span></span></p>
+          </div>
+        <div id="left_choice" style="float:left; width:15%; height: 100px;background-clip:content-box;border:5px solid black; padding:5px;"> <!--background-color:pink;position:inline-block; margin-top: 50%; margin-left:30%; -->
+            <!--<p id="left_choice_text" style="text-align:center; margin-top:50%;">Red</p>  now we want square rather than text-->
+          </div>
+        <div id="circle_container" style="float:left; height:100px; width:60%;"><!-- background-color:orange;-->
+            <!--<div id="outcome_circle" style="margin-left:50%; margin-top:15%; width: 40px; height: 40px; -webkit-border-radius: 20px; -moz-border-radius: 20px; background: red;"></div> -->
+          </div>
+        <div id="right_choice" style="float:right; width:15%; height: 100px; background-clip:content-box; border:5px solid black; padding:5px;"><!-- background-color: green;position:inline-block; margin-top: 50%; margin-left: 70%;-->
+
+          <!--<p id="right_choice_text" style="text-align:center; margin-top:50%;">Blue</p>  now we want square rather than text-->
+          </div>
+        <!-- --><!--position:inline-block; margin-top: 50%; margin-left:50%; -->
+
+      </div>
+ <!--for slider, from Jill-->
+   <div id="container" style="min-width: 600px;"><!--style="background-color:grey;"-->
+       <div style="margin: auto;">
+         <p id="participantOffer" style="text-align:center;">Drag slider using mouse and press enter to save choice<span></span></p><!--background-color:purple;-->
+       </div>
+       <div id="leftofslider" style="position:inline-block; float:left; height: 20px; width: 80px;margin-left: 15%;"><p id="leftofslider_text" style="text-align:center; margin-top:-10%;">Red</p></div><!--background-color:purple;background-color:red; background-color:purple; -->
+       <div id="rightofslider" style="position: inline-block; float: right; height:20px; width:80px; margin-right: 15%;"><p id="rightofslider_text" style="margin-top:-10%; text-align:center;">Blue</p></div><!--background-color:blue;background-color:green; background-color:pink; -->
+       <div id="slidebar"></div> <!-- style="background-color:pink;" <div id="slider" class="draggable ui-widget-content"></div> Don't need the slider anymore...-->
+       <div id="slidebar_hidden"><div id="outcomebar" class="draggable ui-widget-content"></div></div><!--style="background-color:yellow;"-->
+   </div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="k.js"></script>
+<script type="text/javascript" src="c.js"></script>
+<script type="text/javascript" src="context.js"></script>
+<script type="text/javascript" src="choicebutton_side.js"></script>
+<script type="text/javascript" src="expt_forrealsies_withcatbound_andprobes_cleaned.js"></script>
+{% endblock %}

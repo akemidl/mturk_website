@@ -1,0 +1,94 @@
+{% extends "site_base.html" %}
+{% load i18n %}
+{% load static %}
+{% load metron_tags %}
+
+
+
+{% block head_title %}pinax-project-account{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+
+
+{% block body_base %}
+
+<div class="bg"></div>
+    <div class="jumbotron">
+        <div class="container">
+            {% include "_messages.html" %}
+            <h1>{% blocktrans %}Welcome to<br>Chris Gagne{% endblocktrans %}</h1>
+            <p>
+                {% blocktrans %}
+                It is a foundation
+                suitable for most sites that have user accounts.
+                {% endblocktrans %}
+            </p>
+           
+        </div> 
+</div>
+
+
+
+
+
+
+	
+	
+	{% if user.is_authenticated %}
+	
+
+
+		
+		<!--
+		
+		<div>
+			<p class="lead text-center">
+					<a href="update_db" class="btn btn-default large">Update DB</a>
+					<a href="display_cog/meditation" class="btn btn-primary">meditation</a>
+					<a href="display_exercise/Dumbell chest" class="btn btn-primary">chest</a>
+					<a href="display_exercise/squats" class="btn btn-primary">squats</a>
+				 </p>
+        </div>
+		//-->
+
+
+
+
+			
+
+			
+	    <section class="container">
+			
+	 	   <div class="navbars navbar-left">
+	  			 <ul>
+	  			 {% for file in filelist %}
+	  			     <li><a href="/self_exposition/{{ file }}">{{ file }}</a></li>
+	  			 {% endfor %}
+	  			 </ul>
+	 		 </div>
+			
+				<!--
+			
+        <div class="feature-columns">
+			{% for picture in picturelist %}
+			 <div>
+	         <img src="/site_media/static/images/role_models/{{picture }}" height="200" width="200"></img><br>
+			 </div>
+			{% endfor %}
+    	</div>
+					//-->
+					
+		
+			{{description|safe}}
+		</section>
+
+
+
+
+</div>
+
+
+
+	{% endif %}
+{% endblock %}

@@ -1,0 +1,130 @@
+
+{% extends "theme_bootstrap/base.html" %}
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+
+
+{% block style_base %}
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/site.css" %}" rel="stylesheet">
+	<link href="{% static "css/site2.css" %}" rel="stylesheet">
+	<style>
+	.page {
+		display: none;
+	}
+
+	#page1 {
+		display: block;
+	}
+	</style>
+    {% block extra_style %}
+	{% endblock %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+
+{% block script_base %}
+    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/bootstrap2.min.js" %}"></script>
+    <script src="{% static "pinax/js/theme.js" %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
+	
+	<script>
+	var currentTrial = 1;
+	function NextTrial() {
+		var checkedValue = $("input[type=radio]:checked", "#page" + currentTrial).val();
+		if (checkedValue) {
+			$("#page" + currentTrial).hide();
+			$("#page" + (currentTrial+1)).show();
+			currentTrial++;
+		} else {
+			alert('Please answer the question before moving on!');
+		}
+	}
+	
+	</script>
+
+{% block extra_script %}
+
+{% endblock %}
+{% endblock %}
+
+
+
+{% block head_title %}pinax-project-account{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+
+
+{% block body_base %}
+
+	<section>
+		<div class="container">
+
+<h3>Judge these images</h3>
+<p>Please rate how interesting each of these four images is, on a scale from 1-5,  where 5 is the most interesting. There are no wrong answers, just go with your instinct.</p>
+
+<div class="page" id="page1">
+<p><img src="{% static "images/orange.png" %}" alt="Hi!" /></p>
+<p><input type="radio" name="aquariumI" value="1" /> 1</p>
+<p><input type="radio" name="aquariumI" value="2" /> 2</p>
+<p><input type="radio" name="aquariumI" value="3" /> 3</p>
+<p><input type="radio" name="aquariumI" value="4" /> 4</p>
+<p><input type="radio" name="aquariumI" value="5" /> 5</p>
+<p>&nbsp;</p>
+<a class="nextLink" href="javascript:NextTrial()">Next trial</a> <span class="currentTrialIndicator">(Current trial: 1/4)</span>
+</div>
+
+<div class="page" id="page2">
+<p><img src="http://timbrady.org/turk/images/field.jpg" width="300" alt="" /></p>
+<p><input type="radio" name="fieldI" value="1" /> 1</p>
+<p><input type="radio" name="fieldI" value="2" /> 2</p>
+<p><input type="radio" name="fieldI" value="3" /> 3</p>
+<p><input type="radio" name="fieldI" value="4" /> 4</p>
+<p><input type="radio" name="fieldI" value="5" /> 5</p>
+<p>&nbsp;</p>
+<a class="nextLink" href="javascript:NextTrial()">Next trial</a> <span class="currentTrialIndicator">(Current trial: 2/4)</span>
+</div>
+
+<div class="page" id="page3">
+<p><img src="http://timbrady.org/turk/images/valley.jpg" width="300" alt="" /></p>
+<p><input type="radio" name="valleyI" value="1" /> 1</p>
+<p><input type="radio" name="valleyI" value="2" /> 2</p>
+<p><input type="radio" name="valleyI" value="3" /> 3</p>
+<p><input type="radio" name="valleyI" value="4" /> 4</p>
+<p><input type="radio" name="valleyI" value="5" /> 5</p>
+<p>&nbsp;</p>
+<a class="nextLink" href="javascript:NextTrial()">Next trial</a> <span class="currentTrialIndicator">(Current trial: 3/4)</span>
+</div>
+
+<div class="page" id="page4">
+<p><img src="http://timbrady.org/turk/images/ballpit.jpg" width="300" alt="" /></p>
+<p><input type="radio" name="ballpitI" value="1" /> 1</p>
+<p><input type="radio" name="ballpitI" value="2" /> 2</p>
+<p><input type="radio" name="ballpitI" value="3" /> 3</p>
+<p><input type="radio" name="ballpitI" value="4" /> 4</p>
+<p><input type="radio" name="ballpitI" value="5" /> 5</p>
+<p>&nbsp;</p>
+<a class="nextLink" href="javascript:NextTrial()">Next trial</a> <span class="currentTrialIndicator">(Current trial: 4/4)</span>
+</div>
+
+<div class="page" id="page5">
+<p>How did you like this HIT?</p>
+<p><input type="text" name="howLike" value="" /></p>
+<p>&nbsp;</p>
+</div>
+
+</div>
+</section>
+{% endblock %}

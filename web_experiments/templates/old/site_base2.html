@@ -1,0 +1,52 @@
+{% extends "theme_bootstrap/base.html" %}
+
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+
+
+{% block style_base %}
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/site.css" %}" rel="stylesheet">
+	<link href="{% static "css/site2.css" %}" rel="stylesheet">
+	<link href="{% static "slick/slick.css" %}" rel="stylesheet">
+    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "pinax/js/theme.js" %}"></script>
+	<script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="{% static "pinax/js/theme.js" %}"></script>
+	<script src="{% static "js/bootstrap2.min.js" %}"></script>
+
+		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+		</script>
+    
+	
+    {% block extra_style %}{% endblock %}
+{% endblock %}
+
+
+
+
+
+{% block extra_head_base %}
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+{% block extra_body_base %}
+    {% analytics %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}
+
+

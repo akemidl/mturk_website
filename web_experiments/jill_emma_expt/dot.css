@@ -1,0 +1,22 @@
+
+.dot {
+height: 12px;
+width: 12px;
+border-radius: 4px;
+background-color: #ff1493;
+};
+
+body{ margin:10px; background:#CCC; }
+
+#rectangleOverCanvas{
+  height:350;
+  width:700;
+  background-color:black;
+};
+
+#mycanvas{
+  background:#036;
+  border:#000 1px solid;
+  background-color: #0000ff;
+  border-radius: 300px;
+};

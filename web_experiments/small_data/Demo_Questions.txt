@@ -1,0 +1,5 @@
+What is your gender?
+How old are you?
+Please indicate if you are Hispanic or Latino.
+Please select the race category that best describes you (This is seperate from whether or not you are Hispanic).
+Please select the level of education that you have completed.

@@ -1,0 +1,263 @@
+	/* EXPERIMENT CSS */
+
+
+
+#exp_container {
+		position: relative;
+		margin-top: 1%;
+	    margin-bottom: 2%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 5%;
+		/*border: 1px solid ;*/
+		/*box-shadow: 3px 3px 3px #888888; */
+		border-radius: 1px;
+		vertical-align: top;
+		z-index: 0;
+		background-color: #eee;
+		height: 620px;
+		width: 700px;
+		perspective: 500px;
+		-webkit-perspective: 500px;
+
+
+}
+
+
+#exp_container:hover {
+			z-index: 1;
+}
+
+
+/* GENERAL TEXT FEATURES */
+.exp_text{
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	
+}
+
+#instruct{
+	position: absolute;
+	top:12%;
+	margin:auto;
+	width:80%;
+
+
+}
+
+
+#Refresh{
+	position: absolute;
+	margin:auto;
+	width: 80%;
+}
+
+
+
+
+/* TEXT FOR COUNTERS */
+
+#trialcounter{
+	position: absolute;
+	left: 5%;
+	top:5%;
+	font-weight: bold;
+	/*border-style: solid;*/
+	/*padding:1%*/
+}
+#pointscounter{
+	position: absolute;
+	right: 5%;
+	top:5%;
+	font-weight: bold;
+	/*border-style: solid;*/
+	/*padding:1%*/
+}
+
+/* TEXT in CENTER OF SCREEN */
+#fixation{
+	position: absolute;
+	left:50%;
+
+	top:50%;
+	
+	text-align:center;	
+	
+}
+
+#outcome{
+	position: absolute;
+	/*margin:auto;*/
+	/*width: 80%;*/
+	left:49%;
+	top:32%;
+	font-weight: bold;
+	text-align:center;	
+	font-size: 160%;
+}
+#noresp{
+	position: absolute;
+	margin:auto;
+	width: 80%;
+	top:27%;
+
+	text-align:center;		
+}
+
+
+/* IMAGE DIVS */
+
+#stim_green {
+	
+	
+	position: absolute;
+	left: 10%;
+	top:40%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+#stim_green_outline {
+	
+	
+	position: absolute;
+	left: 5%;
+	top:35%;
+	
+	width:40%;
+	height:40%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+#stim_blue {
+	
+	position: absolute;
+	right: 10%;
+	top:40%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+#stim_blue_outline {
+	
+	
+	position: absolute;
+	right: 5%;
+	top:35%;
+	
+	width:40%;
+	height:40%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+#stim_red_outline {
+	
+	
+	position: absolute;
+	right: 5%;
+	top:35%;
+	
+	width:40%;
+	height:40%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+#stim_red {
+	
+	position: absolute;
+	right: 10%;
+	top:40%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+#stim_purple {
+	
+	position: absolute;
+	left: 10%;
+	top:40%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+#stim_purple_outline {
+	
+	
+	position: absolute;
+	left: 5%;
+	top:35%;
+	
+	width:40%;
+	height:40%;
+	
+	border-style: none;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+#button_previous {
+	position: absolute;
+	left: 10%;
+	top:87%;
+}
+
+#button_continue {
+	position: absolute;
+	right: 10%;
+	top:87%;
+}
+
+#button_return_home{
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width:50%;
+	top:60%;
+}
+

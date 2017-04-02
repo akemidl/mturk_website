@@ -1,0 +1,38 @@
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+{% endblock %}
+{% block extra_css %}
+	<link href="{% static "css/surveys.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_base %}
+
+
+<div id="survey_container">
+<p>{{instructions}}</p>
+
+<form action="processSurvey" method="post">{% csrf_token %}
+
+{% for field in form %}
+	<br/>
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+
+<input type="submit" value="Submit" />
+</form>
+<p> Please double check that you have answered every question. If you have missed one, you will have to re-complete the questionnaire</p>
+
+</div>
+
+	
+{% endblock %}
+
+

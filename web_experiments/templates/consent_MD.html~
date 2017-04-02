@@ -1,0 +1,105 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+{% endblock %}
+{% block extra_css %}
+	<link href="{% static "css/surveys.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_base %}
+
+
+<div id="survey_container">
+<p><strong>Learning, Attention and Decision Making: Information for participants.</strong> </p>
+<p>Thank you for being willing to participate in our experiment. Your contribution to our research is very valuable and we appreciate your help.</p><p>This information page is to help you decide whether to participate in our experiment. It is up to you to choose whether you participate and you may withdraw from the study without penalty and without giving a reason.</p>
+
+<p><i>What are these experiments about?</i></p>
+<p>We are interested in understanding how people make decisions.  In particular, we are interested in how people use knowledge that they have gained from past experience and how they apply it to new situations.</p>
+
+<p><i>Who is conducting these experiments?</i></p>
+<p>The experiments are being conducted by Dr Jill O’Reilly of the University of Oxford, England, and her postgraduate staff: Alexandra Constantinescu, Tim Muller, Emma Lawrance and Steven Cuell.  The team can be contacted by telephone on +44 (0)1865 222466. Email: jill.oreilly@psy.ox.ac.uk   Web: www.psy.ox.ac.uk </p>
+
+<p><i>What if I have a question?</i></p>
+We welcome questions about the project.  If you have any questions, please telephone Dr O’Reilly on +44 (0)1865 222466.
+<p><i>What will we ask you to do?</i></p>
+<p>We will give you a reminder of what to do when the experiment starts.  But here is a short description of the experiment, so you can decide whether you want to participate or not.</p>
+<p>On each ‘trial’ in the experiment you will see coloured moving dots in the middle of your computer screen. The colour (shades of blue to red) and the speed of the dots will be different on each ‘trial’. Sometimes you will be asked to report the average ‘blue-red’ colour, or ‘fast-slow’ speed, of the dots, by using your mouse to drag a slider to what you think represents the correct colour/speed. On other trials you will be asked to report whether the average colour was more red or more blue than some boundary, using the left and right arrow keys (or similar for speed). You won’t know where this boundary between red and blue is at the start, but you will receive feedback on your choices so that you can learn over time. When the experiment starts it will run in full screen mode, so will take up your whole computer screen.</p>
+<p><i>Will these experiments reveal anything about me personally?</i></p>
+<p>No.  The data we get from you will be pooled with the data from other participants.  That is because we are looking for trends that only emerge when a lot of data are analyzed.  In any case, we can't infer anything about your individual personality from these data.</p>
+<p><i>How will my data be used?</i></p>
+<p>All we are recording is where you click on the screen or buttons and at what time relative to the start of the experiment.  We collect no other data than that. The data will be pooled with those of many other participants.  We will then use the pooled data to test our theories about learning and decision making.  Because of the way data are aggregated, once your data has been submitted we are not able to remove it.  The data will be stored on computers located within the University of Oxford network and only the members of the O’Reilly laboratory stated above have access to your data.  At the end of the project the data will be archived in case a query about the research arises after the results of the project are analysed and published.  We record none of your personal data.</p>
+<p><i>What are the risks and benefits of the research?</i></p>
+<p>There are no risks associated with the research.  If successful, the project will hopefully result in a paper being published, so that other scientists can build on our work.  In other words, it will help everyone understand better how people learn and make decisions.</p>
+<p><i>What if there is a problem?</i></p>
+<p>If you have a concern about any aspect of this project, please speak to the relevant researcher, Jill O’Reilly (01865 222466) who will do her best to answer your query. The researcher should acknowledge your concern within 10 working days and give you an indication of how he/she intends to deal with it. If you remain unhappy or wish to make a formal complaint, please contact the chair of the Research Ethics Committee at the University of Oxford (Chair, Medical Sciences Inter-Divisional Research Ethics Committee; Email: ethics@medsci.ox.ac.uk; Address: Research Services, University of Oxford, Wellington Square, Oxford OX1 2JD).  The chair will seek to resolve the matter in a reasonably expeditious manner.</p>
+<p><i>What if I don't like the experiment once I have started?</i></p>
+<p>You can stop any time just by closing the program.  If you do so your data will be deleted and not used.</p>
+<p><i>How long does the experiment take?</i></p>
+<p>The whole experiment takes up to 70 minutes once you have started. A closer indication is given in the HIT description.</p>
+
+<p></p>
+<p></p>
+<p></p>
+<p><strong>LEARNING, ATTENTION AND DECISION MAKING CONSENT FORM</p></strong>
+
+<p> Remember, We are interested in understanding how people make decisions.  In particular, we are interested in how people use knowledge that they have gained from past experience and how they apply it to new situations.<p>
+
+<p>The experiments are being conducted by Dr Jill O’Reilly of the University of Oxford, England, and her postgraduate staff: Alexandra Constantinescu, Tim Muller, Emma Lawrance and Steven Cuell.  The team can be contacted by telephone on +44 (0)1865 222466.</p>
+
+<p><b>Please tick the box next to each statement to indicate your agreement</b></p>
+
+<form action="processConsent" method="post">{% csrf_token %}
+  <p> I confirm that I have read and understand the information sheet for the study above </p>
+    <fieldset id="group1">        <input type="radio" value="Yes" name="group1">        <!-- <input type="radio" value="No" name="group1"> -->    </fieldset>
+
+  <p> I have had the opportunity to ask questions. </p>    <fieldset id="group2">        <input type="radio" value="Yes" name="group2">        <!-- <input type="radio" value="No" name="group2"> -->    </fieldset>
+
+		<p> I understand that my participation is voluntary and that I am free to withdraw at any time, without giving any reason, without any adverse consequences. </p>
+    <fieldset id="group3">
+        <input type="radio" value="Yes" name="group3">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+		<p> I understand that information I provide in questionnaires may be looked at by responsible individuals running the experiment.</p>
+    <fieldset id="group2">
+        <input type="radio" value="Yes" name="group2">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+		<p> I understand that the data will be stored in anonymized form for further analysis</p>
+    <fieldset id="group2">
+        <input type="radio" value="Yes" name="group2">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+		<p> I understand that this project has been reviewed by, and received ethics clearance through, the University of Oxford Central University Research Ethics Committee.</p>
+    <fieldset id="group2">
+        <input type="radio" value="Yes" name="group2">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+		<p> I understand how to raise a concern and make a complaint</p>
+    <fieldset id="group2">
+        <input type="radio" value="Yes" name="group2">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+		<p> I agree to take part in the above study.</p>
+    <fieldset id="group2">
+        <input type="radio" value="Yes" name="group2">
+        <!-- <input type="radio" value="No" name="group2"> -->
+    </fieldset>
+
+<br>
+<input type="submit" value="Submit" />
+
+</form>
+<p> Please double check that you have answered every question. If you have missed one, you will have to re-complete the questionnaire</p>
+
+</div>
+
+
+{% endblock %}

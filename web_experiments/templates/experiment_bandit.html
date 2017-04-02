@@ -1,0 +1,170 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+
+
+
+{% block extra_css %}
+	<link href="{% static "css/experiment_bandit.css" %}" rel="stylesheet">
+{% endblock %}
+
+
+
+
+{% block body_base %}
+
+
+
+	
+
+
+		
+		
+		
+		<div id="exp_container">
+
+				<div class="exp_text" id="fixation">
+					<p>+<p>
+				</div>
+		
+				<div class="exp_text" id="noresp">
+					<p>Did Not Respond in Time<p>
+				</div>
+		
+				<div class="exp_text" id="outcome">
+					<p>OUTCOME<p>
+				</div>
+
+				<p class="exp_text" id="instruct">test</p>
+				
+				
+				
+
+
+				<p class="exp_text" id="trialcounter">Completed: 0/{{num_trials}}</p>	
+				<p class="exp_text" id="pointscounter">Points: 0</p>	
+				
+			
+				<div id="stim_green_outline">
+					<img style="width: 100%; height: 100%;" src="{% static "images/outline.png" %}">	
+				</div>
+		
+
+				<div id="stim_blue_outline">
+					<img style="width: 100%; height: 100%;" src="{% static "images/outline.png" %}">	
+				</div>
+				<div id="stim_purple_outline">
+					<img style="width: 100%; height: 100%;" src="{% static "images/outline.png" %}">	
+				</div>
+		
+
+				<div id="stim_red_outline">
+					<img style="width: 100%; height: 100%;" src="{% static "images/outline.png" %}">	
+				</div>
+				
+				<div id="stim_green">
+					<img id="stim_green_image" style="width: 100%; height: 100%;">
+					<div id="stim_text_green" class="exp_text" style="font-size: 24; color: white; position: relative; top: -60%">
+					     <p>mag1</p>
+					    </div>	
+				</div>
+
+				<div id="stim_blue">
+					<img id="stim_blue_image" style="width: 100%; height: 100%;" >
+					<div id="stim_text_blue" class="exp_text" style="font-size: 24; color: white; position: relative; top: -60%">
+					     <p>mag2</p>
+					    </div>	
+				</div>
+
+				<div id="stim_red">
+					<img id="stim_red_image" style="width: 100%; height: 100%;" >
+					<div id="stim_text_red" class="exp_text" style="font-size: 24; color: white; position: relative; top: -60%">
+					     <p>mag2</p>
+					    </div>	
+				</div>
+				<div id="stim_purple">
+					<img id="stim_purple_image" style="width: 100%; height: 100%;" >
+					<div id="stim_text_purple" class="exp_text" style="font-size: 24; color: white; position: relative; top: -60%">
+					     <p>mag2</p>
+					    </div>	
+				</div>
+			
+
+				<a id="button_previous" href="#" class="btn btn-primary">Go Back</a> 
+				<a id="button_continue" href="#" class="btn btn-primary">Continue</a> 
+			
+				
+				
+				
+				<div class="exp_text" id="thanks">
+				<p  id="thanks1">You have completed the experiment! </p>
+				<p  id="thanks2">Your bonus will be computed based on your performance relative to other participants. You will receive a bonus within 3 days.</p>
+				<p>Return to the main page.</p>
+				</div>
+				<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a> 
+				
+
+			
+		</div>
+		
+
+	
+	
+{% endblock %}
+
+{% block extra_js %}
+
+<script>
+
+	var green_reward = "{{green_reward|safe}}"
+	
+	green_reward = green_reward.replace("[", "")
+	green_reward = green_reward.replace("]", "")
+	green_reward = green_reward.split(",")
+
+	var blue_reward = "{{blue_reward|safe}}"
+	
+	blue_reward = blue_reward.replace("[", "")
+	blue_reward = blue_reward.replace("]", "")
+	blue_reward = blue_reward.split(",")
+
+	var outcomes = "{{outcomes|safe}}"
+	outcomes  = outcomes .replace("[", "")
+	outcomes = outcomes .replace("]", "")
+	outcomes  = outcomes .split(",")
+
+
+	var outcome_type = "{{outcome_type|safe}}"
+	var cb = "{{cb|safe}}"
+	var imageg = "{{imageg|safe}}"
+	var imageb = "{{imageb|safe}}"
+	
+
+	var im = document.getElementById("stim_green_image")
+	im.src= "{% static imageg %}"
+	var im = document.getElementById("stim_blue_image")
+	im.src= "{% static imageb %}"
+
+	var im = document.getElementById("stim_red_image")
+	im.src= "{% static "images/red.png" %}"
+	var im = document.getElementById("stim_purple_image")
+	im.src= "{% static "images/purple.png" %}"
+
+</script>
+
+<script src="{% static "js/experiment_bandit.js" %}"></script>
+{% endblock %}
+
+{% block footer %}
+		<div>
+		<p style="margin:auto;width:100%;text-align:center;">Do not refresh the page</p>	
+		<p style="margin:auto;width:100%;text-align:center;">Bishop Lab, UC Berkeley 2016</p>	
+		</div>
+
+{% endblock %}
+
+
+
+

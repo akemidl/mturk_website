@@ -1,0 +1,177 @@
+	/* EXPERIMENT CSS */
+
+
+
+#exp_container {
+		position: relative;
+		margin-top: 5%;
+	    margin-bottom: 5%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 5%;
+		/*border: 1px solid ;*/
+		/*box-shadow: 3px 3px 3px #888888; */
+		border-radius: 1px;
+		vertical-align: top;
+		z-index: 0;
+		background-color: #eee;
+		height: 620px;
+		width: 840px;
+		perspective: 500px;
+		-webkit-perspective: 500px;
+
+
+}
+
+
+#exp_container:hover {
+			z-index: 1;
+}
+
+
+/* GENERAL TEXT FEATURES */
+.exp_text{
+	text-align: center;
+	text-decoration: none;
+	font-size: 16px;
+	
+}
+
+#Refresh{
+	position: absolute;
+	margin:auto;
+	width: 80%;
+}
+
+
+
+
+/* TEXT FOR COUNTERS */
+
+#trialcounter{
+	position: absolute;
+	left: 5%;
+	top:5%;
+}
+#pointscounter{
+	position: absolute;
+	right: 5%;
+	top:5%;
+}
+
+/* TEXT in CENTER OF SCREEN */
+#fixation{
+	position: absolute;
+	left:50%;
+
+	top:40%;
+	
+	text-align:center;	
+	
+}
+
+#outcome{
+	position: absolute;
+	margin:auto;
+	width: 80%;
+	top:20%;
+
+	text-align:center;	
+}
+#noresp{
+	position: absolute;
+	margin:auto;
+	width: 80%;
+	top:27%;
+
+	text-align:center;		
+}
+
+
+/* IMAGE DIVS */
+
+#stim_green {
+	
+	
+	position: absolute;
+	left: 10%;
+	top:35%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: solid;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+#stim_blue {
+	
+	position: absolute;
+	right: 10%;
+	top:35%;
+	
+	width:30%;
+	height:30%;
+	
+	border-style: solid;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+#button_previous {
+	position: absolute;
+	left: 15%;
+	top:88%;
+}
+
+#button_continue {
+	position: absolute;
+	right: 15%;
+	top:88%;
+}
+
+#button_return_home{
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+	width:50%;
+	top:60%;
+}
+
+
+#left_bandit{
+	position: absolute;
+	left: 37%;
+	top:29%;
+	
+	
+}
+
+#right_bandit{
+	position: absolute;
+	right:37%;
+	top:29%;
+	
+
+	
+}
+
+.box{
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	font-size:18;
+	font-weight: bold;
+
+}
+

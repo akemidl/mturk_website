@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="expt_4realsies.css"/>
+<!--this is to get the Maths library as wasn't working before without it, not quite sure if this is what fixed it actually...-->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.js"></script>
+
+<!--these are the old ones, now we downloaded a new version-->
+<script src="jqueryUI/external/jquery/jquery.js"></script>
+
+<!--this is to get the jQuery UI library-->
+<!--<script type='text/javascript' src="jqueryUI/jquery-ui.js"></script>
+<link rel="stylesheet" href="jqueryUI/jquery-ui.css">-->
+
+<!--links to the new version-->
+<link rel="stylesheet" href="jqueryUI_latest/jquery-ui.min.css">
+<script src="jqueryUI_latest/external/jquery/jquery.js"></script>
+<script src="jqueryUI_latest/jquery-ui.js"></script>
+
+
+<!--this is to get the jsPsych library-->
+<script src="jspsych-5.0.3/jspsych.js"></script>
+<!--this is to get the jsPsych stylesheet to apply basic set of visual styles to make expt look nice...-->
+<link type="text/css" rel="stylesheet" href="jspsych-5.0.3/css/jspsych.css"/>
+<!--to load the jspsych-text plugin to be able to show some text on the screen-->
+<script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+
+<!--stuff we need for bootstrap-->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+/*Jill's style sheet*/
+body {
+background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/*#containing_container:fullscreen {
+    background-color: rgba(255,255,255,0);
+}
+#containing_container:-webkit-full-screen {
+    background-color: rgba(255,255,255,0);
+}
+#containing_container:-moz-full-screen {
+    background-color: rgba(255,255,255,0);
+}
+
+*:fullscreen, *:-webkit-full-screen, *:-moz-full-screen {
+    background-color: rgba(255,255,255,0);
+}*/
+
+#slider {
+margin:auto;
+width: 0px;
+height: 100%;
+    border: 3px solid black;
+}
+
+#outcomebar {
+width: 0px;
+height: 100%;
+/*border-radius: 3px;
+border: 3px solid black;*/
+margin: auto;
+background-color: black;
+}
+
+</style>
+<body>
+<button id="full_screen_button" style="margin-left:45%;margin-top:20%;" onclick="requestFullScreen( document.getElementById('containing_container'))">Go Fullscreen</button><br/>
+<!--<div class="container-fluid">-->
+<div id="containing_container" style="height:100vh;background-color: white;">
+<!-- rgba(255,255,255,0) -->
+  <div id="progress_div" style="width:80%; height:5%; margin-left:10%; margin-right:10%; margin-top:10%;"> <p class="exp_text" id="trialcounter">Completed: 0</p>	</div>
+
+  <div id="first_div" style="margin-left:10%; margin-right:10%; margin-top:0%;"> <!--background-color:green;background-color:orange;background-color:green; -->
+        <div style="float:left"> <!--background-color:orange; -->
+            <button id="button_previous" type="button">Previous</button>
+        </div>
+        <div style="margin-left:93%"> <!--background-color:pink; -->
+            <button id="button_continue" type="button">Continue</button>
+        </div>
+  </div>
+
+    <div class="exp_text" id="thanks" style="margin-left:20%; margin-right:20%; margin-top:30%; width:60%; height:30%;">
+    		<p  id="thanks1" style="text-align:center;">You have completed the experiment! </p>
+    		<p  id="thanks2" style="text-align:center;">Your bonus will be computed based on your performance. You will receive a bonus within 3 days.</p>
+    		<p style="text-align:center;">Return to the main page.</p>
+    </div>
+
+   <a id="button_return_home" href="/" class="btn btn-primary" style="margin-left:40%;">Return to Main Screen</a> <!--this comes on when they reach the end screen-->
+
+    <div id="third_div" style="width:100%; height:50%;">
+      <canvas id="mycanvas" style="display:block;"></canvas><!--background-color:orange; background-color:blue;width:100%; height:50%; -->
+    </div>
+
+    <div id="still_motion_dots" style="width:80%;height:30%;margin-left:10%; margin-right:10%;"><!--background-color:green;-->
+      <!-- {% static "js/dots/motion_dots_screenshot2.png" width:25%; height:100%; margin-left:37.5%; margin-right:37.5%;%} -->
+      <img src="/Users/emmal/Desktop/motiondots_final.png" alt="motion_dots_screenshot" style="width:20%; height:same-as-width;display:block;margin-left: auto;margin-right: auto; border-top:20%;"><!--background-color:red;-->
+    </div>
+
+    <!--for choice buttons-->
+    <div id="fourth_div" style="margin-left:30%; margin-right:30%; width:40%; height:20%;"><!--background-color:blue; min-width: 1200px;-->
+        <div id="button_text_div" style="width:100%; height:15%;"><!--background-color:purple;-->
+            <p id="button_text_para" style="text-align:center; fontSize:10;">Press left arrow key for left, right arrow key for right<span></span></p>
+          </div>
+        <div id="left_choice" style="background-color:blue;float:left; margin-left: 10%; margin-top:5%; width:30%; height:50%; background-clip:content-box;border:5px solid black; padding:5px;"> <!--background-color:pink;position:inline-block; margin-top: 50%; margin-left:30%; -->
+            <!--<p id="left_choice_text" style="text-align:center; margin-top:50%;">Red</p>  now we want square rather than text-->
+          </div>
+        <div id="circle_container" style="float:left; margin-top:5%; width:0%; height:50%;"><!-- background-color:orange;-->
+            <!--<div id="outcome_circle" style="margin-left:50%; margin-top:15%; width: 40px; height: 40px; -webkit-border-radius: 20px; -moz-border-radius: 20px; background: red;"></div> -->
+          </div>
+        <div id="right_choice" style="background-color:red;float:right; margin-right: 10%; margin-top:5%; width:30%; height:50%; background-clip:content-box; border:5px solid black; padding:5px;"><!-- background-color: green;position:inline-block; margin-top: 50%; margin-left: 70%;-->
+
+          <!--<p id="right_choice_text" style="text-align:center; margin-top:50%;">Blue</p>  now we want square rather than text-->
+          </div>
+        <!-- --><!--position:inline-block; margin-top: 50%; margin-left:50%; -->
+
+      </div>
+
+   <div id="reward_bar" style="margin-left:20%; margin-right:20%; margin-top:3%; background-color:grey; height:3%; width: 60%;"><div id="reward_level" style="height:100%; width:0%; margin-left:0%; background-color: gold;"></div></div>
+
+   <div class="exp_text" id="second_div" style="width:80%;margin-left:10%; margin-right:10%; height:20%; margin-top: 2%;"><!--margin-left:10%; margin-right:10%; background-color:blue;background-color:blue;-->
+       <p id="instruct" style="text-align:center; height:100%; padding-left:5%; padding-right:5%; padding-top: 2%;"></p>
+       <!-- <p id="test_para" style="text-align:center; color:red; font-size:50px; padding-top:10%; background-color:orange;"></p> -->
+   </div>
+</div>
+</body>
+<script type="text/javascript" src="k_new_40.js"></script>
+<script type="text/javascript" src="c_new_40.js"></script>
+<script type="text/javascript" src="choicebutton_side_tmp.js"></script>
+<script type="text/javascript" src="temporary.js"></script>
+</html>

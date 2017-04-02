@@ -1,0 +1,109 @@
+
+{% extends "theme_bootstrap/base.html" %}
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+
+
+{% block style_base %}
+    <link href="{% static "pinax/css/theme.css" %}" rel="stylesheet">
+    <link href="{% static "css/site.css" %}" rel="stylesheet">
+	<link href="{% static "css/site2.css" %}" rel="stylesheet">
+	<link href="{% static "jspsych-4.2/css/jspsych.css" %}" rel="stylesheet" type="text/css"></link>
+	<style>
+	.page {
+		display: none;
+	}
+
+	#page1 {
+		display: block;
+	}
+	</style>
+    {% block extra_style %}
+	{% endblock %}
+{% endblock %}
+
+
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+
+{% block script_base %}
+    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+	<script src="{% static "js/bootstrap2.min.js" %}"></script>
+    <script src="{% static "pinax/js/theme.js" %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="{% static "jspsych-4.2/jspsych.js" %}"></script>
+	<script src="{% static "jspsych-4.2/plugins/jspsych-text.js" %}"></script>
+	<script src="{% static "jspsych-4.2/plugins/jspsych-single-stim.js" %}"></script>
+	
+    <script>
+    /* define welcome message block */
+    var welcome_block = {
+      type: "text",
+      text: "Welcome to the experiment. Press any key to begin."
+    };
+	var instructions_block = {
+	  type: "text",
+	  text: "<p>In this experiment, a circle will appear in the center " +
+	      "of the screen.</p><p>If the circle is <strong>blue</strong>, " +
+	      "press the letter F on the keyboard as fast as you can.</p>" +
+	      "<p>If the circle is <strong>orange</strong>, do not press " +
+	      "any key.</p>" +
+	      "<div class='left center-content'><img src={% static 'blue.png'%}></img>" +
+	      "<p class='small'><strong>Press the F key</strong></p></div>" +
+	      "<div class='right center-content'><img src='static/images/orange.png'></img>" +
+	      "<p class='small'><strong>Do not press a key</strong></p></div>" +
+	      "<p>Press any key to begin.</p>",
+		timing_post_trial: 2000
+	};
+	var test_block = {
+	  type: "single-stim",
+	  stimuli: ['img/blue.png', 'img/orange.png'],
+	  choices: ['F'],
+	  timing_response: 1500
+	};
+    /* create experiment definition array */
+    var experiment = [];
+    experiment.push(welcome_block);
+	experiment.push(instructions_block);
+	experiment.push(test_block);
+	
+
+    /* start the experiment */
+    jsPsych.init({
+      experiment_structure: experiment
+    });
+
+    </script>
+	
+{% block extra_script %}
+
+{% endblock %}
+{% endblock %}
+
+
+
+{% block head_title %}pinax-project-account{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+
+
+{% block body_base %}
+
+	<section>
+		<div class="container">
+
+<h3>Judge these images</h3>
+<p>Please rate how interesting each of these four images is, on a scale from 1-5,  where 5 is the most interesting. There are no wrong answers, just go with your instinct.</p>
+
+
+</div>
+</section>
+{% endblock %}

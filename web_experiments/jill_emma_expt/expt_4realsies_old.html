@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="expt_4realsies.css"/>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.2.1/math.js"></script>
+<script src="jqueryUI/external/jquery/jquery.js"></script>
+<script type="text/javascript" src="expt_4realsies.js"></script>
+<!--this is to get the jQuery UI library-->
+<script type='text/javascript' src="jqueryUI/jquery-ui.js"></script>
+<link rel="stylesheet" href="jqueryUI/jquery-ui.css">
+
+<!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.css"/>-->
+<!--this is to get the jsPsych library-->
+<script src="jspsych-5.0.3/jspsych.js"></script>
+<!--this is to get the jsPsych stylesheet to apply basic set of visual styles to make expt look nice...-->
+<link type="text/css" rel="stylesheet" href="jspsych-5.0.3/css/jspsych.css"/>
+<!--to load the jspsych-text plugin to be able to show some text on the screen-->
+<script src="jspsych-5.0.3/plugins/jspsych-text.js"></script>
+</head>
+<style>
+/*Jill's style sheet*/
+body {
+background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+#container {
+margin:auto;
+/*display: inline-block;*/
+position: absolute;
+
+    top: 60%;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    background-color: green;
+}
+
+#right {
+display: inline-block;
+position: absolute;
+    left: 40px;
+    top: 0px;
+}
+
+#left {
+display: inline-block;
+position: absolute;
+    right: 40px;
+    top: 0px;
+}
+
+#slidebar {
+/*position:relative*/
+margin:auto;
+position:absolute;
+width: 50%;
+height: 20px;
+border-radius: 3px;
+background-color: #D3D3D3;
+}
+
+#slidebar_hidden {
+margin: auto;
+position: absolute;
+width: 50%;
+height: 20px;
+border-radius: 3px;
+background-color: red;
+}
+
+
+#slider {
+margin-top:10px;
+position: absolute;
+width: 0px;
+height: 16px;
+    border: 2px solid black;
+}
+
+#outcomebar {
+position: absolute;
+width: 0px;
+height: 20px;
+border-radius: 3px;
+border: 2px solid black;
+margin: auto;
+}
+
+</style>
+<body style="background-color:red">
+<!--position:relative;-->
+<div style="background-color:green; margin-left:10%; margin-right:10%; margin-top:10%">
+  <div style="background-color:orange; float:left">
+    <button id="button_previous" type="button">Previous</button>
+  </div>
+  <div style="background-color:pink; margin-left:94%">
+  <button id="button_continue" type="button">Continue</button>
+</div>
+</div>
+<div style="background-color:blue; margin-left:10%; margin-right:10%; width:80%; height:200px">
+
+</div>
+<div id=expt_container style="position:relative; display:inline-block; background-color:blue; left:0px; top:0px; height:100%;width:100%;margin:auto;">
+
+    <!--<div id="test" style="color: red"> asdfasf</div>
+    <p id="test_para2">I am a test para</p>-->
+    <div id="test_div" style="color:red; position:absolute; font-size:30px; left:50%; top:50%;"><p id="test_para" style="text-align:center;">I am a test para</p></div>
+    <!--instruction screen -->
+    <p class="exp_text" id="instruct" style="text-align:center; position:absolute; left:50%; top:50%;"></p>
+
+</div>
+ <!--for slider, from Jill-->
+<div id="container">
+    <div style="margin: auto;">
+      <p id="participantOffer">Please respond. <span></span></p>
+    </div>
+    <!---->
+    <div id="slidebar"><div id="slider" class="draggable ui-widget-content"></div>
+    <div id="slidebar_hidden"><div id="outcomebar" class="draggable ui-widget-content"></div>
+</div>
+
+</body>
+</html>
