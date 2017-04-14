@@ -32,6 +32,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/">Home</a>
+		<a class="navbar-brand" href="/withdraw">Withdraw</a>
             </div>
 			
 		    <ul class="nav navbar-nav navbar-right">
@@ -97,8 +98,9 @@
 
 
 {% block script_base %}
-    <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>
-	<script src="{% static "js/jquery.js"}"></script>
+   <!-- <script src="{% block jquery_src %}{% static "jquery/js/jquery-2.1.1.min.js" %}{% endblock %}"></script>-->
+   <script type="text/javascript" scr="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!--<script src="{% static "js/jquery.js"}"></script>-->
     <script src="{% static "js/bootstrap.min.js" %}"></script>
 	<script src="{% static "js/bootstrap2.min.js" %}"></script>
 	
