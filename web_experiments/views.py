@@ -44,6 +44,7 @@ import numpy as np
 
 # http://127.0.0.1:8000/?MID=1323&tasks=c_MD_consent&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
+# http://127.0.0.1:8000/?MID=1323&tasks=survey_BDI,recontact&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
 
 def index(request):
@@ -197,6 +198,9 @@ def index(request):
     print('MID= '+str(p.MID))
     print('progress= '+str(p.progress))
 
+
+    ## RECONTACT ## 
+    
 
 
 
@@ -1101,6 +1105,88 @@ def consentProcess(request,survey_name):
 
 
     return render_to_response('consent_results.html',variables)
+
+
+###############################################
+################## Recontacting ################
+
+def recontactDisplay(request):
+    survey_name='recontact'
+    tasks = [str(x) for x in request.session['tasks']]
+    if request.session['MID'] is not None:
+  	# if they exist in the data base, grab their progress and completion code
+	if Participant.objects.filter(MID=request.session['MID']).exists():
+		repeat_session,p=get_same_participant_session(request,tasks)
+
+
+		ptime = str(p.progress_times)
+		ptime = ptime+';'+survey_name+' start:'+str(time.mktime(datetime.now().timetuple()))
+		p.progress_times = ptime
+
+		# progress times 2
+		ptime = str(p.progress_times2)
+		ptime = ptime+';'+survey_name+' start:'+str(datetime.now())
+		p.progress_times2 = ptime
+
+		p.save()
+
+    csrfContext = RequestContext(request)
+
+    return(render_to_response('recontact.html',csrfContext))
+
+
+def recontactProcess(request):
+    print('here')
+    survey_name = 'recontact'
+    tasks = [str(x) for x in request.session['tasks']]
+       ## Get same person based on Session Cookie.
+    if request.session['MID'] is not None:
+  	# if they exist in the data base, grab their progress and completion code
+	if Participant.objects.filter(MID=request.session['MID']).exists():
+		repeat_session,p=get_same_participant_session(request,tasks)
+
+    variables={}
+    print('made it this far')
+    ### validate survey response ###
+    if request.method == 'POST':
+
+	## yes's checked (a vector a the yes's)
+	yeses=0
+        for key in request.POST.iterkeys():
+            value = request.POST.getlist(key)
+            v=value[0]
+            print(value)
+	    if 'Yes' in value:
+		yeses+=1 # tally which ones they said yes to
+	
+	# total number of yeses
+	totalyeses=1
+
+
+        if yeses==totalyeses: # number of yeses should equal the number of questions XX HARD CODED AT THE MOMENT # 
+	    variables['agreed_to_come_back']=True
+            p.agreed_to_be_contacted=1
+
+        else:
+            variables['agreed_to_come_back']=False
+	    p.agreed_to_be_contacted=1
+
+
+	p.progress+=1 ### increment progress
+	ptime = str(p.progress_times)
+        ptime = ptime+';'+survey_name+' end:'+str(time.mktime(datetime.now().timetuple()))
+        p.progress_times = ptime
+
+        # progress times 2
+        ptime = str(p.progress_times2)
+        ptime = ptime+';'+survey_name+' end:'+str(datetime.now())
+        p.progress_times2 = ptime
+
+        #print('here')
+        p.save()
+
+
+    return render_to_response('recontact_results.html',variables)
 
 
 ########################################

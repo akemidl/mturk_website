@@ -21,6 +21,7 @@ class Participant(models.Model):
     cb=models.CharField(default='default',max_length=500)
     cb2 = models.CharField(default='default',max_length=500)
     show_info_sheet = IntegerField(default=0)
+    agreed_to_be_contacted = IntegerField(default=0)
 
 
 class Bandit_Trial(models.Model):

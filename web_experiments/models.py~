@@ -204,6 +204,7 @@ class MotionDots_ColourSpeed_Trial(models.Model):
     #speed_array_thistrial=models.CharField(max_length=5000,default='NaN')
     #rc_array_thistrial=models.CharField(max_length=5000,default='NaN')
     #rb_array_thistrial=models.CharField(max_length=5000,default='NaN')	
+    random_numbers_array=models.CharField(max_length=500,default='NaN')
 
     # Outcomes
     response  = models.CharField(max_length=200, default='NaN')

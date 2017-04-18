@@ -1,0 +1,33 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+{% endblock %}
+{% block extra_css %}
+	<link href="{% static "css/surveys.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block body_base %}
+<div id="survey_container">
+	{{ survey_complete }}
+	
+	{% if agreed_to_come_back  %}
+	    <p>Thanks! We will send a message to you AMT Worker ID, and assign you the qualification required for the next task.</p>
+	{% endif %}
+	
+	{% if not agreed_to_come_back  %}
+	    <p>Thanks for participating!</p>
+	{% endif %}
+	
+	<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a> 
+</div>
+
+				
+				
+
+	
+{% endblock %}
+
+

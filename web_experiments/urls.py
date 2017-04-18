@@ -28,9 +28,11 @@ urlpatterns = patterns("",
     url(r"^info_sheet/", infosheetDisplay),
     url(r"^withdraw/", withdrawDisplay),
     url(r"^completed/", completed),
-    url(r"^test/",test)
-
+    url(r"^test/",test),
+    url(r"^recontact/recontact_results$",recontactProcess),
+    url(r"^recontact/",recontactDisplay),
 )
+
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
