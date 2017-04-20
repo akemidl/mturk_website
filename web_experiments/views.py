@@ -92,83 +92,15 @@ def index(request):
 	# get a place holder for cb (just so its the right size); doesn't actually read in cb from URL
 	cb = list(str(request.GET.get('cb'))) # create a list so can access items
 
+	print(cb)
+	print(tasks)
 
-
-	#### BANDIT TASK SHIT #### 
-
-	# switch order of bandit tasks randomly
-
-	rand0 = random.randint(0,1)
-	if rand0 ==1: # switch order of loss and gain tasks
-		tasks = [task.replace('bandit_loss','bbgg') for task in tasks]
-		tasks = [task.replace('bandit_gain','bbll') for task in tasks]
-		tasks = [task.replace('bbll','bandit_loss') for task in tasks]
-		tasks = [task.replace('bbgg','bandit_gain') for task in tasks]
-
-
-	# generate counter balance
-	rand1 = random.randint(0,3)
-	randoms = [4,5,6,7]
-	rand = randoms[rand1]
-
-
-	for t,task in enumerate(tasks):
-		if rand==0:
-			if 'bandit_loss' in task:
-				cb[t]=str(0)
-			if 'bandit_gain' in task:
-				cb[t]=str(1)
-		if rand==1:
-			if 'bandit_loss' in task:
-				cb[t]=str(2)
-			if 'bandit_gain' in task:
-				cb[t]=str(3)
-		if rand==2:
-			if 'bandit_loss' in task:
-				cb[t]=str(1)
-			if 'bandit_gain' in task:
-				cb[t]=str(0)
-		if rand==3:
-			if 'bandit_loss' in task:
-				cb[t]=str(3)
-			if 'bandit_gain' in task:
-				cb[t]=str(2)
-		
-		if rand==4: #bandit loss is schedule 3, bandit gain is schedule 1
-			if 'bandit_loss' in task:
-				cb[t]=str(4)
-			if 'bandit_gain' in task:
-				cb[t]=str(0)
-		if rand==5:#bandit loss is schedule 1, bandit gain is schedule 3
-			if 'bandit_loss' in task:
-				cb[t]=str(0)
-			if 'bandit_gain' in task:
-				cb[t]=str(4)
-
-		if rand==6: #bandit loss is schedule 3, bandit gain is schedule 3
-			if 'bandit_loss' in task:
-				cb[t]=str(4)
-			if 'bandit_gain' in task:
-				cb[t]=str(4)
-		if rand==7:#bandit loss is schedule 1, bandit gain is schedule 1
-			if 'bandit_loss' in task:
-				cb[t]=str(0)
-			if 'bandit_gain' in task:
-				cb[t]=str(0)
-
-
-
-
-		if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
-			cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
-	cb = "".join(cb) # save it as a string
-	
-	
-
+	#### BANDIT TASK Counterbalaning #### 
+	tasks,cb = bandit_task_counter_balancing(tasks,cb,1)
 	request.session['tasks']=tasks # save into cookies
 	request.session['cb'] = cb
-	
-	#### END BANDIT TASK SHIT #### 
+	######## 
+
 
 	# generate random completion code
         completion_code = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
@@ -178,13 +110,9 @@ def index(request):
         p = Participant(MID=str(request.session['MID']), session_id=session_id, start_date=datetime.now(),progress_times='NULL',progress_times2='NULL',start_time=time.mktime(datetime.now().timetuple()),completion_code=completion_code,AID=tempAID,HID=tempHID,progress=0,total_tasks=len(tasks),tasks=','.join(tasks),cb=str(cb),cb2=cb) # add new participant to RDS database
         p.save()
 
-	print('tasks')
-	print(p.tasks)
-	print('counter balance')
-	print(p.cb2)
+	print('tasks {0}').format(p.tasks)
+	print('counter balance {0}').format(p.cb2)
 
-
-    print("test1123")
     print(p.show_info_sheet)
 
     temp_variables['completion_code'] = p.completion_code
@@ -199,11 +127,6 @@ def index(request):
     print('progress= '+str(p.progress))
 
 
-    ## RECONTACT ## 
-    
-
-
-
     #if valid_user:
         # pass relevant parameters to template and render
     return(render_to_response('index.html',temp_variables))
@@ -216,6 +139,97 @@ def index(request):
 ########################################
 ########### BANDIT TASK ##############
 
+def bandit_task_counter_balancing(tasks,cb,which=0):
+
+	if which==0:
+		''' this one was for (gain,loss) in the same hit. So there are 4 cb's '''
+		
+		# switch order of bandit tasks randomly
+
+		rand0 = random.randint(0,1)
+		if rand0 ==1: # switch order of loss and gain tasks
+			tasks = [task.replace('bandit_loss','bbgg') for task in tasks]
+			tasks = [task.replace('bandit_gain','bbll') for task in tasks]
+			tasks = [task.replace('bbll','bandit_loss') for task in tasks]
+			tasks = [task.replace('bbgg','bandit_gain') for task in tasks]
+
+
+		# generate counter balance
+		rand1 = random.randint(0,3)
+		randoms = [4,5,6,7]
+		rand = randoms[rand1]
+
+		# another counter balance 
+
+
+		for t,task in enumerate(tasks):
+			if rand==0:
+				if 'bandit_loss' in task:
+					cb[t]=str(0)
+				if 'bandit_gain' in task:
+					cb[t]=str(1)
+			if rand==1:
+				if 'bandit_loss' in task:
+					cb[t]=str(2)
+				if 'bandit_gain' in task:
+					cb[t]=str(3)
+			if rand==2:
+				if 'bandit_loss' in task:
+					cb[t]=str(1)
+				if 'bandit_gain' in task:
+					cb[t]=str(0)
+			if rand==3:
+				if 'bandit_loss' in task:
+					cb[t]=str(3)
+				if 'bandit_gain' in task:
+					cb[t]=str(2)
+		
+			if rand==4: #bandit loss is schedule 3, bandit gain is schedule 1
+				if 'bandit_loss' in task:
+					cb[t]=str(4)
+				if 'bandit_gain' in task:
+					cb[t]=str(0)
+			if rand==5:#bandit loss is schedule 1, bandit gain is schedule 3
+				if 'bandit_loss' in task:
+					cb[t]=str(0)
+				if 'bandit_gain' in task:
+					cb[t]=str(4)
+
+			if rand==6: #bandit loss is schedule 3, bandit gain is schedule 3
+				if 'bandit_loss' in task:
+					cb[t]=str(4)
+				if 'bandit_gain' in task:
+					cb[t]=str(4)
+			if rand==7:#bandit loss is schedule 1, bandit gain is schedule 1
+				if 'bandit_loss' in task:
+					cb[t]=str(0)
+				if 'bandit_gain' in task:
+					cb[t]=str(0)
+
+			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
+				cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
+			cb = "".join(cb) # save it as a string
+
+	if which ==1:
+		''' this is for single task, either gain or loss '''
+		# generate counter balance
+		rand1 = random.randint(0,1)
+		for t,task in enumerate(tasks):
+			if rand1==0: # stable first
+				if 'bandit_loss' in task:
+					cb[t]=str(0)
+				if 'bandit_gain' in task:
+					cb[t]=str(0)
+			if rand1==1: # vol first 
+				if 'bandit_loss' in task:
+					cb[t]=str(4)
+				if 'bandit_gain' in task:
+					cb[t]=str(4)
+			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
+				cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
+			cb = "".join(cb) # save it as a string
+
+	return(tasks,cb)
 
 
 def exp_page_bandit(request,outcome_type):
@@ -273,20 +287,25 @@ def exp_page_bandit(request,outcome_type):
 
     # cb 0, 2 have sched 1
     # cb 1, 3 have sched 2
+
+    # stab first
     if current_cb==0 or current_cb==2:
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched1_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched1_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched1_180.txt')
+	print('stable first')
+    # vol first 
     elif current_cb==1 or current_cb==3:
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched2_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched2_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched2_180.txt')
 
+    # vol first
     elif current_cb==4 or current_cb==5:
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched3_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched3_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched3_180.txt')
-
+	print('volatile first')
 #(so can't attribute effects to green v blue color)
     # cb 0 and 1 have green=green image
     # cb 2 and 3 have green=blue iamge
