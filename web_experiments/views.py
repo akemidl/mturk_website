@@ -208,9 +208,10 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 
 			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
 				cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
-			cb = "".join(cb) # save it as a string
+		cb = "".join(cb) # save it as a string
 
 	if which ==1:
+		print(type(cb))
 		''' this is for single task, either gain or loss '''
 		# generate counter balance
 		rand1 = random.randint(0,1)
@@ -225,9 +226,9 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 					cb[t]=str(4)
 				if 'bandit_gain' in task:
 					cb[t]=str(4)
-			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
+			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later (Haha it did .. months later)
 				cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
-			cb = "".join(cb) # save it as a string
+		cb = "".join(cb) # save it as a string
 
 	return(tasks,cb)
 

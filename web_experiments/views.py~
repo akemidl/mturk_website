@@ -211,6 +211,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 			cb = "".join(cb) # save it as a string
 
 	if which ==1:
+		print(type(cb))
 		''' this is for single task, either gain or loss '''
 		# generate counter balance
 		rand1 = random.randint(0,1)
@@ -225,7 +226,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 					cb[t]=str(4)
 				if 'bandit_gain' in task:
 					cb[t]=str(4)
-			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later
+			if 'survey' in task and 'bandit' not in task: ## this is super sloppy and may cause problems later (Haha it did .. months later)
 				cb[t] = str(1) ## can't start cb with 0 because its an integer field, maybe change some day
 			cb = "".join(cb) # save it as a string
 
@@ -293,6 +294,7 @@ def exp_page_bandit(request,outcome_type):
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched1_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched1_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched1_180.txt')
+	print('stable first')
     # vol first 
     elif current_cb==1 or current_cb==3:
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched2_180_green_'+magname+'.txt')
@@ -304,7 +306,7 @@ def exp_page_bandit(request,outcome_type):
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched3_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched3_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched3_180.txt')
-
+	print('volatile first')
 #(so can't attribute effects to green v blue color)
     # cb 0 and 1 have green=green image
     # cb 2 and 3 have green=blue iamge
