@@ -6,7 +6,7 @@ if(outcome_type=='gain'){
  var sign = 1.0
 
 }else if(outcome_type=='loss'){
- var totalpoints = 5000
+ var totalpoints = 0
  var sign = -1.0
 
 }
@@ -853,9 +853,9 @@ function RunInstruct(event){
 //// Welcome Screen 
 	if(currentnumber==1){
 		if(outcome_type=='gain'){
-		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p> In this study, you will make a series of choices to try to maximize the amount of points you get.  Your points will be shown in the upper right corner. Points will be converted to money at the end of the experiment.</p><p>Press Continue.</p>'
+		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p> In this study, you will make a series of choices to try to maximize the amount of points you get.  Your points will be shown in the upper right corner.</p><p>Press Continue.</p>' //  Points will be converted to money at the end of the experiment.
 		}else{
-		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p> In this study, you will make a series of choices to try to minimize the number of points you lose from your starting total of 5000.  Your points will be shown in the upper right corner. The points you have left at the end of the experiment will be converted to money.</p><p>Press Continue.</p>'
+		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p> In this study, you will make a series of choices to try to minimize the number of points you lose from your starting total of 5000.  Your points will be shown in the upper right corner. </p><p>Press Continue.</p>' // The points you have left at the end of the experiment will be converted to money.
 		}
 		$('#button_previous').hide();
 		$('#button_continue').show();

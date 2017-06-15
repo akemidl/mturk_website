@@ -1,5 +1,5 @@
 
-var totalpoints = 5000
+var totalpoints = 0
 var sign = 1.0
 
 
@@ -870,7 +870,7 @@ function RunInstruct(event){
 //// Welcome Screen 
 	if(currentnumber==1){
 
-		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 5,000 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $3 will be awarded to participants that score in the top 5%, $1 to those in the top 10%, and $0.25 to the top 50%.</p><p>Press Continue.</p>' 
+		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 0 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $3 will be awarded to participants that score in the top 5%, $1 to those in the top 10%, and $0.25 to the top 50%.</p><p>Press Continue.</p>' 
 
 		$('#button_previous').hide();
 		$('#button_continue').show();
@@ -1098,7 +1098,7 @@ function RunInstruct(event){
 
 //// Fourth Trial  (0)
 	}else if(currentnumber==17){		
-		document.getElementById('instruct').innerHTML = '<p>Here, there is also missing information in one box (this time, the box on the left). This time, a lot of information is missing -- you can only see four tokens.</p><p>One minor point is that the ‘O’s are shuffled to the left in each row to make it easier for you to see how many are in each bin. But this happens after the ‘=’ signs are put down. So in a row that is partly hidden like the bottom row here, the hidden tokens can be either ‘O’s OR ‘X’s.</p><p>Go ahead and make your choice.</p><p> Press either the right or left arrow key</p>'
+		document.getElementById('instruct').innerHTML = '<p>Here, there is also missing information in one box (this time, the box on the left). This time, a lot of information is missing -- you can only see four tokens.</p><p>One minor point is that the ‘O’s are shuffled to the left in each row to make it easier for you to see how many are in each bin. But this happens after the ‘=’ signs are put down. So in a row that is partly hidden like the bottom row here, the hidden tokens can be either ‘O’s OR ‘X’s.</p><p>Go ahead and make your choice.</p><p>Press either the right or left arrow key.</p>'
 		document.getElementById('mag_left').style.borderWidth = '1px';	
 		document.getElementById('mag_right').style.borderWidth = '1px';			
 		practice=true
@@ -1282,7 +1282,7 @@ function RunInstruct(event){
 		str1 = 	'<p>An ‘X’ was drawn from the box you picked. You can see that '
 		str2 = outcome
 		str1 = str1.concat(str2)
-		document.getElementById('instruct').innerHTML = str1.concat(' points have been entered into the first slot in the temporary tally board. </p><p> Press Continue for another trial.</p>')
+		document.getElementById('instruct').innerHTML = str1.concat(' points have been entered into the first slot in the temporary tally board. </p><p> Press Continue.</p>')
 		document.getElementById('outcome').innerHTML='X'
 		increment_tally(outcome)
 		$('#outcome').show()
@@ -1436,7 +1436,7 @@ function RunInstruct(event){
 	}else if(currentnumber==32){	
 		currenttrial_p=9
 		currenttrial_within_5=4	
-		document.getElementById('instruct').innerHTML = '<p> Here again you can choose either side.</p><p>Press either the right or left arrow key</p>'
+		document.getElementById('instruct').innerHTML = '<p> Here again you can choose either side.</p><p>Press either the right or left arrow key.</p>'
 		document.getElementById('mag_left').style.borderWidth = '1px';	
 		document.getElementById('mag_right').style.borderWidth = '1px';		
 		$('#outcome').hide()	

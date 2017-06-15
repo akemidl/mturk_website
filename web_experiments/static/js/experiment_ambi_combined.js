@@ -1,5 +1,5 @@
 
-var totalpoints = 5000
+var totalpoints = 0
 var sign = 1.0
 
 
@@ -870,7 +870,7 @@ function RunInstruct(event){
 //// Welcome Screen 
 	if(currentnumber==1){
 
-		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 5,000 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $3 will be awarded to participants that score in the top 5%, $1 to those in the top 10%, and $0.25 to the top 50%.</p><p>Press Continue.</p>' 
+		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 0 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $3 will be awarded to participants that score in the top 5%, $1 to those in the top 10%, and $0.25 to the top 50%.</p><p>Press Continue.</p>' 
 
 		$('#button_previous').hide();
 		$('#button_continue').show();
@@ -1712,9 +1712,9 @@ function RunInstruct(event){
 		var element = document.getElementById("trialcounter");
 		element.innerHTML='Completed: '+0+'/'+num_trials
 		if(outcome_type=='gain'){
-		totalpoints = 5000
+		totalpoints = 0
 		}else{
-		totalpoints = 5000
+		totalpoints = 0
 		}
 		var element = document.getElementById("pointscounter");
 		element.innerHTML='Points: '+totalpoints

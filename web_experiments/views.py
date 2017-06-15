@@ -47,6 +47,7 @@ import numpy as np
 # http://127.0.0.1:8000/?MID=1323&tasks=survey_BDI,recontact&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
 
+
 def index(request):
 
 
