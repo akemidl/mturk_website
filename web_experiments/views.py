@@ -96,18 +96,18 @@ def index(request):
 	print(cb)
 	print(tasks)
 
-	#### BANDIT TASK Counterbalaning #### 
+	#### BANDIT TASK Counterbalaning ####
 	tasks,cb = bandit_task_counter_balancing(tasks,cb,1)
 	request.session['tasks']=tasks # save into cookies
 	request.session['cb'] = cb
-	######## 
+	########
 
 
 	# generate random completion code
         completion_code = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(10)])
 	session_id = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(4)])
 
-	# generate new participant / save 
+	# generate new participant / save
         p = Participant(MID=str(request.session['MID']), session_id=session_id, start_date=datetime.now(),progress_times='NULL',progress_times2='NULL',start_time=time.mktime(datetime.now().timetuple()),completion_code=completion_code,AID=tempAID,HID=tempHID,progress=0,total_tasks=len(tasks),tasks=','.join(tasks),cb=str(cb),cb2=cb) # add new participant to RDS database
         p.save()
 
@@ -144,7 +144,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 
 	if which==0:
 		''' this one was for (gain,loss) in the same hit. So there are 4 cb's '''
-		
+
 		# switch order of bandit tasks randomly
 
 		rand0 = random.randint(0,1)
@@ -160,7 +160,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 		randoms = [4,5,6,7]
 		rand = randoms[rand1]
 
-		# another counter balance 
+		# another counter balance
 
 
 		for t,task in enumerate(tasks):
@@ -184,7 +184,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 					cb[t]=str(3)
 				if 'bandit_gain' in task:
 					cb[t]=str(2)
-		
+
 			if rand==4: #bandit loss is schedule 3, bandit gain is schedule 1
 				if 'bandit_loss' in task:
 					cb[t]=str(4)
@@ -222,7 +222,7 @@ def bandit_task_counter_balancing(tasks,cb,which=0):
 					cb[t]=str(0)
 				if 'bandit_gain' in task:
 					cb[t]=str(0)
-			if rand1==1: # vol first 
+			if rand1==1: # vol first
 				if 'bandit_loss' in task:
 					cb[t]=str(4)
 				if 'bandit_gain' in task:
@@ -261,7 +261,7 @@ def exp_page_bandit(request,outcome_type):
 			ptime = ptime+';bandit loss start:'+str(time.mktime(datetime.now().timetuple()))
 			p.progress_times = ptime
 			p.save()
-		# progress time 2 
+		# progress time 2
 
 		ptime = str(p.progress_times2)
 		if('bandit gain start' not in ptime) and (outcome_type=='gain'):
@@ -296,7 +296,7 @@ def exp_page_bandit(request,outcome_type):
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched1_180_blue_'+magname+'.txt')
 	outcomes = read_csv('new_schedules_2015-varying_section_length/sched1_180.txt')
 	print('stable first')
-    # vol first 
+    # vol first
     elif current_cb==1 or current_cb==3:
 	green_rew = read_csv('new_schedules_2015-varying_section_length/sched2_180_green_'+magname+'.txt')
 	blue_rew = read_csv('new_schedules_2015-varying_section_length/sched2_180_blue_'+magname+'.txt')
@@ -315,7 +315,7 @@ def exp_page_bandit(request,outcome_type):
     if current_cb==0 or current_cb==1 or current_cb==4:
 	imageg='images/green.png'
 	imageb='images/blue.png'
-    elif current_cb==2 or current_cb==3 or current_cb==5: # the pairing is 0,2 ; 1,3 ; 4,5 for schedule/color counter-balance. 
+    elif current_cb==2 or current_cb==3 or current_cb==5: # the pairing is 0,2 ; 1,3 ; 4,5 for schedule/color counter-balance.
 	imageb='images/green.png'
 	imageg='images/blue.png'
 
@@ -370,11 +370,11 @@ def exp_page_bandit(request,outcome_type):
     finished=request.GET.get('finished')
     #### Update Progress
     if finished=='1' or finished==1:
-        p.progress+=1 
+        p.progress+=1
 	ptime = str(p.progress_times)
 	ptime = ptime+';bandit '+outcome_type+' end:'+str(time.mktime(datetime.now().timetuple()))
 	#ptime = ptime+';bandit '+outcome_type+' end:'+str(datetime.now())
-	# datetime.now()	
+	# datetime.now()
 	p.progress_times = ptime
 
 	# progress time 2
@@ -406,7 +406,7 @@ def exp_page_bandit(request,outcome_type):
 def exp_page_ambi_combined(request):
 
     print('here')
-   # combined gain lossversion 
+   # combined gain lossversion
     outcome_type='combined'
 
     # get task list
@@ -418,7 +418,7 @@ def exp_page_ambi_combined(request):
 	if Participant.objects.filter(MID=request.session['MID']).exists():
 		repeat_session,p=get_same_participant_session(request,tasks)
 
-		# progress time 2 
+		# progress time 2
 
 		ptime = str(p.progress_times2)
 		if('ambi combined start' not in ptime):
@@ -432,8 +432,9 @@ def exp_page_ambi_combined(request):
     variables = {}
     variables['MID']=p.MID
 
-    # params 
-    params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined.csv',delimiter=',',skiprows=1)
+    # params
+    #params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined.csv',delimiter=',',skiprows=1)
+    params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined_7_28_2017_tweaked.csv',delimiter=',',skiprows=1)
 
 
     variables['mag_l']=list(params[:,1])
@@ -446,7 +447,7 @@ def exp_page_ambi_combined(request):
     #print(variables['mag_l'])
 
 
-    # need make new practice 
+    # need make new practice
     params_p=load_ambi_file3(version='2')
     print(params_p)
     variables['mag_l_p']=params_p[0]
@@ -457,8 +458,9 @@ def exp_page_ambi_combined(request):
     variables['r_l_p']=params_p[5]
 
     # need new XOList
-    with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined.txt') as txt:
-	XOlist = txt.read()
+    #with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined.txt') as txt:
+    with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined_7_28_2017.txt') as txt:
+    XOlist = txt.read()
     variables['XOlist']=XOlist
     variables['XOlist_p']=load_ambi_file2('web_experiments/small_data/ambi/colours/colours_toinput_demo_chris_combined.txt')
     variables['outcome_type'] = outcome_type
@@ -502,7 +504,7 @@ def exp_page_ambi_combined(request):
     finished=request.GET.get('finished')
     #### Update Progress
     if finished=='1' or finished==1:
-        p.progress+=1 
+        p.progress+=1
 	ptime = str(p.progress_times)
 	# progress time 2
 	ptime = str(p.progress_times2)
@@ -529,7 +531,7 @@ def exp_page_ambi(request,outcome_type):
 	if Participant.objects.filter(MID=request.session['MID']).exists():
 		repeat_session,p=get_same_participant_session(request,tasks)
 
-		# progress time 2 
+		# progress time 2
 
 		ptime = str(p.progress_times2)
 		if('ambi gain start' not in ptime) and (outcome_type=='gain'):
@@ -540,7 +542,7 @@ def exp_page_ambi(request,outcome_type):
 			ptime = ptime+';ambi loss start:'+str(datetime.now())
 			p.progress_times2 = ptime
 			p.save()
-	
+
 
 
     # Load Task Data
@@ -629,7 +631,7 @@ def exp_page_ambi(request,outcome_type):
     finished=request.GET.get('finished')
     #### Update Progress
     if finished=='1' or finished==1:
-        p.progress+=1 
+        p.progress+=1
 	ptime = str(p.progress_times)
 	# progress time 2
 	ptime = str(p.progress_times2)
@@ -684,7 +686,7 @@ def load_ambi_file2(fname):
 ## just for practice.. easier copying the function rather than allowing different inptu
 def load_ambi_file3(version=''):
 	newlist=[]
-	# version 2 is for combined 
+	# version 2 is for combined
 	fname = 'web_experiments/small_data/ambi/parameters/input_file_piloting_demo_chris'+version+'.txt'
 	with open(fname) as f:
 		content = f.readlines()
@@ -944,7 +946,7 @@ def surveyProcess(request,survey_name):
 
     variables={}
 
-     
+
 
     ### validate survey response ###
     bdi_total=0
@@ -958,8 +960,8 @@ def surveyProcess(request,survey_name):
                 #   p.MID = 'None'
                 Q = QuestionnaireModel(survey_name=survey_name,MID=p.MID,AID=p.AID,HID=p.HID, start_date=datetime.now(),start_time=time.mktime(datetime.now().timetuple()),question=key.replace('q',''),answer=v)
                 Q.save()
-		bdi_total=bdi_total+int(v) # in case I need this 
-	    
+		bdi_total=bdi_total+int(v) # in case I need this
+
 	    ## add BDI, check for suicide question
             if survey_name =='BDI':
 	    	print('here')
@@ -967,16 +969,16 @@ def surveyProcess(request,survey_name):
 		    if int(v)>0:
 			print('suicide question')
 			p.show_info_sheet=1
-		    
-			
-		
+
+
+
   	    print(key)
 	    print(value)
 
         if form.is_valid():
             variables['survey_completed']=True
 
-	    ## gate keeping progress for consent form ## 
+	    ## gate keeping progress for consent form ##
 
             p.progress+=1 ### increment progress
 	    ptime = str(p.progress_times)
@@ -1020,7 +1022,7 @@ def withdrawDisplay(request):
 ########################################
 ########## Consents #############
 
-# to get surveys to display - you need - 
+# to get surveys to display - you need -
 # c_MD_consent
 # c_
 
@@ -1094,14 +1096,14 @@ def consentProcess(request,survey_name):
 	print(yeses)
 
 
-	# total number of yeses 
+	# total number of yeses
 	if 'MD_consent' in survey_name:
 		totalyeses=8
 	if 'AMT_Bishop1' in survey_name:
 		totalyeses=8
 
- 
-        if yeses==totalyeses: # number of yeses should equal the number of questions XX HARD CODED AT THE MOMENT # 
+
+        if yeses==totalyeses: # number of yeses should equal the number of questions XX HARD CODED AT THE MOMENT #
 	    variables['survey_completed']=True
 
             p.progress+=1 ### increment progress
@@ -1179,12 +1181,12 @@ def recontactProcess(request):
             print(value)
 	    if 'Yes' in value:
 		yeses+=1 # tally which ones they said yes to
-	
+
 	# total number of yeses
 	totalyeses=1
 
 
-        if yeses==totalyeses: # number of yeses should equal the number of questions XX HARD CODED AT THE MOMENT # 
+        if yeses==totalyeses: # number of yeses should equal the number of questions XX HARD CODED AT THE MOMENT #
 	    variables['agreed_to_come_back']=True
             p.agreed_to_be_contacted=1
 
