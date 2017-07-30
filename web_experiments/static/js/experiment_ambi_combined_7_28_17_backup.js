@@ -41,7 +41,7 @@ var last_pressed = 'None';
 
 // Create Event Array //
 total_instruct = 63
-//total_instruct = 1 /// TESTING TRIALS
+total_instruct = 1 /// TESTING TRIALS
 console.log('total instruct')
 console.log(total_instruct)
 
@@ -86,7 +86,6 @@ revealed_x_l = 0.0
 revealed_x_r = 0.0
 
 
-
 function create_urns(XOlist,urn_storage_r,urn_storage_l){
 
 	iii = 0
@@ -97,29 +96,47 @@ function create_urns(XOlist,urn_storage_r,urn_storage_l){
 		urn_right = []
 		within_urn_counter_r = 0
 		within_urn_counter_l = 0
-		for  (row = 0; row <20; row++){ // goes through left then right urns row by row. 
+		for  (row = 0; row <20; row++){
+
 			// create a row
 			var row_array = []
 			for  (column = 0; column<5; column++){
 				one_or_zero = parseInt(XOlist[iii])
-				// this was updated to work with newer strings post 7/28/17
 				if(one_or_zero==0){row_array[column]='X'}
 				if(one_or_zero==1){row_array[column]='O'}
-				if(one_or_zero==2){row_array[column]='='}
+
+				// if row is greater than 10 use the within left urn counter and reveal
+				if(row<10){
+					if(within_urn_counter_r>=parseFloat(revealed_right_t[trial].replace("'","").replace("'",""))*50){row_array[column]='='}
+					within_urn_counter_r+=1
+				}
+				else{
+					if(within_urn_counter_l>=parseFloat(revealed_left_t[trial].replace("'","").replace("'",""))*50){row_array[column]='='}
+					within_urn_counter_l+=1
+				}
 				iii+=1
 			}
+			if(trial==0){
+			if(row>=10){
+				//console.log(row_array)
+			}			
+			}
 
-			// add row to the appropriate urn based on row number (first 10 go to right urn, second 10 go to right urn)
+			// add row to the appropriate urn based on row number (first 10 go to right urn, second 10 go to left urn)
 			if(row<10){
-				urn_left[row]=row_array.sort().reverse()
+				urn_right[row]=row_array.sort().reverse()
 			}else{
-				urn_right[row-10]=row_array.sort().reverse()
+				urn_left[row-10]=row_array.sort().reverse()
 			} 		
 		}
 		// store the urns for each trial 
 		urn_storage_r[trial]=urn_right
 		urn_storage_l[trial]=urn_left
 	}
+	//console.log(urn_storage_r)
+	//	console.log(urn_storage_l)
+	
+
 }
 
 function create_urns_p(XOlist_p,urn_storage_r_p,urn_storage_l_p){
@@ -674,7 +691,7 @@ function Outcome(response){
 		//console.log(prob_X*100)
 		//console.log(number_between_one_and_one_hundred)
 
-		if(number_between_one_and_one_hundred<=prob_X*100){outcome = 'X'}else{outcome='O'} // if uniform is less than line for prob_X, then choose X // 
+		if(number_between_one_and_one_hundred<=prob_X*100){outcome = 'O'}else{outcome='X'} // if uniform is less than line for prob_X, then choose X // 
 
 		var element = document.getElementById("outcome"); // display the X 
 		element.innerHTML=outcome

@@ -30,6 +30,7 @@ import numpy as np
 # http://127.0.0.1:8000/?MID=1323&tasks=experiment_ambi_gain&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 # http://127.0.0.1:8000/?MID=1323&tasks=experiment_ambi_loss&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
+# http://127.0.0.1:8000/?MID=1323&tasks=experiment_ambicombined&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
 # http://127.0.0.1:8000/?MID=1323&tasks=experiment_horizon_gain&cb=1&assign_id=adsfasdf&hit_id=asdfasdf
 
@@ -434,7 +435,7 @@ def exp_page_ambi_combined(request):
 
     # params
     #params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined.csv',delimiter=',',skiprows=1)
-    params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined_7_28_2017_tweaked.csv',delimiter=',',skiprows=1)
+    params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined_7_30_2017_tweaked.csv',delimiter=',',skiprows=1)
 
 
     variables['mag_l']=list(params[:,1])
@@ -459,8 +460,8 @@ def exp_page_ambi_combined(request):
 
     # need new XOList
     #with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined.txt') as txt:
-    with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined_7_28_2017.txt') as txt:
-    XOlist = txt.read()
+    with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined_7_30_2017.txt') as txt:
+    	XOlist = txt.read()
     variables['XOlist']=XOlist
     variables['XOlist_p']=load_ambi_file2('web_experiments/small_data/ambi/colours/colours_toinput_demo_chris_combined.txt')
     variables['outcome_type'] = outcome_type
