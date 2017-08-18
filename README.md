@@ -1,4 +1,7 @@
 
+# How to install
+git clone ... 
+conda create 
 
 
 
