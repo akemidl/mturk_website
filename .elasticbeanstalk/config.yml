@@ -1,0 +1,13 @@
+branch-defaults:
+  default:
+    environment: web-experiments-dev
+    group_suffix: null
+  master:
+    environment: web-experiments-dev
+global:
+  application_name: web_experiments
+  default_ec2_keyname: aws-eb
+  default_platform: Python 2.7
+  default_region: us-west-1
+  profile: eb-cli
+  sc: git
