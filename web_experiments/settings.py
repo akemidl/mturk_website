@@ -74,8 +74,12 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    os.path.join(PACKAGE_ROOT, "experiment_example"), # where on my computer
-    #os.path.join(PROJECT_ROOT, "pictures"), # doesnt work.
+    os.path.join(PACKAGE_ROOT, "experiment_example"),
+    os.path.join(PACKAGE_ROOT, "experiment_bandit"),
+    os.path.join(PACKAGE_ROOT, "experiment_ambi"),
+    os.path.join(PACKAGE_ROOT, "experiment_ambi_combined"),
+    os.path.join(PACKAGE_ROOT, "experiment_horizon"),
+    os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
 ]
 
 # List of finder classes that know how to find static files in
@@ -125,7 +129,12 @@ WSGI_APPLICATION = "web_experiments.wsgi.application"
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
-    os.path.join(PACKAGE_ROOT, "experiment_example")
+    os.path.join(PACKAGE_ROOT, "experiment_example"),
+    os.path.join(PACKAGE_ROOT, "experiment_ambi"),
+    os.path.join(PACKAGE_ROOT, "experiment_ambi_combined"),
+    os.path.join(PACKAGE_ROOT, "experiment_bandit"),
+    os.path.join(PACKAGE_ROOT, "experiment_horizon"),
+    os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
 ]
 
 INSTALLED_APPS = [
@@ -149,11 +158,11 @@ INSTALLED_APPS = [
     "eventlog",
     "metron",
 
-
     # project
     "web_experiments",
     "web_experiments.models",
     "web_experiments.experiment_example.experiment_example_models"
+
 ]
 
 # A sample logging configuration. The only tangible logging

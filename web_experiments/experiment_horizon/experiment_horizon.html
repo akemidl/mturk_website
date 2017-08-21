@@ -5,12 +5,12 @@
 
 
 {% block extra_js %}
-<script src="{% static "js/experiment_horizon.js" %}"></script>
+<script src="{% static "experiment_horizon.js" %}"></script>
 
 
 {% endblock %}
 {% block extra_css %}
-<link href="{% static "css/experiment_horizon.css" %}" rel="stylesheet">
+<link href="{% static "experiment_horizon.css" %}" rel="stylesheet">
 {% endblock %}
 
 
@@ -20,29 +20,29 @@
 <script>
 	var outcome_type = "{{outcome_type|safe}}"
 </script>
-		
-		
+
+
 		<div id="exp_container">
 
 
 
-		
+
 				<div class="exp_text" id="outcome">
 					<p>OUTCOME<p>
 				</div>
 
 				<p class="exp_text" id="instruct">Welcome!as Click CONTINUE.</p>
-				
-				
-				
 
 
-				<p class="exp_text" id="trialcounter">Completed: 0/{{num_trials}}</p>	
-				<p class="exp_text" id="pointscounter">Points: 0</p>	
-				
-	
-			
-		
+
+
+
+				<p class="exp_text" id="trialcounter">Completed: 0/{{num_trials}}</p>
+				<p class="exp_text" id="pointscounter">Points: 0</p>
+
+
+
+
 				<div id="left_bandit">
 					<div id="b0_l" class="box"><p>XX</p></div>
 					<div id="b1_l" class="box"><p>XX</p></div>
@@ -55,7 +55,7 @@
 					<div id="b8_l" class="box"><p>XX</p></div>
 					<div id="b9_l" class="box"><p>XX</p></div>
 				</div>
-				
+
 
 				<div id="right_bandit">
 					<div id="b0_r" class="box"><p>XX</p></div>
@@ -70,38 +70,35 @@
 					<div id="b9_r" class="box"><p>XX</p></div>
 				</div>
 
-		
-			
 
-				<a id="button_previous" href="#" class="btn btn-primary">Go Back</a> 
-				<a id="button_continue" href="#" class="btn btn-primary">Continue</a> 
-			
-				
-				
-				
+
+
+				<a id="button_previous" href="#" class="btn btn-primary">Go Back</a>
+				<a id="button_continue" href="#" class="btn btn-primary">Continue</a>
+
+
+
+
 				<div class="exp_text" id="thanks">
 				<p  id="thanks1">You have completed the experiment! </p>
 				<p  id="thanks2">Your bonus will be computed based on your performance relative to other participants. You will receive a bonus within 3 days.</p>
 				<p>Return to the main page.</p>
 				</div>
-				<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a> 
-				
+				<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a>
 
-			
+
+
 		</div>
-		
 
-	
-	
+
+
+
 {% endblock %}
 
 {% block footer %}
 		<div>
-		<p style="margin:auto;width:100%;text-align:center;">Do not refresh the page</p>	
-		<p style="margin:auto;width:100%;text-align:center;">Bishop Lab, UC Berkeley 2016</p>	
+		<p style="margin:auto;width:100%;text-align:center;">Do not refresh the page</p>
+		<p style="margin:auto;width:100%;text-align:center;">Bishop Lab, UC Berkeley 2016</p>
 		</div>
 
 {% endblock %}
-
-
-

@@ -1,6 +1,8 @@
 ########################################
 ############## MSCL ####################
 
+import csv
+
 from web_experiments.models import Participant
 
 def get_same_participant_session(request,tasks):

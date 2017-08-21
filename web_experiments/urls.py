@@ -9,14 +9,13 @@ from web_experiments.views import *
 
 urlpatterns = patterns("",
     url(r"^$", index, name="home"),
+    url(r"^experiment_example/$",exp_page_example),
     url(r"^experiment_bandit_(?P<outcome_type>\w{0,50})/$", exp_page_bandit),
     url(r"^experiment_ambi_(?P<outcome_type>\w{0,50})/$", exp_page_ambi),
     url(r"^experiment_ambicombined/$", exp_page_ambi_combined),
     url(r"^e_bandit_(?P<outcome_type>\w{0,50})/$", exp_page_bandit),
     url(r"^e_ambi_(?P<outcome_type>\w{0,50})/$", exp_page_ambi),
     url(r"^experiment_horizon_(?P<outcome_type>\w{0,50})/$", exp_page_horizon),
-    url(r"^experiment_motiondots/$", exp_page_motiondots),
-    url(r"^experiment_motiondots_colourspeed/$", exp_page_motiondots_colourspeed),
     url(r"^survey_(?P<survey_name>\w{0,50})/$",surveyDisplay),
     url(r"^survey_(?P<survey_name>\w{0,50})/processSurvey$",surveyProcess),
     url(r"^c_(?P<survey_name>\w{0,50})/$",consentDisplay),
@@ -28,10 +27,8 @@ urlpatterns = patterns("",
     url(r"^info_sheet/", infosheetDisplay),
     url(r"^withdraw/", withdrawDisplay),
     url(r"^completed/", completed),
-    url(r"^test/",test),
     url(r"^recontact/recontact_results$",recontactProcess),
     url(r"^recontact/",recontactDisplay),
-    url(r"^experiment_example/$",exp_page_example)
 )
 
 
