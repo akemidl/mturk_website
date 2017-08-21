@@ -27,21 +27,21 @@
             <p> Number of tasks to complete:  {{progress_countdown}} </p>
 			</div>
 
-			
+
 			<div id="completion">
 				<p>You are all Done! Please return to Amazon Mechanical Turk and enter this code into the HIT: {{completion_code}}.</p>
 			</div>
-	
-	
-			
-			
-				
-     
+
+
+
+
+
+
         </header>
 
 
         <div class="row">
- 
+
 <p><strong>Questionnaires: </strong></p>
 
             <div class="col-xs-2 thumb">
@@ -70,7 +70,7 @@
 				</a>
             </div>
 
-	    
+
 	<div class="col-xs-2 thumb">
              <a  id="survey_MASQ" style="text-align: center;display: none;"  class="thumbnail" >
 					<img  class="img-responsive" src="{% static "images/survey_image.jpeg" %}">
@@ -134,6 +134,15 @@
 <div class="row">
 <p><strong>Tasks: </strong></p>
 
+    <div class="col-xs-2 thumb">
+             <a id="experiment_example" style="text-align: center;display: none;" class="thumbnail" >
+        <img  height="4" class="img-responsive" src="{% static "images/experiment_image.jpg" %}">
+        <br>
+                  <p>Decision Making Task</p>
+      </a>
+          </div>
+
+
 	    <div class="col-xs-2 thumb">
                <a id="experiment_ambicombined" style="text-align: center;display: none;" class="thumbnail" >
 					<img  height="4" class="img-responsive" src="{% static "images/experiment_image.jpg" %}">
@@ -193,6 +202,9 @@
 				</a>
             </div>
 
+
+
+
 </div>
 
 
@@ -215,7 +227,7 @@
                     <p>Info Sheet</p>
 				</a>
             </div>
-			
+
             <div class="col-xs-2 thumb">
                 <a  id="c_MD_consent" style="text-align: center;display: none;"  class="thumbnail" >
 					<img  class="img-responsive" src="{% static "images/survey_image.jpeg" %}">
@@ -270,11 +282,11 @@ console.log(tasks)
 
 function disableLink(link){
 		document.getElementById(link).disabled=true;
-		document.getElementById(link).removeAttribute('href');  
+		document.getElementById(link).removeAttribute('href');
 		document.getElementById(link).style.textDecoration = 'none';
 		document.getElementById(link).style.cursor = 'default';
 		document.getElementById(link).className='inactive_thumbnail';
-		
+
 	};
 
 function showLink(link,href)
@@ -305,7 +317,7 @@ console.log(show_info_sheet)
 
 
 
-for (i = 0; i < tasks.length; i++) { 
+for (i = 0; i < tasks.length; i++) {
     $("#"+tasks[i]).show()
     if(i==progress){
     	showLink(tasks[i],tasks[i])
@@ -315,7 +327,7 @@ for (i = 0; i < tasks.length; i++) {
 	disableLink(tasks[i])
 	console.log('disable')
 	console.log(tasks[i])}
-  
+
 }
 
 if(show_info_sheet==1){
@@ -362,5 +374,3 @@ a.inactive_thumbnail.active {
 
 
 {% endblock %}
-
-

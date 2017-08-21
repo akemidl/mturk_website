@@ -31,6 +31,7 @@ urlpatterns = patterns("",
     url(r"^test/",test),
     url(r"^recontact/recontact_results$",recontactProcess),
     url(r"^recontact/",recontactDisplay),
+    url(r"^experiment_example/$",exp_page_example)
 )
 
 

@@ -1,4 +1,4 @@
-import os 
+import os
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
@@ -74,8 +74,8 @@ STATIC_URL = '/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = [
-    #os.path.join(PACKAGE_ROOT, "static"), # where on my computer
-    #os.path.join(PROJECT_ROOT, "pictures"), # doesnt work. 
+    os.path.join(PACKAGE_ROOT, "experiment_example"), # where on my computer
+    #os.path.join(PROJECT_ROOT, "pictures"), # doesnt work.
 ]
 
 # List of finder classes that know how to find static files in
@@ -125,6 +125,7 @@ WSGI_APPLICATION = "web_experiments.wsgi.application"
 
 TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "templates"),
+    os.path.join(PACKAGE_ROOT, "experiment_example")
 ]
 
 INSTALLED_APPS = [
@@ -135,10 +136,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.staticfiles",
-    
-    ### addded 
+
+    ### addded
     "simplejson",
-    
+
     # theme
     "bootstrapform",
     "pinax_theme_bootstrap",
@@ -151,7 +152,8 @@ INSTALLED_APPS = [
 
     # project
     "web_experiments",
-    "web_experiments.models"
+    "web_experiments.models",
+    "web_experiments.experiment_example.experiment_example_models"
 ]
 
 # A sample logging configuration. The only tangible logging
@@ -199,4 +201,3 @@ ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 AUTHENTICATION_BACKENDS = [
     "account.auth_backends.UsernameAuthenticationBackend",
 ]
-
