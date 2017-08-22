@@ -40,27 +40,12 @@ def exp_page_ambi_combined(request):
 			p.save()
 
 
-
-
+    ### Data to Pass in ###
     variables = {}
     variables['MID']=p.MID
+    variables['outcome_type'] = outcome_type
 
-    # params
-    #params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined.csv',delimiter=',',skiprows=1)
-    params=np.loadtxt('web_experiments/small_data/ambi/parameters/Parameters_block_gain_loss_combined_7_30_2017_tweaked.csv',delimiter=',',skiprows=1)
-
-
-    variables['mag_l']=list(params[:,1])
-    variables['mag_r']=list(params[:,2])
-    variables['p_r']=list(params[:,3])
-    variables['p_l']=list(params[:,4])
-    variables['r_r']=list(params[:,5])
-    variables['r_l']=list(params[:,6])
-
-    #print(variables['mag_l'])
-
-
-    # need make new practice
+    # PRACTICE  Data
     params_p=load_ambi_file3(version='2')
     print(params_p)
     variables['mag_l_p']=params_p[0]
@@ -69,14 +54,20 @@ def exp_page_ambi_combined(request):
     variables['p_l_p']=params_p[3]
     variables['r_r_p']=params_p[4]
     variables['r_l_p']=params_p[5]
+    variables['XOlist_p']=load_ambi_file2('web_experiments/experiment_ambi_combined/trial_orders/colours/colours_toinput_demo_chris_combined.txt')
 
-    # need new XOList
-    #with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined.txt') as txt:
-    with open('web_experiments/small_data/ambi/colours/colours_toinput_simple_combined_7_30_2017.txt') as txt:
+    # TRIAL DATA
+    params=np.loadtxt('web_experiments/experiment_ambi_combined/trial_orders/parameters/Parameters_block_gain_loss_combined_8_21_2017_tweaked_gain_loss_same.csv',delimiter=',',skiprows=1)
+    variables['mag_l']=list(params[:,1])
+    variables['mag_r']=list(params[:,2])
+    variables['p_r']=list(params[:,3])
+    variables['p_l']=list(params[:,4])
+    variables['r_r']=list(params[:,5])
+    variables['r_l']=list(params[:,6])
+    with open('web_experiments/experiment_ambi_combined/trial_orders/colours/colours_toinput_simple_combined_8_21_2017.txt') as txt:
     	XOlist = txt.read()
     variables['XOlist']=XOlist
-    variables['XOlist_p']=load_ambi_file2('web_experiments/small_data/ambi/colours/colours_toinput_demo_chris_combined.txt')
-    variables['outcome_type'] = outcome_type
+
 
     # save trial data
     resp = request.GET.get('resp')
@@ -129,35 +120,7 @@ def exp_page_ambi_combined(request):
     return(render_to_response('experiment_ambi_combined.html',variables))
 
 
-
-
-
-def load_ambi_file():
-	newlist=[]
-	for ii in range(4):
-		fname = 'web_experiments/small_data/ambi/parameters/Parameters_block'+str(ii+1)+'_order1.txt'
-		with open(fname) as f:
-		    content = f.readlines()
-		if ii==0:
-		    content=content[0].split('\r')
-
-		for i in content:
-		    newlist.append(i.replace('{','').replace('}','').split(','))
-	mag_l=[]
-	mag_r=[]
-	p_l=[]
-	p_r=[]
-	r_l=[]
-	r_r=[]
-	for iii in newlist:
-		mag_l.append(iii[0])
-		mag_r.append(iii[1])
-		p_l.append(iii[2])
-		p_r.append(iii[3])
-		r_r.append(iii[4]) # supposed to be right
-		r_l.append(iii[5])
-	return([mag_l,mag_r,p_l,p_r,r_r,r_l])
-
+##########################
 
 
 
@@ -176,7 +139,7 @@ def load_ambi_file2(fname):
 def load_ambi_file3(version=''):
 	newlist=[]
 	# version 2 is for combined
-	fname = 'web_experiments/small_data/ambi/parameters/input_file_piloting_demo_chris'+version+'.txt'
+	fname = 'web_experiments/experiment_ambi_combined/trial_orders/parameters/input_file_piloting_demo_chris'+version+'.txt'
 	with open(fname) as f:
 		content = f.readlines()
 
