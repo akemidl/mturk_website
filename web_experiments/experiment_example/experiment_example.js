@@ -112,6 +112,7 @@ jsPsych.init({
   on_finish: function() {
     save_data(jsPsych.data.getData());
     console.log('This task is over! Return to main page');
+
   }
 });
 /*

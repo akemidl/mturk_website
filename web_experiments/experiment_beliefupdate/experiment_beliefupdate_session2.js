@@ -44,7 +44,7 @@ var welcome_block = {
 var instructions_block_backstory = {
   type: "instructions",
   pages: ["<p>Recall that you and your classmates are starting an internship program for company ABC. "+
-        "You will be forming a teams with your classmates in order to complete a project.</p>","<img src="+images[0]+">",
+        "You will be forming a teams with your classmates in order to complete a project.</p>",
         "In this session, you will see the information provided by pairs of your classmates (anonymized) and you will choose people that you'd like to be on your team. Your choices will be anonymous.</p>"
         ]
 
@@ -55,8 +55,8 @@ var instructions_block_backstory = {
 
 /* create experiment timeline array */
 var timeline = [];
-//timeline.push(welcome_block);
-//timeline.push(instructions_block_backstory);
+timeline.push(welcome_block);
+timeline.push(instructions_block_backstory);
 /////////////////////////////
 
 //// Embed this in a loop like Poldrack ////
@@ -176,10 +176,11 @@ function save_data(data){
 function startExperiment(){*/
   jsPsych.init({
     timeline: timeline,
-		show_progress_bar: true, 
+		//show_progress_bar: true,
     //fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
+			window.location.href = "/";
     }
   })
 

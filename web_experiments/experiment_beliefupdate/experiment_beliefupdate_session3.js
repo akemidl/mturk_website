@@ -22,9 +22,9 @@ var instructions_block_backstory = {
         "In this session, you will be receiving feedback on how many times your were chosen to be partnered with."+
         " After each piece of feedback, we want you to estimate the probability you are in the top 1/2"+
         "of their classmates in terms of “value added to a team”</p>",
-        "To enter your belief, you will use the following slider:"+
-        "<img src="+slider_image+" style='max-height: 300px; max-width: 300px;'>"+
-        " (0%= means you think there is no chance you were in the top 1/2; 100%=means you are sure)",
+        "<p>To enter your belief, you will use a slider that looks like this:</p>"+
+        "<img src="+slider_image+" style='max-height: 300px; max-width: 500px;'>"+
+        "<p>(0%= means you think there is no chance you were in the top 1/2; 100%=means you are sure)</p>",
         "<strong>Bonus Payments</strong> In addition to your hourly rate, you will receive a bonus payment based on how accurate your estimates are."+
         "The procedure is a bit complicate but is as follows:"+
         "<ul>"+
@@ -50,8 +50,8 @@ var instructions_block_backstory = {
 
 /* create experiment timeline array */
 var timeline = [];
-//timeline.push(welcome_block);
-//timeline.push(instructions_block_backstory);
+timeline.push(welcome_block);
+timeline.push(instructions_block_backstory);
 
 
 for (var i = 0; i < stage1_trials; i++) {
@@ -67,14 +67,14 @@ for (var i = 0; i < stage1_trials; i++) {
 
   /// String for telling them about their feedback
   if (i>0){
-    var stim1 ='<div><p></p></div>'
-    var stim2 ='<div><p>Alex was choosing betweeen you and your classmate, '+
-    'Sarah, and chose <strong>'+feedback_str+'</strong>.'+
-    'What do you think is the probability that you are in the top 1/2?</p></div>'
+
+    var stim1 ='<div><p>Alex was choosing betweeen you and your classmate, '+
+    'Sarah, and chose <strong>'+feedback_str+'</strong>.'
+    var stim2 ='<div><p>What do you think is the probability that you are in the top 1/2?</p></div>'
   }else{
     var stim1 ='<div><p></p></div>'
     var stim2 ='<div><p>Without knowing how many of your classmates chose you to work with,'+
-    'What do you think is the probability that you are in the top 1/2?</p></div>'
+    ' what do you think is the probability that you are in the top 1/2?</p></div>'
 
   }
 
@@ -83,11 +83,23 @@ for (var i = 0; i < stage1_trials; i++) {
     prompt: "",
     stimuli: [stim1,stim2],
     is_html: true,
-    timing_first_stim: 0,
+    timing_first_stim: 2000,
     timing_second_stim: -1,
     timing_image_gap:0,
     labels: [0.0,100.0],
     show_ticks:false,
+    on_trial_start: function() {
+        var lastTrialData = jsPsych.data.getLastTrialData()
+        var currentTrial = jsPsych.currentTrial()
+        currentTrial.start_value=lastTrialData['sim_score']
+
+      //console.log('A trial just started.');
+      console.log(lastTrialData)
+      //console.log('previous score')
+      //var el = jsPsych.getDisplayElement();
+      //console.log(el)
+
+    }
   };
 
   timeline.push(trial_belief_elicitation);
@@ -110,8 +122,11 @@ timeline.push(instructions_midway)
 /////////////////////////////
 var end_block = {
   type: "text",
-  text: "Thanks. Goodbye."
+  text: "<div><p>Thanks. Goodbye.</p></div>"
 };
+
+// this works but it then doesn't save the data
+// <a id='button_return_home' href='/' class='btn btn-primary'>Home</a> //
 
 timeline.push(end_block);
 
@@ -142,5 +157,7 @@ function startExperiment(){*/
     //fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
+      window.location.href = "/";
+
     }
   })

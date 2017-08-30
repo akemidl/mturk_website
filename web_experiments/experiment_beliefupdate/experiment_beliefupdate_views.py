@@ -54,7 +54,7 @@ def exp_page_beliefupdate(request,session):
                 save_time=datetime.datetime.now(),
                 rt = item_data['rt'],
                 trial_type = item_data['trial_type'],
-                key_press = item_data['key_press'],
+                key_press = item_data['key_press'] if 'key_press' in item_data else 999,
                 trial_index = item_data['trial_index'],
                 session_id=participant.session_id,
                 session = session,

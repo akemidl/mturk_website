@@ -51,7 +51,7 @@ def exp_page_example(request):
                 save_time=datetime.datetime.now(),
                 rt = item_data['rt'],
                 trial_type = item_data['trial_type'],
-                key_press = item_data['key_press'],
+                key_press = item_data['key_press'], # doesn't seem to work
                 trial_index = item_data['trial_index'],
                 session_id=participant.session_id,
                 AID=participant.AID,

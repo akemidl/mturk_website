@@ -158,9 +158,10 @@ function save_data(data){
 function startExperiment(){*/
   jsPsych.init({
     timeline: timeline,
-    fullscreen: true,
+    //fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
+      window.location.href = "/";
     }
   })
 

@@ -31,6 +31,8 @@ jsPsych.plugins.similarity = (function() {
     trial.is_html = (typeof trial.is_html === 'undefined') ? false : trial.is_html;
     trial.prompt = (typeof trial.prompt === 'undefined') ? '' : trial.prompt;
 
+    trial.start_value = (typeof trial.start_value === 'undefined') ? 50 : trial.start_value;
+
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
@@ -107,8 +109,9 @@ jsPsych.plugins.similarity = (function() {
         "class": 'sim'
       }));
 
+
       $("#slider").slider({
-        value: Math.ceil(trial.intervals / 2),
+        value: trial.start_value,
         min: 1,
         max: trial.intervals,
         step: 1,
