@@ -26,7 +26,7 @@ from experiment_ambi_combined.experiment_ambi_combined_views import exp_page_amb
 from experiment_ambi.experiment_ambi_views import exp_page_ambi
 from experiment_bandit.experiment_bandit_views import bandit_task_counter_balancing, exp_page_bandit
 from experiment_horizon.experiment_horizon_views import exp_page_horizon
-
+from experiment_beliefupdate.experiment_beliefupdate_views import exp_page_beliefupdate
 
 def index(request):
 

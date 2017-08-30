@@ -80,6 +80,7 @@ STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "experiment_ambi_combined"),
     os.path.join(PACKAGE_ROOT, "experiment_horizon"),
     os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
+    os.path.join(PACKAGE_ROOT, "experiment_beliefupdate"),
 ]
 
 # List of finder classes that know how to find static files in
@@ -135,6 +136,7 @@ TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "experiment_bandit"),
     os.path.join(PACKAGE_ROOT, "experiment_horizon"),
     os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
+    os.path.join(PACKAGE_ROOT, "experiment_beliefupdate")
 ]
 
 INSTALLED_APPS = [
@@ -161,7 +163,8 @@ INSTALLED_APPS = [
     # project
     "web_experiments",
     "web_experiments.models",
-    "web_experiments.experiment_example.experiment_example_models"
+    "web_experiments.experiment_example.experiment_example_models",
+    "web_experiments.experiment_beliefupdate.experiment_beliefupdate_models"
 
 ]
 

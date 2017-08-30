@@ -97,7 +97,6 @@ jsPsych.plugins.similarity = (function() {
     }
 
 
-
     function show_response_slider(display_element, trial) {
 
       var startTime = (new Date()).getTime();
@@ -113,6 +112,13 @@ jsPsych.plugins.similarity = (function() {
         min: 1,
         max: trial.intervals,
         step: 1,
+        //// Chris ADDED ////
+        change: function( event, ui ) {
+            var score = $("#slider").slider("value");
+            console.log('recognizing slider value')
+            $("#slider_value").html(String(score)+'% Probability')
+        }
+        //orientation: "vertical", //this works
       });
 
 
@@ -170,6 +176,26 @@ jsPsych.plugins.similarity = (function() {
         });
       });
 
+      // if prompt is set, show prompt
+      if (trial.prompt !== "") {
+        display_element.append(trial.prompt);
+      }
+
+      var score = $("#slider").slider("value");
+      /// Show slider value ////
+      display_element.append($('<div>', {
+        "html": String(score)+'% Probability',
+        "id": 'slider_value',
+      }));
+
+      //  create button
+      display_element.append($('<div>', {
+        'id': 'extra white space',
+        'class': 'sim',
+        'html': '<p></p>'
+      }));
+
+
       //  create button
       display_element.append($('<button>', {
         'id': 'next',
@@ -177,10 +203,7 @@ jsPsych.plugins.similarity = (function() {
         'html': 'Submit Answer'
       }));
 
-      // if prompt is set, show prompt
-      if (trial.prompt !== "") {
-        display_element.append(trial.prompt);
-      }
+
 
       $("#next").click(function() {
         var endTime = (new Date()).getTime();

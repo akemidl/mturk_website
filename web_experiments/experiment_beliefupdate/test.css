@@ -1,0 +1,64 @@
+#exp_container {
+		position: relative;
+		margin-top: 1%;
+	  margin-bottom: 2%;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 5%;
+		/*border: 1px solid ;*/
+		/*box-shadow: 3px 3px 3px #888888; */
+		border-radius: 1px;
+		vertical-align: top;
+		z-index: 0;
+		/*background-color: #eee;*/
+		height: 420px;
+		width: 600px;
+		perspective: 500px;
+		-webkit-perspective: 500px;
+
+
+}
+
+#stim_right {
+	position: absolute;
+	right: 15%;
+	top:25%;
+	width:30%;
+	height:30%;
+	border-style: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#selected_stim_right {
+	position: absolute;
+	right: 15%;
+	top:25%;
+	width:30%;
+	height:30%;
+	border: 5px solid ;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#stim_left {
+	position: absolute;
+	left: 15%;
+	top:25%;
+	width:30%;
+	height:30%;
+	border-style: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#selected_stim_left {
+	position: absolute;
+	left: 15%;
+	top:25%;
+	width:30%;
+	height:30%;
+	border: 5px solid ;
+	text-align: center;
+	vertical-align: middle;
+}
