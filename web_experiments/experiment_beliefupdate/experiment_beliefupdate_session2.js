@@ -15,6 +15,12 @@ var text_insert = function(text, index, insert_value) {
 	return text
 }
 
+var text_insert = function(text, index, insert_value) {
+	text = text.slice(0, index) + insert_value  + text.slice(index);
+	return text
+}
+
+
 var getRespondStim = function() {
 	var curr_trial = jsPsych.progress().current_trial_global
 	var curr_data = jsPsych.data.getData()[curr_trial - 1]
@@ -43,11 +49,14 @@ var welcome_block = {
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: ["<p>Recall that you and your classmates are starting an internship program for company ABC. "+
-        "You will be forming a teams with your classmates in order to complete a project.</p>",
-        "In this session, you will see the information provided by pairs of your classmates (anonymized) and you will choose people that you'd like to be on your team. Your choices will be anonymous.</p>"
+  pages: ["<p>Recall, that in the last session you were asked to provide information about yourself. </p>"+
+         "<p>In this session, you will be shown pairs of your classmates and each time, you will choose one to include on your team."+
+				 "You will be shown the answers to their questions, their self-description and their grades."+
+				 "Your choices will be anonymously shown to your classmates.</p>"+
+				 "<p>For each pair of people, you have 1 minute to consider the candidates before you are allowed to decide. "+
+				 "You then have as long as you need after that.</p>",
+				 "Click 'Next' to see the first pair of candidates"
         ]
-
   ,
   show_clickable_nav: true,
     timing_post_trial: 200
@@ -64,16 +73,26 @@ for (var i = 0; i < stage1_trials; i++) {
 
 
 	var stim =
-	'<p>Please consider these two candidates. </p>'+
+	'<p>Please consider these two candidates. You will be allowed to respond in 1 minute. </p>'+
 	'<div id="stim_left">'+
 	'<p>Adam XYZ'+String(i)+'</p>'+
 	'<img src='+images[0]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: asdfasdfadsfasdfasfas</p>'+
+	'<p>Description: I majored in Psychology and recently completed a senior thesis. For the past 2 summers, I worked at AIG analyzing the shipping industy.</p>'+
+	'<p>Grades:</p>'+
+	'<ul>'+
+	'<li>Geophysics: A</li>'+
+	'<li>Psychology 101: B</li>'+
+	'</ul>'+
 	'</div>'+
 	'<div id="stim_right">'+
 	'<p>Jeffrey</p>'+
 	'<img src='+images[1]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: asdfasdfadsfasdfasfas</p>'+
+	'<p>Description: I majored in Psychology and recently completed a senior thesis. For the past 2 summers, I worked at AIG analyzing the shipping industy.</p>'+
+	'<p>Grades:</p>'+
+	'<ul>'+
+	'<li>Geophysics: A</li>'+
+	'<li>Psychology 101: B</li>'+
+	'</ul>'+
 	'</div>'
 
 	var trial_show_stimuli = {
@@ -81,8 +100,8 @@ for (var i = 0; i < stage1_trials; i++) {
 	  stimulus: stim,
 	  is_html: true, /// this is important it allows you to specify full html..
 	  choices: [],
-	  timing_stim: 10000,
-	  timing_response: 10000,
+	  timing_stim: 600,
+	  timing_response: 600,
 	  timing_post_trial: 0,
 		response_ends_trial: false,
 		on_finish: function(data) {
@@ -92,8 +111,9 @@ for (var i = 0; i < stage1_trials; i++) {
 	  //prompt: getFBBar
 	};
 
-	var idx = stim.search('candidates.')
-	stim = text_insert(stim, idx, 'You may now use the "left arrow" or "right arrow" keys to respond')
+	var idx = stim.search('1 minute. ')
+	stim = stim.replace('You will be allowed to respond in 1 minute.','<p> You may now use the "left arrow" or "right arrow" keys to respond. Feel free to continue making your decision. You have as much time as you need. </p> ')
+	//stim = text_insert(stim, idx,
 
 	var trial_allow_response = {
 	  type: 'single-stim',
@@ -147,7 +167,7 @@ timeline.push(trial_show_response);
 /////////////////////////////
 var end_block = {
   type: "text",
-  text: "Thanks. Goodbye."
+  text: "Thanks. Press 'Enter' on your keyboard to be redirected to the home screen."
 };
 
 
@@ -180,7 +200,8 @@ function startExperiment(){*/
     //fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
-			window.location.href = "/";
+			window.location.href = '/';
+			//location.reload();
     }
   })
 

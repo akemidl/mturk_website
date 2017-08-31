@@ -22,43 +22,43 @@
 #stim_right {
 	position: absolute;
 	right: 15%;
-	top:25%;
+	top:20%;
 	width:30%;
-	height:30%;
 	border-style: none;
-	text-align: center;
+	text-align: left;
 	vertical-align: middle;
 }
 
 #selected_stim_right {
 	position: absolute;
 	right: 15%;
-	top:25%;
+	top:20%;
 	width:30%;
-	height:30%;
+	height:70%;
 	border: 5px solid ;
-	text-align: center;
+	padding: 10px;
+	text-align: left;
 	vertical-align: middle;
 }
 
 #stim_left {
 	position: absolute;
 	left: 15%;
-	top:25%;
+	top:20%;
 	width:30%;
-	height:30%;
 	border-style: none;
-	text-align: center;
+	text-align: left;
 	vertical-align: middle;
 }
 
 #selected_stim_left {
 	position: absolute;
 	left: 15%;
-	top:25%;
+	top:20%;
 	width:30%;
-	height:30%;
+	height:70%;
+	padding: 10px;
 	border: 5px solid ;
-	text-align: center;
+	text-align: left;
 	vertical-align: middle;
 }

@@ -9,20 +9,21 @@ var welcome_block = {
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: ["<p>Imagine that you and your classmates are starting an internship program for company ABC. "+
+  pages: ["<p>For this experiment, we want you to imagine that you and your classmates are starting an internship for company ABC. "+
         "You will be forming a teams with your classmates in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
-        "<p>The project will be multifaceted and require a broad range of skills. You will need to: </p>"+
+        "<p>The project will be multi-faceted and require a number of different of skills. Your team will need to: </p>"+
         "<ul>"+
-        "<li>analyze market viability (requiring strong research and analytic skills)</li>" +
-        "<li>design and code an app to interact with users  (requiring creative and engineering and technical skills) </li>" +
-        "<li>present the proposal to a team of executives at ABC (requiring strong communication skills)</li>" +
-        "</ul>",
-        "<p>Instead of the internship coordinators choosing the teams - they first want to each of you to choose who you'd like to work with."+
-        "They will then use an algorithm based on your selections to create the teams. </p>",
-        "<p>In this session, you will provide information about what you are good at and how strongly you would be able to contribute (think of this as your digital interview)</p>" +
-        "<p>In a second session, you will see the information provided by pairs of your classmates (anonymized) and you will choose people that you'd like to be on your team. Others will do the same for you. </p>"
-        ]
-
+        "<li>design a new app (requiring creative skills)</li>"+
+        "<li>code the app  (requiring engineering and technical skills) </li>" +
+        "<li>analyze the viability of markets for your app (requiring strong research and analytic skills)</li>" +
+        "<li>present the app in a formal proposal to a team of executives at ABC (requiring strong communication skills)</li>" +
+        "</ul>"+
+        "<p>ABC is allowing <strong>you</strong> to form your own teams.</p>",
+        "<p>In this first session of the experiment, we are asking you to provide information about yourself.</p>"+
+        "<p>In the second session, you will choose who you would want on your team based on your classmate's information (this will shown anonomously). "+
+        "You classmates will do the same for you. </p>"+
+        "<p>In the third session, you will see how many people chose you to work with. </p>"
+          ]
   ,
   show_clickable_nav: true,
     timing_post_trial: 200
@@ -39,7 +40,7 @@ var scale_1 = ["1", "2", "3", "4", "5"];
 
 var aptitude_questions_page = {
     type: 'survey-likert',
-    preamble: "<p>First, we'd like you to fill out a few questions about yourself about how you think and approach problems. </p>",
+    preamble: "<p>First, we'd like you to fill out a few questions about how you think and approach problems. Your answers will be presented to your classmates in a table.</p>",
     questions: page_1_questions,
     labels: [scale_1, scale_1], // need one scale for every question on a page
 };
@@ -48,10 +49,13 @@ var aptitude_questions_page = {
 
 var self_describe_page = {
   type: 'survey-text',
-  preamble: "Now, we'd like you to write about why you would contribute to a team. In 200 words or less, convince your classmate that you should be on their team",
+  preamble: "Next, in 200 words or less, write what would make you a good candidate for your classmates' teams. "+
+  "For example, you might include information about extra curriculars or past awards or previous jobs.",
   questions: [""],
   rows:[20],
-  columns: [60]
+  columns: [100],
+  maxlength: [2000],
+  placeholder: ["Example: I majored in Psychology and recently completed a senior thesis. For the past 2 summers, I worked at AIG analyzing the shipping industy."]
 };
 
 /////////////////////////////
@@ -61,11 +65,13 @@ var self_describe_page = {
 
 
 var grade_page = {
-  preamble: "<p>Finally, please enter in your grades on the next screen. (these will be kept anonymous)</p>",
+  preamble: "<p>Finally, please enter in your 5 grades that you think would be most impressive. Keep in mind that a 'B' in a harder classes might demonstrate more ability than an 'A' in a easy class. In the box provided, enter 'Class Name: Grade' (these will be kept anonymous)</p>",
   type: 'survey-text',
-  questions: ["Class 1", "Class 2"],
-  rows: [2,2],
-  columns: [10,10]
+  questions: ["", "","","",""],
+  rows: [1,1,1,1,1],
+  columns: [70,70,70,70,70],
+  maxlength: [100,100,100,100,100],
+  placeholder: ['Geophysics: A', "Psych 101: B","","",""]
 };
 
 /////////////////////////////
@@ -74,9 +80,9 @@ var grade_page = {
 /////////////////////////////
 var instructions_block_disposition = {
   type: "instructions",
-  pages: ["<p>Thanks!</p><p> The information previously entered will be given to your classmates in session 2 and they will decide whether to include you on a team.</p> " +
-      "<p>Before you leave, we'd like you to answer a few questions about your mood and temperament. The answers to these questions will <strong>not</strong> be shown to your classmates for the purposes of choosing you to work with</p>" +
-      "<p>They are for us (the researchers) to look at the influence of trait characteristics on how people change their beliefs. So please answer as honestly as possible here.</p>"],
+  pages: ["<p>Thanks!</p><p> The information you've entered will be anonymously shown to your classmates when they are picking their team.</p> " +
+      "<p>Before you finish this session, we'd like you to answer a few questions about your personality. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
+      "They are for us (the researchers) to look at how different traits affect people's choice for team members. So, please answer as honestly as possible.</p>"],
       show_clickable_nav: true,
     timing_post_trial: 200
 };
@@ -90,8 +96,8 @@ var scale_1 = ["Almost Never", "Sometimes", "Often", "Almost Always"];
 
 var survey_STAI_Trait = {
     type: 'survey-likert',
-    preamble: "<p>A number of statements which people have used to describe themselves are given below."+
-          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>"+
+    preamble: "<p><strong>Instructions:</strong> A number of statements which people have used to describe themselves are given below."+
+          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>. "+
           "There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe how you generally feel.",
     questions: page_1_questions,
     labels: [scale_1, scale_1], // use repeat function
@@ -106,7 +112,7 @@ var BDI_choices2 = [" 0 I am not particularly discouraged about the future", "1 
 
 var survey_BDI = {
     type: 'survey-likert',
-    preamble: "<p>On this questionnaire are groups of statements. Please read each group of statements carefully, then pick out the one statement in each group which best describes the way you have been feeling in the past week including today. Click the number beside the statement you have picked. Be sure to read all the statements in each group before making your choice.</p>",
+    preamble: "<p><strong>Instructions:</strong> On this questionnaire are groups of statements. Please read each group of statements carefully, then pick out the one statement in each group which best describes the way you have been feeling in the past week including today. Click the number beside the statement you have picked. Be sure to read all the statements in each group before making your choice.</p>",
     questions: BDI_questions,
     labels: [BDI_choices1, BDI_choices2], // use repeat function
 };
@@ -117,9 +123,8 @@ var survey_BDI = {
 /////////////////////////////
 var end_block = {
   type: "text",
-  text: "Thanks! Press Enter to be redirected to the home screen."
+  text: "Thanks! Press 'Enter' on your keyboard to be redirected to the home screen."
 };
-
 
 
 
@@ -161,7 +166,8 @@ function startExperiment(){*/
     //fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
-      window.location.href = "/";
+      window.location.href = '/';
+      //location.reload();
     }
   })
 

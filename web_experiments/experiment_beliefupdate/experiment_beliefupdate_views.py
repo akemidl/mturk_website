@@ -67,6 +67,8 @@ def exp_page_beliefupdate(request,session):
 
         # update participants progress (this will then bring the next experiment up)
         participant.progress+=1
+        print('progress...')
+        print(participant.progress)
 
         # update partipcant progress times
         ptime = str(participant.progress_times2)
