@@ -1,0 +1,1 @@
+I download small amounts of data from session 1 to this folder for each subject for the sake of running session 2. The website then looks here for data during session2. Full data downloads should be done somewhere else, because this folder has to be stored on the cloud.
