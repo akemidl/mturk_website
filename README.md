@@ -94,3 +94,6 @@ If there are permission errors for the images:
 # If using Jupyter
 - I installed 'pip install jupyter' which will be in the conda environemnt and is a python 2 kernel to interface with MySQL-python.
 - I installed matplotlib and seaborn for some data visualization 
+
+# Gitignore
+- ignore .ebextensions and .elasticbeanstalk 
