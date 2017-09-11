@@ -1,7 +1,8 @@
 # How to install
 - git clone
-- conda create -n env_web
+- conda create -n env_web python=2.7
 - source activate env_web
+- (if on a mac without mySQL, install mysql)(MySQL-python==1.2.3 requires export PATH=$PATH:/usr/local/mysql/bin)
 - pip install -r requirements.txt
 
 # Running Example Experiment Locally
@@ -59,7 +60,7 @@
 Python: Terminal will print things from python from views.py or wherever
 JS: Browser tools like Chrome's developer tools.
 - Always use "shift" refresh so that new javascript is loaded into the browser. Otherwise, cached versions will be used.
-- You can change the javascript and refresh without reloading the server! 
+- You can change the javascript and refresh without reloading the server!
 
 # Adding a new Database
 - Currently, the database is an RDS instance on AWS. You'll need to change the database location in the settings file in DATABASES.
@@ -89,3 +90,7 @@ If there are permission errors for the images:
 - eb ssh
 - cd /opt/python/current/
 - sudo chmod -R 777 *
+
+# If using Jupyter
+- I installed 'pip install jupyter' which will be in the conda environemnt and is a python 2 kernel to interface with MySQL-python.
+- I installed matplotlib and seaborn for some data visualization 

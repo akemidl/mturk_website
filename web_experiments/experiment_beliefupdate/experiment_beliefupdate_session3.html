@@ -16,18 +16,64 @@
 {% block body_base %}
 
 <script>
-  // The java script in the template.html file should be kept to a mimimum. All else should go in the .js
+    ////////
+    var self_describes_tmp = "{{self_describes|safe}}"
+    self_describes_tmp = self_describes_tmp.split('SPLIT_PAIR')
 
-  // This syntax allows you to import data from python (currently not used for this example)
-	var input_variable1 = "{{input_variable1|safe}}"
-  // This will be imported as a string, so you might need to remove list characters [,] from string
-  input_variable1.replace("[", "").replace("]", "").split(",")
+    num_trials = self_describes_tmp.length-1
+    console.log('number of trials')
+    console.log(num_trials)
 
-  // For now, the images need to be defined in this html template, rather than in the .js file
-  // This is because python needs to replace the static tag {static} with the appropriate path
+    self_describes = []
+    for (s=0; s<num_trials; s++){
+      self_describes.push(self_describes_tmp[s].split('SPLIT_MID'))
+    }
+    console.log(self_describes)
+    ////////
 
-  var images = ["{% static "profile_1.png" %}","{% static "profile_2.png" %}"]
-  var slider_image = "{% static "slider.png" %}"
+    ////////
+    var sat_grades_temp = "{{sat_grades|safe}}"
+    sat_grades_temp = sat_grades_temp.split("SPLIT_PAIR")
+    sat_grades = []
+    for (s=0; s<num_trials; s++){
+      sat_grades_tmp2 = sat_grades_temp[s].split('SPLIT_MID')
+      sat_grades.push([sat_grades_tmp2[0].split(','),sat_grades_tmp2[1].split(',')])
+    }
+    console.log(sat_grades)
+    ////////
+
+    ////////
+    var profile_chart_img_paths_tmp = "{{profile_charts|safe}}"
+    profile_chart_img_paths_tmp = profile_chart_img_paths_tmp.split("SPLIT_PAIR")
+    profile_chart_img_paths = []
+    for (s=0; s<num_trials; s++){
+      profile_chart_img_paths.push(profile_chart_img_paths_tmp[s].split('SPLIT_MID'))
+    }
+    console.log(profile_chart_img_paths)
+    // For now, the images need to be defined in this html template, rather than in the .js file
+    // This is because python needs to replace the static tag {static} with the appropriate path
+    ////////
+
+    ////////
+    var pair_str_tmp = "{{pair_str|safe}}"
+    pair_str_tmp = pair_str_tmp.split('SPLIT_PAIR')
+    pairs = []
+    for (i =0; i<num_trials; i++){
+      pairs.push(pair_str_tmp[i].split('SPLIT_MID'))
+    }
+    console.log(pairs)
+    ///////
+
+    ////////
+    var feedback_str_tmp = '{{feedback_str|safe}}'
+    feedback = feedback_str_tmp.split(',')
+    console.log(feedback)
+    ///////
+
+
+    var slider_image = "{% static "slider.png" %}"
+    var example_profile_image = "{% static "example_profile.png" %}"
+
 </script>
 
 {% block script_base %}
@@ -35,7 +81,7 @@
 <script src="{% static "js/jspsych-5.0.3/jspsych.js" %}"></script>
 <script src="{% static "js/jspsych-5.0.3/plugins/jspsych-text.js" %}"></script>
 <script src="{% static "js/jspsych-5.0.3/plugins/jspsych-single-stim.js" %}"></script>
-<script src="{% static "js/jspsych-5.0.3/plugins/jspsych-survey-likert.js" %}"></script>
+<script src="{% static "js/jspsych-5.0.3/plugins/jspsych-survey-likert-gagne.js" %}"></script>
 <script src="{% static "js/jspsych-5.0.3/plugins/jspsych-survey-text.js" %}"></script>
 <script src="{% static "js/jspsych-5.0.3/plugins/jspsych-instructions.js" %}"></script>
 <script src="{% static "js/jspsych-5.0.3/plugins/jspsych-similarity-gagne.js" %}"></script>

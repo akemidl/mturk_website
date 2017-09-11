@@ -27,9 +27,14 @@
 <div id="tasks">
 <p> Number of tasks to complete:  {{progress_countdown}} </p>
 </div>
-<div id="completion">
+<div id="completion0">
 <p>You are all Done! Please return to Amazon Mechanical Turk and enter this code into the HIT: {{completion_code}}.</p>
 </div>
+
+<div id="completion1">
+<p>You are all Done! You can leave the website now.</p>
+</div>
+
 
 </header>
 
@@ -286,14 +291,11 @@ String.prototype.replaceAll = function(search, replacement) {
     return target.split(search).join(replacement);
 };
 
-
-
-
-
 var progress = "{{progress|safe}}"
 var progresscountdown = " {{progress_countdown|safe}}"
 var tasks = "{{tasks|safe}}"
 var show_info_sheet = "{{show_info_sheet|safe}}"
+var which_completion_message = "{{which_completion_message|safe}}"
 
 tasks = tasks.replace("[", "")
 tasks = tasks.replace("]", "")
@@ -301,7 +303,6 @@ tasks = tasks.replaceAll("'", "")
 tasks = tasks.replaceAll(" ", "")
 tasks = tasks.split(",")
 console.log(tasks)
-
 
 
 function disableLink(link){
@@ -330,7 +331,8 @@ function showLink(link,href)
 
 $(document).ready( function() {
 
-$("#completion").hide()
+$("#completion0").hide()
+$("#completion1").hide()
 console.log('index page -  document ready function')
 console.log(progresscountdown)
 console.log(typeof(progresscountdown))
@@ -359,8 +361,8 @@ if(show_info_sheet==1){
 }
 
 if(progresscountdown==0) {
-$("#completion").show()
-console.log('this is going')
+  $("#completion"+which_completion_message).show()
+  console.log('this is going')
 };
 
 

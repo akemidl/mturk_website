@@ -70,6 +70,8 @@ jsPsych.plugins['survey-likert'] = (function() {
         $.extend(question_data, obje);
       });
 
+      console.log(question_data)
+      
       // save data
       var trial_data = {
         "rt": response_time,

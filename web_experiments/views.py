@@ -100,6 +100,7 @@ def index(request):
     temp_variables['MID']=p.MID
     temp_variables['tasks'] = [str(x) for x in request.session['tasks']]
     temp_variables['show_info_sheet']=p.show_info_sheet
+    temp_variables['which_completion_message']=p.which_completion_message
 
     print('MID= '+str(p.MID))
     print('progress= '+str(p.progress))

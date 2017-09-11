@@ -22,7 +22,8 @@ class Participant(models.Model):
     cb2 = models.CharField(default='default',max_length=500)
     show_info_sheet = IntegerField(default=0)
     agreed_to_be_contacted = IntegerField(default=0)
-
+    which_completion_message = IntegerField(default=0)
+    
 
 class Bandit_Trial(models.Model):
 
@@ -164,7 +165,7 @@ class MotionDots_Trial2(models.Model):
     true_outcome_speed= models.CharField(max_length=200,default='NaN') #for slider trials
     choicebutton_side=models.CharField(max_length=200,default='NaN') #for choice button trials
     category_boundary=models.CharField(max_length=200,default='NaN') #for choice button trials
-    slider_start_position=models.CharField(max_length=200,default='NaN')	
+    slider_start_position=models.CharField(max_length=200,default='NaN')
 
     # Outcomes
     response  = models.CharField(max_length=200, default='NaN')
@@ -176,7 +177,7 @@ class MotionDots_Trial2(models.Model):
     choicemade_array=models.CharField(max_length=200,default='NaN')
     outcome_bar_position=models.CharField(max_length=200,default='NaN')
 
-    testcolumn = models.CharField(max_length=200,default='NaN') #chris added to check if updating the table works. 
+    testcolumn = models.CharField(max_length=200,default='NaN') #chris added to check if updating the table works.
 
 
 class MotionDots_ColourSpeed_Trial(models.Model):
@@ -204,7 +205,7 @@ class MotionDots_ColourSpeed_Trial(models.Model):
     category_boundary_speed=models.CharField(max_length=200,default='NaN') #for choice button trials
     #speed_array_thistrial=models.CharField(max_length=5000,default='NaN')
     #rc_array_thistrial=models.CharField(max_length=5000,default='NaN')
-    #rb_array_thistrial=models.CharField(max_length=5000,default='NaN')	
+    #rb_array_thistrial=models.CharField(max_length=5000,default='NaN')
     random_numbers_array=models.CharField(max_length=500,default='NaN')
 
     # Outcomes
@@ -214,7 +215,7 @@ class MotionDots_ColourSpeed_Trial(models.Model):
     last_pressed=models.CharField(max_length=200,default='NaN') #for choice button trials
     choicemade_array=models.CharField(max_length=200,default='NaN')
 
-    testcolumn = models.CharField(max_length=200,default='NaN') #chris added to check if updating the table works. 
+    testcolumn = models.CharField(max_length=200,default='NaN') #chris added to check if updating the table works.
 
 
 class QuestionnaireModel(models.Model):

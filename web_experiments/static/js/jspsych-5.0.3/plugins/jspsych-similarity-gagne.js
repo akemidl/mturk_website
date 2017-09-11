@@ -32,7 +32,7 @@ jsPsych.plugins.similarity = (function() {
     trial.prompt = (typeof trial.prompt === 'undefined') ? '' : trial.prompt;
 
     trial.start_value = (typeof trial.start_value === 'undefined') ? 50 : trial.start_value;
-
+    trial.selected_side = trial.selected_side || '#stim_right';
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
