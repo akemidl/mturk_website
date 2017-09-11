@@ -134,8 +134,13 @@ var grade_page = {
 
 /////////////////////////////
 var end_block = {
-  type: "text",
-  text: "Thanks! You have completed this part of the experiment. Press 'Enter' on your keyboard and wait for a link to appear below. This should take a few seconds.",
+    type: "text",
+    text: "<p>Thanks! You have completed this part of the experiment. "+
+    "Press 'Enter' on your keyboard and wait for a link to appear below. "+
+    "This should take a 5-30 seconds. "+
+    "Do not close your browser until this process is complete. </p>"+
+    ""
+    +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing Enter)</p>",
   data: {trial_name: 'text_end_screen'},
   on_finish: function(data){
                 console.log('The trial just ended.');

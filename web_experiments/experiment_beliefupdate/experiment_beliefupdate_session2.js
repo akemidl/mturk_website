@@ -305,8 +305,15 @@ timeline.push(survey_BDI);
 /////////////////////////////
 var end_block = {
   type: "text",
-  text: "Thanks! You have completed this part of the experiment. Press 'Enter' on your keyboard and wait for a link to appear below. This should take a few seconds."
+  text: "<p>Thanks! You have completed this part of the experiment. "+
+  "Press 'Enter' on your keyboard and wait for a link to appear below. "+
+  "This should take a 5-30 seconds. "+
+  "Do not close your browser until this process is complete. </p>"+
+  ""
+  +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing Enter)</p>"
 };
+
+
 
 
 timeline.push(end_block);
