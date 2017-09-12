@@ -75,14 +75,14 @@ Use mySQL workbench or some other program to view remote sql database.
 # Adding a new AWS Account for Elastic Beanstalk
 - make a .ebextensions folder in top level.
 - add django.conf to match 01-webexperimnts.config
-- eb init to create a .elasticbeanstalk folder with config.yml
+- eb init to create a .elasticbeanstalk folder with config.yml - though this wasn't actually changing environment configurations when I last launched. You can also change config in the online portal. 
 - "eb create" to create a new application environment
 - "eb deploy" to push the app
 - "eb init -i" to interactively setup environment (allows eb ssh option). You can do this after the initial eb init.
 
 # Pushing to Elastic Beanstalk
 
-- update git (git add --all , git commit -m "asdfa", git push origin master)
+- update git (git add --all , git commit -m "asdfa", git push origin master) because it deploys from latest commit I believe, not unstaged changes.
 - eb deploy
 
 URL (example): http://web-experiments-dev.us-west-1.elasticbeanstalk.com/?MID=0&tasks=experiment_example&cb=0&assign_id=00&hit_id=00
