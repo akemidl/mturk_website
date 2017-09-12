@@ -73,27 +73,32 @@ Use mySQL workbench or some other program to view remote sql database.
 - "SELECT * FROM web_experiments_example_trial WHERE MID='1'" to view particular experiment
 
 # Adding a new AWS Account for Elastic Beanstalk
-Change credentials in .elasticbeanstalk/config.yml
-
-There might be more to do here...
-
+- make a .ebextensions folder in top level.
+- add django.conf to match 01-webexperimnts.config
+- eb init to create a .elasticbeanstalk folder with config.yml
+- "eb create" to create a new application environment
+- "eb deploy" to push the app
+- "eb init -i" to interactively setup environment (allows eb ssh option). You can do this after the initial eb init.
 
 # Pushing to Elastic Beanstalk
 
-make sure to update git
-
-eb deploy
+- update git (git add --all , git commit -m "asdfa", git push origin master)
+- eb deploy
 
 URL (example): http://web-experiments-dev.us-west-1.elasticbeanstalk.com/?MID=0&tasks=experiment_example&cb=0&assign_id=00&hit_id=00
+
+
 
 If there are permission errors for the images:
 - eb ssh
 - cd /opt/python/current/
 - sudo chmod -R 777 *
 
+
+
 # If using Jupyter
 - I installed 'pip install jupyter' which will be in the conda environemnt and is a python 2 kernel to interface with MySQL-python.
-- I installed matplotlib and seaborn for some data visualization 
+- I installed matplotlib and seaborn for some data visualization
 
 # Gitignore
-- ignore .ebextensions and .elasticbeanstalk 
+- ignore .ebextensions and .elasticbeanstalk
