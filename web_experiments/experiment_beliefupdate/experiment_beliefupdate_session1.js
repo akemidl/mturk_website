@@ -82,7 +82,7 @@ var aptitude_questions_page = {
               console.log(JSON.stringify(data))
               $(document).ready(function () {window.scrollTo(0,0);});
             },
-    check_completion: true,
+    check_completion: false,
 };
 
 //////////////////////////
