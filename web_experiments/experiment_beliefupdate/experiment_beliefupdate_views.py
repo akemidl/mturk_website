@@ -122,7 +122,7 @@ def exp_page_beliefupdate(request,session):
                 MID = split_pair[i]
                 MID = MID.replace('\n','')
                 directory = str('web_experiments/experiment_beliefupdate/generating_profiles/session1/'+str(MID)+'/')
-                directory_img = str('/static/generating_profiles/session1/'+str(MID)+'/')
+                directory_img = str('/web_experiments/experiment_beliefupdate/generating_profiles/session1/'+str(MID)+'/')
                 if i ==0:
                     split='SPLIT_MID'
                 elif i==1:

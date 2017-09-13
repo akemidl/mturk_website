@@ -64,7 +64,7 @@ var instructions_block_backstory = {
  				 "<p>In the last session, you wrote a short description of yourself, provided grades and SAT scores, and answered questions about your 'work style'. </p>"+
          "<p>In this session, you and your classmates will use this information to decide on your teams.",
 				 "<p>You will be shown pairs of your classmates, and each time you will choose one to include on your team. "+
-				 "<p>You have as long as you need to decide.</p>"+
+				 "You have as long as you need to decide.</p>"+
 				 "<p>To select the candidate you prefer, press either the <strong>left arrow</strong> or <strong>right arrow</strong></p>",
 				 "Click 'Next' to see the first pair of candidates"
         ]
