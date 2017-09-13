@@ -75,7 +75,7 @@ Use mySQL workbench or some other program to view remote sql database.
 # Adding a new AWS Account for Elastic Beanstalk
 - make a .ebextensions folder in top level.
 - add django.conf to match 01-webexperimnts.config
-- eb init to create a .elasticbeanstalk folder with config.yml - though this wasn't actually changing environment configurations when I last launched. You can also change config in the online portal. 
+- eb init to create a .elasticbeanstalk folder with config.yml - though this wasn't actually changing environment configurations when I last launched. You can also change config in the online portal. In the AWS console, I set the config "/static/" just equal to the top directory "web_experiments". This allows static to be fetched from all the sub folders if properly called. 
 - "eb create" to create a new application environment
 - "eb deploy" to push the app
 - "eb init -i" to interactively setup environment (allows eb ssh option). You can do this after the initial eb init.

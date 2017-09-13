@@ -69,11 +69,13 @@ MEDIA_URL = "/media/"
 # Example: "http://media.lawrence.com/static/"
 #STATIC_URL = "/static/" #what the url is
 
-STATIC_ROOT = os.path.join(BASE_DIR,"static")
-STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR,"static")
+STATIC_ROOT = BASE_DIR
+STATIC_URL = 'web_experiments/'
 
 # Additional locations of static files
 STATICFILES_DIRS = [
+    os.path.join(PACKAGE_ROOT, "static"),
     os.path.join(PACKAGE_ROOT, "experiment_example"),
     os.path.join(PACKAGE_ROOT, "experiment_bandit"),
     os.path.join(PACKAGE_ROOT, "experiment_ambi"),
@@ -81,6 +83,8 @@ STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "experiment_horizon"),
     os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
     os.path.join(PACKAGE_ROOT, "experiment_beliefupdate"),
+    os.path.join(PACKAGE_ROOT, "static/images"),
+    os.path.join(PACKAGE_ROOT, "static/js"),
 ]
 
 # List of finder classes that know how to find static files in
