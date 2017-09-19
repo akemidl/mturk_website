@@ -83,6 +83,8 @@ STATICFILES_DIRS = [
     os.path.join(PACKAGE_ROOT, "experiment_horizon"),
     os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
     os.path.join(PACKAGE_ROOT, "experiment_beliefupdate"),
+    os.path.join(PACKAGE_ROOT, "experiment_questionnaires"),
+    os.path.join(PACKAGE_ROOT, "experiment_effort"),
     os.path.join(PACKAGE_ROOT, "static/images"),
     os.path.join(PACKAGE_ROOT, "static/js"),
 ]
@@ -140,7 +142,9 @@ TEMPLATE_DIRS = [
     os.path.join(PACKAGE_ROOT, "experiment_bandit"),
     os.path.join(PACKAGE_ROOT, "experiment_horizon"),
     os.path.join(PACKAGE_ROOT, "experiment_motiondots"),
-    os.path.join(PACKAGE_ROOT, "experiment_beliefupdate")
+    os.path.join(PACKAGE_ROOT, "experiment_beliefupdate"),
+    os.path.join(PACKAGE_ROOT, "experiment_questionnaires"),
+    os.path.join(PACKAGE_ROOT, "experiment_effort"),
 ]
 
 INSTALLED_APPS = [

@@ -6,28 +6,26 @@
 {% block extra_js %}
 {% endblock %}
 {% block extra_css %}
-	<link href="{% static "css/surveys.css" %}" rel="stylesheet">
+	<link href="/web_experiments/static/surveys.css" rel="stylesheet">
 {% endblock %}
 
 {% block body_base %}
 <div id="survey_container">
 	{{ survey_complete }}
-	
+
 	{% if survey_completed  %}
 	    <p>Thanks!</p>
 	{% endif %}
-	
+
 	{% if not survey_completed  %}
 	    <p>You did not answer all the questions. Please return and try again.</p>
 	{% endif %}
-	
-	<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a> 
+
+	<a id="button_return_home" href="/" class="btn btn-primary">Return to Main Screen</a>
 </div>
 
-				
-				
 
-	
+
+
+
 {% endblock %}
-
-

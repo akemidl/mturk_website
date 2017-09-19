@@ -15,26 +15,13 @@
 
 {% block body_base %}
 
-<script>
-  // The java script in the template.html file should be kept to a mimimum. All else should go in the .js
-
-  // This syntax allows you to import data from python (currently not used for this example)
-	var input_variable1 = "{{input_variable1|safe}}"
-  // This will be imported as a string, so you might need to remove list characters [,] from string
-  input_variable1.replace("[", "").replace("]", "").split(",")
-
-  // For now, the images need to be defined in this html template, rather than in the .js file
-  // This is because python needs to replace the static tag {static} with the appropriate path
-  var image1_path = "/web_experiments/experiment_example/blue2.png"
-  var image2_path = "/web_experiments/experiment_example/green2.png"
-</script>
 
 {% block script_base %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="/web_experiments/static/js/jspsych-5.0.3/jspsych.js"></script>
 <script src="/web_experiments/static/js/jspsych-5.0.3/plugins/jspsych-text.js"></script>
 <script src="/web_experiments/static/js/jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
-<script src="/web_experiments/experiment_example/experiment_example.js"></script>
+<script src="/web_experiments/experiment_questionnaires/experiment_questionnaires.js"></script>
 {% endblock %}
 
 {% block style_base %}
