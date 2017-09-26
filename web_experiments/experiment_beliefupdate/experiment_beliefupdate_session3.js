@@ -119,7 +119,7 @@ for (var i = 0; i < num_trials; i++) {
     var stim2 =    '<div>'+
         '<p>Your classmate #24 chose <strong>'+feedback_str+'</strong>. '+
     'Now, how likely do you think it is that you are in the 50% most popular?</p></div>'
-    var timing_first_stim=2500;
+    var timing_first_stim=100500;
   }else{
     var stim1 ='<div><p></p></div>'
     var stim2 ='<div><p>Before we give you any feedback, how likely do you think it is that you are in the top 50% most popular?</p></div>'

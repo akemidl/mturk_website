@@ -1,4 +1,8 @@
 
+textarea {
+    resize: none;
+}
+
 #blue_stim {
 	width: 15vw;
 	height: 20vw;

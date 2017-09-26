@@ -94,6 +94,9 @@ jsPsych.plugins["single-stim"] = (function() {
       // which can be used to provide visual feedback that a response was recorded
       $("#jspsych-single-stim-stimulus").addClass('responded');
 
+      var test = $("#jspsych-single-stim-stimulus")
+      console.log(test)
+
       // only record the first response
       if (response.key == -1) {
         response = info;

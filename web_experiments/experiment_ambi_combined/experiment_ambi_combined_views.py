@@ -45,6 +45,13 @@ def exp_page_ambi_combined(request):
     variables['MID']=p.MID
     variables['outcome_type'] = outcome_type
 
+    if 'vp' in p.MID:
+        variables['in_person']=True
+    else:
+        variables['in_person']=False
+
+
+
     # PRACTICE  Data
     params_p=load_ambi_file3(version='2')
     print(params_p)

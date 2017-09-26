@@ -855,7 +855,14 @@ function RunInstruct(event){
 //// Welcome Screen
 	if(currentnumber==1){
 
-		document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 1000 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $5 will be awarded to participants that score in the top bracket, $2.50 to those in the middle bracket, and $0 to those in the bottom. Your experimenter will explain this in more detail. </p><p>Press Continue.</p>'
+		console.log(in_person)
+		if (in_person=='True'){
+			document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 1000 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $10 will be awarded to participants that score in the top bracket, $5.00 to those in the middle bracket, and $2.50 to those in the bottom. Your experimenter will explain this in more detail. </p><p>Press Continue.</p>'
+
+		}else{
+			document.getElementById('instruct').innerHTML='<p>Welcome to the experiment!</p><p>The aim of this experiment is to increase your POINTS as much as possible.  You start with 1000 points (shown at the top right of the screen).  On BLUE trials, you are trying to gain points. On RED trials, you are trying to avoid losing points. Each week we will give a bonus to participants who have the highest score at the end of the hit. A bonus of $5 will be awarded to participants that score in the top bracket, $2.50 to those in the middle bracket, and $0 to those in the bottom. Your experimenter will explain this in more detail. </p><p>Press Continue.</p>'
+
+		}
 
 		$('#button_previous').hide();
 		$('#button_continue').show();

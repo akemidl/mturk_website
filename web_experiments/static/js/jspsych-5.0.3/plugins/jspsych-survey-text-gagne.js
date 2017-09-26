@@ -54,7 +54,15 @@ jsPsych.plugins['survey-text'] = (function() {
       $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text">' + trial.questions[i] + '</p>');
 
       // add text box
-      $("#jspsych-survey-text-" + i).append('<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.columns[i] + '" rows="' + trial.rows[i] + '" maxlength="'+trial.maxlength[i]+'" placeholder="'+trial.placeholder[i]+'"></textarea>');
+      $("#jspsych-survey-text-" + i).append('<textarea name="#jspsych-survey-text-response-' + i + '" cols="' +
+       trial.columns[i] + '" rows="' + trial.rows[i] +
+        '" maxlength="'+trial.maxlength[i]+'" placeholder="'+trial.placeholder[i]+ '" oninput="removePlaceHolder(this)"'+'></textarea>');
+    }
+
+    removePlaceHolder = function(thiss){
+      console.log(thiss)
+      thiss.placeholder=''
+      console.log(thiss)
     }
 
     // add submit button

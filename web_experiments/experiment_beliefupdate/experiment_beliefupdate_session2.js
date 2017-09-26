@@ -13,6 +13,60 @@ getFBBar = function() {
 }
 
 
+html_for_pairwise = function(pair,profile_chart_img_path,self_describe,sat_grade,opening_instructions){
+
+
+	var opening_div =
+		'<div style="display: table;">'+opening_instructions+
+		'<hr width:200%>'
+
+	var table_div = '<div style="display: table-row">'
+
+	var left_div =
+	'<div id="stim_left" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%">'+
+	'<p style="font-size:18">Candidate: '+pair[0]+'</p>'+
+	'<img src='+profile_chart_img_path[0]+' style="max-height: 300px; max-width: 300px;">'+
+	'<p>Description: '+self_describe[0]+'</p>'+
+	'<p>Grades:</p>'+
+	'<ul>'+
+	'<li>Reading: '+sat_grade[0][0]+'</li>'+
+	'<li>Math: '+sat_grade[0][1]+'</li>'+
+	'<li>Writing: '+sat_grade[0][2]+'</li>'+
+	'<li>Class 1: '+sat_grade[0][3]+'</li>'+
+	'<li>Class 2: '+sat_grade[0][4]+'</li>'+
+	'<li>Class 3: '+sat_grade[0][5]+'</li>'+
+	'</ul>'+
+	'</div>'
+
+	var right_div =
+	'<div id="stim_right" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%;border-style:solid">'+
+	'<p style="font-size:18">Candidate: '+pair[1]+'</p>'+
+	'<img src='+profile_chart_img_path[1]+' style="max-height: 300px; max-width: 300px;">'+
+	'<p>Description: '+self_describe[1]+'</p>'+
+	'<p>Grades:</p>'+
+	'<ul>'+
+	'<li>Reading: '+sat_grade[1][0]+'</li>'+
+	'<li>Math: '+sat_grade[1][1]+'</li>'+
+	'<li>Writing: '+sat_grade[1][2]+'</li>'+
+	'<li>Class 1: '+sat_grade[1][3]+'</li>'+
+	'<li>Class 2: '+sat_grade[1][4]+'</li>'+
+	'<li>Class 3: '+sat_grade[1][5]+'</li>'+
+	'</ul>'+
+	'</div>'
+
+	var div_close= '</div></div>'
+	var stim = opening_div+table_div+left_div+right_div+div_close
+	/*
+	if (include_opening_div){
+			var stim = opening_div+left_div+right_div
+	}else{
+			var stim = left_div+right_div
+	}
+	*/
+
+	return(stim)
+}
+
 
 
 var text_insert = function(text, index, insert_value) {
@@ -58,17 +112,30 @@ var welcome_block = {
   text: "Welcome back! Press any key to begin."
 };
 
+example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='')
+
 var instructions_block_backstory = {
   type: "instructions",
   pages: ["<p>Recall that you and your classmates are starting an internship for company ABC.</p>"+
  				 "<p>In the last session, you wrote a short description of yourself, provided grades and SAT scores, and answered questions about your 'work style'. </p>"+
          "<p>In this session, you and your classmates will use this information to decide on your teams.",
-				 "<p>You will be shown pairs of your classmates, and each time you will choose one to include on your team. "+
+				 "<p>You will be shown 10 pairs of your classmates, and each time you will choose one to include on your team. "+
+				 "Only 2-3 of the classmates you chose will be randomly selected for your team. "+
+				 "So, it is important that for each choice, you pick the person that you think will be best, regardless of who the other team-members might be.",
+
+				 "<p>Here is an example of the type of choice you will make. "+
+				 "You will be presented with information about two possible team members, as shown below.</p> "+
+				 "<p>At the top, we have taken the answers to the questions in part I and used them to generate these summary bar plots, which show where each individual is relative to all others on these three traits. "+
+				 "Underneath, there is the free description that each individual including yourself has provided. "+
+				 "At the bottom, there are the SAT scores and the 3 grades that the individual has chosen to share.</p>",
+				 "<p> You may use any or all of this to influence your choice. Do not think about any other choice when making the one at hand."+
 				 "You have as long as you need to decide.</p>"+
-				 "<p>To select the candidate you prefer, press either the <strong>left arrow</strong> or <strong>right arrow</strong></p>",
-				 "Click 'Next' to see the first pair of candidates"
-        ]
+				 "<p>So here, if you wanted to choose a person on the left you would press the left arrow key… "+
+				 "Press enter to register your choice</p>",
+				 "Click 'Next' to get started!"
+			 ]
   ,
+	after_button_html:['','',example_stim,example_stim],
   show_clickable_nav: true,
     timing_post_trial: 750
 };
@@ -82,39 +149,8 @@ timeline.push(instructions_block_backstory);
 //// Embed this in a loop like Poldrack ////
 for (var i = 0; i < num_trials; i++) {
 
-	var stim =
-	'<div>'+
-	'<p>Please consider these two candidates and choose one to join your team. Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'+
-	'</div>'+
-	'<hr>'+
-	'<div id="stim_left">'+
-	'<p>Candidate: '+pairs[i][0]+'</p>'+
-	'<img src='+profile_chart_img_paths[i][0]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: '+self_describes[i][0]+'</p>'+
-	'<p>Grades:</p>'+
-	'<ul>'+
-	'<li>Reading: '+sat_grades[i][0][0]+'</li>'+
-	'<li>Math: '+sat_grades[i][0][1]+'</li>'+
-	'<li>Writing: '+sat_grades[i][0][2]+'</li>'+
-	'<li>Class 1: '+sat_grades[i][0][3]+'</li>'+
-	'<li>Class 2: '+sat_grades[i][0][4]+'</li>'+
-	'<li>Class 3: '+sat_grades[i][0][5]+'</li>'+
-	'</ul>'+
-	'</div>'+
-	'<div id="stim_right">'+
-	'<p>Candidate: '+pairs[i][1]+'</p>'+
-	'<img src='+profile_chart_img_paths[i][1]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: '+self_describes[i][1]+'</p>'+
-	'<p>Grades:</p>'+
-	'<ul>'+
-	'<li>Reading: '+sat_grades[i][1][0]+'</li>'+
-	'<li>Math: '+sat_grades[i][1][1]+'</li>'+
-	'<li>Writing: '+sat_grades[i][1][2]+'</li>'+
-	'<li>Class 1: '+sat_grades[i][1][3]+'</li>'+
-	'<li>Class 2: '+sat_grades[i][1][4]+'</li>'+
-	'<li>Class 3: '+sat_grades[i][1][5]+'</li>'+
-	'</ul>'+
-	'</div>'
+	opening_instructions='<p>Please consider these two candidates and choose one to join your team. Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'
+  stim = html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions=opening_instructions)
 
 	var trial_show_stimuli = {
 	  type: 'single-stim',

@@ -3,7 +3,7 @@
 /////////////////////////////
 var welcome_block = {
   type: "text",
-  text: "Welcome! Press Enter to get started.",
+  text: "Welcome! Press any key to get started.",
   timing_post_trial: 200,
   data: {trial_name: 'text_welcome'},
   on_finish: function(data){
@@ -14,7 +14,7 @@ var welcome_block = {
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: ["<p>For this experiment, we want you to imagine that you and your classmates are starting an internship for company ABC. "+
+  pages: ["<p>For this experiment, we want you to imagine that you and your classmates are starting internships for company ABC. "+
         "You will be forming a teams with your classmates in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
         "<p>The project will have several components and require a number of different of skills. Your team will need to: </p>"+
         "<ul>"+
@@ -25,8 +25,8 @@ var instructions_block_backstory = {
         "</ul>"+
         "<p>For this project, you will be selecting your own own teams.</p>",
         "<p>In this first session of the experiment, we are asking you to provide information about yourself.</p>"+
-        "<p>In the second session, you will choose who you would want on your team based on your classmate's information (this will shown anonomously). "+
-        "You classmates will do the same for you. </p>"+
+        "<p>In the second session, you will choose who you would want on your team based on your classmates' information (this will be shown anonomously). "+
+        "Your classmates will do the same for you. </p>"+
         "<p>In the third session, you will see how many people chose you to work with. </p>"
       ],
   show_clickable_nav: true,
@@ -49,12 +49,29 @@ var instructions_block_backstory = {
 
 
 var page_1_questions = [
-"I prefer to work on my own (1) or I prefer to work in a group (4)",
-"I prefer to seek advice quickly to keep things moving (1) or I prefer to work through a problem even if it takes time (4)",
-"I tend to focus on details to make sure there are no mistakes (1) or I tend to focus on the big picture (4)",
-"I tend to think intuitively and through flashes of insight (1) or I tend to think sequentially and logically",
-"I tend to present material in a logical order (1) or I tend to present material as a story (4)",
-"I prefer to plan out projects thoroughly ahead of time (1) or I prefer to take things one step at a time (4)"
+"<p>Being part of a team, I prefer to work:</p>"+
+"<p style='text-align:left;'>on my own"+
+"<span style='float:right;'>in a group</span></p>",
+
+"<p>When approaching a problem, I tend to focus on:</p>"+
+"<p style='text-align:left;'>the details"+
+"<span style='float:right;'>the big picture</span></p>",
+
+"<p>When working through a problem, I tend to think:</p>"+
+"<p style='text-align:left;'>think intuitively"+
+"<span style='float:right;'>think sequentially</span></p>",
+
+"<p>When stuck on a problem, I prefer to:</p>"+
+"<p style='text-align:left;'>seek advice immediately"+
+"<span style='float:right;'>try to work it out by myself</span></p>",
+
+"<p>When presenting my work, I prefer to present:</p>"+
+"<p style='text-align:left;'>in a logical order"+
+"<span style='float:right;'>as a story</span></p>",
+
+"<p>When starting a new project, I prefer to:</p>"+
+"<p style='text-align:left;'>plan it out"+
+"<span style='float:right;'>start working</span></p>",
 ];
 
 // more or less independent
@@ -89,11 +106,11 @@ var aptitude_questions_page = {
 
 var self_describe_page = {
   type: 'survey-text',
-  preamble: "Next, in 500 characters or less, write what would make you a good candidate for your classmates' teams. "+
+  preamble: "Using a minumum of 100, but a maximum of 500 characters, write what would make you a good candidate for your classmates' teams. "+
   "For example, you might include information about extra curriculars or past awards or previous jobs.",
   questions: [""],
-  rows:[20],
-  columns: [100],
+  rows:[10],
+  columns: [50],
   maxlength: [500],
   placeholder: ["Example: I'm a 4th year economics major. "+
   "I'm currently working on my senior thesis, which looks at ways to encourage people to reduce their carbon footprint. "+
@@ -113,13 +130,13 @@ var self_describe_page = {
 
 
 var grade_page = {
-  preamble: "<p>Finally, please enter in your SAT scores and 3 grades that you think would make you the best candidate. Keep in mind that a 'B' in a harder classes might demonstrate more ability than an 'A' in a easy class. In the box provided, enter 'Class Name: Grade' (these will be kept anonymous)</p>",
+  preamble: "<p>Please enter in your SAT scores below. Please also enter 3 genuine grades from your transcript that you think will contribute to making the case that you are a good candidate. In the box provided, enter 'Class Name: Grade'</p>",
   type: 'survey-text',
   questions: ["Reading Section (SAT)","Math Section (SAT)","Writing Section (SAT)","Class 1","Class 2","Class 3"],
   rows: [1,1,1,1,1,1],
   columns: [70,70,70,70,70,70],
   maxlength: [100,100,100,100,100,100],
-  placeholder: ['600', "600","600","Econ Theory Micro: A-","Econ Theory Macro: A-", "Financial Economics: B+"],
+  placeholder: ['999', "999","999","Econ Theory Micro: G","Econ Theory Macro: G", "Financial Economics: G"],
   data: {trial_name: 'sat_grades_entry'},
   on_finish: function(data){
             console.log('The trial just ended.');
@@ -129,6 +146,66 @@ var grade_page = {
 };
 
 /////////////////////////////
+/////////////////////////////
+var instructions_block_disposition = {
+  type: "instructions",
+  pages: ["<p>Thanks!</p><p> The information you've entered will be anonymously shown to your classmates when they are picking their team.</p> ",
+      "<p>Before you finish this session, we'd like you to answer a few questions about your personality. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
+      "They are for us (the researchers) to look at how different traits affect people's choice for team members. So, please answer as honestly as possible.</p>"],
+      show_clickable_nav: true,
+      timing_post_trial: 200,
+      data: {trial_name: 'instruction_traits'},
+      on_finish: function(data){
+                console.log('The trial just ended.');
+                console.log(JSON.stringify(data))
+              }
+};
+
+
+/// But we are adding others instead ///
+
+var page_1_questions = [
+"I feel pleasant",
+"I felt nervous and restless",
+"I feel satisfied with myself",
+"I wish I could be as happy as others seem to be",
+"I feel like a failure",
+"I feel rested",
+"I am calm, cool, and collected",
+"I feel that difficulties are piling up so that I cannot overcome them",
+"I worry too much over something that really doesn’t matter",
+"I am happy",
+"I have disturbing thoughts",
+"I lack self-confidence",
+"I feel secure",
+"I make decisions easily",
+"I feel inadequate",
+"I am content",
+"Some unimportant thought runs through my mind and bothers me",
+"I take disappointments so keenly that I can’t put them out of my mind",
+"I am a steady person",
+"I get in a state of tension or turmoil as I think over my recent concerns and interest"];
+var scale_1 = ["Almost Never", "Sometimes", "Often", "Almost Always"];
+
+
+var survey_STAI_Trait = {
+    type: 'survey-likert',
+    preamble: "<p><strong>Instructions:</strong> A number of statements which people have used to describe themselves are given below."+
+          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>. "+
+          "There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe how you generally feel.",
+    questions: page_1_questions,
+    labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
+      scale_1, scale_1,scale_1,scale_1,scale_1,
+      scale_1, scale_1,scale_1,scale_1,scale_1,
+      scale_1, scale_1,scale_1,scale_1,scale_1], // use repeat function
+    data: {trial_name: 'survey_STAI_Trait'},//,questions:page_1_questions},
+    on_finish: function(data){
+              console.log('The trial just ended.');
+              console.log(JSON.stringify(data))
+							$(document).ready(function () {window.scrollTo(0,0);});
+            }
+};
+
 
 
 
@@ -158,6 +235,8 @@ timeline.push(instructions_block_backstory);
 timeline.push(aptitude_questions_page);
 timeline.push(self_describe_page);
 timeline.push(grade_page);
+timeline.push(instructions_block_disposition);
+timeline.push(survey_STAI_Trait);
 timeline.push(end_block)
 
 
