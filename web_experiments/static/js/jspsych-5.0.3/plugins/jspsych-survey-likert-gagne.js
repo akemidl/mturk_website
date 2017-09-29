@@ -26,8 +26,14 @@ jsPsych.plugins['survey-likert'] = (function() {
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
 
-    trial.test_fun = function(){
+    test_fun = function(){
       console.log('Test Function')
+      // get the ID of the button
+      //$('#Q1').get
+      console.log($(this))
+      // get the clock time.
+      // add those to a list..
+
     }
 
 
@@ -51,7 +57,7 @@ jsPsych.plugins['survey-likert'] = (function() {
 
 
       for (var j = 0; j < trial.labels[i].length; j++) {
-        options_string += '<li style="width:' + width + '%"><input type="radio" onclick="trial.test_fun" id="Q' + i + '" name="Q' + i + '" value="' + j + '"><label class="jspsych-survey-likert-opt-label">' + trial.labels[i][j] + '</label></li>';
+        options_string += '<li style="width:' + width + '%"><input type="radio" onclick="test_fun" id="Q' + i + '" name="Q' + i + '" value="' + j + '"><label class="jspsych-survey-likert-opt-label">' + trial.labels[i][j] + '</label></li>';
       }
       options_string += '</ul>';
       form_element.append(options_string);

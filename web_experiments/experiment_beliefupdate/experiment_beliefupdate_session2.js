@@ -1,111 +1,5 @@
 
 
-//$(document).ready( function() {
-$('#button_return_home').hide()
-//});
-
-var progress_value = 0 //set starting value
-var stage1_trials = 5;
-
-getFBBar = function() {
-	return '<progress class = feedback_bar value = "' + progress_value +
-		'" max = "100"></progress><div class = goal_1></div><div class = goal_2></div>'
-}
-
-
-html_for_pairwise = function(pair,profile_chart_img_path,self_describe,sat_grade,opening_instructions){
-
-
-	var opening_div =
-		'<div style="display: table;">'+opening_instructions+
-		'<hr width:200%>'
-
-	var table_div = '<div style="display: table-row">'
-
-	var left_div =
-	'<div id="stim_left" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%">'+
-	'<p style="font-size:18">Candidate: '+pair[0]+'</p>'+
-	'<img src='+profile_chart_img_path[0]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: '+self_describe[0]+'</p>'+
-	'<p>Grades:</p>'+
-	'<ul>'+
-	'<li>Reading: '+sat_grade[0][0]+'</li>'+
-	'<li>Math: '+sat_grade[0][1]+'</li>'+
-	'<li>Writing: '+sat_grade[0][2]+'</li>'+
-	'<li>Class 1: '+sat_grade[0][3]+'</li>'+
-	'<li>Class 2: '+sat_grade[0][4]+'</li>'+
-	'<li>Class 3: '+sat_grade[0][5]+'</li>'+
-	'</ul>'+
-	'</div>'
-
-	var right_div =
-	'<div id="stim_right" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%;border-style:solid">'+
-	'<p style="font-size:18">Candidate: '+pair[1]+'</p>'+
-	'<img src='+profile_chart_img_path[1]+' style="max-height: 300px; max-width: 300px;">'+
-	'<p>Description: '+self_describe[1]+'</p>'+
-	'<p>Grades:</p>'+
-	'<ul>'+
-	'<li>Reading: '+sat_grade[1][0]+'</li>'+
-	'<li>Math: '+sat_grade[1][1]+'</li>'+
-	'<li>Writing: '+sat_grade[1][2]+'</li>'+
-	'<li>Class 1: '+sat_grade[1][3]+'</li>'+
-	'<li>Class 2: '+sat_grade[1][4]+'</li>'+
-	'<li>Class 3: '+sat_grade[1][5]+'</li>'+
-	'</ul>'+
-	'</div>'
-
-	var div_close= '</div></div>'
-	var stim = opening_div+table_div+left_div+right_div+div_close
-	/*
-	if (include_opening_div){
-			var stim = opening_div+left_div+right_div
-	}else{
-			var stim = left_div+right_div
-	}
-	*/
-
-	return(stim)
-}
-
-
-
-var text_insert = function(text, index, insert_value) {
-	text = text.slice(0, index) + insert_value  + text.slice(index);
-	return text
-}
-
-
-var getRespondStim = function() {
-	var curr_trial = jsPsych.progress().current_trial_global
-	var curr_data = jsPsych.data.getData()[curr_trial - 1]
-	var stim = curr_data.stimulus.slice(0, -6)
-	var response = curr_data.key_press
-	console.log(stim)
-	if (response == 37) {
-		insert_in = stim.search('stim_left')
-		stim = text_insert(stim, insert_in, 'selected_')
-		// Doesn't work at the moment, even though it works in session 3 (scope?)
-		//console.log('here')
-		//console.log($('#stim_left'))
-		//$('#stim_left').css({"border-color": "#000000",
-		//						 "border-width":"5px",
-		//						 "border-style":"solid",
-		//					 "padding":"7px"});
-	} else if (response == 39) {
-		insert_in = stim.search('stim_right') /// Find's in the string where 'stim right' is (e.g. id='stim_right')
-		//console.log(insert_in)
-		stim = text_insert(stim, insert_in, 'selected_') /// replaces that with id='selected stim_right'
-		//$('#stim_right').css({"border-color": "#000000",
-		//						 "border-width":"5px",
-		//						 "border-style":"solid",
-		//					 "padding":"7px"});
-	}
-	console.log('stim after')
-	console.log(stim)
-	return stim
-}
-
-
 /////////////////////////////
 var welcome_block = {
   type: "text",
@@ -114,114 +8,98 @@ var welcome_block = {
 
 example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='')
 
-var instructions_block_backstory = {
+
+var instructions_block_backstory1 = {
   type: "instructions",
   pages: ["<p>Recall that you and your classmates are starting an internship for company ABC.</p>"+
  				 "<p>In the last session, you wrote a short description of yourself, provided grades and SAT scores, and answered questions about your 'work style'. </p>"+
          "<p>In this session, you and your classmates will use this information to decide on your teams.",
-				 "<p>You will be shown 10 pairs of your classmates, and each time you will choose one to include on your team. "+
-				 "Only 2-3 of the classmates you chose will be randomly selected for your team. "+
-				 "So, it is important that for each choice, you pick the person that you think will be best, regardless of who the other team-members might be.",
+				 "<p>You will be shown 10 pairs of your classmates, and each time you will choose one to include on your team.</p> "+
+				 "<p>Only 3 of the classmates you chose will be randomly selected for your team. "+
+				 "So, it is important that for each choice, you pick the person that you think will be best regardless of who the other team members might be.</p>",
 
 				 "<p>Here is an example of the type of choice you will make. "+
-				 "You will be presented with information about two possible team members, as shown below.</p> "+
-				 "<p>At the top, we have taken the answers to the questions in part I and used them to generate these summary bar plots, which show where each individual is relative to all others on these three traits. "+
-				 "Underneath, there is the free description that each individual including yourself has provided. "+
-				 "At the bottom, there are the SAT scores and the 3 grades that the individual has chosen to share.</p>",
-				 "<p> You may use any or all of this to influence your choice. Do not think about any other choice when making the one at hand."+
-				 "You have as long as you need to decide.</p>"+
-				 "<p>So here, if you wanted to choose a person on the left you would press the left arrow key… "+
-				 "Press enter to register your choice</p>",
-				 "Click 'Next' to get started!"
+			 	 "You will be presented with information about two possible team members, as shown below. Each person has been given a randomly generated 8-digit ID number.</p> ",
+			 	 "<p>At the top, we have taken the answers to the questions in part I and used them to generate these summary bar plots, which show where each individual is relative to all others on these three traits. "+
+			 	 "In the middle, there is the free description that each individual including yourself has provided. "+
+			 	 "At the bottom, there are the SAT scores and the 3 grades that the individual has chosen to share.</p>",
 			 ]
   ,
 	after_button_html:['','',example_stim,example_stim],
   show_clickable_nav: true,
-    timing_post_trial: 750
+    timing_post_trial: 50,
+		allow_keys: false,
 };
+
+
+var instructions_block_backstory2 = {
+  type: "instructions",
+  pages: ["<p> You may use any or all of this to influence your choice. Do not think about any other choice when making the one at hand."+
+				 "You have as long as you need to decide.</p>"+
+				 "<p>So here, if you wanted to choose a person on the left you would press the left arrow key. You can switch your choice by press the right arrow key. "+
+				 "Press enter to register your choice</p>"
+	],
+	after_button_html:[example_stim],
+  show_clickable_nav: false,
+    timing_post_trial: 50,
+		allow_backward: false,
+		key_forward:'enter',
+		key_extra1: 'leftarrow',
+		key_extra2: 'rightarrow',
+		key_extra1_func: select_left,
+	 key_extra2_func: select_right,
+	 on_finish: function(data) {
+		 console.log('The trial just ended.');
+		 console.log(JSON.stringify(data));
+	 }
+};
+
+var instructions_block_backstory3 = {
+  type: "instructions",
+  pages: ["Click 'Next' to see the first pair of candidates!",
+	]
+  ,
+  show_clickable_nav: true,
+    timing_post_trial: 500,
+		allow_keys:false,
+};
+
 
 /* create experiment timeline array */
 var timeline = [];
 timeline.push(welcome_block);
-timeline.push(instructions_block_backstory);
+timeline.push(instructions_block_backstory1);
+timeline.push(instructions_block_backstory2);
+timeline.push(instructions_block_backstory3);
 /////////////////////////////
 
 //// Embed this in a loop like Poldrack ////
 for (var i = 0; i < num_trials; i++) {
 
-	opening_instructions='<p>Please consider these two candidates and choose one to join your team. Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'
+	opening_instructions='<p style="width:100%">Please consider these two candidates and choose one to join your team.		1/10</p> <p>Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'
   stim = html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions=opening_instructions)
 
-	var trial_show_stimuli = {
-	  type: 'single-stim',
-	  stimulus: stim,
-	  is_html: true, /// this is important it allows you to specify full html..
-	  choices: [],
-	  timing_stim: 1000,
-	  timing_response: 1000,
-	  timing_post_trial: 0,
-		response_ends_trial: false,
-		on_finish: function(data) {
-	    console.log('The trial just ended.');
-	    ///console.log(JSON.stringify(data));
-	  }
-	  //prompt: getFBBar
-	};
-
-	//var idx = stim.search('1 minute. ')
-	//stim = stim.replace('<p>Please consider these two candidates and choose one to join your team. </p>',
-	//'<p>Please consider these two candidates and choose one to join your team.</p> <p>You may now use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p> ')
-	//stim = text_insert(stim, idx,
-
 	var trial_allow_response = {
-	  type: 'single-stim',
+	  type: 'alt-choice-gagne',
 	  stimulus: stim,
 	  is_html: true, /// this is important it allows you to specify full html..
-	  choices: [37,39],
-	  data: {
-	    stim1_value: 99,
-	    trial_id: 'stim_response',
-	    condition: 'stable',
-	    exp_stage: 'test'
-	  },
 	  timing_stim: -1,
 	  timing_response: -1,
-	  timing_post_trial: 0,
-		response_ends_trial: true,
+	  timing_post_trial: 750,
+		response_ends_trial: false,
+		key_extra1: 'leftarrow',
+		key_extra2: 'rightarrow',
+		key_end_trial: 'enter',
+		key_extra1_func: select_left,
+	  key_extra2_func: select_right,
 		data: {trial_name: 'choosing_resp',pair:String(pairs[i][0])+','+String(pairs[i][1])},
 		on_finish: function(data) {
 	    console.log('The trial just ended.');
-	    ///console.log(JSON.stringify(data));
-	  }
-	  //prompt: getFBBar
+	    console.log(JSON.stringify(data));
+	  },
 	};
 
-	/// Or just add another variable which times out ..
-	/// I can add another timeout in single-stim.js that prevents response (but make my own single-stim-chris.js)
-
-	var trial_show_response = {
-		type: 'single-stim',
-		stimulus: getRespondStim,
-		is_html: true,
-		choices: 'none',
-		data: {
-			correct_response: 'test'
-		},
-		timing_stim: 1500,
-		timing_response: 1500,
-		timing_post_trial: 750,
-		data: {trial_name: 'choosing_show_resp'},
-		on_finish: function(data) {
-			console.log('Response shown');
-			$(document).ready(function () {window.scrollTo(0,0);});
-			///console.log(JSON.stringify(data));
-		}
-		//prompt: getFBBar
-	};
-
-timeline.push(trial_show_stimuli);
 timeline.push(trial_allow_response);
-timeline.push(trial_show_response);
 
 }
 
