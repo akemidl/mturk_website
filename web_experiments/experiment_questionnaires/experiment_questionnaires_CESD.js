@@ -1,28 +1,41 @@
 
-var welcome_block = {
-  type: "text",
-  text: "Welcome to the experiment. Press any key to begin."
-};
-
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p>In this experiment, a circle will appear in the center " +
-      "of the screen.</p><p>If the circle is <strong>blue</strong>, " +
-      "press the letter F on the keyboard as fast as you can.</p>" +
-      "<p>If the circle is <strong>orange</strong>, do not press " +
-      "any key.</p>" +
-      "<p class='small'><strong>Press the F key</strong></p></div>" +
-      "<p class='small'><strong>Do not press a key</strong></p></div>" +
-      "<p>Press any key to begin.</p>",
-    timing_post_trial: 2000
+  text: "<p> Below is a list of some of the ways you may have felt or behaved. " +
+  "Please indicate how often you have felt this way during the past week.</p>"
 };
 
+// defining response scale
+var choices = ["Rarely or none of the time (less than one day)", "Some or a little of the time (1-2 days)", "Occasionally or a moderate amount of time (3-4 days)", "All of the time (5-7 days)"];
+
+//questionnaires
+var questions = {
+    type: 'survey-likert',
+    labels: [choices, choices, choices, choices], // need one scale for every question on a page
+    timeline:[
+      {questions: ["I was bothered by things that usually don’t bother me", "I did not feel like eating; my appetite was poor", "I felt that I could not shake off the blues even with help from my family", "I felt that I was just as good as other people"]},
+      {questions: ["I had trouble keeping my mind on what I was doing", "I felt depressed", "I felt that everything I did was an effort", "I felt hopeful about the future"]},
+      {questions: ["I thought my life had been a failure", "I felt fearful", "My sleep was restless", "I was happy"]},
+      {questions: ["I talked less than usual", "I felt lonely", "People were unfriendly", "I enjoyed life"]},
+      {questions: ["I had crying spells", "I felt sad", "I felt that people disliked me", "I could not 'get going'"]},
+    ]
+}
+
+//push this back
+/* create experiment timeline array */
+var timeline = [instructions_block, questions];
+
+/* start the experiment */
+jsPsych.init({
+  timeline: timeline
+});
 
 
 
 
-/* define debrief block */
+
+/* define debrief block
 function getSubjectData() {
 
   var trials = jsPsych.data.getTrialsOfType('single-stim');

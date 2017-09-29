@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% load metron_tags %}
+{% load i18n %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Experiment</title>
+</head>
+
+
+
+{% block body_base %}
+
+
+{% block script_base %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="/web_experiments/static/js/jspsych-5.0.3/jspsych.js"></script>
+<script src="/web_experiments/static/js/jspsych-5.0.3/plugins/jspsych-text.js"></script>
+<script src="/web_experiments/static/js/jspsych-5.0.3/plugins/jspsych-survey-likert-gagne.js"></script>
+<script src="/web_experiments/experiment_questionnaires/experiment_questionnaires_CESD.js"></script>
+
+{% endblock %}
+
+{% block style_base %}
+	<link href="/web_experiments/static/css/jspsych.css" rel="stylesheet">
+{% endblock %}
+
+
+
+{% endblock %}

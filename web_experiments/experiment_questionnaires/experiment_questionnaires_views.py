@@ -30,5 +30,5 @@ def exp_page_questionnaires(request,survey_name):
     			participant.progress_times2 = ptime
     			participant.save()
 
-
-    return(render_to_response('experiment_questionnaires.html'))
+    print(survey_name)
+    return(render_to_response('experiment_questionnaires_'+survey_name+'.html'))
