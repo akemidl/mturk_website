@@ -1388,7 +1388,6 @@ jsPsych.pluginAPI = (function() {
     var always_protected = ['on_finish'];
 
     protect = (typeof protect === 'undefined') ? [] : protect;
-
     protect = protect.concat(always_protected);
 
     var keys = Object.keys(trial);

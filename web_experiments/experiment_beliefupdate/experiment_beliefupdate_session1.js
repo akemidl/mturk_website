@@ -107,7 +107,8 @@ var aptitude_questions_page = {
 var self_describe_page = {
   type: 'survey-text',
   preamble: "Using a minumum of 100, but a maximum of 500 characters, write what would make you a good candidate for your classmates' teams. "+
-  "For example, you might include information about extra curriculars or past awards or previous jobs.",
+  "For example, you might include information about extra curriculars or past awards or previous jobs." +
+  " Please refrain from using information in your response that other people could use to identify you. ",
   questions: [""],
   rows:[10],
   columns: [50],

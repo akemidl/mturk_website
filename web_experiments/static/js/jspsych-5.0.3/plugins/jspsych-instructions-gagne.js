@@ -14,9 +14,15 @@ jsPsych.plugins.instructions = (function() {
   var plugin = {};
 
   plugin.trial = function(display_element, trial) {
+    console.log(trial)
+    console.log(typeof(trial))
 
     trial.key_forward = trial.key_forward || 'rightarrow';
     trial.key_backward = trial.key_backward || 'leftarrow';
+    trial.key_extra1 = trial.key_extra1 || null;
+    trial.key_extra2 = trial.key_extra2 || null;
+    trial.key_extra1_func = trial.key_extra1_func || function(){};
+    trial.key_extra2_func = trial.key_extra2_func || function(){};
     trial.allow_backward = (typeof trial.allow_backward === 'undefined') ? true : trial.allow_backward;
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
@@ -24,7 +30,10 @@ jsPsych.plugins.instructions = (function() {
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
-    trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
+
+    // Chris: here I pass in functions that I don't want to be run until a key is pressed!!
+    trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial,['key_extra1_func','key_extra2_func']);
+
 
     var current_page = 0;
 
@@ -33,6 +42,9 @@ jsPsych.plugins.instructions = (function() {
     var start_time = (new Date()).getTime();
 
     var last_page_update_time = start_time;
+
+    var extra_buttons_press = [];
+    var extra_buttons_pressed_times = [];
 
     function show_current_page() {
       display_element.html(trial.pages[current_page]);
@@ -120,7 +132,9 @@ jsPsych.plugins.instructions = (function() {
 
       var trial_data = {
         "view_history": JSON.stringify(view_history),
-        "rt": (new Date()).getTime() - start_time
+        "rt": (new Date()).getTime() - start_time,
+        "extra_buttons_press":extra_buttons_press,
+        "extra_buttons_pressed_times":extra_buttons_pressed_times,
       };
 
       jsPsych.finishTrial(trial_data);
@@ -131,7 +145,7 @@ jsPsych.plugins.instructions = (function() {
       // have to reinitialize this instead of letting it persist to prevent accidental skips of pages by holding down keys too long
       keyboard_listener = jsPsych.pluginAPI.getKeyboardResponse({
         callback_function: after_response,
-        valid_responses: [trial.key_forward, trial.key_backward],
+        valid_responses: [trial.key_forward, trial.key_backward,trial.key_extra1,trial.key_extra2],
         rt_method: 'date',
         persist: false,
         allow_held_key: false
@@ -147,6 +161,18 @@ jsPsych.plugins.instructions = (function() {
         next();
       }
 
+      // extra key functionality
+      if (info.key === trial.key_extra1 || info.key === jsPsych.pluginAPI.convertKeyCharacterToKeyCode(trial.key_extra1)) {
+        trial.key_extra1_func()
+        extra_buttons_press.push('extra_key_1_pressed')
+        extra_buttons_pressed_times.push((new Date()).getTime()- start_time)
+      }
+      if (info.key === trial.key_extra2 || info.key === jsPsych.pluginAPI.convertKeyCharacterToKeyCode(trial.key_extra2)) {
+        trial.key_extra2_func()
+        extra_buttons_press.push('extra_key_2_pressed')
+        extra_buttons_pressed_times.push((new Date()).getTime()- start_time)
+      }
+
     };
 
     show_current_page();
@@ -154,7 +180,7 @@ jsPsych.plugins.instructions = (function() {
     if (trial.allow_keys) {
       var keyboard_listener = jsPsych.pluginAPI.getKeyboardResponse({
         callback_function: after_response,
-        valid_responses: [trial.key_forward, trial.key_backward],
+        valid_responses: [trial.key_forward, trial.key_backward,trial.key_extra1,trial.key_extra2],
         rt_method: 'date',
         persist: false
       });

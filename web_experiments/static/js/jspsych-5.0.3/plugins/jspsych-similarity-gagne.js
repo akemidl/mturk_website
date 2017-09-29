@@ -33,6 +33,9 @@ jsPsych.plugins.similarity = (function() {
 
     trial.start_value = (typeof trial.start_value === 'undefined') ? 50 : trial.start_value;
     trial.selected_side = trial.selected_side || '#stim_right';
+
+    trial.choices = trial.choices || [];
+
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
@@ -59,19 +62,38 @@ jsPsych.plugins.similarity = (function() {
       show_response_slider(display_element, trial);
     }
 
-    setTimeoutHandlers.push(setTimeout(function() {
-      showBlankScreen();
-    }, trial.timing_first_stim));
+
+    if (trial.timing_first_stim != -1){
+      setTimeoutHandlers.push(setTimeout(function() {
+        showBlankScreen();
+      }, trial.timing_first_stim));
+    }
+
 
 
     function showBlankScreen() {
-
+      console.log('showing blank screen')
       $('#jspsych-sim-stim').css('visibility', 'hidden');
 
       setTimeoutHandlers.push(setTimeout(function() {
         showSecondStim();
       }, trial.timing_image_gap));
     }
+
+    if (trial.timing_first_stim == -1){
+    // start the response listener only if the first stimuli stays on forever
+    // there were issues with both the timer on and the keyboard on. 
+      if (JSON.stringify(trial.choices) != JSON.stringify(["none"])) {
+        var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+          callback_function: showBlankScreen,
+          valid_responses: trial.choices,
+          rt_method: 'date',
+          persist: false,
+          allow_held_key: false
+        });
+      }
+    }
+
 
     function showSecondStim() {
 
@@ -112,7 +134,7 @@ jsPsych.plugins.similarity = (function() {
 
       $("#slider").slider({
         value: trial.start_value,
-        min: 1,
+        min: 0,
         max: trial.intervals,
         step: 1,
         //// Chris ADDED ////
