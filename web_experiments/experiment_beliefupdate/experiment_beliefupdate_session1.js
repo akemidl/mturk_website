@@ -182,55 +182,24 @@ var survey_self_worth = {
 var survey_world_assumptions = {
     type: 'survey-likert',
     preamble: preamble_world_assumptions,
-    questions: questions_world_assumptions,
     labels: choices_world_assumptions,
+    //questions: questions_world_assumptions.slice(0,10),
+    timeline:[
+      {questions: questions_world_assumptions.slice(0,10)},
+      {questions: questions_world_assumptions.slice(10,20)},
+      {questions: questions_world_assumptions.slice(20,30)},
+      {questions: questions_world_assumptions.slice(30,questions_world_assumptions.length)}
+    ],
     data: {trial_name: 'survey_world_assumptions'},
 };
 
-
-var page_1_questions = [
-"I feel pleasant",
-"I felt nervous and restless",
-"I feel satisfied with myself",
-"I wish I could be as happy as others seem to be",
-"I feel like a failure",
-"I feel rested",
-"I am calm, cool, and collected",
-"I feel that difficulties are piling up so that I cannot overcome them",
-"I worry too much over something that really doesn’t matter",
-"I am happy",
-"I have disturbing thoughts",
-"I lack self-confidence",
-"I feel secure",
-"I make decisions easily",
-"I feel inadequate",
-"I am content",
-"Some unimportant thought runs through my mind and bothers me",
-"I take disappointments so keenly that I can’t put them out of my mind",
-"I am a steady person",
-"I get in a state of tension or turmoil as I think over my recent concerns and interest"];
-var scale_1 = ["Almost Never", "Sometimes", "Often", "Almost Always"];
-
-
-var survey_STAI_Trait = {
+var survey_world_assumptions2 = {
     type: 'survey-likert',
-    preamble: "<p><strong>Instructions:</strong> A number of statements which people have used to describe themselves are given below."+
-          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>. "+
-          "There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe how you generally feel.",
-    questions: page_1_questions,
-    labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1], // use repeat function
-    data: {trial_name: 'survey_STAI_Trait'},//,questions:page_1_questions},
-    on_finish: function(data){
-              console.log('The trial just ended.');
-              console.log(JSON.stringify(data))
-							$(document).ready(function () {window.scrollTo(0,0);});
-            }
+    preamble: "",
+    questions: questions_world_assumptions.slice(10,20),
+    labels: choices_world_assumptions.slice(10,20),
+    data: {trial_name: 'survey_world_assumptions'},
 };
-
-
 
 
 /////////////////////////////
@@ -260,8 +229,8 @@ timeline.push(welcome_block);
 //timeline.push(self_describe_page);
 //timeline.push(grade_page);
 //timeline.push(instructions_block_disposition);
-timeline.push(survey_DAS_A)
-timeline.push(survey_self_worth);
+//timeline.push(survey_DAS_A)
+//timeline.push(survey_self_worth);
 timeline.push(survey_world_assumptions);
 timeline.push(end_block)
 
