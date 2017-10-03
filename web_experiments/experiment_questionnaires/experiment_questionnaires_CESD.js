@@ -2,16 +2,18 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p> Below is a list of some of the ways you may have felt or behaved. " +
-  "Please indicate how often you have felt this way during the past week.</p>"
+  text: "<p> Next is a list of some of the ways you may have felt or behaved. " +
+  "Please indicate how often you have felt this way during the past week. Press enter " +
+  "to go to the next page.</p>"
 };
 
 // defining response scale
-var choices = ["Rarely or none of the time (less than one day)", "Some or a little of the time (1-2 days)", "Occasionally or a moderate amount of time (3-4 days)", "All of the time (5-7 days)"];
+var choices = ["Rarely or none of the time (less than one day)", "Some or a little of the time    (1-2 days)", "Occasionally or a moderate amount of time (3-4 days)", "All of the time (5-7 days)"];
 
 //questionnaires
 var questions = {
     type: 'survey-likert',
+    check_completion: true,
     labels: [choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["I was bothered by things that usually don’t bother me", "I did not feel like eating; my appetite was poor", "I felt that I could not shake off the blues even with help from my family", "I felt that I was just as good as other people"]},
@@ -22,9 +24,15 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

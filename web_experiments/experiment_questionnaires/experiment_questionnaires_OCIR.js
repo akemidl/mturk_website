@@ -3,7 +3,7 @@
 var instructions_block = {
   type: "text",
   text: "<p> The following statements refer to experiences that many people have in their everyday lives."+
-  "Tick the answer that best describes <strong> HOW MUCH </strong> that experience has <strong>DISTRESSED or BOTHERED you during the PAST MONTH</strong></p>"
+  " Tick the answer that best describes <strong> HOW MUCH </strong> that experience has <strong>DISTRESSED or BOTHERED you during the PAST MONTH</strong></p>"
 };
 
 // defining response scale
@@ -12,6 +12,7 @@ var choices = ["Not at all", "A little", "Moderately", "A lot", "Extremely"];
 //questionnaires
 var questions = {
     type: 'survey-likert',
+    check_completion: true,
     labels: [choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["I have saved up so many things that they get in the way", "I check things more often than necessary", "I get upset if objects are not arranged properly", "I feel compelled to count while Iam doing things", "I find it difficult to touch an object when I know it has been touched by strangers or certain people", "I find it difficult to control my own thoughts"]},
@@ -20,9 +21,15 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

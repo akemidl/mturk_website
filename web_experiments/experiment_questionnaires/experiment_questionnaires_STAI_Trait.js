@@ -24,11 +24,17 @@ var questions = {
       {questions: ["I am a steady person", "I get in a state of tension or turmoil as I think over my recent concerns and interest"]},
     ]
 }
+
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
 //questionnaires
 
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

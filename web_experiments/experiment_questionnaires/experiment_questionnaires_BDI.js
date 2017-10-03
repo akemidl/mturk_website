@@ -5,12 +5,12 @@ var instructions_block = {
   text: "<p>On this questionnaire are groups of statements. Please read each group " +
   "of statements carefully, then pick out the one statement in each group which best " +
   "describes the way you have been feeling <strong>in the past week including today</strong>." +
-  "Click the number beside the statement you have picked. Be sure to read all the " +
-  " statements in each group before making your choice. </p>"
+  " Click the number beside the statement you have picked. Be sure to read all the " +
+  " statements in each group before making your choice. Press enter to start </p>"
 };
 
 // defining response scale
-var choices1 = ["I do not feel sad", "I feel sad", "I am sad all the time and cant snap out of it", "I am so sad or unhappy that I cant stand it"];
+var choices1 = ["I do not feel sad", "I feel sad", "I am sad all the time and can't snap out of it", "I am so sad or unhappy that I can't stand it"];
 var choices2 = ["I am not particularly discouraged about the future", "I feel discouraged about the future", "I feel I have nothing to look forward to", "I feel that the future is hopeless and that things cannot improve"];
 var choices3 = ["I do not feel like a failure", "I feel I have failed more than the average person", "As I look back on my life, all I can see is a lot of failures", "I feel I am a complete failure as a person"];
 var choices4 = ["I get as much satisfaction out of things as I used to", "I dont enjoy things the way I used to", "I dont get real satisfaction out of anything anymore", "I am dissatisfied or bored with everything"];
@@ -34,20 +34,26 @@ var choices21 = ["I have not noticed any recent changes in my interest in sex", 
 
 //questionnaires
 var questions = {
-    type: 'survey-likert',
-    labels: [choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
-    timeline:[
-      {questions: ["", "", ""]},
-    ]
+  type: 'survey-multi-choice',
+  questions: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19",
+  "20", "21"],
+  options: [choices1, choices2, choices3, choices4, choices5, choices6, choices7, choices8, choices9, choices10, choices11, choices12, choices13, choices14, choices15, choices16, choices17, choices18, choices19, choices20, choices21], // need one scale for every question on a page
+  required: [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true],
 }
+
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
 
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+//var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({
-  timeline: timeline
+  timeline: [instructions_block, questions, exit_block]
 });
 
 
