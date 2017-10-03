@@ -11,6 +11,15 @@
 jsPsych.plugins['survey-likert'] = (function() {
 
   var plugin = {};
+  test_fun = function(){
+    console.log('Test Function')
+    // get the ID of the button
+    //$('#Q1').get
+    //console.log($(this))
+    // get the clock time.
+    // add those to a list..
+
+  }
 
 
 
@@ -26,16 +35,6 @@ jsPsych.plugins['survey-likert'] = (function() {
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
 
-    test_fun = function(){
-      console.log('Test Function')
-      // get the ID of the button
-      //$('#Q1').get
-      console.log($(this))
-      // get the clock time.
-      // add those to a list..
-
-    }
-
 
     // show preamble text
     display_element.append($('<div>', {
@@ -46,6 +45,8 @@ jsPsych.plugins['survey-likert'] = (function() {
     $('#jspsych-survey-likert-preamble').html(trial.preamble);
 
     display_element.append('<form id="jspsych-survey-likert-form">');
+
+
     // add likert scale questions
     for (var i = 0; i < trial.questions.length; i++) {
       form_element = $('#jspsych-survey-likert-form');

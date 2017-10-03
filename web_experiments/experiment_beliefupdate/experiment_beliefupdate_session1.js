@@ -3,7 +3,7 @@
 /////////////////////////////
 var welcome_block = {
   type: "text",
-  text: "Welcome! Press any key to get started.",
+  text: "Welcome to the experiment! Press any key to get started.",
   timing_post_trial: 200,
   data: {trial_name: 'text_welcome'},
   on_finish: function(data){
@@ -23,9 +23,9 @@ var instructions_block_backstory = {
         "<li>write a financial plan with projected cash flow, operating expense, income etc. (requiring analytic skills)</li>" +
         "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
         "</ul>"+
-        "<p>For this project, you will be selecting your own own teams.</p>",
+        "<p>For this project, you will be selecting who you would like to work with as a partner.</p>",
         "<p>In this first session of the experiment, we are asking you to provide information about yourself.</p>"+
-        "<p>In the second session, you will choose who you would want on your team based on your classmates' information (this will be shown anonomously). "+
+        "<p>In the second session, you will choose who you would prefer as a partner based on your classmates' information (this will be shown anonomously). "+
         "Your classmates will do the same for you. </p>"+
         "<p>In the third session, you will see how many people chose you to work with. </p>"
       ],
@@ -108,7 +108,7 @@ var self_describe_page = {
   type: 'survey-text',
   preamble: "Using a minumum of 100, but a maximum of 500 characters, write what would make you a good candidate for your classmates' teams. "+
   "For example, you might include information about extra curriculars or past awards or previous jobs." +
-  " Please refrain from using information in your response that other people could use to identify you. ",
+  " Please avoid using information in your response that other people could use to identify you. When other participants view your response, we'd like it to be anonymous.",
   questions: [""],
   rows:[10],
   columns: [50],
@@ -163,7 +163,30 @@ var instructions_block_disposition = {
 };
 
 
-/// But we are adding others instead ///
+var survey_DAS_A = {
+    type: 'survey-likert',
+    preamble: preamble_DAS_A,
+    questions: questions_DAS_A,
+    labels: choices_DAS_A,
+    data: {trial_name: 'survey_DAS_A'},
+};
+
+var survey_self_worth = {
+    type: 'survey-likert',
+    preamble: preamble_self_worth,
+    questions: questions_self_worth,
+    labels: choices_self_worth,
+    data: {trial_name: 'survey_self_worth'},
+};
+
+var survey_world_assumptions = {
+    type: 'survey-likert',
+    preamble: preamble_world_assumptions,
+    questions: questions_world_assumptions,
+    labels: choices_world_assumptions,
+    data: {trial_name: 'survey_world_assumptions'},
+};
+
 
 var page_1_questions = [
 "I feel pleasant",
@@ -232,12 +255,14 @@ var end_block = {
 /* create experiment timeline array */
 var timeline = [];
 timeline.push(welcome_block);
-timeline.push(instructions_block_backstory);
-timeline.push(aptitude_questions_page);
-timeline.push(self_describe_page);
-timeline.push(grade_page);
-timeline.push(instructions_block_disposition);
-timeline.push(survey_STAI_Trait);
+//timeline.push(instructions_block_backstory);
+//timeline.push(aptitude_questions_page);
+//timeline.push(self_describe_page);
+//timeline.push(grade_page);
+//timeline.push(instructions_block_disposition);
+timeline.push(survey_DAS_A)
+timeline.push(survey_self_worth);
+timeline.push(survey_world_assumptions);
 timeline.push(end_block)
 
 

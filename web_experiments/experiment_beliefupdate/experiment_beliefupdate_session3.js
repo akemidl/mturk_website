@@ -27,35 +27,45 @@ var welcome_block = {
   type: "text",
   text: "Welcome back! Press any key to begin."
 };
-timeline.push(welcome_block);
+//timeline.push(welcome_block);
 
-example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='')
-example_slider = '<img src='+slider_image+' height="40px" width="200px">'
+example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],
+  self_describes[0],sat_grades[0],opening_instructions='',if_you=true,include=124)
+example_slider = '<img src='+slider_image+' height="14%" width="100%">'
+
+console.log(example_stim)
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: [  "<p>Recall that you and your classmates are starting an internship for company ABC.</p>"+
-          "<p>In the last session, you were shown pairs of your classmates and you had to choose one person from each pair to include on your team.</p>"+
-          "<p>Your classmates were asked to do the same thing. </p>",
+  pages: [
+          "<p>Recall that in the last session, you were shown pairs of your classmates and you had to choose one person from each pair to include on your team. "+
+          "Your classmates were asked to do the same thing. </p>"+
+          "<p>After everyone completed the last session, we divided participants into two halves: the most popular and the least popular to work with.</p> "+
+          "<p>For this session, we have randomly selected 20 pairs in which you were one of the candidates being chosen between. For each pair, we will show "+
+          "you whether you were chosen or not. Your job is use this feedback to judge how likely it is that you are in the more popular half.</p> ",
 
-          "<p>At the end of last session, we divided participants into two groups: the 50% most popular to work with, and the 50% least popular to work with.</p> "+
-          "<p>In this session, we are going to give you feedback on how many times you were chosen to work with. You will be asked to judge how likely it is that you are in the 50% most popular. </p> ",
+          "<p>First, we will show you your profile along side of their profile. We have omitted the personal description for the sake of anonymity</p>",
 
-          "<p> You will also briefly be shown your profile along side of their profile, *** with the chosen person outlined with a black box: </p> ",
+          "<p>After a few seconds, we will show whether you or they were chosen to work with. The chosen person's profile will be outlined in black.</p> "+
+          "<p>For each pair, you'll be able to look at the feedback as long as you'd like. You will then press 'Enter' to move on.</p>",
 
-        ".. when you are done looking at the feedback, you can press enter. ",
-      //  " <blockquote> 'Classmate #29 compared you and classmate #14. <strong>He/she</strong> was chosen to work with'.</blockquote>"+
+          "<p>After each piece of feedback, you will estimate how likely it is that you are among the top half most frequently chosen to work with. "+
+          "You will use a slider that looks like this:</p>"+
+          example_slider+
+          "<p>Selecting 10% means you think there’s a 10% chance you are in the most popular half of students. </p>"+
+          "<p>Selecting 90% means you think there’s a 90% chance you are in the most popular half. </p>",
 
-        "After each piece of feedback, you will estimate how likely it is that you are among the 50% most popular. "+
-        "You will use a slider that looks like this.</p>"+
-        example_slider+
-        "<p>Selecting 10% means you think there’s a 10% chance you are in the most popular half of students. </p>"+
-        "<p>Selecting 90% means you think there’s a 90% chance you are in the most popular half. </p>",
-        "<strong>Bonus Payments: </strong> In addition to your hourly rate, you will receive a bonus payment based on how accurate your estimates are. "+
-        "We use an algorithm to determine your bonus. However, to maximize your chances of earning an extra $5, all you have to do is choose what you believe to be most likely. "+,
-         "Click 'Next' to get started, or click 'Previous' to re-read the instructions."
+          "<p>In addition to your hourly rate, you will receive a bonus payment based on how accurate your estimates are. This is how it works: </p>"+
+          "<p>Let's say you think you are in the top half with 90% probability, so you set the slider accordingly.</p>"+
+          "<ul><li> We draw a random number from 0-100</li>"+
+          "<li>If the random number is less than 90, then you get the $5 if you are truly in the top half.</li>"+
+          "<li>If it's greater than 90, you get $5 with probability .9."+
+          "</ul>"+
+          "<p>Although it sounds a bit complicated, this method encourages you to estimate what you really believe to be true, because your bonus directly depends on how close you are to the truth.</p>"+
+          "<p>If that all makes sense, click 'Next' to get started. You can click 'Previous' to re-read the instructions.</p>"
        ],
-        after_button_html:['','',example_stim,example_stim,'',''],
+        after_button_html:['',example_stim,example_stim,'',''],
+        functions_for_each_screen:['','','select_right()','',''],
         show_clickable_nav: true,
           timing_post_trial: 50,
       		allow_backward: true,
@@ -65,7 +75,7 @@ var instructions_block_backstory = {
       	 }
 };
 
-timeline.push(instructions_block_backstory);
+//timeline.push(instructions_block_backstory);
 
 
 ///////////////////////////////////////////////////
@@ -74,10 +84,10 @@ for (var i = 0; i < num_trials; i++) {
 
   // this variable is loaded in
   if (feedback[i]==1){
-    feedback_str = '<strong>you</strong> over '+pairs[i][1]+''
+    feedback_str = 'You were chosen over classmate '+pairs[i][1]+''
     which_side = '#stim_left'
   }else{
-    feedback_str = '<strong>'+pairs[i][1]+'</strong> over you.'
+    feedback_str = 'Classmate '+pairs[i][1]+' was chosen over you.'
     which_side = '#stim_right'
   }
 
@@ -85,13 +95,13 @@ for (var i = 0; i < num_trials; i++) {
 
   /// String for telling them about their feedback
   if (i>0){
-    var stim1 = '<div id="feedback_string" style="visibility: hidden;"><p>Your classmate chose '+feedback_str+'</p><p style="font-size:12;"> (press "Enter" when you are done looking at the comparison) </p></div>'+
-    html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you=true)
-    var stim2 ='<div>Now, how likely do you think it is that you are in the 50% most popular?</p></div>'
+    var stim1 = '<div id="feedback_string" style="visibility: hidden;"><p>'+feedback_str+'</p><p style="font-size:12;"> (press "Enter" when you are done looking at the comparison) </p></div>'+
+    html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you=true,include=124)
+    var stim2 ='<div>Now, how likely do you think it is that you are in the more popular half?</p></div>'
     var timing_first_stim=-1;
   }else{
     var stim1 ='<div><p></p></div>'
-    var stim2 ='<div><p>Before we give you any feedback, how likely do you think it is that you are in the top 50% most popular?</p></div>'
+    var stim2 ='<div><p>Before we give you any feedback, how likely do you think it is that you are in the more popular half?</p></div>'
     var timing_first_stim = 200;
   }
 
@@ -130,7 +140,7 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  timeline.push(trial_belief_elicitation);
+  //timeline.push(trial_belief_elicitation);
 
 }
 
@@ -141,48 +151,43 @@ var instructions_midway = {
   type: "instructions",
   pages: ["<p>Thanks!</p> "+
         "<p>For the next part of the session, we would like you to do the same thing for classmate 51235187. "+
-        "You will see feedback just as before, only this time you will estimate the likelihood that classmate 51235187 is in the top 1/2 .. most popular.</p>",
-         "Click 'Next' to get started, or click 'Previous' to re-read the instructions."
+        "You will see feedback just as before, only this time you will estimate the likelihood that classmate 51235187 is in the more popular half.</p>"
         ]
   ,
   show_clickable_nav: true,
     timing_post_trial: 200
 };
 
-timeline.push(instructions_midway)
+//timeline.push(instructions_midway)
 
 /////////////////////////////
-
+i=0
 for (var i = 0; i < num_trials; i++) {
 
   // this variable is loaded in
   if (feedback[i]==1){
-    feedback_str = 'classmate #45'
-    which_side = '#stim_left_sess3'
+    feedback_str = 'Classmate 51235187 was chosen over classmate '+String(pairs[i][1])+''
+    which_side = '#stim_left'
   }else{
-    feedback_str = 'classmate #'+pairs[i][1]
-    which_side = '#stim_right_sess3'
+    feedback_str = 'Classmate '+String(pairs[i][1])+' was chosen over classmate 51235187.'
+    which_side = '#stim_right'
   }
-  //console.log('here')
-  //console.log(feedback[i])
-  console.log(which_side)
+
   /// String for telling them about their feedback
   if (i>0){
-
-    opening_instructions=''
-    stim1 = html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions=opening_instructions)
-
-    var stim2 =    '<div>'+
-        '<p>Your classmate #24 chose <strong>'+feedback_str+'</strong>. '+
-    'Now, how likely do you think it is that classmate #45 is in the top 50% most popular?</p></div>'
-    var timing_first_stim=5;
+    var stim1 = '<div id="feedback_string2" style="visibility: hidden;"><p>'+feedback_str+'</p><p style="font-size:12;"> (press "Enter" when you are done looking at the comparison) </p></div>'+
+    html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you='51235187',include=124)
+    var stim2 ='<div>Now, how likely do you think it is that classmate 51235187 are in the more popular half?</p></div>'
+    var timing_first_stim=-1;
   }else{
     var stim1 ='<div><p></p></div>'
-    var stim2 ='<div><p>Before we give you any feedback, how likely do you think it is that classmate #45 is in the top 50% most popular?</p></div>'
+    var stim2 ='<div><p>Before seeing any feedback, how likely do you think it is that classmate 51235187 is in the more popular half?</p></div>'
     var timing_first_stim = 200;
   }
+  console.log('here')
+  console.log(stim1)
 
-  var trial_belief_elicitation = {
+  var trial_belief_elicitation2 = {
     type: 'similarity',
     prompt: "",
     stimuli: [stim1,stim2],
@@ -203,6 +208,7 @@ for (var i = 0; i < num_trials; i++) {
                        "border-width":"5px",
                        "border-style":"solid",
                      "padding":"7px"});
+          $('#feedback_string2').css({"visibility":"inherit"})
 
         }, 1500)
 
@@ -215,17 +221,76 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  timeline.push(trial_belief_elicitation);
+  //timeline.push(trial_belief_elicitation2);
 
 }
 
 
+/////////////////////////////
+var intro_to_debrief= {
+  type: "instructions",
+  pages: ["<p>Thanks! You're almost done. We just have a few more questions for you.</p>"],
+  show_clickable_nav: true,
+};
+
+timeline.push(intro_to_debrief);
+
+
+/////////////////////////////
+var feedback_question1 = {
+  type: "survey-multi-choice",
+  questions: ['Would you like to know what type of information people most often used while selecting teammates'],
+  options: [['yes','no thanks']],
+};
+
+
+var feedback_result1 = {
+  type: "instructions",
+  pages: ["<p>It turns out that people most often used grades to make their choice.</p>"],
+  show_clickable_nav: true,
+};
+/// get answer from previous trial
+
+timeline.push(feedback_question1);
+timeline.push(feedback_result1);
+
+///////
+var feedback_question2 = {
+  type: "survey-multi-choice",
+  questions: ['Would you like to know your exact rank in terms of how many times you were chosen to work with?'],
+  options: [['yes','no thanks']],
+};
+
+/// get response.. pass it along ..
+
+var feedback_result2 = {
+  type: "instructions",
+  pages: ["<p>You were ranked 36th out of 60 participants. (1st = being the most frequently chosen)</p>"],
+  show_clickable_nav: true
+};
+
+
+timeline.push(feedback_question2);
+timeline.push(feedback_result2);
+
+//////////////////////////////
+
+var debrief_block = {
+  type: "instructions",
+  pages: ["During the experiment today, you may have received mostly positive or negative feedback."+
+  "In either case, this was a small sample size, so we recommend that you don't draw any strong conclusions. If this were a different scenario, you may have fared very differently. If you are interested, the experimenter can provide you with some campus resources for fine-tuning your resume."],
+  show_clickable_nav: true,
+};
+
+timeline.push(debrief_block);
+//////////////////////////////
 
 /////////////////////////////
 var end_block = {
   type: "text",
-  text: "<p>Thanks! You have completed this part of the experiment. "+
-  "Press 'Enter' on your keyboard and wait for a link to appear below. "+
+  text:
+  "<p> Thanks for participating in our experiment! Your are all done.</p>"+
+  "<p> Press 'Enter' on your keyboard and wait for a link to appear below. "+
   "This should take a 5-30 seconds. "+
   "Do not close your browser until this process is complete. </p>"+
   ""
@@ -263,7 +328,7 @@ function startExperiment(){*/
   jsPsych.init({
     timeline: timeline,
 		//show_progress_bar: true,
-    //fullscreen: true,
+    fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
     }

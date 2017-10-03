@@ -5,27 +5,29 @@ var welcome_block = {
   type: "text",
   text: "Welcome back! Press any key to begin."
 };
-
-example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='')
+// could replace with this, but then I need new descriptions etc. ['10112342','10518512']
+example_stim1 = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='',if_you=false,include=1)
+example_stim12 = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='',if_you=false,include=12)
+example_stim123 = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='',if_you=false,include=123)
+example_stim1234 = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_describes[0],sat_grades[0],opening_instructions='',if_you=false,include=1234)
 
 
 var instructions_block_backstory1 = {
   type: "instructions",
-  pages: ["<p>Recall that you and your classmates are starting an internship for company ABC.</p>"+
+  pages: ["<p>Recall that you and your classmates are starting internships for company ABC.</p>"+
  				 "<p>In the last session, you wrote a short description of yourself, provided grades and SAT scores, and answered questions about your 'work style'. </p>"+
-         "<p>In this session, you and your classmates will use this information to decide on your teams.",
-				 "<p>You will be shown 10 pairs of your classmates, and each time you will choose one to include on your team.</p> "+
-				 "<p>Only 3 of the classmates you chose will be randomly selected for your team. "+
-				 "So, it is important that for each choice, you pick the person that you think will be best regardless of who the other team members might be.</p>",
+         "<p>In this session, you and your classmates will use this information to decide who to work with.",
+				 "<p>You will be shown 15 pairs of your classmates, and each time you will choose the one who you think would be better to work with as a partner.</p> "+
+				 "<p>For each pair, pick the person that you think will be best regardless of who you have already chosen.</p>",
 
 				 "<p>Here is an example of the type of choice you will make. "+
-			 	 "You will be presented with information about two possible team members, as shown below. Each person has been given a randomly generated 8-digit ID number.</p> ",
-			 	 "<p>At the top, we have taken the answers to the questions in part I and used them to generate these summary bar plots, which show where each individual is relative to all others on these three traits. "+
-			 	 "In the middle, there is the free description that each individual including yourself has provided. "+
-			 	 "At the bottom, there are the SAT scores and the 3 grades that the individual has chosen to share.</p>",
+			 	 "You will be shown two possible team members, as shown below. Each person has been given a randomly generated 8-digit ID number.</p> ",
+			 	 "<p>We have taken the answers to the questions in part I and used them to generate these summary bar plots, which show where each individual is relative to all others on these three traits. ",
+			 	 "<p>Below that you'll see a free description that each individual, including yourself, has provided. </p></br>",
+			 	 "<p>At the bottom, you'll see the SAT scores and the 3 grades that the individual has chosen to share.</p>",
 			 ]
   ,
-	after_button_html:['','',example_stim,example_stim],
+	after_button_html:['','',example_stim1,example_stim12,example_stim123,example_stim1234],
   show_clickable_nav: true,
     timing_post_trial: 50,
 		allow_keys: false,
@@ -35,11 +37,11 @@ var instructions_block_backstory1 = {
 var instructions_block_backstory2 = {
   type: "instructions",
   pages: ["<p> You may use any or all of this to influence your choice. Do not think about any other choice when making the one at hand."+
-				 "You have as long as you need to decide.</p>"+
+				 " You have as long as you need to decide.</p>"+
 				 "<p>So here, if you wanted to choose a person on the left you would press the left arrow key. You can switch your choice by press the right arrow key. "+
 				 "Press enter to register your choice</p>"
 	],
-	after_button_html:[example_stim],
+	after_button_html:[example_stim1234],
   show_clickable_nav: false,
     timing_post_trial: 50,
 		allow_backward: false,
@@ -76,7 +78,10 @@ timeline.push(instructions_block_backstory3);
 //// Embed this in a loop like Poldrack ////
 for (var i = 0; i < num_trials; i++) {
 
-	opening_instructions='<p style="width:100%">Please consider these two candidates and choose one to join your team.		1/10</p> <p>Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'
+	opening_instructions=
+  //'<p style="float:right">'+String(i)+'/10</p>'+
+  '<p style="width:100%">Please consider these two candidates and choose the one you think is better for this internship.</p> <p>Use the "left arrow" or "right arrow" keys to respond. You have as much time as you need. </p>'
+
   stim = html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions=opening_instructions)
 
 	var trial_allow_response = {
@@ -104,10 +109,10 @@ timeline.push(trial_allow_response);
 }
 
 /////////////////////////////
-var instructions_block_disposition = {
+var instructions_midway = {
   type: "instructions",
-  pages: ["<p>Thanks!</p><p> The information you've entered will be anonymously shown to your classmates when they are picking their team.</p> ",
-      "<p>Before you finish this session, we'd like you to answer a few questions about your personality. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
+  pages: ["<p>Thanks!</p><p>Your selections will be anonymously shown to your classmates when they are given feedback on how often they were chosen to work with.</p> ",
+  "<p>Before you finish this session, we'd like you to answer a few questions about your how you were picking your team, and about your personality and mood. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
       "They are for us (the researchers) to look at how different traits affect people's choice for team members. So, please answer as honestly as possible.</p>"],
       show_clickable_nav: true,
       timing_post_trial: 200,
@@ -118,7 +123,16 @@ var instructions_block_disposition = {
               }
 };
 
+timeline.push(instructions_midway)
 
+
+var feedback_question2 = {
+  type: "survey-multi-choice",
+  questions: ['While selecting members for your team, which information did consider the most?'],
+  options: [['Work style graph','Personal description','SAT scores','Grades']],
+};
+
+timeline.push(feedback_question2 )
 
 ////////////
 
@@ -148,8 +162,8 @@ var scale_1 = ["Almost Never", "Sometimes", "Often", "Almost Always"];
 
 var survey_STAI_Trait = {
     type: 'survey-likert',
-    preamble: "<p><strong>Instructions:</strong> A number of statements which people have used to describe themselves are given below."+
-          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>. "+
+    preamble: "A number of statements which people have used to describe themselves are given below."+
+          "Read each statement and then click the button for the statement closest to how you <strong> generally feel</strong>. "+
           "There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe how you generally feel.",
     questions: page_1_questions,
     labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
@@ -211,7 +225,7 @@ var survey_BDI = {
 
 };
 
-timeline.push(instructions_block_disposition);
+
 timeline.push(survey_STAI_Trait);
 timeline.push(survey_BDI);
 

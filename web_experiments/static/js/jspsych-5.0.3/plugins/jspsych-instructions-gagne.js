@@ -27,12 +27,13 @@ jsPsych.plugins.instructions = (function() {
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
     trial.after_button_html = trial.after_button_html || [''];
+    trial.functions_for_each_screen = trial.functions_for_each_screen || [];
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
 
     // Chris: here I pass in functions that I don't want to be run until a key is pressed!!
-    trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial,['key_extra1_func','key_extra2_func']);
+    trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial,['key_extra1_func','key_extra2_func','functions_for_each_screen']);
 
 
     var current_page = 0;
@@ -48,6 +49,7 @@ jsPsych.plugins.instructions = (function() {
 
     function show_current_page() {
       display_element.html(trial.pages[current_page]);
+
 
       if (trial.show_clickable_nav) {
 
@@ -76,6 +78,9 @@ jsPsych.plugins.instructions = (function() {
       // Adding below instruction stuff
       display_element.append(trial.after_button_html[current_page])
 
+      // Call any functions for this screen
+      console.log(trial.functions_for_each_screen[current_page])
+      eval(trial.functions_for_each_screen[current_page])
 
     }
 
