@@ -2,10 +2,10 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p> Below is a list of feelings, sensations, problems, and experiences that people " +
-  "sometimes have. Read each item and then mark the appropriate choice in the button next to " +
+  text: "<p>Here we've listed feelings, sensations, problems, and experiences that people " +
+  "sometimes have. Read each item and select the appropriate choice using the buttons below " +
   "that item. Use the choice that best describes how much you have felt or experienced things "+
-  "this way <strong>during the past week, including today</strong>. Press enter to start. </p>"
+  "this way <strong>during the past week, including today</strong>.</p>"
 };
 
 // defining response scale

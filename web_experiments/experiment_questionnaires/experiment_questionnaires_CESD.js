@@ -2,9 +2,8 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p> Next is a list of some of the ways you may have felt or behaved. " +
-  "Please indicate how often you have felt this way during the past week. Press enter " +
-  "to go to the next page.</p>"
+  text: "<p>Here, we've listed of some of the ways you may have felt or behaved. " +
+  "Please indicate how often you have felt this way during the past week."
 };
 
 // defining response scale

@@ -2,10 +2,10 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p>A number of statements which people have used to describe themselves are " +
-        "given below.</p><p>Read each statement and then markl the appropriate number to the right " +
-        "of the statement to indicate how you <strong>feel right now </strong>, that is <strong>at the moment</strong>.</p>" +
-        "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer whcih seems  " +
+  text: "<p>Here, we've listed a number of statements which people have used to describe themselves.</p>" +
+        "<p>Read each statement and then use the buttons below the statement " +
+        "to indicate how you <strong>feel right now</strong>, that is <strong>at the moment</strong>.</p>" +
+        "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems  " +
         "to describe your present feelings best.</p>"
 };
 
