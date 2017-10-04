@@ -35,6 +35,7 @@ jsPsych.plugins.similarity = (function() {
     trial.selected_side = trial.selected_side || '#stim_right';
 
     trial.choices = trial.choices || [];
+    trial.time_before_choice = trial.time_before_choice || 0;
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -82,15 +83,16 @@ jsPsych.plugins.similarity = (function() {
 
     if (trial.timing_first_stim == -1){
     // start the response listener only if the first stimuli stays on forever
-    // there were issues with both the timer on and the keyboard on. 
+    // there were issues with both the timer on and the keyboard on.
       if (JSON.stringify(trial.choices) != JSON.stringify(["none"])) {
-        var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
-          callback_function: showBlankScreen,
-          valid_responses: trial.choices,
-          rt_method: 'date',
-          persist: false,
-          allow_held_key: false
-        });
+        var t1123_ = setTimeout(function() {
+          var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+            callback_function: showBlankScreen,
+            valid_responses: trial.choices,
+            rt_method: 'date',
+            persist: false,
+            allow_held_key: false
+        })},trial.time_before_choice)
       }
     }
 

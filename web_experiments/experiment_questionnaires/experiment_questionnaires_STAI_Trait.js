@@ -2,9 +2,9 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p>A number of statements which people have used to describe themselves " +
-        "are given below. </p><p>Read each statement and then mark the appropriate " +
-        "number to the right of the statement to indicate how you <strong> generally feel </strong>.</p>" +
+  text: "<p>Here again, we've listed a number of statements which people have used to describe themselves.</p>"
+        "<p>Read each statement and then use the buttons " +
+        "below the statement to indicate how you <strong> generally feel</strong>.</p>" +
         "<p>There are no right or wrong answers. Do not spend too much time on any one statement " +
         "but give the answer which seems to describe how you generally feel.</p>"
 };
@@ -24,11 +24,17 @@ var questions = {
       {questions: ["I am a steady person", "I get in a state of tension or turmoil as I think over my recent concerns and interest"]},
     ]
 }
+
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
 //questionnaires
 
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

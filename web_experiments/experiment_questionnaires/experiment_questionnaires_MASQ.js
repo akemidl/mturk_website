@@ -2,10 +2,10 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p> Below is a list of feelings, sensations, problems, and experiences that people " +
-  "sometimes have. Read each item and then mark the appropriate choice in the button next to " +
+  text: "<p>Here we've listed feelings, sensations, problems, and experiences that people " +
+  "sometimes have. Read each item and select the appropriate choice using the buttons below " +
   "that item. Use the choice that best describes how much you have felt or experienced things "+
-  "this way <strong>during the past week, including today</strong>. </p>"
+  "this way <strong>during the past week, including today</strong>.</p>"
 };
 
 // defining response scale
@@ -14,7 +14,8 @@ var choices = ["not at all", "a little bit", "moderately", "quite a bit", "extre
 //questionnaires
 var questions = {
     type: 'survey-likert',
-    labels: [choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
+    check_completion: true,
+    labels: [choices, choices, choices, choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["Felt cheerful", "Felt afraid", "Startled easily", "Felt confused", "Slept very well", "Felt sad", "Felt very alert", "Felt discouraged", "Felt nauseous", "Felt like crying"]},
       {questions: ["Felt successful", "Had diarrhea", "Felt worthless", "Felt really happy", "Felt nervous", "Felt depressed", "Felt irritable", "Felt optimistic", "Felt faint", "Felt uneasy"]},
@@ -28,9 +29,15 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

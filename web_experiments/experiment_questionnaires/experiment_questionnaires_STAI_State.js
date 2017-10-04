@@ -2,10 +2,10 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p>A number of statements which people have used to describe themselves are " +
-        "given below.</p><p>Read each statement and then markl the appropriate number to the right " +
-        "of the statement to indicate how you <strong>feel right now </strong>, that is <strong>at the moment</strong>.</p>" +
-        "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer whcih seems  " +
+  text: "<p>Here, we've listed a number of statements which people have used to describe themselves.</p>" +
+        "<p>Read each statement and then use the buttons below the statement " +
+        "to indicate how you <strong>feel right now</strong>, that is <strong>at the moment</strong>.</p>" +
+        "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems  " +
         "to describe your present feelings best.</p>"
 };
 
@@ -20,21 +20,66 @@ var questions = {
     timeline:[
       {questions: ["I feel calm", "I feel secure", "I am tense"]},
       {questions: ["I feel strained", "I feel at ease", "I feel upset"]},
-      {questions: ["I am presently worrying over possible misfortunes", "I feel satisfied", "I feel frightened"]},
+      /*{questions: ["I am presently worrying over possible misfortunes", "I feel satisfied", "I feel frightened"]},
       {questions: ["I feel comfortable", "I feel self-confident", "I feel nervous"]},
       {questions: ["I feel jittery", "I feel indecisive", "I am relaxed"]},
       {questions: ["I feel content", "I am worried", "I feel confused"]},
-      {questions: ["I feel steady", "I feel pleasant"]},
+      {questions: ["I feel steady", "I feel pleasant"]},*/
     ]
 }
 
+/* define function to calculate scores, will be executed during data block */
+
+function getSubjectData() {
+
+  var trials = jsPsych.data.getTrialsOfType('single-stim');
+
+  console.log(trials)
+
+
+  var sum_rt = 0;
+  var correct_trial_count = 0;
+  var correct_rt_count = 0;
+  for (var i = 0; i < trials.length; i++) {
+    if (trials[i].correct == true) {
+      correct_trial_count++;
+      if(trials[i].rt > -1){
+        sum_rt += trials[i].rt;
+        correct_rt_count++;
+      }
+    }
+  }
+  return {
+    rt: Math.floor(sum_rt / correct_rt_count),
+    accuracy: Math.floor(correct_trial_count / trials.length * 100)
+  }
+}
+
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
+// define block to display data
+/*var data_block = {
+  type: "text",
+  text: function() {
+    var subject_data = getSubjectData();
+    return subject_data.accuracy;
+  }
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({
-  timeline: timeline
+  timeline: timeline,
+  on_finish: function() {
+    jsPsych.data.displayData();
+  }
 });
 
 

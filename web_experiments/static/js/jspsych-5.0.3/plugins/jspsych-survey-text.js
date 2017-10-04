@@ -16,6 +16,8 @@ jsPsych.plugins['survey-text'] = (function() {
   plugin.trial = function(display_element, trial) {
 
     trial.preamble = typeof trial.preamble == 'undefined' ? "" : trial.preamble;
+
+
     if (typeof trial.rows == 'undefined') {
       trial.rows = [];
       for (var i = 0; i < trial.questions.length; i++) {
@@ -28,6 +30,8 @@ jsPsych.plugins['survey-text'] = (function() {
         trial.columns.push(40);
       }
     }
+
+    var completion=0
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -63,6 +67,14 @@ jsPsych.plugins['survey-text'] = (function() {
       'class': 'jspsych-btn jspsych-survey-text'
     }));
     $("#jspsych-survey-text-next").html('Submit Answers');
+
+    // add did not complete text bux
+    display_element.append($('<div>', {
+      'id': 'did-not-complete',
+    }));
+    $("#did-not-complete").html('')
+
+
     $("#jspsych-survey-text-next").click(function() {
       // measure response time
       var endTime = (new Date()).getTime();

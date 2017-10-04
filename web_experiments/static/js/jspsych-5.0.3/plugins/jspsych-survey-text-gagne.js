@@ -16,6 +16,7 @@ jsPsych.plugins['survey-text'] = (function() {
   plugin.trial = function(display_element, trial) {
 
     trial.preamble = typeof trial.preamble == 'undefined' ? "" : trial.preamble;
+    trial.check_completion = trial.check_completion || false;
     if (typeof trial.rows == 'undefined') {
       trial.rows = [];
       for (var i = 0; i < trial.questions.length; i++) {
@@ -28,7 +29,7 @@ jsPsych.plugins['survey-text'] = (function() {
         trial.columns.push(40);
       }
     }
-
+    var completed =1
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
@@ -71,6 +72,14 @@ jsPsych.plugins['survey-text'] = (function() {
       'class': 'jspsych-btn jspsych-survey-text'
     }));
     $("#jspsych-survey-text-next").html('Submit Answers');
+
+    // add did not complete text bux
+    display_element.append($('<div>', {
+      'id': 'did-not-complete',
+    }));
+    $("#did-not-complete").html('')
+
+
     $("#jspsych-survey-text-next").click(function() {
       // measure response time
       var endTime = (new Date()).getTime();
@@ -86,16 +95,34 @@ jsPsych.plugins['survey-text'] = (function() {
         $.extend(question_data, obje);
       });
 
-      // save data
-      var trialdata = {
-        "rt": response_time,
-        "responses": JSON.stringify(question_data)
-      };
 
-      display_element.html('');
+      // check for completion
+      console.log('here')
+      console.log(question_data['Q0'])
+      console.log(JSON.stringify(question_data['Q0']))
+      if (JSON.stringify(question_data['Q0'])==JSON.stringify("")){
+        completed=0
+      }else{
+        completed=1
+      }
 
-      // next trial
-      jsPsych.finishTrial(trialdata);
+      if (completed ==0 && trial.check_completion){
+        // d
+        $("#did-not-complete").html('<p>You have left an answer blank.<p>')
+
+      }else{
+
+        // save data
+        var trialdata = {
+          "rt": response_time,
+          "responses": JSON.stringify(question_data)
+        };
+
+        display_element.html('');
+
+        // next trial
+        jsPsych.finishTrial(trialdata);
+      }
     });
 
     var startTime = (new Date()).getTime();

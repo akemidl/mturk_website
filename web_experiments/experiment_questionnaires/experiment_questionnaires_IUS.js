@@ -2,9 +2,8 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p> You will find below a series of statements which describe how people may react to the uncertainties of life."+
-  "Please use the scale below to describe to what extent each item is characteristic of you. Please indicate a number "+
-  "(1 to 5) that describes you best. </p>"
+  text: "<p> You will find a series of statements which describe how people may react to the uncertainties of life."+
+  " Please use the scale below each statement to describe to what extent each item is characteristic of you. </p>"
 };
 
 // defining response scale
@@ -13,6 +12,7 @@ var choices = ["Not at all characteristic of me", "A little characteristic of me
 //questionnaires
 var questions = {
     type: 'survey-likert',
+    check_completion: true,
     labels: [choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["Uncertainty stops me from having a firm opinion",
@@ -45,9 +45,15 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

@@ -13,6 +13,7 @@ var choices = ["Disagree strongly", "Disagree a little", "Neutral; no opinion", 
 //questionnaires
 var questions = {
     type: 'survey-likert',
+    check_completion: true,
     labels: [choices, choices, choices, choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["I am someone who is outgoing, sociable", "I am someone who is compassionate, has a soft heart", "I am someone who tends to be disorganized", "I am someone who is relaxed, handles stress well", "I am someone who has few artistics interests", "I am someone who has an assertive personality", "I am someone who is respectful, treats others with respect", "I am someone who tends to be lazy", "I am someone who stays optimistic after experiencing a setback", "I am someone who is curious about many different things"]},
@@ -24,9 +25,15 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
+
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

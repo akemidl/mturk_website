@@ -3,10 +3,10 @@
 var instructions_block = {
   type: "text",
   text: "<p> Each item of this questionnaire is a statement that a person may either agree or disagree with." +
-  "For each item, indicate how much you agree or disagree with what the item says."+
-  "Please respond to all the items; do not leave any blank. Choose only one response to each statement."+
-  "Please be as accurate and honest as you can be. Respond to each item as if it were the only item."+
-  "That is, don't worry about being 'consistent' in your responses. </p>"
+  " For each item, indicate how much you agree or disagree with what the item says."+
+  " Please respond to all the items; do not leave any blank. Choose only one response to each statement."+
+  " Please be as accurate and honest as you can be. Respond to each item as if it were the only item."+
+  " That is, don't worry about being 'consistent' in your responses. Press enter to start. </p>"
 };
 
 // defining response scale
@@ -15,6 +15,7 @@ var choices = ["Very true for me", "Somewhat true for me", "Somewhat false for m
 //questionnaires
 var questions = {
     type: 'survey-likert',
+    check_completion: true,
     labels: [choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
     timeline:[
       {questions: ["A person's family is the most important thing in life", "Even if something bad is about to happen to me, I rarely experience fear or nervousness", "I go out of my way to get things I want", "When I'm doing well at something I love to keep at it", "I'm always willing to try something new if I think it will be fun", "How I dress is important to me"]},
@@ -24,9 +25,14 @@ var questions = {
     ]
 }
 
+/* define exit block */
+var exit_block = {
+ type: "text",
+ text: "<p> You have finished. Thank you! </p>"
+};
 //push this back
 /* create experiment timeline array */
-var timeline = [instructions_block, questions];
+var timeline = [instructions_block, questions, exit_block];
 
 /* start the experiment */
 jsPsych.init({

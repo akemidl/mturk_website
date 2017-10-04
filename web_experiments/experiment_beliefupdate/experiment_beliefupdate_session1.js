@@ -1,33 +1,25 @@
 
 
 /////////////////////////////
-var welcome_block = {
-  type: "text",
-  text: "Welcome! Press any key to get started.",
-  timing_post_trial: 200,
-  data: {trial_name: 'text_welcome'},
-  on_finish: function(data){
-            console.log('The trial just ended.');
-            console.log(JSON.stringify(data))
-          }
-};
+
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: ["<p>For this experiment, we want you to imagine that you and your classmates are starting internships for company ABC. "+
-        "You will be forming a teams with your classmates in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
-        "<p>The project will have several components and require a number of different of skills. Your team will need to: </p>"+
+  pages: ["Welcome to the experiment!",
+    "<p>For this experiment, we want you to imagine that you and your classmates are starting internships for company ABC. "+
+        "You will be forming two-person teams in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
+        "<p>The project will have several components and require a number of different of skills. You and your partner will need to: </p>"+
         "<ul>"+
         "<li>design a new social media app (requiring social and creative skills)</li>"+
         "<li>code a working prototype of the app (requiring technical skills) </li>" +
         "<li>write a financial plan with projected cash flow, operating expense, income etc. (requiring analytic skills)</li>" +
         "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
-        "</ul>"+
-        "<p>For this project, you will be selecting your own own teams.</p>",
+        "</ul>",
+        "<p>In this experiment, you will be selecting who you would like to partner with for this project.</p>"+
         "<p>In this first session of the experiment, we are asking you to provide information about yourself.</p>"+
-        "<p>In the second session, you will choose who you would want on your team based on your classmates' information (this will be shown anonomously). "+
+        "<p>In the second session, you will see pairs of classmates and the information they provided in session 1. For each pair, we will ask you who you would prefer to work with (this will be shown anonymously). "+
         "Your classmates will do the same for you. </p>"+
-        "<p>In the third session, you will see how many people chose you to work with. </p>"
+        "<p>In the third session, you will see how many people chose to work with you. </p>"
       ],
   show_clickable_nav: true,
     timing_post_trial: 200,
@@ -58,20 +50,20 @@ var page_1_questions = [
 "<span style='float:right;'>the big picture</span></p>",
 
 "<p>When working through a problem, I tend to think:</p>"+
-"<p style='text-align:left;'>think intuitively"+
-"<span style='float:right;'>think sequentially</span></p>",
+"<p style='text-align:left;'>intuitively"+
+"<span style='float:right;'>sequentially</span></p>",
 
-"<p>When stuck on a problem, I prefer to:</p>"+
-"<p style='text-align:left;'>seek advice immediately"+
-"<span style='float:right;'>try to work it out by myself</span></p>",
+"<p>When stuck on a problem, I prefer to seek advice:</p>"+
+"<p style='text-align:left;'>immediately"+
+"<span style='float:right;'>after I've worked on it for awhile</span></p>",
 
-"<p>When presenting my work, I prefer to present:</p>"+
-"<p style='text-align:left;'>in a logical order"+
-"<span style='float:right;'>as a story</span></p>",
+"<p>When presenting my work, I prefer to present in an order that is:</p>"+
+"<p style='text-align:left;'>logical"+
+"<span style='float:right;'>chronological</span></p>",
 
-"<p>When starting a new project, I prefer to:</p>"+
-"<p style='text-align:left;'>plan it out"+
-"<span style='float:right;'>start working</span></p>",
+"<p>When starting a new project, I prefer to plan:</p>"+
+"<p style='text-align:left;'>the entire project"+
+"<span style='float:right;'>only the next necessary step</span></p>",
 ];
 
 // more or less independent
@@ -89,7 +81,7 @@ var aptitude_questions_page = {
     preamble: "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
     "Your answers will be presented to your classmates when they are choosing who to work with. "+
     "Please answer honestly to ensure you will receive useful feedback. "+
-    "Your profile will only ever be shown anonomously.</p>",
+    "Your profile will only ever be shown anonymously.</p>",
     questions: page_1_questions,
     labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
             scale_1, scale_1, scale_1], // need one scale for every question on a page
@@ -99,16 +91,16 @@ var aptitude_questions_page = {
               console.log(JSON.stringify(data))
               $(document).ready(function () {window.scrollTo(0,0);});
             },
-    check_completion: false,
+    check_completion: true,
 };
 
 //////////////////////////
 
 var self_describe_page = {
   type: 'survey-text',
-  preamble: "Using a minumum of 100, but a maximum of 500 characters, write what would make you a good candidate for your classmates' teams. "+
-  "For example, you might include information about extra curriculars or past awards or previous jobs." +
-  " Please refrain from using information in your response that other people could use to identify you. ",
+  preamble: "Using maximum of 500 characters, write what you think would make you a good candidate to work with. "+
+  "For example, you might include information about extracurriculars, past awards, or previous jobs." +
+  " Please avoid using information in your response that other people could use to identify you. We'd like other participants to view your response anonymously.",
   questions: [""],
   rows:[10],
   columns: [50],
@@ -117,6 +109,7 @@ var self_describe_page = {
   "I'm currently working on my senior thesis, which looks at ways to encourage people to reduce their carbon footprint. "+
   "For the past summer, I worked as a market research analyst."],
   data: {trial_name: 'self_describe_page'},
+  check_completion:true,
   on_finish: function(data){
             console.log('The trial just ended.');
             console.log(JSON.stringify(data))
@@ -139,6 +132,7 @@ var grade_page = {
   maxlength: [100,100,100,100,100,100],
   placeholder: ['999', "999","999","Econ Theory Micro: G","Econ Theory Macro: G", "Financial Economics: G"],
   data: {trial_name: 'sat_grades_entry'},
+  check_completion:true,
   on_finish: function(data){
             console.log('The trial just ended.');
             console.log(JSON.stringify(data))
@@ -147,12 +141,13 @@ var grade_page = {
 };
 
 /////////////////////////////
-/////////////////////////////
+
+
 var instructions_block_disposition = {
   type: "instructions",
-  pages: ["<p>Thanks!</p><p> The information you've entered will be anonymously shown to your classmates when they are picking their team.</p> ",
-      "<p>Before you finish this session, we'd like you to answer a few questions about your personality. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
-      "They are for us (the researchers) to look at how different traits affect people's choice for team members. So, please answer as honestly as possible.</p>"],
+  pages: ["<p>Thanks!</p><p> The information you've entered will be shown anonymously to your classmates when they are choosing a partner.</p> ",
+      "<p>Before you finish this session, we'd like you to answer a few questions about your personality and how you view yourself. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
+      "They are for us (the researchers) to look at how different traits affect peoples' choices. So, please answer as honestly as possible.</p>"],
       show_clickable_nav: true,
       timing_post_trial: 200,
       data: {trial_name: 'instruction_traits'},
@@ -163,50 +158,35 @@ var instructions_block_disposition = {
 };
 
 
-/// But we are adding others instead ///
-
-var page_1_questions = [
-"I feel pleasant",
-"I felt nervous and restless",
-"I feel satisfied with myself",
-"I wish I could be as happy as others seem to be",
-"I feel like a failure",
-"I feel rested",
-"I am calm, cool, and collected",
-"I feel that difficulties are piling up so that I cannot overcome them",
-"I worry too much over something that really doesn’t matter",
-"I am happy",
-"I have disturbing thoughts",
-"I lack self-confidence",
-"I feel secure",
-"I make decisions easily",
-"I feel inadequate",
-"I am content",
-"Some unimportant thought runs through my mind and bothers me",
-"I take disappointments so keenly that I can’t put them out of my mind",
-"I am a steady person",
-"I get in a state of tension or turmoil as I think over my recent concerns and interest"];
-var scale_1 = ["Almost Never", "Sometimes", "Often", "Almost Always"];
-
-
-var survey_STAI_Trait = {
+var survey_DAS_A = {
     type: 'survey-likert',
-    preamble: "<p><strong>Instructions:</strong> A number of statements which people have used to describe themselves are given below."+
-          "Read each statement and then mark the appropriate number to the right of the statement to indicate how you <strong> generally feel</strong>. "+
-          "There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems to describe how you generally feel.",
-    questions: page_1_questions,
-    labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1,
-      scale_1, scale_1,scale_1,scale_1,scale_1], // use repeat function
-    data: {trial_name: 'survey_STAI_Trait'},//,questions:page_1_questions},
-    on_finish: function(data){
-              console.log('The trial just ended.');
-              console.log(JSON.stringify(data))
-							$(document).ready(function () {window.scrollTo(0,0);});
-            }
+    preamble: preamble_DAS_A,
+    questions: questions_DAS_A,
+    labels: choices_DAS_A,
+    data: {trial_name: 'survey_DAS_A'},
+    check_completion: true,
+    on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
+var survey_self_worth = {
+    type: 'survey-likert',
+    preamble: preamble_self_worth,
+    questions: questions_self_worth,
+    labels: choices_self_worth,
+    data: {trial_name: 'survey_self_worth'},
+    check_completion: true,
+    on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
+};
+
+var survey_pswq = {
+    type: 'survey-likert',
+    preamble: preamble_pswq,
+    labels: choices_pswq,
+    questions: questions_pswq,
+    data: {trial_name: 'survey_pswq'},
+    check_completion: true,
+    on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
+};
 
 
 
@@ -214,11 +194,11 @@ var survey_STAI_Trait = {
 var end_block = {
     type: "text",
     text: "<p>Thanks! You have completed this part of the experiment. "+
-    "Press 'Enter' on your keyboard and wait for a link to appear below. "+
+    "Press 'enter' on your keyboard and wait for a link to appear below. "+
     "This should take a 5-30 seconds. "+
     "Do not close your browser until this process is complete. </p>"+
     ""
-    +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing Enter)</p>",
+    +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing 'enter')</p>",
   data: {trial_name: 'text_end_screen'},
   on_finish: function(data){
                 console.log('The trial just ended.');
@@ -231,13 +211,14 @@ var end_block = {
 
 /* create experiment timeline array */
 var timeline = [];
-timeline.push(welcome_block);
 timeline.push(instructions_block_backstory);
 timeline.push(aptitude_questions_page);
 timeline.push(self_describe_page);
 timeline.push(grade_page);
 timeline.push(instructions_block_disposition);
-timeline.push(survey_STAI_Trait);
+timeline.push(survey_DAS_A)
+timeline.push(survey_self_worth);
+timeline.push(survey_pswq);
 timeline.push(end_block)
 
 
@@ -268,7 +249,7 @@ function save_data(data){
 function startExperiment(){*/
   jsPsych.init({
     timeline: timeline,
-    //fullscreen: true,
+    fullscreen: true,
     on_finish: function() {
       save_data(jsPsych.data.getData());
     }
