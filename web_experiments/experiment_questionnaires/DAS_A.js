@@ -29,8 +29,8 @@ var questions_DAS_A = [
   "One can get pleasure from an activity regardless of the end result.",
   "People should have a reasonable likelihood of success before undertaking anything.",
   "My value as a person depends greatly on what others think of me.", // Q19
-  "If I don't set the highest standards for myself than I am likely to end up a second-rate person.",
-  "If I am to be a worthwhile person, I must be truly be outstanding in at least one major respect.",
+  "If I don't set the highest standards for myself, then I am likely to end up a second-rate person.",
+  "If I am to be a worthwhile person, I must be truly outstanding in at least one major respect.",
   "People who have good ideas are more worthy than those who do not.",
   "I should be upset if I make a mistake.",
   "My own opinions of myself are more important than other's opinions of me.",
