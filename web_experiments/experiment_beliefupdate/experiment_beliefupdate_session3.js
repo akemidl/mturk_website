@@ -47,20 +47,20 @@ var instructions_block_backstory = {
 
           "<p>First, we will show you your profile along side of their profile. We have omitted the personal description for the sake of anonymity</p>",
 
-          "<p>After a few seconds, we will show whether you or they were chosen to work with. The chosen person's profile will be outlined in black.</p> "+
-          "<p>For each pair, you'll be able to look at the feedback as long as you'd like. You will then press 'Enter' to move on.</p>",
+          "<p>After a few seconds, we will show whether you or they were chosen to work with. The chosen person's profile will be outlined in black. Note that this is an example and does not reflect a real choice.</p> "+
+          "<p>For each pair, you'll be able to look at the feedback as long as you'd like. You will then press 'enter' to move on.</p>",
 
-          "<p>After each piece of feedback, you will estimate how likely it is that you are among the half more frequently chosen to work with. "+
+          "<p>After each piece of feedback, you will estimate how likely it is that you are in the more popular half. "+
           "You will use a slider that looks like this:</p>"+
           example_slider+
           "<p>Selecting 10% means you think there’s a 10% chance you are in the more popular half of students. </p>"+
-          "<p>Selecting 90% means you think there’s a 90% chance you are in the more popular half. </p>",
+          "<p>Selecting 90% means you think there’s a 90% chance you are in the more popular half of students. </p>",
 
           "<p>In addition to your hourly rate, you will receive a bonus payment based on how accurate your estimates are. This is how it works: </p>"+
           "<p>Let's say that you think you are in the more popular half with 90% probability, and you set the slider accordingly.</p>"+
           "<ul><li> We then draw a random number from 0-100.</li>"+
           "<li>If the random number is less than 90, you'll get $5 if you are truly in the more popular half.</li>"+
-          "<li>If the random number is greater than 90, you'll get $5 with probability .9."+
+          "<li>If the random number is greater than 90, we'll draw another random number from 0-100 and give you $5 if it is less than 90."+
           "</ul>"+
           "<p>Although it sounds a bit complicated, this method encourages you to estimate what you really believe to be true. It is meant to dissuade you from being overly confident or conservative in your estimate.</p>"+
           "<p>If that all makes sense, click 'Next' to get started. You can click 'Previous' to re-read the instructions.</p>"
@@ -96,7 +96,7 @@ for (var i = 0; i < num_trials; i++) {
 
   /// String for telling them about their feedback
   if (i>0){
-    var stim1 = '<div id="feedback_string" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "Enter" when you are done looking at the comparison</p></div>'+
+    var stim1 = '<div id="feedback_string" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "enter" when you are done looking at the comparison</p></div>'+
     html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you=true,include=124)
     var stim2 ='<div>Now, how likely do you think it is that you are in the more popular half?</p></div>'
     var timing_first_stim=-1;
@@ -177,7 +177,7 @@ for (var i = 0; i < num_trials; i++) {
 
   /// String for telling them about their feedback
   if (i>0){
-    var stim1 = '<div id="feedback_string2" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "Enter" when you are done looking at the comparison.</p></div>'+
+    var stim1 = '<div id="feedback_string2" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "enter" when you are done looking at the comparison.</p></div>'+
     html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you='51235187',include=124)
     var stim2 ='<div>Now, how likely do you think it is that classmate 51235187 are in the more popular half?</p></div>'
     var timing_first_stim=-1;
