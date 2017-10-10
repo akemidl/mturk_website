@@ -32,43 +32,95 @@ var welcome_block = {
 
 example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],
   self_describes[0],sat_grades[0],opening_instructions='',if_you=true,include=124)
-example_slider = '<img src='+slider_image+' height="14%" width="100%">'
+//example_slider = '<img src='+slider_image+' height="14%" width="100%">'
 
 console.log(example_stim)
+
+var etrial = {
+  intervals: 100,
+  labels: [0.0,100.0],
+  show_ticks:false,
+}
+console.log('here')
+//console.log(show_response_slider("<div></div>",etrial))
+
+function add_js_to_slider(){
+  $("#slider").slider({
+    value: Math.ceil(100 / 2),
+    min: 0,
+    max: 100,
+    step: 1,
+    change: function( event, ui ) {
+        var sliderbutton = $("#sliderbutton")
+        $("#sliderbutton").css({"visibility":"visible"})
+
+        console.log(sliderbutton)
+        console.log(sliderbutton[0])
+        //sliderbutton[0].show()
+        var score = $("#slider").slider("value");
+        console.log('recognizing slider value')
+        $("#slider_value").html(String(score)+'% Probability')
+    }
+  });
+}
 
 var instructions_block_backstory = {
   type: "instructions",
   pages: [
-          "<p>Welcome back! Recall that in the last session, you were shown pairs of your classmates and asked who you would rather work with. "+
-          "Your classmates were asked to do the same thing. </p>"+
+          "<p>Welcome back! Recall that in the last session, you were shown pairs of other UCB students and asked who you would rather work with. "+
+          "The other participants were asked to do the same thing. </p>"+
           "<p>After everyone completed the last session, we divided participants into two halves: the most popular and the least popular to work with.</p> "+
           "<p>For this session, we have randomly selected 20 pairs in which you were one of the candidates. For each pair, we will show "+
           "you whether you were chosen or not. Your job is use this feedback to judge how likely it is that you are in the more popular half.</p> ",
 
-          "<p>First, we will show you your profile along side of their profile. We have omitted the personal description for the sake of anonymity</p>",
+          "<p>For each of the randomly selected pairs, "+
+          "your profile will be presented alongside the other profile from the pair as demonstrated below. "+
+          "We will omit the personal description for the sake of anonymity.</p>"+
+          "<p>Click 'next' when you are done looking at the two profiles.</p>",
 
-          "<p>After a few seconds, we will show whether you or they were chosen to work with. The chosen person's profile will be outlined in black. Note that this is an example and does not reflect a real choice.</p> "+
+          "<p>After a few seconds, we will give you feedback as to whether you or the other participant were chosen to be worked with. "+
+          "</p>"+
+          "<p>Click 'next' to see example feedback.</p>",
+
+          "<p>If you had been selected, your profile will be outlined in black as demonstrated below.</p>" ,
+          "<p>If the other participant had been selected, their profile would be outlined in black.</p>" ,
+
           "<p>For each pair, you'll be able to look at the feedback as long as you'd like. You will then press 'enter' to move on.</p>",
 
-          "<p>After each piece of feedback, you will estimate how likely it is that you are in the more popular half. "+
-          "You will use a slider that looks like this:</p>"+
-          example_slider+
-          "<p>Selecting 10% means you think there’s a 10% chance you are in the more popular half of students. </p>"+
-          "<p>Selecting 90% means you think there’s a 90% chance you are in the more popular half of students. </p>",
+          "<p>After each piece of feedback, you will estimate how likely it is that you are in the more popular half to be worked with. "+
+          "To do so, you will be using a slider. First, click anywhere on the white bar below for the slider to appear. Then, try moving the slider around to see the number underneath change.</p>"+
 
-          "<p>In addition to your hourly rate, you will receive a bonus payment based on how accurate your estimates are. This is how it works: </p>"+
-          "<p>Let's say that you think you are in the more popular half with 90% probability, and you set the slider accordingly.</p>"+
-          "<ul><li> We then draw a random number from 0-100.</li>"+
-          "<li>If the random number is less than 90, you'll get $5 if you are truly in the more popular half.</li>"+
-          "<li>If the random number is greater than 90, we'll draw another random number from 0-100 and give you $5 if it is less than 90."+
-          "</ul>"+
-          "<p>Although it sounds a bit complicated, this method encourages you to estimate what you really believe to be true. It is meant to dissuade you from being overly confident or conservative in your estimate.</p>"+
-          "<p>If that all makes sense, click 'Next' to get started. You can click 'Previous' to re-read the instructions.</p>"
+          '<div id="slider" class="sim ui-slider ui-slider-horizontal ui-widget '+
+          'ui-widget-content ui-corner-all" aria-disabled="false">'+
+          '<a id="sliderbutton" class="ui-slider-handle ui-state-default ui-corner-all" '+
+          'href="#" style="left: 0%;visibility: hidden;"></a></div>'+
+
+          '<ul id="sliderlabels" class="sliderlabels" '+
+          'style="width: 100%; height: 3em; margin: 10px 0px 0px; '+
+          'padding: 0px; display: block; position: relative;">'+
+
+          '<li style="display: inline-block; width: 399px; margin: 0px; '+
+          'padding: 0px; text-align: center; position: '+
+          'absolute; left: -199.5px;">0</li>'+
+
+          '<li style="display: inline-block; width: 399px; '+
+          'margin: 0px; padding: 0px; text-align: center; '+
+          'position: absolute; left: 598.5px;">100</li></ul>'+
+
+          '<div id="slider_value">0% Probability</div>'+
+
+
+          "<p>This number corresponds to how likely you think it is that you are in the more popular half. Selecting 10% means you think there’s a 10% chance you are in the more popular half of students. "+
+          "Selecting 90% means you think there’s a 90% chance you are in the more popular half of students. </p>",
+
+          "<p>In addition to your hourly rate, you may receive a bonus payment up to $5. We calculate your bonus based on an algorithm that takes into account how accurate your estimates are. In order to maximize your chances of receiving a bonus, you just need to choose estimates that you believe are true. If you would like to know the details of the algorithm, please ask the experimenter at the end of the experiment.</p>"+
+          "<p>If the instructions make sense, click 'next' to get started. You can click 'previous' to re-read the instructions.</p>"
        ],
-        after_button_html:['',example_stim,example_stim,'',''],
-        functions_for_each_screen:['','','select_right()','',''],
+        after_button_html:['',example_stim,'',example_stim,example_stim,'',''],
+        functions_for_each_screen:['','','','select_left()','select_right()','','add_js_to_slider()'],
         show_clickable_nav: true,
           timing_post_trial: 50,
+          iti:0,
       		allow_backward: true,
       	 on_finish: function(data) {
       		 console.log('The trial just ended.');
@@ -85,10 +137,10 @@ for (var i = 0; i < num_trials; i++) {
 
   // this variable is loaded in
   if (feedback[i]==1){
-    feedback_str = 'You were chosen over classmate '+pairs[i][1]+'.'
+    feedback_str = 'You were chosen over candidate '+pairs[i][1]+'.'
     which_side = '#stim_left'
   }else{
-    feedback_str = 'Classmate '+pairs[i][1]+' was chosen over you.'
+    feedback_str = 'Candidate '+pairs[i][1]+' was chosen over you.'
     which_side = '#stim_right'
   }
 
@@ -152,8 +204,8 @@ for (var i = 0; i < num_trials; i++) {
 var instructions_midway = {
   type: "instructions",
   pages: ["<p>Thanks!</p> "+
-        "<p>For the next part of the session, we would like you to do the same thing for classmate 51235187. "+
-        "You will see feedback just as before, only this time you will estimate the likelihood that classmate 51235187 is in the more popular half.</p>"
+        "<p>For the next part of the session, we would like you to do the same thing for candidate 51235187. "+
+        "You will see feedback just as before, only this time you will estimate the likelihood that candidate 51235187 is in the more popular half.</p>"
         ]
   ,
   show_clickable_nav: true,
@@ -168,10 +220,10 @@ for (var i = 0; i < num_trials; i++) {
 
   // this variable is loaded in
   if (feedback[i]==1){
-    feedback_str = 'Classmate 51235187 was chosen over classmate '+String(pairs[i][1])+'.'
+    feedback_str = 'Candidate 51235187 was chosen over candidate '+String(pairs[i][1])+'.'
     which_side = '#stim_left'
   }else{
-    feedback_str = 'Classmate '+String(pairs[i][1])+' was chosen over classmate 51235187.'
+    feedback_str = 'Candidate '+String(pairs[i][1])+' was chosen over candidate 51235187.'
     which_side = '#stim_right'
   }
 
@@ -179,11 +231,11 @@ for (var i = 0; i < num_trials; i++) {
   if (i>0){
     var stim1 = '<div id="feedback_string2" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "enter" when you are done looking at the comparison.</p></div>'+
     html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you='51235187',include=124)
-    var stim2 ='<div>Now, how likely do you think it is that classmate 51235187 are in the more popular half?</p></div>'
+    var stim2 ='<div>Now, how likely do you think it is that candidate 51235187 are in the more popular half?</p></div>'
     var timing_first_stim=-1;
   }else{
     var stim1 ='<div><p></p></div>'
-    var stim2 ='<div><p>Before seeing any feedback, how likely do you think it is that classmate 51235187 is in the more popular half?</p></div>'
+    var stim2 ='<div><p>Before seeing any feedback, how likely do you think it is that candidate 51235187 is in the more popular half?</p></div>'
     var timing_first_stim = 200;
   }
   console.log('here')
@@ -283,7 +335,7 @@ var feedback_result2 = {
     var lasttrialdata = jsPsych.data.getLastTrialData();
     console.log(lasttrialdata)
     if (lasttrialdata['responses']=='{"Q0":"yes"}'){
-      return(["<p>You were ranked 36th out of 60 participants. (1st = being the most frequently chosen)</p>"])
+      return(["<p>You were ranked 36th out of 60 participants. (1 = chosen to work with most often )</p>"])
     }else{
       return(["Click next."])
     }
@@ -343,15 +395,18 @@ function save_data(data){
    });
 }
 
-/*jsPsych.preloadImages(images, function(){ startExperiment(); });
+
+console.log(profile_chart_img_paths)
+jsPsych.pluginAPI.preloadImages(profile_chart_img_paths, function(){ startExperiment(); });
 
 //// START /////
-function startExperiment(){*/
+function startExperiment(){//*/
   jsPsych.init({
     timeline: timeline,
 		//show_progress_bar: true,
-    fullscreen: true,
+    fullscreen: false,
+    auto_preload:false,
     on_finish: function() {
       save_data(jsPsych.data.getData());
     }
-  })
+  })};

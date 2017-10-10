@@ -5,8 +5,8 @@
 
 var instructions_block_backstory = {
   type: "instructions",
-  pages: ["Welcome to the experiment!",
-    "<p>For this experiment, we want you to imagine that you and your classmates are starting internships for company ABC. "+
+  pages: [
+        "<p>Welcome to the experiment! We want you to imagine that you and other UCB students are starting internships for company ABC. "+
         "You will be forming two-person teams in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
         "<p>The project will have several components and require a number of different of skills. You and your partner will need to: </p>"+
         "<ul>"+
@@ -16,10 +16,17 @@ var instructions_block_backstory = {
         "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
         "</ul>",
         "<p>In this experiment, you will be selecting who you would like to partner with for this project.</p>"+
-        "<p>In this first session of the experiment, we are asking you to provide information about yourself.</p>"+
-        "<p>In the second session, you will see pairs of classmates and the information they provided in session 1. For each pair, we will ask you who you would prefer to work with (this will be shown anonymously). "+
-        "Your classmates will do the same for you. </p>"+
-        "<p>In the third session, you will see how many people chose to work with you. </p>"
+        "<p>In this first session of the experiment, we are asking you to provide information about yourself. "+
+        "We will use this information to construct a profile for you that will be used in sessions 2 and 3 of the experiment. "+
+        "Doing the best job you can at this will increase the likelihood that the feedback we provide you in session 3 will be of value.</p>"+
+        "<p>In the second session, we will show you anonymized profiles of other UCB students. These will be presented in pairs. "+
+        "For each pair, we will ask you who you would prefer to work with. "+
+        "The other participants will do the same for you. "+
+        "Please again do the best job of this you can. "+
+        "This will increase the value of the feedback we can give to other participants.</p>"+
+        "<p>In the third session, you will see some of the profile pairs, as shown to other participants in session 2, in which your profile was included. "+
+        "For each one, we will tell you whether or not your profile was the one selected. "+
+        "</p>"
       ],
   show_clickable_nav: true,
     timing_post_trial: 200,
@@ -41,7 +48,7 @@ var instructions_block_backstory = {
 
 
 var page_1_questions = [
-"<p>Being part of a team, I prefer to work:</p>"+
+"<p>I prefer to work:</p>"+
 "<p style='text-align:left;'>on my own"+
 "<span style='float:right;'>in a group</span></p>",
 
@@ -51,19 +58,19 @@ var page_1_questions = [
 
 "<p>When working through a problem, I tend to think:</p>"+
 "<p style='text-align:left;'>intuitively"+
-"<span style='float:right;'>sequentially</span></p>",
+"<span style='float:right;'>analytically</span></p>",
 
 "<p>When stuck on a problem, I prefer to seek advice:</p>"+
 "<p style='text-align:left;'>immediately"+
 "<span style='float:right;'>after I've worked on it for awhile</span></p>",
 
 "<p>When presenting my work, I prefer to present in an order that is:</p>"+
-"<p style='text-align:left;'>logical"+
-"<span style='float:right;'>chronological</span></p>",
+"<p style='text-align:left;'>sequential"+
+"<span style='float:right;'>thematic</span></p>",
 
 "<p>When starting a new project, I prefer to plan:</p>"+
-"<p style='text-align:left;'>the entire project"+
-"<span style='float:right;'>only the next necessary step</span></p>",
+"<p style='text-align:left;'>the entire project in one go"+
+"<span style='float:right;'>one step at a time</span></p>",
 ];
 
 // more or less independent
@@ -79,7 +86,7 @@ var scale_1 = ["1", "2", "3", "4"];
 var aptitude_questions_page = {
     type: 'survey-likert',
     preamble: "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
-    "Your answers will be presented to your classmates when they are choosing who to work with. "+
+    "Your answers will be presented to the other participants when they are choosing who to work with. "+
     "Please answer honestly to ensure you will receive useful feedback. "+
     "Your profile will only ever be shown anonymously.</p>",
     questions: page_1_questions,
@@ -100,7 +107,7 @@ var self_describe_page = {
   type: 'survey-text',
   preamble: "Using maximum of 500 characters, write what you think would make you a good candidate to work with. "+
   "For example, you might include information about extracurriculars, past awards, or previous jobs." +
-  " Please avoid using information in your response that other people could use to identify you. We'd like other participants to view your response anonymously.",
+  " Please avoid using information in your response that other people could use to identify you so that your profile remains anonymous. ",
   questions: [""],
   rows:[10],
   columns: [50],
@@ -109,6 +116,7 @@ var self_describe_page = {
   "I'm currently working on my senior thesis, which looks at ways to encourage people to reduce their carbon footprint. "+
   "For the past summer, I worked as a market research analyst."],
   data: {trial_name: 'self_describe_page'},
+  reg_ex: '.*',
   check_completion:true,
   on_finish: function(data){
             console.log('The trial just ended.');
@@ -121,16 +129,23 @@ var self_describe_page = {
 
 
 //////////////////////////
-
+var patternSAT = '^[2-8][0-9][0-9][\\s]?$'
+var patternGrade = '^[A-Za-z\\s0-9]+:\\s[A-F][+-]?[\\s]?$'
 
 var grade_page = {
-  preamble: "<p>Please enter in your SAT scores below. Please also enter 3 genuine grades from your transcript that you think will contribute to making the case that you are a good candidate. In the box provided, enter 'Class Name: Grade'</p>",
+  preamble: "<p>Please enter in your SAT scores below. Please also enter 3 genuine grades from your transcript that you think will contribute to making the case that you are a good candidate.</p>",
   type: 'survey-text',
-  questions: ["Reading Section (SAT)","Math Section (SAT)","Writing Section (SAT)","Class 1","Class 2","Class 3"],
+  questions: ["Reading Section (SAT) <span style='font-size:12'>(answer must be from 200-800)</span>",
+  "Math Section (SAT) <span style='font-size:12'>(answer must be from 200-800)</span>",
+  "Writing Section (SAT) <span style='font-size:12'>(answer must be from 200-800)</span>",
+  "Class 1 <span style='font-size:12'>(format answer like: 'Class Name: Grade')</span> ",
+  "Class 2 <span style='font-size:12'>(format answer like: 'Class Name: Grade')</span>",
+  "Class 3 <span style='font-size:12'>(format answer like: 'Class Name: Grade')</span>"],
   rows: [1,1,1,1,1,1],
   columns: [70,70,70,70,70,70],
   maxlength: [100,100,100,100,100,100],
   placeholder: ['999', "999","999","Econ Theory Micro: G","Econ Theory Macro: G", "Financial Economics: G"],
+  reg_ex: [patternSAT,patternSAT,patternSAT,patternGrade,patternGrade,patternGrade],
   data: {trial_name: 'sat_grades_entry'},
   check_completion:true,
   on_finish: function(data){
@@ -145,8 +160,8 @@ var grade_page = {
 
 var instructions_block_disposition = {
   type: "instructions",
-  pages: ["<p>Thanks!</p><p> The information you've entered will be shown anonymously to your classmates when they are choosing a partner.</p> ",
-      "<p>Before you finish this session, we'd like you to answer a few questions about your personality and how you view yourself. The answers to these questions will <strong>not</strong> be shown to your classmates. " +
+  pages: ["<p>Thanks!</p> "+
+      "<p>Before you finish this session, we'd like you to answer a few questions about your personality and how you view yourself. The answers to these questions will <strong>not</strong> be shown to the other participants. " +
       "They are for us (the researchers) to look at how different traits affect peoples' choices. So, please answer as honestly as possible.</p>"],
       show_clickable_nav: true,
       timing_post_trial: 200,
@@ -164,7 +179,7 @@ var survey_DAS_A = {
     questions: questions_DAS_A,
     labels: choices_DAS_A,
     data: {trial_name: 'survey_DAS_A'},
-    check_completion: true,
+    check_completion: false,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -174,7 +189,7 @@ var survey_self_worth = {
     questions: questions_self_worth,
     labels: choices_self_worth,
     data: {trial_name: 'survey_self_worth'},
-    check_completion: true,
+    check_completion: false,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -184,7 +199,7 @@ var survey_pswq = {
     labels: choices_pswq,
     questions: questions_pswq,
     data: {trial_name: 'survey_pswq'},
-    check_completion: true,
+    check_completion: false,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -249,7 +264,7 @@ function save_data(data){
 function startExperiment(){*/
   jsPsych.init({
     timeline: timeline,
-    fullscreen: true,
+    fullscreen: false,
     on_finish: function() {
       save_data(jsPsych.data.getData());
     }

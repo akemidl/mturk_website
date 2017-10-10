@@ -28,6 +28,7 @@ jsPsych.plugins.instructions = (function() {
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
     trial.after_button_html = trial.after_button_html || [''];
     trial.functions_for_each_screen = trial.functions_for_each_screen || [];
+    trial.iti = trial.iti || 0;
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
@@ -47,7 +48,12 @@ jsPsych.plugins.instructions = (function() {
     var extra_buttons_press = [];
     var extra_buttons_pressed_times = [];
 
+    var setTimeoutHandlers = [];
+
     function show_current_page() {
+      console.log('display_element')
+      console.log(display_element)
+
       display_element.html(trial.pages[current_page]);
 
 
@@ -64,13 +70,23 @@ jsPsych.plugins.instructions = (function() {
         if (current_page != 0 && trial.allow_backward) {
           $('#jspsych-instructions-back').on('click', function() {
             clear_button_handlers();
-            back();
+            // THE FOLLOWING WORKS BUT SEEMS WEIRD
+            //display_element.html('')
+            //setTimeoutHandlers.push(setTimeout(function() {
+              back();
+              //showBlankScreen();
+            //}, trial.iti));
           });
         }
 
         $('#jspsych-instructions-next').on('click', function() {
           clear_button_handlers();
-          next();
+          //display_element.html('')
+          //setTimeoutHandlers.push(setTimeout(function() {
+            next();
+            //showBlankScreen();
+          //}, trial.iti));
+
         });
 
       }
