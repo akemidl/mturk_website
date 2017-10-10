@@ -3,20 +3,27 @@
 {% extends "site_base.html" %}
 {% load staticfiles %}
 
-
+{% block extra_js %}
+<script>
+$(window).on('load', function() {
+    console.log('window loaded')
+   $("header").show();
+   $("#containeeer").show();
+   $("#navbaar").show();
+});
+</script>
+{% endblock %}
 
 {% block body_base %}
 
 
 
-				<p style="text-align: center; padding: 20%">You've Already Participated. Thank you.</p>	
+				<p style="text-align: center; padding: 20%">You've Already Participated. Thank you.</p>
 
-		
 
-				
-				
 
-	
+
+
+
+
 {% endblock %}
-
-

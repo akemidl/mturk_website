@@ -13,9 +13,9 @@
 
 
 <!-- Top Section -->
-<div class="container">
+<div id="containeeer" class="container" style="display:none;">
 
-<header class="jumbotron hero-spacer">
+<header class="jumbotron hero-spacer" style="display:none;">
 
 
 <div id="welcome">
@@ -424,6 +424,13 @@ function showLink(link,href)
 
 
 
+///
+$(window).on('load', function() {
+    console.log('window loaded')
+   $("header").show();
+   $("#containeeer").show();
+   $("#navbaar").show();
+});
 
 $(document).ready( function() {
 

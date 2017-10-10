@@ -99,28 +99,28 @@ jsPsych.plugins.similarity = (function() {
 
     function showSecondStim() {
 
-      if (!trial.is_html) {
-        $('#jspsych-sim-stim').attr('src', trial.stimuli[1]);
-      } else {
-        $('#jspsych-sim-stim').html(trial.stimuli[1]);
-      }
+          if (!trial.is_html) {
+            $('#jspsych-sim-stim').attr('src', trial.stimuli[1]);
+          } else {
+            $('#jspsych-sim-stim').html(trial.stimuli[1]);
+          }
 
-      $('#jspsych-sim-stim').css('visibility', 'visible');
+          $('#jspsych-sim-stim').css('visibility', 'visible');
 
-      if (trial.show_response == "SECOND_STIMULUS") {
-        show_response_slider(display_element, trial);
-      }
-
-
-      if (trial.timing_second_stim > 0) {
-        setTimeoutHandlers.push(setTimeout(function() {
-          $("#jspsych-sim-stim").css('visibility', 'hidden');
-          if (trial.show_response == "POST_STIMULUS") {
+          if (trial.show_response == "SECOND_STIMULUS") {
             show_response_slider(display_element, trial);
           }
-        }, trial.timing_second_stim));
+
+
+          if (trial.timing_second_stim > 0) {
+            setTimeoutHandlers.push(setTimeout(function() {
+              $("#jspsych-sim-stim").css('visibility', 'hidden');
+              if (trial.show_response == "POST_STIMULUS") {
+                show_response_slider(display_element, trial);
+              }
+            }, trial.timing_second_stim));
+          }
       }
-    }
 
 
     function show_response_slider(display_element, trial) {
@@ -141,6 +141,7 @@ jsPsych.plugins.similarity = (function() {
         step: 1,
         //// Chris ADDED ////
         change: function( event, ui ) {
+            $('.ui-slider-handle.ui-state-default.ui-corner-all').show()
             var score = $("#slider").slider("value");
             console.log('recognizing slider value')
             $("#slider_value").html(String(score)+'% Probability')
@@ -148,6 +149,7 @@ jsPsych.plugins.similarity = (function() {
         //orientation: "vertical", //this works
       });
 
+      $('.ui-slider-handle.ui-state-default.ui-corner-all').hide()
 
       // show tick marks
       if (trial.show_ticks) {
@@ -211,7 +213,8 @@ jsPsych.plugins.similarity = (function() {
       var score = $("#slider").slider("value");
       /// Show slider value ////
       display_element.append($('<div>', {
-        "html": String(score)+'% Probability',
+        //"html": String(score)+'% Probability',
+        "html": '% Probability',
         "id": 'slider_value',
       }));
 

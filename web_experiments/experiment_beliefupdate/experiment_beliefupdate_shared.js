@@ -3,15 +3,20 @@ html_for_pairwise = function(pair,profile_chart_img_path,self_describe,sat_grade
 	pair0 = pair[0]
 	pair1 = pair[1] // so I don't modify in the function
 	console.log(if_you)
-	if (if_you){
-		pair0='You'
-		console.log('here')
-	}
+
+	// if I'm putting in a person.
 	if (typeof if_you =='string'){
 		pair0=if_you
 	}
 
+	if (if_you==true){
+		pair0='You'
+		console.log('here')
+	}else{
+		pair0 = 'Candidate '+pair0
+	}
 
+	pair1 = 'Candidate '+pair1
 
 	var opening_div =opening_instructions+'<hr width:100%></div>'+
 		'<div style="display: table; width:100%">'
@@ -20,7 +25,7 @@ html_for_pairwise = function(pair,profile_chart_img_path,self_describe,sat_grade
 
 	var left_div1 =
 	'<div id="stim_left" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%">'+
-	'<p style="font-size:18">Candidate: '+pair0+'</p>'
+	'<p style="font-size:18">'+pair0+'</p>'
 	var left_div2 =
 	'<img src='+profile_chart_img_path[0]+' style="max-height: 300px; max-width: 300px;">'
 	var left_div3 =
@@ -70,7 +75,7 @@ html_for_pairwise = function(pair,profile_chart_img_path,self_describe,sat_grade
 
 	var right_div1 =
 	'<div id="stim_right" style="display: table-cell;width:45%;padding:2.5%;font-size:12;line-height:120%">'+
-	'<p style="font-size:18">Candidate: '+pair1+'</p>'
+	'<p style="font-size:18">'+pair1+'</p>'
 	var right_div2 =
 	'<img src='+profile_chart_img_path[1]+' style="max-height: 300px; max-width: 300px;">'
 	var right_div3 =
