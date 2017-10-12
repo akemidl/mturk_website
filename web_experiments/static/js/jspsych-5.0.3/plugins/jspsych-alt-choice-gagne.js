@@ -36,7 +36,7 @@ jsPsych.plugins["alt-choice-gagne"] = (function() {
     trial.is_html = (typeof trial.is_html == 'undefined') ? false : trial.is_html;
     trial.prompt = trial.prompt || "";
 
-    console.log(trial.key_extra1_func)
+    //console.log(trial.key_extra1_func)
 
     // this array holds handlers from setTimeout calls
     // that need to be cleared if the trial ends early
@@ -83,11 +83,17 @@ jsPsych.plugins["alt-choice-gagne"] = (function() {
       if (typeof keyboardListener !== 'undefined') {
         jsPsych.pluginAPI.cancelKeyboardResponse(keyboardListener);
       }
+      //if(trial.is_html==true){
+      //  var stimulus_data = 'NaN'
+      //}else{
+      //  var stimulus_data = trial.stim
+      //}
+      stimulus_data = 'NaN'
 
       // gather the data to store for the trial
       var trial_data = {
         "rt": response.rt,
-        "stimulus": trial.stimulus,
+        "stimulus": stimulus_data,
         "key_press": response.key,
         "start_time":start_time,
         "extra_buttons_press":extra_buttons_press,
@@ -111,7 +117,7 @@ jsPsych.plugins["alt-choice-gagne"] = (function() {
       $("#jspsych-alt-choice-gagne-stimulus").addClass('responded');
 
       var test = $("#jspsych-alt-choice-gagne-stimulus")
-      console.log(test)
+      //console.log(test)
 
 
       response = info;

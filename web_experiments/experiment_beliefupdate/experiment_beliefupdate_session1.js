@@ -1,12 +1,61 @@
 
 
 /////////////////////////////
+var intro_block = {
+  type: "instructions",
+  pages: ["Thank you for your interest in taking part in our experiment. "+
+  "On the next page, see will see our consent form, which provides details about the procedure, and the benefits and potential risks for you as a participant. "+
+  "In order to participate, you will need to click a button at the bottom of the page indicating "+
+  "that you agree to participate. "
+],
+  show_clickable_nav: true,
+  timing_post_trial: 200,
+  data: {trial_name : 'instructions_consent'},
+  on_finish: function(data){
+    console.log('The trial just ended.');
+    console.log(JSON.stringify(data))
+    $(document).ready(function () {window.scrollTo(0,0);});
+  }
+}
+
+var consent_block = {
+  type: "consent",
+  text: consent_part1_html,
+  continue_button: 'consent1_continue_button',
+  buttons_groups_to_check: ['group1','group2','group3'],
+  data: {trial_name : 'consent_part1_1'},
+  on_finish: function(data){
+    console.log('The trial just ended.');
+    console.log(JSON.stringify(data))
+    $(document).ready(function () {window.scrollTo(0,0);});
+  }
+}
+
+
+var consented_out = {
+    // no need to put this one in the timeline. because it's in a nested timelin
+    type: 'text_noresp',
+    text: 'You have chosen not to participate in our experiment. We thank you for your interest. You may leave the website whenever you would like.'
+}
+
+var if_consent = {
+    timeline: [consented_out],
+    conditional_function: function(){
+        var data = jsPsych.data.getLastTrialData();
+        if(data.responses.split(',')[0] == 'I disagree'){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 
 
 var instructions_block_backstory = {
   type: "instructions",
   pages: [
-        "<p>Welcome to the experiment! We want you to imagine that you and other UCB students are starting internships for company ABC. "+
+        "<p>Now on to the experiment! We want you to imagine that you and other UCB students are starting internships for company ABC. "+
         "You will be forming two-person teams in order to complete a project.</p>"+"<img src="+images[0]+"></img>",
         "<p>The project will have several components and require a number of different of skills. You and your partner will need to: </p>"+
         "<ul>"+
@@ -14,16 +63,16 @@ var instructions_block_backstory = {
         "<li>code a working prototype of the app (requiring technical skills) </li>" +
         "<li>write a financial plan with projected cash flow, operating expense, income etc. (requiring analytic skills)</li>" +
         "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
-        "</ul>",
-        "<p>In this experiment, you will be selecting who you would like to partner with for this project.</p>"+
+        "</ul>"+
+        "<p>In this experiment, you will be selecting who you would like to partner with for this project.</p>",
         "<p>In this first session of the experiment, we are asking you to provide information about yourself. "+
         "We will use this information to construct a profile for you that will be used in sessions 2 and 3 of the experiment. "+
-        "Doing the best job you can at this will increase the likelihood that the feedback we provide you in session 3 will be of value.</p>"+
+        "Doing the best job you can at this will increase the likelihood that the feedback we provide you in session 3 will be of value.</p>",
         "<p>In the second session, we will show you anonymized profiles of other UCB students. These will be presented in pairs. "+
         "For each pair, we will ask you who you would prefer to work with. "+
         "The other participants will do the same for you. "+
         "Please again do the best job of this you can. "+
-        "This will increase the value of the feedback we can give to other participants.</p>"+
+        "This will increase the value of the feedback we can give to other participants.</p>",
         "<p>In the third session, you will see some of the profile pairs, as shown to other participants in session 2, in which your profile was included. "+
         "For each one, we will tell you whether or not your profile was the one selected. "+
         "</p>"
@@ -83,12 +132,30 @@ tags = ['independent worker; group worker',
 
 var scale_1 = ["1", "2", "3", "4"];
 
+var aptitude_questions_intrs = {
+    type: "instructions",
+    pages: [
+      "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
+      "Your answers will be presented to the other participants when they are choosing who to work with. "+
+      "Please answer honestly to ensure you will receive useful feedback. "+
+      "Your profile will only ever be shown anonymously.</p>"
+        ],
+    show_clickable_nav: true,
+      timing_post_trial: 200,
+      data: {trial_name : 'instructions_aptitude'},
+      on_finish: function(data){
+        console.log('The trial just ended.');
+        console.log(JSON.stringify(data))
+        $(document).ready(function () {window.scrollTo(0,0);});
+      }
+};
+
 var aptitude_questions_page = {
     type: 'survey-likert',
     preamble: "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
-    "Your answers will be presented to the other participants when they are choosing who to work with. "+
-    "Please answer honestly to ensure you will receive useful feedback. "+
-    "Your profile will only ever be shown anonymously.</p>",
+          "Your answers will be presented to the other participants when they are choosing who to work with. "+
+          "Please answer honestly to ensure you will receive useful feedback. "+
+          "Your profile will only ever be shown anonymously.</p>",
     questions: page_1_questions,
     labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
             scale_1, scale_1, scale_1], // need one scale for every question on a page
@@ -130,7 +197,7 @@ var self_describe_page = {
 
 //////////////////////////
 var patternSAT = '^[2-8][0-9][0-9][\\s]?$'
-var patternGrade = '^[A-Za-z\\s0-9]+:\\s[A-F][+-]?[\\s]?$'
+var patternGrade = '^[A-Za-z\\s0-9]+:\\s[A-Fa-f][+-]?[\\s]?$'
 
 var grade_page = {
   preamble: "<p>Please enter in your SAT scores below. Please also enter 3 genuine grades from your transcript that you think will contribute to making the case that you are a good candidate.</p>",
@@ -226,7 +293,11 @@ var end_block = {
 
 /* create experiment timeline array */
 var timeline = [];
+timeline.push(intro_block)
+timeline.push(consent_block)
+timeline.push(if_consent)
 timeline.push(instructions_block_backstory);
+//timeline.push(aptitude_questions_intrs);
 timeline.push(aptitude_questions_page);
 timeline.push(self_describe_page);
 timeline.push(grade_page);

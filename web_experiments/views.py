@@ -123,6 +123,8 @@ def index(request):
 
 def surveyDisplay(request,survey_name):
 
+    print(survey_name)
+    
     tasks = [str(x) for x in request.session['tasks']]
     if request.session['MID'] is not None:
   	# if they exist in the data base, grab their progress and completion code

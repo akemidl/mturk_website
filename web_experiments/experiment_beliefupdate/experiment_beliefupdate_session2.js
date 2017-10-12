@@ -15,7 +15,7 @@ var instructions_block_backstory1 = {
          "These will be divided into 15 pairs. For each pair, you will pick the one who you think would be better to work with. "+
 				 "For each pair, pick the person you think will be better to work with irrespective of who you have chosen previously.</p>"+
 
-				 "<p>Click 'next' for an example.</p> ",
+				 "<p>Click 'next' for an example. The profiles in the example have been made up, but all other profiles you see will be real.</p> ",
 
          "<p>Each person has been given a randomly generated 8-digit ID number as demonstrated below.</p>",
 
@@ -231,12 +231,18 @@ function save_data(data){
           json: JSON.stringify(data),
           opt_data: {key: value}
       },
-      success: function(output) { console.log(output);
-				console.log('here')
+      success: function(output) {
+        //console.log(output);
+				//console.log('here')
 				var el = jsPsych.getDisplayElement();
 				el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
-
-			} // write the result to javascript console
+			}, // write the result to javascript console
+      error: function(output) {
+        //console.log(output);
+				//console.log('here')
+				var el = jsPsych.getDisplayElement();
+				el.append('<div><a id="button_return_home" href="/">Return Home (Please let your experimenter know that your data did not save properly))</a></div>')
+			}, // write the result to javascript console
    });
 }
 
