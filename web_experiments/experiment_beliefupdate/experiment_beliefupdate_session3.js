@@ -74,8 +74,8 @@ var instructions_block_backstory = {
           "you whether you were chosen or not. Your job is use this feedback to judge how likely it is that you are in the more popular half.</p> ",
 
           "<p>For each of the randomly selected pairs, "+
-          "your profile will be presented alongside the other profile from the pair as demonstrated below. "+
-          "We will omit the personal description for the sake of anonymity.</p>"+
+          "your profile will be presented alongside the other profile from the pair as demonstrated below. Your profile shown here was created based on your answers in session 1. The other profile shown here is made up for this example, but all others you see will be real. "+
+          "We will omit the personal description for the sake of anonymity. </p>"+
           "<p>Click 'next' when you are done looking at the two profiles.</p>",
 
           "<p>After a few seconds, we will give you feedback as to whether you or the other participant were chosen to be worked with. "+
@@ -113,7 +113,7 @@ var instructions_block_backstory = {
           "<p>This number corresponds to how likely you think it is that you are in the more popular half. Selecting 10% means you think there’s a 10% chance you are in the more popular half of students. "+
           "Selecting 90% means you think there’s a 90% chance you are in the more popular half of students. </p>",
 
-          "<p>In addition to your hourly rate, you may receive a bonus payment up to $5. We calculate your bonus based on an algorithm that takes into account how accurate your estimates are. In order to maximize your chances of receiving a bonus, you just need to choose estimates that you believe are true. If you would like to know the details of the algorithm, please ask the experimenter at the end of the experiment.</p>"+
+          "<p>In addition to your hourly rate, you may receive a bonus payment up to $5. We calculate your bonus based on an algorithm that calculates how accurate your estimates are. In order to maximize your chances of receiving a bonus, you just need to choose estimates that you believe are true. If you would like to know the details of the algorithm, please ask the experimenter at the end of the experiment.</p>"+
           "<p>If the instructions make sense, click 'next' to get started. You can click 'previous' to re-read the instructions.</p>"
        ],
         after_button_html:['',example_stim,'',example_stim,example_stim,'',''],
@@ -231,7 +231,7 @@ for (var i = 0; i < num_trials; i++) {
   if (i>0){
     var stim1 = '<div id="feedback_string2" style="visibility: hidden;"><p>'+feedback_str+'</p><p>Press "enter" when you are done looking at the comparison.</p></div>'+
     html_for_pairwise(pairs[i],profile_chart_img_paths[i],self_describes[i],sat_grades[i],opening_instructions='',if_you='51235187',include=124)
-    var stim2 ='<div>Now, how likely do you think it is that candidate 51235187 are in the more popular half?</p></div>'
+    var stim2 ='<div>Now, how likely do you think it is that candidate 51235187 is in the more popular half?</p></div>'
     var timing_first_stim=-1;
   }else{
     var stim1 ='<div><p></p></div>'
@@ -351,8 +351,10 @@ timeline.push(feedback_result2);
 
 var debrief_block = {
   type: "instructions",
-  pages: ["During the experiment today, you may have received mostly positive or negative feedback. "+
-  "In either case, this was a small sample size, so we recommend that you don't draw any strong conclusions from this feedback. If you are interested, the experimenter can provide you with some campus resources for fine-tuning your resume."],
+  pages: ["During the experiment today, you may have received mostly positive or negative feedback."+
+  " In either case, this was a small sample size, so we recommend that you don't draw any strong conclusions from this feedback."+
+  " If you would like to discuss how you feel having done this part of the experiment, would like to ask more questions about it, "+
+  "or would like to be pointed towards campus resources for improving your resume please let the experimenter know."],
   show_clickable_nav: true,
 };
 
@@ -378,7 +380,7 @@ timeline.push(end_block);
 
 
 function save_data(data){
-   var data_table = "table_beliefupdate_1"; // change this for different experiments
+   var data_table = "table_beliefupdate_1"; // don't need to change apparently
    value = 'test_value'
    $.ajax({
       type:'get',
@@ -388,10 +390,14 @@ function save_data(data){
           json: JSON.stringify(data),
           opt_data: {key: value}
       },
-      success: function(output) { console.log(output);
+      success: function(output) {
         var el = jsPsych.getDisplayElement();
 				el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
-      } // write the result to javascript console
+      },
+      error: function(output) {
+        var el = jsPsych.getDisplayElement();
+        el.append('<div><a id="button_return_home" href="/">Return Home (Please let your experimenter know that your data did not save properly))</a></div>')
+      },
    });
 }
 
