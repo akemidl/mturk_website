@@ -35,6 +35,7 @@ jsPsych.plugins.consent = (function() {
 
       var trialdata = {
         "responses": responses.join(","),
+        "rt": response_time,
       }
 
       jsPsych.finishTrial(trialdata);

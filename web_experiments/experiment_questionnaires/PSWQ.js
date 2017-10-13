@@ -3,6 +3,9 @@
 var preamble_pswq= "<p>Here, click the button above the answer that best describes how typical or characteristic each of the items is of you. There are no right or wrong answers." +
   "</p>"
 
+var preamble_pswq_custom1= "<p>On the next page, click the button above the answer that best describes how typical or characteristic each of the items is of you. There are no right or wrong answers." +
+    "</p>"
+
 //questionnaires
 var questions_pswq = [
       "If I don’t have enough time to do everything, I don’t worry about it.",

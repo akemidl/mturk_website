@@ -6,6 +6,11 @@
 var preamble_self_worth = "Please respond to each of the following statements by clicking the button above the answer that best describes your attitude. "+
 "If you haven't experienced the situation described in a particular statement, please answer how you think you would feel if that situation occurred."
 
+var preamble_self_worth_custom1 = "On the next page, please respond to each of the following statements by clicking the button above the answer that best describes your attitude. "+
+"If you haven't experienced the situation described in a particular statement, please answer how you think you would feel if that situation occurred."
+
+
+
 var questions_self_worth = [
   "When I think I look attractive, I feel good about myself.",
   "I feel worthwhile when I perform better than others on a task or skill.",

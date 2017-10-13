@@ -1,5 +1,5 @@
 
-var consent_part1_html = ""+
+var consent_part2_html = ""+
 "<h4 style='text-align:center;'>Title of Study: Studying the mechanisms underlying how cognition and emotion interact.</h4>"+
 "<h4 style='text-align:center;'>Consent to participate in a Research Study:  Part 1 Profile and Questionnaires</h4>"+
 

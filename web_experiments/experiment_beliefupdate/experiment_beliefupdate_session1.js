@@ -3,8 +3,8 @@
 /////////////////////////////
 var intro_block = {
   type: "instructions",
-  pages: ["Thank you for your interest in taking part in our experiment. "+
-  "On the next page, see will see our consent form, which provides details about the procedure, and the benefits and potential risks for you as a participant. "+
+  pages: ["Thank you for your interest in taking part in our experiment! "+
+  "On the next page, see will see our consent form, which provides details about the study procedures. "+
   "In order to participate, you will need to click a button at the bottom of the page indicating "+
   "that you agree to participate. "
 ],
@@ -64,9 +64,8 @@ var instructions_block_backstory = {
         "<li>write a financial plan with projected cash flow, operating expense, income etc. (requiring analytic skills)</li>" +
         "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
         "</ul>"+
-        "<p>In this experiment, you will be selecting who you would like to partner with for this project.</p>",
-        "<p>In this first session of the experiment, we are asking you to provide information about yourself. "+
-        "We will use this information to construct a profile for you that will be used in sessions 2 and 3 of the experiment. "+
+        "<p>In this experiment, both you and the other participants will be picking people to partner with for this project. We will ask you to provide information to help with this.</p>",
+        "<p>In the first session of the experiment, we will ask you about your working style, and to provide other information (a short description of what you could bring to the internship, course grades and SAT scores) that we will make into a profile to be shown to other participants in Parts 2 and 3. "+
         "Doing the best job you can at this will increase the likelihood that the feedback we provide you in session 3 will be of value.</p>",
         "<p>In the second session, we will show you anonymized profiles of other UCB students. These will be presented in pairs. "+
         "For each pair, we will ask you who you would prefer to work with. "+
@@ -136,9 +135,9 @@ var aptitude_questions_intrs = {
     type: "instructions",
     pages: [
       "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
-      "Your answers will be presented to the other participants when they are choosing who to work with. "+
-      "Please answer honestly to ensure you will receive useful feedback. "+
-      "Your profile will only ever be shown anonymously.</p>"
+            "Your answers will be presented to the other participants when they are choosing who to work with. "+
+            "Please answer honestly to ensure you will receive useful feedback. "+
+            "Your profile will only ever be shown anonymously. Click 'next' to see the questions.</p>"
         ],
     show_clickable_nav: true,
       timing_post_trial: 200,
@@ -152,10 +151,7 @@ var aptitude_questions_intrs = {
 
 var aptitude_questions_page = {
     type: 'survey-likert',
-    preamble: "<p>First, we'd like you to fill out a few questions about your 'work style'. "+
-          "Your answers will be presented to the other participants when they are choosing who to work with. "+
-          "Please answer honestly to ensure you will receive useful feedback. "+
-          "Your profile will only ever be shown anonymously.</p>",
+    preamble: "",
     questions: page_1_questions,
     labels: [scale_1, scale_1,scale_1,scale_1,scale_1,
             scale_1, scale_1, scale_1], // need one scale for every question on a page
@@ -172,7 +168,7 @@ var aptitude_questions_page = {
 
 var self_describe_page = {
   type: 'survey-text',
-  preamble: "Using maximum of 500 characters, write what you think would make you a good candidate to work with. "+
+  preamble: "Next, using maximum of 500 characters, write what you think would make you a good candidate to work with. "+
   "For example, you might include information about extracurriculars, past awards, or previous jobs." +
   " Please avoid using information in your response that other people could use to identify you so that your profile remains anonymous. ",
   questions: [""],
@@ -197,7 +193,7 @@ var self_describe_page = {
 
 //////////////////////////
 var patternSAT = '^[2-8][0-9][0-9][\\s]?$'
-var patternGrade = '^[A-Za-z\\s0-9]+:\\s[A-Fa-f][+-]?[\\s]?$'
+var patternGrade = '^[A-Za-z\\s0-9]+:\\s?[A-Fa-f][+-]?[\\s]?$'
 
 var grade_page = {
   preamble: "<p>Please enter in your SAT scores below. Please also enter 3 genuine grades from your transcript that you think will contribute to making the case that you are a good candidate.</p>",
@@ -240,9 +236,18 @@ var instructions_block_disposition = {
 };
 
 
+var survey_DAS_A_instr = {
+    type: "instructions",
+    pages: [preamble_DAS_A_nextpage],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_DAS_A_instr'},
+};
+
+
 var survey_DAS_A = {
     type: 'survey-likert',
-    preamble: preamble_DAS_A,
+    preamble: '',
     questions: questions_DAS_A,
     labels: choices_DAS_A,
     data: {trial_name: 'survey_DAS_A'},
@@ -250,9 +255,17 @@ var survey_DAS_A = {
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
+var survey_self_worth_instr = {
+    type: "instructions",
+    pages: [preamble_self_worth_custom1],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_DAS_A_instr'},
+};
+
 var survey_self_worth = {
     type: 'survey-likert',
-    preamble: preamble_self_worth,
+    preamble: '',
     questions: questions_self_worth,
     labels: choices_self_worth,
     data: {trial_name: 'survey_self_worth'},
@@ -260,9 +273,16 @@ var survey_self_worth = {
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
+var survey_pswq_instr = {
+    type: "instructions",
+    pages: [preamble_pswq_custom1],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_DAS_A_instr'},
+};
 var survey_pswq = {
     type: 'survey-likert',
-    preamble: preamble_pswq,
+    preamble: '',
     labels: choices_pswq,
     questions: questions_pswq,
     data: {trial_name: 'survey_pswq'},
@@ -270,24 +290,104 @@ var survey_pswq = {
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
+var end_consent_html = "<div><p>Thanks! You have completed part 1 of the experiment.</p> "+
+
+  "Here, we would like you to indicate whether you consent to having the information you provided turned into a profile to be shown to other participants in Parts 2 and 3. For this profile, we will use your answers to the questions about your working style, your answer to the free-response question about why you would make a good team member, the grades you shared and your SAT scores. (Note: your name will not be attached to the profile; the free-response answer will not be "+
+  "shown in Part 3; we will not use your answers to the final sets of questions about mood and thinking style). If you agree to this information being made into a profile to be shown to other participants in Parts 2 and 3 please click the ‘I agree’ button online. You can choose not to consent to this. If so, we will not be able to include you in Parts 2 and 3, but it will in no way affect your payment/credit for Part 1 or your eligibility for other RPP or RSVP experiments. When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below</p><div>"+
+
+  '<div class="table" style="display: table;">'+
+  '<div class="row" style="display: table-row">'+
+  '<div class="cell" style="display: table-cell; width:70%"><i>I agree for the answers I provided to the questions about working style, my answer to the '+
+  'free-response question about why I would make a good team member, the grades I shared and '+
+  'my SAT scores being used to make an un-named profile to be shown to other participants in '+
+  'Parts 2 and 3</i></div>'+
+  '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group1"><br>I do not agree <input type="radio" name="group1"><br></div>'+
+  '</div>'+
+  '</div>'+
+  '<br>'+
+  '<div><p>We would also like to indicate if you would like to participate in parts 2-3. You will either be able to sign up through RPP or we will send you an email. </p></div>'+
+
+  '<div class="table" style="display: table;">'+
+  '<div class="row" style="display: table-row">'+
+  '<div class="cell" style="display: table-cell; width:70%"><i>I would like to take parts in 2-3. &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </i></div>'+
+  '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group2"><br>I do not agree <input type="radio" name="group2"><br></div>'+
+  '</div>'+
+  '</div>'+
+
+  "<hr></hr>"+
+
+  '<button style="float: right" id="consent1_continue_button" class="jspsych-btn">Continue</button>'
 
 
-/////////////////////////////
-var end_block = {
-    type: "text",
-    text: "<p>Thanks! You have completed this part of the experiment. "+
-    "Press 'enter' on your keyboard and wait for a link to appear below. "+
-    "This should take a 5-30 seconds. "+
-    "Do not close your browser until this process is complete. </p>"+
-    ""
-    +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing 'enter')</p>",
-  data: {trial_name: 'text_end_screen'},
-  on_finish: function(data){
-                console.log('The trial just ended.');
-                console.log(JSON.stringify(data))
-                $(document).ready(function () {window.scrollTo(0,0);});
-    }
+var debriefing_consent = {
+  type: "consent",
+  text: end_consent_html,
+  buttons_groups_to_check: ['group1','group2'],
+  continue_button: 'consent1_continue_button',
+  data: {trial_name : 'consent_part1_2'},
+  on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);});}
 };
+
+
+var venmo_block = {
+  type: 'survey-text',
+  preamble: "If you are NOT doing this experiment through RPP, please enter your Venmo username to receive payment.",
+  questions: [""],
+  rows:[1],
+  columns: [50],
+  maxlength: [50],
+  placeholder: ["@Adam-Smith-1"],
+  data: {trial_name: 'venmo'},
+  reg_ex: '.*',
+  check_completion:false,
+  on_finish: function(data){
+    save_data(jsPsych.data.getData())
+    $(document).ready(function () {window.scrollTo(0,0);});}
+};
+
+var debriefing = {
+    type: "instructions",
+    pages: [
+      "<p> Thanks. In this session, we've asked you questions about how you feel and think. "+
+      "If you think you might be struggling with anxiety and depression, please click 'next' to check out our resource page. "+
+      "If the questions have led you to have strong feelings or questions, please feel free to get in touch at affectivecogneurolab10@gmail.com, and we will respond to your email as soon as possible. </p> "+
+      "<p>Otherwise, feel free to leave the website now. </p>",
+    ],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'debriefing'},
+};
+
+
+
+var anxiety_info = {
+  type: "text",
+  cont_key: "999",
+  text: "<p>Both depression and anxiety are important concerns in our society, with one in three of us suffering from clinical levels of anxiety or depression in our lifetimes. Beyond that, many of us will struggle with some symptoms of anxiety or depression at one point or another. In case you are currently struggling with feeling down or anxious, we have put together this information sheet to give you some information regarding whom you can contact.</p>"+
+
+"<p><strong>For everyone:</strong></p><p>You are very welcome to contact the study PI Professor Sonia Bishop (sbishop@berkeley.edu) who can provide you with further information beyond that below. We would especially encourage you to do this if you have any concerns that have arisen as a result of taking part in this study. You can also call the Bishop lab on (510) 642-2746.</p>"+
+
+"<p><strong>If you are in crisis </strong> and need immediate support or intervention, call, or go the website of the National Suicide Prevention Lifeline (1-800-273-8255). Trained crisis workers are available to talk 24 hours a day, 7 days a week.</p>"+
+
+"<p><strong>UC Berkeley Students:</strong></p>"+
+  "<p>The University Health Services has several services for people seeking help.</p>"+
+  "<ul>"+
+  "<li> You can visit the website to know more about clinical depression and to identify the signs of it: www.uhs.berkeley.edu/lookforthesigns</li>"+
+  "<li> You can also take a confidential screening: If you are unsure whether you are suffering from clinical depression, an anxiety disorder, or other mental health issues or, if you are uncertain whether to seek professional help, consider taking a confidential on-line screening. Visit the University Health Services website (www.uhs.berkeley.edu) and go to Student Services (A to Z). Look under Self-Help: Mental Health Resources.</li>"+
+  "<li> You can schedule a free, confidential appointment with a Counseling and Psychological Services (CPS) counselor by calling (510) 642-9494.</li>"+
+  "</ul>"+
+
+"<p>CPS location: Tang Center, 3rd floor, room 3300 2222 Bancroft Way, Berkeley, CA 94720</p>"+
+"<p><strong>Non-Students:</strong></p><p>The best first course of action is to go to your PCP and say that you have been experiencing some symptoms of anxiety and/or depression recently. They may ask you to fill in some questionnaires similar to ones that we have used here and can also discuss both psychotherapy (e.g. counseling) and medication options with you.</p>"+
+"<p> An alternative resource for those who live in the area is the UC Berkeley Psychology Clinic. The clinic contact details are given below: </p>"+
+
+"<p>2205 Tolman Hall</p>"+
+"<p>University of California</p>"+
+"<p>Berkeley, CA 94720-1650</p>"+
+"<p>Telephone: (510) 642-2055 || Fax: (510) 643-1922</p>"+
+"<p>Open: Monday – Friday, 9:00 to 5:00</p>"+
+"<p><strong>You can close your browser when you are done with this information sheet.</strong></p>"
+}
 
 
 
@@ -298,15 +398,20 @@ timeline.push(consent_block)
 timeline.push(if_consent)
 timeline.push(instructions_block_backstory);
 //timeline.push(aptitude_questions_intrs);
-timeline.push(aptitude_questions_page);
-timeline.push(self_describe_page);
-timeline.push(grade_page);
-timeline.push(instructions_block_disposition);
-timeline.push(survey_DAS_A)
-timeline.push(survey_self_worth);
-timeline.push(survey_pswq);
-timeline.push(end_block)
-
+//timeline.push(aptitude_questions_page);
+//timeline.push(self_describe_page);
+//timeline.push(grade_page);
+//timeline.push(instructions_block_disposition);
+//timeline.push(survey_DAS_A_instr);
+//timeline.push(survey_DAS_A);
+//timeline.push(survey_self_worth_instr);
+//timeline.push(survey_self_worth);
+//timeline.push(survey_pswq_instr);
+//timeline.push(survey_pswq);
+timeline.push(debriefing_consent)
+timeline.push(venmo_block)
+timeline.push(debriefing)
+timeline.push(anxiety_info)
 
 
 function save_data(data){
@@ -321,8 +426,9 @@ function save_data(data){
           opt_data: {key: value}
       },
       success: function(output) { console.log(output);
-        var el = jsPsych.getDisplayElement();
-				el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
+        console.log('success')
+        //var el = jsPsych.getDisplayElement();
+				//el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
 
       } // write the result to javascript console
    });
@@ -337,7 +443,7 @@ function startExperiment(){*/
     timeline: timeline,
     fullscreen: false,
     on_finish: function() {
-      save_data(jsPsych.data.getData());
+      //save_data(jsPsych.data.getData());
     }
   })
 
