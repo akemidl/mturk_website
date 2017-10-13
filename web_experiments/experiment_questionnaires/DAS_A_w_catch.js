@@ -9,6 +9,14 @@ var preamble_DAS_A =
 "<p>For each of the attitudes, click the button above the answer that best describes how you think. Because people are different, there are no right or wrong answers to these statements.</p>"+
 "<p>To decide whether a given attitude is typical of your way of looking at things, simply keep in mind what you are like most of the time.</p>"
 
+var preamble_DAS_A_nextpage =
+"<p>On the next page, we've listed different attitudes or beliefs which people sometimes hold. "+
+"Read each statement carefully and decide how much you agree or disagree with the statement.</p> "+
+"<p>For each of the attitudes, click the button above the answer that best describes how you think. Because people are different, there are no right or wrong answers to these statements.</p>"+
+"<p>To decide whether a given attitude is typical of your way of looking at things, simply keep in mind what you are like most of the time. Click 'next' to proceed to the questions.</p>"
+
+
+
 var questions_DAS_A = [
   "It is difficult to be happy unless one is good looking, intelligent, rich, and creative.",
   "Happiness is more a matter of my attitude towards myself than the way other people feel about me.",

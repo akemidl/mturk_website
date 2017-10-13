@@ -24,11 +24,7 @@ function getRandomInt(min, max){
 /* create experiment timeline array */
 var timeline = [];
 
-var welcome_block = {
-  type: "text",
-  text: "Welcome back! Press any key to begin."
-};
-//timeline.push(welcome_block);
+
 
 example_stim = html_for_pairwise(pairs[0],profile_chart_img_paths[0],
   self_describes[0],sat_grades[0],opening_instructions='',if_you=true,include=124)
@@ -194,7 +190,7 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  timeline.push(trial_belief_elicitation);
+  //timeline.push(trial_belief_elicitation);
 
 }
 
@@ -277,7 +273,7 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  timeline.push(trial_belief_elicitation2);
+  //timeline.push(trial_belief_elicitation2);
 
 }
 
@@ -341,6 +337,9 @@ var feedback_result2 = {
     }
   },
   show_clickable_nav: true
+  on_finish: function(data){
+    save_data(jsPsych.data.getData())
+    $(document).ready(function () {window.scrollTo(0,0);});}
 };
 
 
@@ -365,12 +364,7 @@ timeline.push(debrief_block);
 var end_block = {
   type: "text",
   text:
-  "<p> Thanks for participating in our experiment. You're are all done!</p>"+
-  "<p> Press 'enter' on your keyboard and wait for a link to appear below. "+
-  "This should take a 5-30 seconds. "+
-  "Do not close your browser until this process is complete. </p>"+
-  ""
-  +"<p>(If you are doing this as a demo. Please just close the window <strong>without</strong> pressing 'enter')</p>"
+  "<p> Thanks for participating in our experiment! Please let your experimenter know that you have finished.</p>"
 };
 
 
@@ -391,12 +385,12 @@ function save_data(data){
           opt_data: {key: value}
       },
       success: function(output) {
-        var el = jsPsych.getDisplayElement();
-				el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
+        //var el = jsPsych.getDisplayElement();
+				//el.append('<div><a id="button_return_home" href="/">Return Home</a></div>')
       },
       error: function(output) {
-        var el = jsPsych.getDisplayElement();
-        el.append('<div><a id="button_return_home" href="/">Return Home (Please let your experimenter know that your data did not save properly))</a></div>')
+        //var el = jsPsych.getDisplayElement();
+        //el.append('<div><a id="button_return_home" href="/">Return Home (Please let your experimenter know that your data did not save properly))</a></div>')
       },
    });
 }
