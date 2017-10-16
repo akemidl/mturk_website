@@ -1,26 +1,32 @@
 
 var consent_part2_html = ""+
 "<h4 style='text-align:center;'>Title of Study: Studying the mechanisms underlying how cognition and emotion interact.</h4>"+
-"<h4 style='text-align:center;'>Consent to participate in a Research Study:  Part 1 Profile and Questionnaires</h4>"+
+"<h4 style='text-align:center;'>Consent to participate in a Research Study: Part 2</h4>"+
 
-"<p>My name is Professor Sonia Bishop. I am a faculty member in the Psychology Department at the University of California, Berkeley. I invite you to take part in a research study. This study investigates how individuals with varying personality traits, cognitive styles and current mood states make decisions and process feedback when dealing with real-world style situations.</p>"+
+"<p>My name is Professor Sonia Bishop. I am a faculty member in the Psychology Department at the University of California, Berkeley. I invite you to take part in a research study. This is the second part of a three-part study investigating how individuals with varying personality traits, cognitive styles and current mood states make decisions and process feedback when dealing with real-world style situations.</p>"+
 
-"<p> This study has three parts. The first part lasts about an hour and involves completing questionnaires about your personality, mood and thinking style and answering questions that will be used to construct a profile for a hypothetical internship. Specifically, we will ask you about your working style, and to provide other information (a short description of what you could bring to the internship, course grades and SAT scores) that we will make into a profile to be shown to other"+ " participants in Parts 2 and 3. Parts 2 and 3 will also each take about an hour. In Part 2, all participants, including yourself, will be shown pairs of profiles. The task will be to choose one person from each pair that would make a good team member for the hypothetical internship. In Part 3, we will select a number of pairings in which your profile was included and give you feedback about whether or not you were chosen. You will be able to choose if you would like to receive additional"+ " feedback, once the study is completed, on the parts of the profile that participants tended to use to influence their choices. You can also choose at the end of Part 3 if you want to know your exact ranking.  Names will not be linked to profiles and in Part 3 (where feedback is given) the free-response section of other participants’ profiles will not be included. </p>"+
-
-"<p>We are asking you to take part in the Part 1, Part 2 and Part 3. We would greatly appreciate it if you would do all three sessions but you are free to choose to participate in none, one, two, or all three. You can withdraw consent at any time.</p>"+
+"<p>You have already taken part in Part 1 which involved completing questionnaires about your personality, mood and/or thinking style and answering questions that were used to construct a profile for a hypothetical internship. Now we invite you to participate in the second part of the study which will involve seeing the profiles of other participants from Part 1 and choosing who you think would make good team partners for the hypothetical internship project.</p>"+
 
 "<div><u>Procedures</u></div>"+
 "<ul >"+
-"<li>	You can sign up to this experiment online through ‘RPP’ for course credit or through ‘RSVP’ for reimbursement. <u>We ask you to indicate you have read this form and consent to take part by clicking the ‘I agree’ button next to the statement ‘I consent to participate in Part 1 of this research study’.</u> You cannot continue with the experiment without doing this. If you choose not to participate it will in no way affect your eligibility for other RPP or RSVP experiments.</li>"+
-"<li> This part (Part 1) of this study will take place online and typically takes 30 minutes, but will last no more than 1 hour</li>"+
+"<li>	You can sign up to this experiment online through ‘RPP’ for course credit or through ‘RSVP’ for reimbursement. <u>We ask you to indicate you have read this form and consent to take part by clicking the ‘I agree’ button next to the statement ‘I consent to participate in Part 2 of this research study’.</u> You cannot continue with the experiment without doing this. If you choose not to participate it will in no way affect your eligibility for other RPP or RSVP experiments.</li>"+
+"<li> This part (Part 2) of this study will take place online and will last no more than 1 hour.</li>"+
 "<li> We will ask you to complete several questionnaires that aim to assess mood, personality, and/or cognitive style.</li>"+
-"<li> We will also ask you to provide details about your SAT scores, 3 grades, answers to some questions about your work style, such as whether you prefer to work in groups or on their own, and a free-style answer to why you would be a good team member for a hypothetical team project. </li>"+
-"<li> As we are interested in individual differences in emotional and cognitive function, sometimes we are looking for people with a score in a given range for one or more of our measures of mood, personality, and cognitive style. Your scores on these measures may determine whether we ask you to participate in Parts 2-3 of the current study. If we do not, we can try to find another experiment for you to participate in if you would like that</li>"+
-"<li> We will also ask you to answer a series of questions regarding your current and past history of psychiatric health. Your answers here may also influence whether you are eligible to take part in Parts 2-3.</li>"+
+"<li> In this session, you will see the profiles of other participants from Part 1. These profiles will be presented in pairs, and you will choose one person in each pair whom you’d think would make a good team member for the hypothetical internship project. </li>"+
+"<li> As we are interested in individual differences in emotional and cognitive function, sometimes we are looking for people with a score in a given range for one or more of our measures of mood, personality, and cognitive style. Your scores on these measures may determine whether we ask you to participate in Part 3 of the current study. If we do not, we can try to find another experiment for you to participate in if you would like that.</li>"+
 "</ul>"+
 
 "<div><u>Risks/Discomforts</u></div>"+
-"<p>There is a possibility that you may find some of the mood, personality, cognitive style or psychiatric history questions disturbing. You are free to withdraw and to discontinue your participation in the study at any point. You are also free to choose not to answer any of the questions. As some of the questions are used to determine eligibility for Parts 2-3, choosing not to answer certain questions may affect your eligibility for Parts 2-3 but it will in no other way impact your relationship with the University or ability to take part in subsequent experiments.</p>"+
+"<p>There are no significant hazards or risks associated with participation in this part of the study. There is a small possibility that you may find some of the questionnaire items upsetting. You are free to withdraw and to discontinue your participation in the study at any point. If you chose to withdraw after commencing you will still be paid fully/receive full course credits for this session.</p>"+
+
+"<div><u>Confidentiality</u></div>"+
+"<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Though there is a risk that confidentiality could be compromised, we take care to preserve the confidentiality of your data.</p>"+
+"<p>If you completed Part 1 of this study before today, you may have given us permission to use a key to link your ID code to your name and contact details for the sake of Parts 2 and 3 of this study and potentially other future experiments. This key is encrypted and stored on a password protected computer. You can ask to have this key destroyed at any point. Study data identified by your ID code alone will be kept in separate, locked files, and ID coded electronic data will be kept on a password-secured computer. Your data will be securely stored for 10 years and then destroyed.</p>"+
+"<p>We will also use some of the choices you make in Part 2 to give feedback to other participants in Part 3. The participant receiving the feedback will not be told who each piece of feedback they receive was provided by and your name will not be used at any point.</p>"+
+
+"<div><u>Payment</u></div>"+
+"<p>If you are recruited through RPP, you will receive course credit for your participation upon successful completion of your Part 2 session. Based on the Psychology departments’ criteria, you will receive 0.5 credit for completion of Part 2. If you were recruited through RSVP, you will receive $5 upon completion of Part 2. In order to be paid, you will need to provide us with your Venmo username, which you can enter into a text box at the end of Part 2. We will not link this username to any of your data. If you are invited and choose to participate in Part 3, you will receive payment for this session.</p>"+
+
 "<div><u>Questions</u></div>"+
 "<p>If you have any questions about this research, please email Professor Sonia Bishop, at sbishop@berkeley.edu or contact the research group at affectivecogneurolab@gmail.com. If you have any questions about your rights or treatment as a participant in this research project, please contact the University of California at Berkeley’s Committee for Protection of Human Subjects at 510-642-7461 or subjects@berkeley.edu.</p>"+
 "<p>PARTICIPATION IN RESEARCH IS VOLUNTARY. You are free to choose not to take part, or you may terminate your participation in the experiment at any time. There will be no penalty to you or loss of benefits to which you are otherwise entitled if you refuse to participate or terminate participation.</p>"+
@@ -31,20 +37,22 @@ var consent_part2_html = ""+
 
 "<div><strong>Consent to participate:</strong></div>"+
 
-"<div><p>By clicking the button provided online, you acknowledge that you have read this form and agree to take part in Part 1 of this research study. Please also sign the copy for your personal records.</p></div>"+
+"<div><p>By clicking the button provided online, you acknowledge that you have read this form and agree to take part in Part 2 of this research study. Please also sign the copy for your personal records.</p></div>"+
 
 "<br>"+
 
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
-'<div class="cell" style="display: table-cell; width:70%"><i>I consent to participate in Part 1 of this research study.&nbsp &nbsp &nbsp  &nbsp  &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</i></div>'+
+'<div class="cell" style="display: table-cell; width:70%"><i>I consent to participate in Part 2 of this research study.&nbsp &nbsp &nbsp  &nbsp  &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</i></div>'+
 '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group1"><br>I do not agree <input type="radio" name="group1"><br></div>'+
 '</div>'+
 '</div>'+
 
+"<div><p><u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u></p><div>"+
+"<div><p>Subject Signature &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Date </p><div>"+
 "<br>"+
 
-"<div><strong>Consent to storage of key linking your name to your questionnaire data: </strong></div>"+
+"<div><strong>Consent to storage of the key linking your name to your data: </strong></div>"+
 
 "<div><p>Please indicate if you agree to one or both of the below by clicking the corresponding buttons online. "+
 "When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below.</p></div>"+
@@ -53,7 +61,7 @@ var consent_part2_html = ""+
 
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
-'<div class="cell" style="display: table-cell; width:70%"><i>I agree for a key linking my name and contact information to my questionnaire data to be stored until after all sessions comprising this study are completed. (If you do not agree to item 2 below, this key will be destroyed at the end of this study)</i></div>'+
+'<div class="cell" style="display: table-cell; width:70%"><i>I agree for a key linking my name and contact information to the data collected within Part 1 and Part 2 of this study to be stored until after Part 3 is completed. (If you do not agree to the next statement, this key will be destroyed at the end of this study</i></div>'+
 '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group2"><br>I do not agree <input type="radio" name="group2"><br></div>'+
 '</div>'+
 '</div>'+
@@ -62,31 +70,35 @@ var consent_part2_html = ""+
 
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
-'<div class="cell" style="display: table-cell; width:70%"><i>I am willing to be contacted with regard to potential participation in future studies and for a key linking my name and contact information to my part 1 data to be stored in order for this information to be used to determine my suitability for future experiments and/or to be analyzed in conjunction with data collected in the future.</i></div>'+
+'<div class="cell" style="display: table-cell; width:70%"><i>I am willing to be contacted with regard to potential participation in future studies and for a key linking my name and contact information to my questionnaire and experimental data to be stored in order for this information to be used to determine my suitability for future experiments and/or to be analyzed in conjunction with data collected in the future.</i></div>'+
 '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group3"><br>I do not agree <input type="radio" name="group3"><br></div>'+
 '</div>'+
 '</div>'+
 
+'<br>'+
+"<div><p><u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u></p><div>"+
+"<div><p>Subject Signature &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Date </p><div>"+
+'<br>'+
 
-"<h4>Consent to use the information you provide to make profiles to be shown to other participants in Parts 2 and 3: (To be completed at the end of Part 1. You will not be able to click these buttons until then.)</h4>"+
-"<div>At the end of Part 1, we will ask you to indicate whether you consent to having the information you provided turned into a profile to be shown to other participants in Parts 2 and 3. For this profile, we will use your answers to the questions about your working style, your answer to the free-response question about why you would make a good team member, the grades you shared and your SAT scores. (Note: your name will not be attached to the profile; the free-response answer will not be "+
-"shown in Part 3; we will not use your answers to the final sets of questions about mood and thinking style). If you agree to this information being made into a profile to be shown to other participants in Parts 2 and 3 please click the ‘I agree’ button online. You can choose not to consent to this. If so, we will not be able to include you in Parts 2 and 3, but it will in no way affect your payment/credit for Part 1 or your eligibility for other RPP or RSVP experiments. When you print out the "+
-"form, please also tick the same boxes for your personal records and sign in the space provided below<div>"+
+"<h4>Consent for answers given in part 2 to be used in other participants’ part 3 of this study</h4>"+
+"<div><p>Please indicate if you agree to the below by clicking the corresponding buttons online: When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below.</p>"+
+"<p>In Part 3, we will select a number of pairings in which your profile was included and give you feedback about whether or not you were chosen. We will do this for all participants. To accomplish this, we would like to use some or all of your choices to give other participants’ feedback. They will not be told who this feedback comes from.</p>"+
+"<div>"+
 
 '<br>'+
 
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
-'<div class="cell" style="display: table-cell; width:70%"><i>I agree for the answers I provided to the questions about working style, my answer to the '+
-'free-response question about why I would make a good team member, the grades I shared and '+
-'my SAT scores being used to make an un-named profile to be shown to other participants in '+
-'Parts 2 and 3</i></div>'+
-'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" disabled="true" name="group4"><br>I do not agree <input type="radio" disabled="true" name="group4"><br></div>'+
+'<div class="cell" style="display: table-cell; width:70%"><i>I consent to my answers from Part 2 being used to generate feedback to be presented to other participants in part 3 of this study. I understand that I will not be identified in this feedback.</i></div>'+
+'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group4"><br>I do not agree <input type="radio" name="group4"><br></div>'+
 '</div>'+
 '</div>'+
 
 '<br>'+
+"<div><p><u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u></p><div>"+
+"<div><p>Subject Signature &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Date </p><div>"+
+'<br>'+
 
 "<hr></hr>"+
 
-'<button style="float: right" id="consent1_continue_button" class="jspsych-btn">Continue</button>'
+'<button style="float: right" id="consent2_continue_button" class="jspsych-btn">Continue</button>'

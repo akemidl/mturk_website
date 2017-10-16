@@ -25,7 +25,7 @@ var intro_block = {
 var consent_block = {
   type: "consent",
   text: consent_part2_html,
-  continue_button: 'consent1_continue_button',
+  continue_button: 'consent2_continue_button',
   buttons_groups_to_check: ['group1','group2','group3'],
   data: {trial_name : 'consent_part2_1'},
   on_finish: function(data){
@@ -299,8 +299,15 @@ var debriefing_consent = {
 };
 
 var end_block = {
-  type: "text",
-  text: "<p>Thanks! You have completed part 2 of the experiment. "
+  type: "instructions",
+  pages: ["<p>Thanks! You have completed part 2 of the experiment. "],
+  show_clickable_nav: true,
+  timing_post_trial: 200,
+  data: {trial_name: 'instruction_completion'},
+  on_finish: function(data){
+            console.log('The trial just ended.');
+            console.log(JSON.stringify(data))
+          }
 };
 timeline.push(end_block);
 
@@ -319,6 +326,7 @@ var venmo_block = {
     save_data(jsPsych.data.getData())
     $(document).ready(function () {window.scrollTo(0,0);});}
 };
+timeline.push(venmo_block)
 
 var debriefing = {
     type: "instructions",

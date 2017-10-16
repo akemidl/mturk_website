@@ -304,7 +304,12 @@ var end_consent_html = "<div><p>Thanks! You have completed part 1 of the experim
   '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group1"><br>I do not agree <input type="radio" name="group1"><br></div>'+
   '</div>'+
   '</div>'+
+
   '<br>'+
+  "<div><p><u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<u>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</u></p><div>"+
+  "<div><p>Subject Signature &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Date </p><div>"+
+  '<br>'+
+
   '<div><p>We would also like to indicate if you would like to participate in parts 2-3. You will either be able to sign up through RPP or we will send you an email. </p></div>'+
 
   '<div class="table" style="display: table;">'+
