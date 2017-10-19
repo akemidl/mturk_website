@@ -24,20 +24,18 @@ jsPsych.plugins["repeated-press-gagne"] = (function() {
       trial.choices = trial.choices || [];
       trial.prompt = trial.prompt || "";
       trial.duration = trial.duration;
-
-      trial.width = 10
+      trial.bar = trial.bar;
+      trial.height = 10
+      trial.increment = trial.increment;
+      trial.target = trial.target || trial.height;  // in units of height
       // this array holds handlers from setTimeout calls
       // that need to be cleared if the trial ends early
       var setTimeoutHandlers = [];
 
-      // display counter
-      display_element.append("<div id=countdown><p>"+String(trial.duration)+"</p><div>")
 
-      // displace bar
-      display_element.append('<div id=suroundingbar '+
-       'style="width:100px;height:50px;border:1px solid #000;background-color:transparent;">'+
-       '<div id=bar style="width:'+String(trial.width)+'px;height:50px;border:1px solid #000;background-color:#000"></div></div>')
 
+      // display bar
+      display_element.append(trial.bar)
       //show prompt if there is one
       if (trial.prompt !== "") {
         display_element.append(trial.prompt);
@@ -67,7 +65,9 @@ jsPsych.plugins["repeated-press-gagne"] = (function() {
         // gather the data to store for the trial ## CHANGE THIS
         var trial_data = {
           "rt": response.rt,
-          "key_press": response.key
+          "key_press": response.key,
+          "number_responses":number_responses,
+          "duration":trial.duration,
         };
 
         //jsPsych.data.write(trial_data);
@@ -86,8 +86,18 @@ jsPsych.plugins["repeated-press-gagne"] = (function() {
       // which can be used to provide visual feedback that a response was recorded
       //$("#jspsych-single-stim-stimulus").addClass('responded');
       console.log("Pressed Button")
-      trial.width=trial.width+2
-      $("#bar").css({'width': String(trial.width)+'px'})
+      trial.height=trial.height+trial.increment
+      $("#bar").css({'height': String(trial.height)+'px'})
+
+      number_responses+=1
+
+      console.log(trial.target)
+      console.log(trial.height)
+      // end if above target
+      //if (trial.height>trial.target){
+      //  end_trial()
+      //}
+
       // only record the first response
       if (response.key == -1) {
         response = info;

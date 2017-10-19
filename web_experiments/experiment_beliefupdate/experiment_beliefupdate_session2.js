@@ -8,7 +8,7 @@ example_stim1234 = html_for_pairwise(pairs[0],profile_chart_img_paths[0],self_de
 var intro_block = {
   type: "instructions",
   pages: ["Thank you for coming back to take part in our experiment! "+
-  "On the next page, see will see our consent form, which provides details about the study procedures. "+
+  "On the next page, you will see our consent form, which provides details about the study procedures. "+
   "In order to participate in this part, you will need to click a button at the bottom of the page indicating "+
   "that you agree to participate. "
 ],
@@ -161,7 +161,7 @@ for (var i = 0; i < num_trials; i++) {
 	  },
 	};
 
-//timeline.push(trial_allow_response);
+timeline.push(trial_allow_response);
 
 }
 
@@ -171,13 +171,14 @@ var instructions_midway1 = {
   pages: ["<p>Thanks! You have finished comparing the candidates.</p> Next, we'd like you to answer some questions about how you were making your choices.</p> "],
       show_clickable_nav: true,
       timing_post_trial: 200,
+      allow_keys:false,
       data: {trial_name: 'instruction_traits'},
       on_finish: function(data){
                 console.log('The trial just ended.');
                 console.log(JSON.stringify(data))
               }
 };
-//timeline.push(instructions_midway1)
+timeline.push(instructions_midway1)
 
 
 var choices_f = ['did not consider','considered alittle','considered a lot','considered exclusively']
@@ -189,12 +190,13 @@ var feedback_question2 = {
   'whether strategic vs. adaptive planner',
   "the personal description",
   "SAT scores",
-  "Grades"],
+  "grades"],
   labels: [choices_f,choices_f,choices_f,choices_f,choices_f,choices_f],
+  check_completion:true,
 };
 
 
-//timeline.push(feedback_question2)
+timeline.push(feedback_question2)
 
 var instructions_midway = {
   type: "instructions",
@@ -210,54 +212,97 @@ var instructions_midway = {
               }
 };
 
-//timeline.push(instructions_midway)
+timeline.push(instructions_midway)
 
 
 ////////////
+var survey_stai_state_instr = {
+    type: "instructions",
+    pages: [preamble_stai_state_nextpage],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_stai_state_instr'},
+};
+
+
 var survey_stai_state = {
     type: 'survey-likert',
-    preamble: preamble_stai_state,
+    preamble: '',
     labels: choices_stai_state,
     questions: questions_stai_state,
     data: {trial_name: 'survey_stai_state'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
+///
+var survey_stai_trait_instr = {
+    type: "instructions",
+    pages: [preamble_stai_trait_nextpage],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_stai_trait_instr'},
+};
+
+
 var survey_stai_trait = {
     type: 'survey-likert',
-    preamble: preamble_stai_trait,
+    preamble: '',
     labels: choices_stai_trait,
     questions: questions_stai_trait,
     data: {trial_name: 'survey_stai_trait'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
+};
+////
+
+var survey_cesd_instr = {
+    type: "instructions",
+    pages: [preamble_cesd_nextpage],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_cesd_instr'},
 };
 
 var survey_cesd = {
     type: 'survey-likert',
-    preamble: preamble_cesd,
+    preamble: '',
     labels: choices_cesd,
     questions: questions_cesd,
     data: {trial_name: 'survey_cesd'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
-
+///
+var survey_masq_instr = {
+    type: "instructions",
+    pages: [preamble_masq_nextpage],
+    show_clickable_nav: true,
+    timing_post_trial: 200,
+    data: {trial_name : 'survey_masq_instr'},
+};
 var survey_masq = {
     type: 'survey-likert',
-    preamble: preamble_masq,
+    preamble: '',
     labels: choices_masq,
     questions: questions_masq,
     data: {trial_name: 'survey_masq'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
-//timeline.push(survey_stai_state);
-//timeline.push(survey_stai_trait);
-//timeline.push(survey_cesd);
-//timeline.push(survey_masq);
+timeline.push(survey_stai_state_instr);
+timeline.push(survey_stai_state);
+timeline.push(survey_stai_trait_instr);
+timeline.push(survey_stai_trait);
+timeline.push(survey_cesd_instr);
+timeline.push(survey_cesd);
+timeline.push(survey_masq_instr);
+timeline.push(survey_masq);
 
 /////////////////////////////
 var end_consent_html = "<div><p>Thanks! You have completed part 1 of the experiment.</p> "+
@@ -323,7 +368,7 @@ var venmo_block = {
   reg_ex: '.*',
   check_completion:false,
   on_finish: function(data){
-    save_data(jsPsych.data.getData())
+    //save_data(jsPsych.data.getData())
     $(document).ready(function () {window.scrollTo(0,0);});}
 };
 timeline.push(venmo_block)
