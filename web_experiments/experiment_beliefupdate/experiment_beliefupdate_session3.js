@@ -109,7 +109,7 @@ var instructions_block_backstory = {
           "<p>This number corresponds to how likely you think it is that you are in the more popular half. Selecting 10% means you think there’s a 10% chance you are in the more popular half of students. "+
           "Selecting 90% means you think there’s a 90% chance you are in the more popular half of students. </p>",
 
-          "<p>In addition to your hourly rate, you may receive a bonus payment up to $5. We calculate your bonus based on an algorithm that calculates how accurate your estimates are. In order to maximize your chances of receiving a bonus, you just need to choose estimates that you believe are true. If you would like to know the details of the algorithm, please ask the experimenter at the end of the experiment.</p>"+
+          "<p>In addition to your hourly rate, you may receive a bonus payment up to $5. We determine your bonus by calculating the accuracy of your estimate on a randomly selected trial. In order to maximize your chances of receiving a bonus, you just need to choose estimates that you believe are accurate. If you would like to know the details of the algorithm used to calculate the bonus, please ask the experimenter at the end of the experiment.</p>"+
           "<p>If the instructions make sense, click 'next' to get started. You can click 'previous' to re-read the instructions.</p>"
        ],
         after_button_html:['',example_stim,'',example_stim,example_stim,'',''],
@@ -190,7 +190,7 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  //timeline.push(trial_belief_elicitation);
+  timeline.push(trial_belief_elicitation);
 
 }
 
@@ -273,7 +273,7 @@ for (var i = 0; i < num_trials; i++) {
     }
   };
 
-  //timeline.push(trial_belief_elicitation2);
+  timeline.push(trial_belief_elicitation2);
 
 }
 
@@ -336,9 +336,9 @@ var feedback_result2 = {
       return(["Click next."])
     }
   },
-  show_clickable_nav: true
+  show_clickable_nav: true,
   on_finish: function(data){
-    save_data(jsPsych.data.getData())
+    //save_data(jsPsych.data.getData())
     $(document).ready(function () {window.scrollTo(0,0);});}
 };
 
@@ -364,7 +364,8 @@ timeline.push(debrief_block);
 var end_block = {
   type: "text",
   text:
-  "<p> Thanks for participating in our experiment! Please let your experimenter know that you have finished.</p>"
+  "<p> Thanks for participating in our experiment! Please let your experimenter know that you have finished.</p>",
+  allow_keys:false,
 };
 
 
@@ -407,6 +408,6 @@ function startExperiment(){//*/
     fullscreen: false,
     auto_preload:false,
     on_finish: function() {
-      save_data(jsPsych.data.getData());
+      //save_data(jsPsych.data.getData());
     }
   })};

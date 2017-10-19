@@ -6,6 +6,13 @@ var preamble_stai_state = "<p>Here, we've listed a number of statements which pe
       "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems  " +
       "to describe your present feelings best.</p>"
 
+var preamble_stai_state_nextpage = "<p>On the next page, we've listed a number of statements which people have used to describe themselves.</p>" +
+      "<p>Read each statement and then use the buttons below the statement " +
+      "to indicate how you <strong>feel right now </strong>, that is <strong>at the moment</strong>.</p>" +
+      "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems  " +
+      "to describe your present feelings best.</p>"
+
+
 //questionnaires
 var questions_stai_state = ["I feel calm", "I feel secure", "I am tense",
 "I feel strained", "I feel at ease", "I feel upset",

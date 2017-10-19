@@ -5,6 +5,12 @@ var preamble_masq = "<p>Here we've listed feelings, sensations, problems, and ex
 "that item. Use the choice that best describes how much you have felt or experienced things "+
 "this way <strong>during the past week, including today</strong>.</p>"
 
+var preamble_masq_nextpage = "<p>On the next page, we've listed feelings, sensations, problems, and experiences that people " +
+"sometimes have. Read each item and select the appropriate choice using the buttons below " +
+"that item. Use the choice that best describes how much you have felt or experienced things "+
+"this way <strong>during the past week, including today</strong>.</p>"
+
+
 //questionnaires
 var questions_masq = [
       "Felt cheerful", "Felt afraid", "Startled easily", "Felt confused", "Slept very well", "Felt sad", "Felt very alert", "Felt discouraged", "Felt nauseous", "Felt like crying",

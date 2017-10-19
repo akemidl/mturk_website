@@ -5,19 +5,19 @@ var consent_part2_html = ""+
 
 "<p>My name is Professor Sonia Bishop. I am a faculty member in the Psychology Department at the University of California, Berkeley. I invite you to take part in a research study. This is the second part of a three-part study investigating how individuals with varying personality traits, cognitive styles and current mood states make decisions and process feedback when dealing with real-world style situations.</p>"+
 
-"<p>You have already taken part in Part 1 which involved completing questionnaires about your personality, mood and/or thinking style and answering questions that were used to construct a profile for a hypothetical internship. Now we invite you to participate in the second part of the study which will involve seeing the profiles of other participants from Part 1 and choosing who you think would make good team partners for the hypothetical internship project.</p>"+
+"<p>You have already taken part in Part 1 which involved answering questions that were used to construct a profile for a hypothetical internship and completing questionnaires about your personality, mood and/or thinking style and answering questions that were used to construct a profile for a hypothetical internship. Now we invite you to participate in the second part of the study which will involve seeing the profiles of other participants from Part 1 and choosing who you think would make good team partners for the hypothetical internship project. We also have a few further questionnaires about personality, mood and/or thinking style we would ask you to complete.</p>"+
 
 "<div><u>Procedures</u></div>"+
 "<ul >"+
-"<li>	You can sign up to this experiment online through ‘RPP’ for course credit or through ‘RSVP’ for reimbursement. <u>We ask you to indicate you have read this form and consent to take part by clicking the ‘I agree’ button next to the statement ‘I consent to participate in Part 2 of this research study’.</u> You cannot continue with the experiment without doing this. If you choose not to participate it will in no way affect your eligibility for other RPP or RSVP experiments.</li>"+
+"<li>	You can sign up to this experiment online through ‘RPP’ for course credit or through ‘RSVP’ for reimbursement. We ask you to indicate you have read this form and consent to take part by clicking the ‘I agree’ button next to the statement ‘I consent to participate in Part 2 of this research study’. You cannot continue with the experiment without doing this. If you choose not to participate it will in no way affect your eligibility for other RPP or RSVP experiments.</li>"+
 "<li> This part (Part 2) of this study will take place online and will last no more than 1 hour.</li>"+
-"<li> We will ask you to complete several questionnaires that aim to assess mood, personality, and/or cognitive style.</li>"+
 "<li> In this session, you will see the profiles of other participants from Part 1. These profiles will be presented in pairs, and you will choose one person in each pair whom you’d think would make a good team member for the hypothetical internship project. </li>"+
-"<li> As we are interested in individual differences in emotional and cognitive function, sometimes we are looking for people with a score in a given range for one or more of our measures of mood, personality, and cognitive style. Your scores on these measures may determine whether we ask you to participate in Part 3 of the current study. If we do not, we can try to find another experiment for you to participate in if you would like that.</li>"+
+"<li> In addition, we will ask you to complete several additional questionnaires assessing mood, personality, and/or cognitive style. </li>"+
+"<li> As we are interested in the effects of individual differences in mood, personality and cognitive style on decision-making, sometimes we are looking for people with a score in a given range on one or more of these questionnaires. Your scores on these questionnaires may determine whether we ask you to participate in Part 3 of the current study. If we do not, we can try to find another experiment for you to participate in if you would like that.</li>"+
 "</ul>"+
 
 "<div><u>Risks/Discomforts</u></div>"+
-"<p>There are no significant hazards or risks associated with participation in this part of the study. There is a small possibility that you may find some of the questionnaire items upsetting. You are free to withdraw and to discontinue your participation in the study at any point. If you chose to withdraw after commencing you will still be paid fully/receive full course credits for this session.</p>"+
+"<p>There are no significant hazards or risks associated with participation in this part of the study. There is a small possibility that you may find some of the questionnaire items upsetting. You are free to withdraw and to discontinue your participation in the study at any point. If you chose to withdraw after commencing you will still be paid fully/receive full course credits for this session. You are also free to choose not to answer any of the questions. As some of the questions are used to determine eligibility for Part 3, choosing not to answer certain questions may affect your eligibility for Part 3 but it will in no other way impact your relationship with the University or ability to take part in subsequent experiments.</p>"+
 
 "<div><u>Confidentiality</u></div>"+
 "<p>Your study data will be handled as confidentially as possible. If results of this study are published or presented, individual names and other personally identifiable information will not be used. Though there is a risk that confidentiality could be compromised, we take care to preserve the confidentiality of your data.</p>"+
@@ -54,7 +54,7 @@ var consent_part2_html = ""+
 
 "<div><strong>Consent to storage of the key linking your name to your data: </strong></div>"+
 
-"<div><p>Please indicate if you agree to one or both of the below by clicking the corresponding buttons online. "+
+"<div><p>Please indicate if you agree to one or both of the below by clicking one of the corresponding buttons online. "+
 "When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below.</p></div>"+
 
 "<br>"+
@@ -82,7 +82,7 @@ var consent_part2_html = ""+
 
 "<h4>Consent for answers given in part 2 to be used in other participants’ part 3 of this study</h4>"+
 "<div><p>Please indicate if you agree to the below by clicking the corresponding buttons online: When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below.</p>"+
-"<p>In Part 3, we will select a number of pairings in which your profile was included and give you feedback about whether or not you were chosen. We will do this for all participants. To accomplish this, we would like to use some or all of your choices to give other participants’ feedback. They will not be told who this feedback comes from.</p>"+
+"<p>In Part 3, we will select a number of pairings in which your profile was included and give you feedback about whether or not you were chosen. We will do this for all participants. To accomplish this, we would like to use some or all of your choices to give other participants feedback. They will not be told who this feedback comes from.</p>"+
 "<div>"+
 
 '<br>'+

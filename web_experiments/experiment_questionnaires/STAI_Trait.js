@@ -6,6 +6,13 @@ var preamble_stai_trait = "<p>Here, we've listed a number of statements which pe
       "<p>There are no right or wrong answers. Do not spend too much time on any one statement " +
       "but give the answer which seems to describe how you generally feel.</p>"
 
+var preamble_stai_trait_nextpage = "<p>On the next page, we've listed a number of statements which people have used to describe themselves.</p>"+
+    "<p>Read each statement and then use the buttons " +
+    "below the statement to indicate how you <strong> generally feel </strong>.</p>" +
+    "<p>There are no right or wrong answers. Do not spend too much time on any one statement " +
+    "but give the answer which seems to describe how you generally feel.</p>"
+
+
 var questions_stai_trait = [
       "I feel pleasant",
       "I feel nervous and restless",

@@ -4,7 +4,7 @@
 var intro_block = {
   type: "instructions",
   pages: ["Thank you for your interest in taking part in our experiment! "+
-  "On the next page, see will see our consent form, which provides details about the study procedures. "+
+  "On the next page, you will see our consent form, which provides details about the study procedures. "+
   "In order to participate, you will need to click a button at the bottom of the page indicating "+
   "that you agree to participate. "
 ],
@@ -251,7 +251,8 @@ var survey_DAS_A = {
     questions: questions_DAS_A,
     labels: choices_DAS_A,
     data: {trial_name: 'survey_DAS_A'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -269,7 +270,8 @@ var survey_self_worth = {
     questions: questions_self_worth,
     labels: choices_self_worth,
     data: {trial_name: 'survey_self_worth'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -286,7 +288,8 @@ var survey_pswq = {
     labels: choices_pswq,
     questions: questions_pswq,
     data: {trial_name: 'survey_pswq'},
-    check_completion: false,
+    check_completion: true,
+    check_completion_but_allow_to_pass:true,
     on_finish: function(data){$(document).ready(function () {window.scrollTo(0,0);})}
 };
 
@@ -346,7 +349,7 @@ var venmo_block = {
   reg_ex: '.*',
   check_completion:false,
   on_finish: function(data){
-    save_data(jsPsych.data.getData())
+    //save_data(jsPsych.data.getData())
     $(document).ready(function () {window.scrollTo(0,0);});}
 };
 
@@ -398,21 +401,22 @@ var anxiety_info = {
 
 /* create experiment timeline array */
 var timeline = [];
+
 timeline.push(intro_block)
 timeline.push(consent_block)
 timeline.push(if_consent)
 timeline.push(instructions_block_backstory);
-//timeline.push(aptitude_questions_intrs);
-//timeline.push(aptitude_questions_page);
-//timeline.push(self_describe_page);
-//timeline.push(grade_page);
-//timeline.push(instructions_block_disposition);
-//timeline.push(survey_DAS_A_instr);
-//timeline.push(survey_DAS_A);
-//timeline.push(survey_self_worth_instr);
-//timeline.push(survey_self_worth);
-//timeline.push(survey_pswq_instr);
-//timeline.push(survey_pswq);
+timeline.push(aptitude_questions_intrs);
+timeline.push(aptitude_questions_page);
+timeline.push(self_describe_page);
+timeline.push(grade_page);
+timeline.push(instructions_block_disposition);
+timeline.push(survey_DAS_A_instr);
+timeline.push(survey_DAS_A);
+timeline.push(survey_self_worth_instr);
+timeline.push(survey_self_worth);
+timeline.push(survey_pswq_instr);
+timeline.push(survey_pswq);
 timeline.push(debriefing_consent)
 timeline.push(venmo_block)
 timeline.push(debriefing)
