@@ -29,6 +29,7 @@ jsPsych.plugins['survey-likert'] = (function() {
     // default parameters for the trial
     trial.preamble = typeof trial.preamble === 'undefined' ? "" : trial.preamble;
     trial.check_completion = trial.check_completion || false;
+    trial.check_completion_but_allow_to_pass = trial.check_completion_but_allow_to_pass || false;
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -76,13 +77,8 @@ jsPsych.plugins['survey-likert'] = (function() {
     }));
     $("#did-not-complete").html('')
 
-    $("#jspsych-survey-likert-next").html('Submit Answers');
-    $("#jspsych-survey-likert-next").click(function() {
-      // measure response time
-      var endTime = (new Date()).getTime();
-      var response_time = endTime - startTime;
 
-      // create object to hold responses
+    get_question_data = function(){
       var question_data = {};
       $("#jspsych-survey-likert-form .jspsych-survey-likert-opts").each(function(index) {
         var id = $(this).data('radio-group');
@@ -93,7 +89,22 @@ jsPsych.plugins['survey-likert'] = (function() {
         var obje = {};
         obje[id] = response;
         $.extend(question_data, obje);
-      });
+
+    });
+    return(question_data)
+  }
+
+
+
+    ///// First button
+    $("#jspsych-survey-likert-next").html('Submit Answers');
+    $("#jspsych-survey-likert-next").click(function() {
+      // measure response time
+      var endTime = (new Date()).getTime();
+      var response_time = endTime - startTime;
+
+      // create object to hold responses
+      var question_data = get_question_data()
 
       // Check for completion
       console.log(question_data)
@@ -105,17 +116,21 @@ jsPsych.plugins['survey-likert'] = (function() {
         //console.log(question_data[prop])
       }
 
-
-
       if (completed ==0 && trial.check_completion){
-        // d
-        $("#did-not-complete").html('<p>You have left an answer blank.<p>')
+        if (trial.check_completion_but_allow_to_pass==true){
+          text = '<p>You have left some answers blank. Please complete them and then press the "Submit Answers" button again. If you do not want to answer the questions you have left blank, click the button below.<p>'
+        }else if(trial.check_completion_but_allow_to_pass==false){
+          text = '<p>You have left some answers blank. Please complete them and then press the "Submit Answers" button again.<p>'
+        }
 
+        $("#did-not-complete").html(text)
+        $("#jspsych-survey-likert-next-2").show() // show other button
       }else{
         // save data
         var trial_data = {
           "rt": response_time,
-          "responses": JSON.stringify(question_data)
+          "responses": JSON.stringify(question_data),
+          "submitted_all": true,
         };
 
         display_element.html('');
@@ -125,6 +140,42 @@ jsPsych.plugins['survey-likert'] = (function() {
     }
 
     });
+
+
+
+        if (trial.check_completion_but_allow_to_pass){
+          // add a second submit button
+          display_element.append($('<button>', {
+            'id': 'jspsych-survey-likert-next-2',
+            'class': 'jspsych-survey-likert jspsych-btn',
+          }));
+          //// Second Button
+          $("#jspsych-survey-likert-next-2").hide();
+          $("#jspsych-survey-likert-next-2").html('Submit Answered Questions Only');
+          $("#jspsych-survey-likert-next-2").click(function() {
+            // measure response time
+            var endTime = (new Date()).getTime();
+            var response_time = endTime - startTime;
+
+            // create object to hold responses
+            var question_data = get_question_data()
+
+              // save data
+              var trial_data = {
+                "rt": response_time,
+                "responses": JSON.stringify(question_data),
+                "submitted_all": false,
+              };
+
+              display_element.html('');
+
+              // next trial
+              jsPsych.finishTrial(trial_data);
+            });
+
+
+        }
+
 
     var startTime = (new Date()).getTime();
   };

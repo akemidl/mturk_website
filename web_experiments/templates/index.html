@@ -13,9 +13,9 @@
 
 
 <!-- Top Section -->
-<div class="container">
+<div id="containeeer" class="container" style="display:none;">
 
-<header class="jumbotron hero-spacer">
+<header class="jumbotron hero-spacer" style="display:none;">
 
 
 <div id="welcome">
@@ -24,6 +24,9 @@
 <div id="tasks">
 <p> Number of tasks to complete:  {{progress_countdown}} </p>
 </div>
+
+<div id="extra_intro" style="visability:hide"><p></p></div>
+
 <div id="completion0">
 <p>You are all Done! Please return to Amazon Mechanical Turk and enter this code into the HIT: {{completion_code}}.</p>
 </div>
@@ -38,11 +41,11 @@
 
 
 
-/QuestionnairesHanna
+
 <!-- Questionnaires -->
 
 <div class="row">
-<p><strong>Questionnaires: </strong></p>
+<div id="row_header_questionnaires" style="visability:hide"><p><strong>Questionnaires: </strong></p></div>
 
 <div class="col-xs-2 thumb">
 <a  id="experiment_questionnaires_STAI_Trait" style="text-align: center;display: none;"  class="thumbnail" >
@@ -135,7 +138,7 @@
 
 
 
-/surveys
+
 <div class="col-xs-2 thumb">
 <a  id="survey_STAI_State" style="text-align: center;display: none;"  class="thumbnail" >
 <img  class="img-responsive" src="{% static "static/images/survey_image.jpeg" %}">
@@ -261,6 +264,14 @@
 </a>
 </div>
 
+<div class="col-xs-2 thumb">
+<a id="experiment_planning" style="text-align: center;display: none;" class="thumbnail" >
+<img  height="4" class="img-responsive" src="{% static "static/images/experiment_image.jpg" %}">
+<br>
+<p>Decision Making Task</p>
+</a>
+</div>
+
 
 <div class="col-xs-2 thumb">
 <a id="experiment_example" style="text-align: center;display: none;" class="thumbnail" >
@@ -337,7 +348,9 @@
 
 
 <div class="row">
+<div id="row_header_mscl" style="visability:hide">
 <p><strong>Mscl: </strong></p>
+</div>
 
 <div class="col-xs-2 thumb">
 <a  id="recontact" style="text-align: center;display: none;"  class="thumbnail" >
@@ -352,6 +365,14 @@
 <img  class="img-responsive" src="{% static "static/images/survey_image.jpeg" %}">
 <br>
 <p>Info Sheet</p>
+</a>
+</div>
+
+<div class="col-xs-2 thumb">
+<a  id="c_BU1A" style="text-align: center;display: none;"  class="thumbnail" >
+<img  class="img-responsive" src="{% static "static/images/survey_image.jpeg" %}">
+<br>
+<p>Consent Form</p>
 </a>
 </div>
 
@@ -424,6 +445,13 @@ function showLink(link,href)
 
 
 
+///
+$(window).on('load', function() {
+    console.log('window loaded')
+   $("header").show();
+   $("#containeeer").show();
+   $("#navbaar").show();
+});
 
 $(document).ready( function() {
 
@@ -438,24 +466,72 @@ console.log(show_info_sheet)
 
 
 
+var any_questionnaires = 0
+var any_mscl = 0
 
 for (i = 0; i < tasks.length; i++) {
+    // Show the buttons
     $("#"+tasks[i]).show()
+
+    /// check for questionnaires
+    if(tasks[i].includes('survey')){
+      any_questionnaires+=1
+    }
+    if(any_questionnaires>0){
+      $('#row_header_questionnaires').show()
+    }else{
+      $('#row_header_questionnaires').hide()
+    }
+
+    /// check for consents
+    if(tasks[i].includes('consent')){
+      any_mscl+=1
+    }
+    if(any_mscl>0){
+      $('#row_header_mscl').show()
+    }else{
+      $('#row_header_mscl').hide()
+    }
+
+    /// Only allow clickable for what's in progress
     if(i==progress){
     	showLink(tasks[i],tasks[i])
-	console.log('enable')
-	console.log(tasks[i])
+    	console.log('enable')
+    	console.log(tasks[i])
+
+      /// Add specific intro stuff to one in progress
+      if(tasks[i]=='experiment_beliefupdate_1'){
+        $('#tasks').hide()
+        $('#extra_intro').show()
+        $('#extra_intro').html("<p>To get started, please click on the link for Part 1 below.</p>")
+
+      }else if(tasks[i]=='experiment_beliefupdate_2'){
+        $('#tasks').hide()
+        $('#extra_intro').show()
+        $('#extra_intro').html("<p>To get started, please click on the link for Part 2 below.</p>")
+      }else if(tasks[i]=='experiment_beliefupdate_3'){
+        $('#tasks').hide()
+        $('#extra_intro').show()
+        $('#extra_intro').html("<p>To get started, please click on the link for Part 3 below.</p>")
+      }else{
+        console.log($('#extra_intro'))
+        $('#extra_intro').hide()
+      }
+
+    /// Disable all others
     }else if(i!=progress){
-	disableLink(tasks[i])
-	console.log('disable')
-	console.log(tasks[i])}
+    	disableLink(tasks[i])
+    	console.log('disable')
+    	console.log(tasks[i])}
 
 }
 
+/// if show info sheet
 if(show_info_sheet==1){
    $("#info_sheet").show()
 }
 
+/// show completion message at the end
 if(progresscountdown==0) {
   $("#completion"+which_completion_message).show()
   console.log('this is going')

@@ -4,6 +4,14 @@
 {% load staticfiles %}
 
 {% block extra_js %}
+<script>
+$(window).on('load', function() {
+    console.log('window loaded')
+   $("header").show();
+   $("#containeeer").show();
+   $("#navbaar").show();
+});
+</script>
 {% endblock %}
 {% block extra_css %}
 	<link href="{% static "css/surveys.css" %}" rel="stylesheet">

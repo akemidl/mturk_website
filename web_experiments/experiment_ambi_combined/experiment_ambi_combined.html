@@ -4,6 +4,14 @@
 {% load staticfiles %}
 
 {% block extra_js %}
+<script>
+$(window).on('load', function() {
+		console.log('window loaded')
+	 $("#wider_container").show();
+	 $("#navbaar").show();
+
+});
+</script>
 <script src="/web_experiments/experiment_ambi_combined/experiment_ambi_combined.js"></script>
 {% endblock %}
 
@@ -52,10 +60,12 @@
 	var in_person = "{{in_person|safe}}"
 	//XOlist = XOlist.split("]")
 
+
+
 </script>
 
 
-<div id="wider_container">
+<div id="wider_container" style="display:none">
 
 		<div id="instr_container">
 			<p class="exp_text" id="instruct"></p>

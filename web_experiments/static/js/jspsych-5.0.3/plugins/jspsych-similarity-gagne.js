@@ -35,6 +35,7 @@ jsPsych.plugins.similarity = (function() {
     trial.selected_side = trial.selected_side || '#stim_right';
 
     trial.choices = trial.choices || [];
+    trial.time_before_choice = trial.time_before_choice || 0;
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -82,43 +83,44 @@ jsPsych.plugins.similarity = (function() {
 
     if (trial.timing_first_stim == -1){
     // start the response listener only if the first stimuli stays on forever
-    // there were issues with both the timer on and the keyboard on. 
+    // there were issues with both the timer on and the keyboard on.
       if (JSON.stringify(trial.choices) != JSON.stringify(["none"])) {
-        var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
-          callback_function: showBlankScreen,
-          valid_responses: trial.choices,
-          rt_method: 'date',
-          persist: false,
-          allow_held_key: false
-        });
+        var t1123_ = setTimeout(function() {
+          var keyboardListener = jsPsych.pluginAPI.getKeyboardResponse({
+            callback_function: showBlankScreen,
+            valid_responses: trial.choices,
+            rt_method: 'date',
+            persist: false,
+            allow_held_key: false
+        })},trial.time_before_choice)
       }
     }
 
 
     function showSecondStim() {
 
-      if (!trial.is_html) {
-        $('#jspsych-sim-stim').attr('src', trial.stimuli[1]);
-      } else {
-        $('#jspsych-sim-stim').html(trial.stimuli[1]);
-      }
+          if (!trial.is_html) {
+            $('#jspsych-sim-stim').attr('src', trial.stimuli[1]);
+          } else {
+            $('#jspsych-sim-stim').html(trial.stimuli[1]);
+          }
 
-      $('#jspsych-sim-stim').css('visibility', 'visible');
+          $('#jspsych-sim-stim').css('visibility', 'visible');
 
-      if (trial.show_response == "SECOND_STIMULUS") {
-        show_response_slider(display_element, trial);
-      }
-
-
-      if (trial.timing_second_stim > 0) {
-        setTimeoutHandlers.push(setTimeout(function() {
-          $("#jspsych-sim-stim").css('visibility', 'hidden');
-          if (trial.show_response == "POST_STIMULUS") {
+          if (trial.show_response == "SECOND_STIMULUS") {
             show_response_slider(display_element, trial);
           }
-        }, trial.timing_second_stim));
+
+
+          if (trial.timing_second_stim > 0) {
+            setTimeoutHandlers.push(setTimeout(function() {
+              $("#jspsych-sim-stim").css('visibility', 'hidden');
+              if (trial.show_response == "POST_STIMULUS") {
+                show_response_slider(display_element, trial);
+              }
+            }, trial.timing_second_stim));
+          }
       }
-    }
 
 
     function show_response_slider(display_element, trial) {
@@ -139,6 +141,7 @@ jsPsych.plugins.similarity = (function() {
         step: 1,
         //// Chris ADDED ////
         change: function( event, ui ) {
+            $('.ui-slider-handle.ui-state-default.ui-corner-all').show()
             var score = $("#slider").slider("value");
             console.log('recognizing slider value')
             $("#slider_value").html(String(score)+'% Probability')
@@ -146,6 +149,7 @@ jsPsych.plugins.similarity = (function() {
         //orientation: "vertical", //this works
       });
 
+      $('.ui-slider-handle.ui-state-default.ui-corner-all').hide()
 
       // show tick marks
       if (trial.show_ticks) {
@@ -209,7 +213,8 @@ jsPsych.plugins.similarity = (function() {
       var score = $("#slider").slider("value");
       /// Show slider value ////
       display_element.append($('<div>', {
-        "html": String(score)+'% Probability',
+        //"html": String(score)+'% Probability',
+        "html": '% Probability',
         "id": 'slider_value',
       }));
 

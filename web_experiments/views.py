@@ -28,6 +28,7 @@ from experiment_bandit.experiment_bandit_views import bandit_task_counter_balanc
 from experiment_horizon.experiment_horizon_views import exp_page_horizon
 from experiment_beliefupdate.experiment_beliefupdate_views import exp_page_beliefupdate
 from experiment_effort.experiment_effort_views import exp_page_effort
+from experiment_planning.experiment_planning_views import exp_page_planning
 from experiment_questionnaires.experiment_questionnaires_views import exp_page_questionnaires
 
 
@@ -122,6 +123,8 @@ def index(request):
 
 
 def surveyDisplay(request,survey_name):
+
+    print(survey_name)
 
     tasks = [str(x) for x in request.session['tasks']]
     if request.session['MID'] is not None:

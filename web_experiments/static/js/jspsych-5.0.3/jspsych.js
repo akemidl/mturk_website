@@ -1501,8 +1501,10 @@ jsPsych.pluginAPI = (function() {
 
     for (var i = 0; i < images.length; i++) {
       var img = new Image();
+      console.log('preloading image')
 
       img.onload = function() {
+        console.log('sucess')
         n_loaded++;
         loadfn(n_loaded);
         if (n_loaded == images.length) {
@@ -1511,6 +1513,7 @@ jsPsych.pluginAPI = (function() {
       };
 
       img.onerror = function() {
+        console.log('failure')
         n_loaded++;
         loadfn(n_loaded);
         if (n_loaded == images.length) {
