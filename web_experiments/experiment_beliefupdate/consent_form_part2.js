@@ -61,7 +61,7 @@ var consent_part2_html = ""+
 
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
-'<div class="cell" style="display: table-cell; width:70%"><i>I agree for a key linking my name and contact information to the data collected within Part 1 and Part 2 of this study to be stored until after Part 3 is completed. (If you do not agree to the next statement, this key will be destroyed at the end of this study.)</i></div>'+
+'<div class="cell" style="display: table-cell; width:70%"><i>I agree for a key linking my name and contact information to the data collected within Part 1 and Part 2 of this study to be stored until after Part 3 is completed. (If you do not agree to the next statement, this key will be destroyed at the end of this study).</i></div>'+
 '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group2"><br>I do not agree <input type="radio" name="group2"><br></div>'+
 '</div>'+
 '</div>'+
