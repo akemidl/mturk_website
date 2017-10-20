@@ -2,22 +2,49 @@
  /* define instructions block */
 var instructions_block = {
   type: "text",
-  text: "<p>Here, we've listed a number of statements which people have used to describe themselves.</p>" +
-        "<p>Read each statement and then use the buttons below the statement " +
-        "to indicate how you <strong>feel right now</strong>, that is <strong>at the moment</strong>.</p>" +
+  text: "<p>A number of statements which people have used to describe themselves are " +
+        "given below.</p><p>Read each statement and then mark the appropriate statement " +
+        "on the four-point scale to indicate how you <strong>feel right now </strong>, that is <strong>at the moment</strong>.</p>" +
         "<p>There are no right or wrong answers. Do not spend too much time on any one statement but give the answer which seems  " +
-        "to describe your present feelings best.</p>"
+        "to describe your present feelings best. Press enter to start.</p>"
 };
 
 // defining response scale
 var choices = ["Not at all", "Somewhat", "Moderately so", "Very much so"];
 
+/*var scores = []; //create empty array to store responses of every trial
+
+function getSubjectScore() {
+
+  var data = jsPsych.data.getData();
+
+  var scores = scores.push(responses.Q1)
+
+  return {
+    responses: scores
+  }
+} */
+
 //questionnaires
 var questions = {
     type: 'survey-likert',
     check_completion: true,
-    labels: [choices, choices, choices], // need one scale for every question on a page
-    timeline:[
+    //labels: [choices, choices, choices], // need one scale for every question on a page
+    labels: [choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices, choices], // need one scale for every question on a page
+    on_finish: function(data) {
+      var responses = JSON.parse(data.responses);
+      var State_Anxiety = 5 - (1 + Number(responses.Q0)) + 5 - (1+Number(responses.Q1)) + (1+ Number(responses.Q2)) + (1 + Number(responses.Q3)) + 5-(1 + Number(responses.Q4)) + (1 + Number(responses.Q5)) +
+      (1 + Number(responses.Q6))+ 5-(1 + Number(responses.Q7))+ (1 + Number(responses.Q8))+ 5-(1 + Number(responses.Q9))+ 5-(1 + Number(responses.Q10))+ (1 + Number(responses.Q11))
+      + (1 + Number(responses.Q12))+ (1 + Number(responses.Q13))+ 5-(1 + Number(responses.Q14))+ 5-(1 + Number(responses.Q15))+ (1 + Number(responses.Q16))+ (1 + Number(responses.Q17))
+      + 5-(1 + Number(responses.Q18))+ 5-(1 + Number(responses.Q19)) // scores are string, convert to double
+      jsPsych.data.addDataToLastTrial({State_Anxiety: State_Anxiety});
+      console.log(State_Anxiety)
+      $(document).ready(function() {window.scrollTo(0,0);});
+      return data.score
+    },
+    questions: ["I feel calm", "I feel secure", "I am tense", "I feel strained", "I feel at ease", "I feel upset", "I am presently worrying over possible misfortunes",
+     "I feel satisfied", "I feel frightened", "I feel comfortable", "I feel self-confident", "I feel nervous", "I feel jittery", "I feel indecisive", "I am relaxed", "I feel content", "I am worried", "I feel confused", "I feel steady", "I feel pleasant"],
+    /*timeline:[
       {questions: ["I feel calm", "I feel secure", "I am tense"]},
       {questions: ["I feel strained", "I feel at ease", "I feel upset"]},
       /*{questions: ["I am presently worrying over possible misfortunes", "I feel satisfied", "I feel frightened"]},
@@ -25,35 +52,8 @@ var questions = {
       {questions: ["I feel jittery", "I feel indecisive", "I am relaxed"]},
       {questions: ["I feel content", "I am worried", "I feel confused"]},
       {questions: ["I feel steady", "I feel pleasant"]},*/
-    ]
-}
-
-/* define function to calculate scores, will be executed during data block */
-
-function getSubjectData() {
-
-  var trials = jsPsych.data.getTrialsOfType('single-stim');
-
-  console.log(trials)
-
-
-  var sum_rt = 0;
-  var correct_trial_count = 0;
-  var correct_rt_count = 0;
-  for (var i = 0; i < trials.length; i++) {
-    if (trials[i].correct == true) {
-      correct_trial_count++;
-      if(trials[i].rt > -1){
-        sum_rt += trials[i].rt;
-        correct_rt_count++;
-      }
-    }
-  }
-  return {
-    rt: Math.floor(sum_rt / correct_rt_count),
-    accuracy: Math.floor(correct_trial_count / trials.length * 100)
-  }
-}
+    //]
+};
 
 /* define exit block */
 var exit_block = {
@@ -61,99 +61,13 @@ var exit_block = {
  text: "<p> You have finished. Thank you! </p>"
 };
 
-// define block to display data
-/*var data_block = {
-  type: "text",
-  text: function() {
-    var subject_data = getSubjectData();
-    return subject_data.accuracy;
-  }
-};
-
-//push this back
 /* create experiment timeline array */
 var timeline = [instructions_block, questions, exit_block];
+
+//add questionnaire to data
+jsPsych.data.addProperties({questionnaire: "STAI_State"})
 
 /* start the experiment */
 jsPsych.init({
   timeline: timeline,
-  on_finish: function() {
-    jsPsych.data.displayData();
-  }
 });
-
-
-
-
-
-/* define debrief block
-function getSubjectData() {
-
-  var trials = jsPsych.data.getTrialsOfType('single-stim');
-
-  var sum_rt = 0;
-  var correct_trial_count = 0;
-  var correct_rt_count = 0;
-  for (var i = 0; i < trials.length; i++) {
-    if (trials[i].correct == true) {
-      correct_trial_count++;
-      if(trials[i].rt > -1){
-        sum_rt += trials[i].rt;
-        correct_rt_count++;
-      }
-    }
-  }
-  return {
-    rt: Math.floor(sum_rt / correct_rt_count),
-    accuracy: Math.floor(correct_trial_count / trials.length * 100)
-  }
-}
-
-var debrief_block = {
-  type: "text",
-  text: function() {
-    var subject_data = getSubjectData();
-    return "<p>You responded correctly on "+subject_data.accuracy+"% of "+
-    "the trials.</p><p>Your average response time was <strong>" +
-    subject_data.rt + "ms</strong>. Press any key to complete the "+
-    "experiment. Thank you!</p>";
-  }
-};
-
-/* create experiment timeline array
-var timeline = [];
-timeline.push(welcome_block);
-timeline.push(instructions_block);
-timeline.push(debrief_block);
-
-function save_data(data){
-   var data_table = "my_experiment_table"; // change this for different experiments
-   value = 'test_value'
-   $.ajax({
-      type:'get',
-      cache: false,
-      data: {
-          table: data_table,
-          json: JSON.stringify(data),
-          opt_data: {key: value}
-      },
-      success: function(output) { console.log(output); } // write the result to javascript console
-   });
-}
-
-/* start the experiment
-jsPsych.init({
-  timeline: timeline,
-  on_finish: function() {
-    save_data(jsPsych.data.getData());
-    console.log('This task is over! Return to main page');
-
-  }
-});
-/*
-  jsPsych.init({
-    timeline: timeline,
-    on_finish: function() {
-      jsPsych.data.displayData();
-    }
-  });  */

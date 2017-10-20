@@ -296,14 +296,14 @@ var survey_pswq = {
 var end_consent_html = "<div><p>Thanks! You have completed part 1 of the experiment.</p> "+
 
   "Here, we would like you to indicate whether you consent to having the information you provided turned into a profile to be shown to other participants in Parts 2 and 3. For this profile, we will use your answers to the questions about your working style, your answer to the free-response question about why you would make a good team member, the grades you shared and your SAT scores. (Note: your name will not be attached to the profile; the free-response answer will not be "+
-  "shown in Part 3; we will not use your answers to the final sets of questions about mood and thinking style). If you agree to this information being made into a profile to be shown to other participants in Parts 2 and 3 please click the ‘I agree’ button online. You can choose not to consent to this. If so, we will not be able to include you in Parts 2 and 3, but it will in no way affect your payment/credit for Part 1 or your eligibility for other RPP or RSVP experiments. When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below</p><div>"+
+  "shown in Part 3; we will not use your answers to the final sets of questions about mood and thinking style). If you agree to this information being made into a profile to be shown to other participants in Parts 2 and 3 please click the ‘I agree’ button online. You can choose not to consent to this. If so, we will not be able to include you in Parts 2 and 3, but it will in no way affect your payment/credit for Part 1 or your eligibility for other RPP or RSVP experiments. When you print out the form, please also tick the same boxes for your personal records and sign in the space provided below.</p><div>"+
 
   '<div class="table" style="display: table;">'+
   '<div class="row" style="display: table-row">'+
   '<div class="cell" style="display: table-cell; width:70%"><i>I agree for the answers I provided to the questions about working style, my answer to the '+
   'free-response question about why I would make a good team member, the grades I shared and '+
   'my SAT scores being used to make an un-named profile to be shown to other participants in '+
-  'Parts 2 and 3</i></div>'+
+  'Parts 2 and 3.</i></div>'+
   '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group1"><br>I do not agree <input type="radio" name="group1"><br></div>'+
   '</div>'+
   '</div>'+
