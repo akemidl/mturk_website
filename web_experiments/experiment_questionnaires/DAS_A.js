@@ -2,7 +2,7 @@
 
 
 /////// DAS_A /////////
-
+/// roughly 40 questions 
 var preamble_DAS_A =
 "<p>Below, we've listed different attitudes or beliefs which people sometimes hold. "+
 "Read each statement carefully and decide how much you agree or disagree with the statement.</p> "+

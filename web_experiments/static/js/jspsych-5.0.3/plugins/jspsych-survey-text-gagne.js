@@ -18,6 +18,9 @@ jsPsych.plugins['survey-text'] = (function() {
     trial.preamble = typeof trial.preamble == 'undefined' ? "" : trial.preamble;
     trial.check_completion = trial.check_completion || false;
     trial.reg_ex = trial.reg_ex || [];
+    trial.length_check = trial.length_check || new Array(trial.questions.length).fill(0);
+
+    console.log(trial.length_check)
 
     if (typeof trial.rows == 'undefined') {
       trial.rows = [];
@@ -57,7 +60,7 @@ jsPsych.plugins['survey-text'] = (function() {
       $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text">' + trial.questions[i] + '</p>');
 
       // add text box
-      $("#jspsych-survey-text-" + i).append('<textarea name="#jspsych-survey-text-response-' + i + '" cols="' +
+      $("#jspsych-survey-text-" + i).append('<textarea id="id-jspsych-survey-text-response-' + i + '" name="#jspsych-survey-text-response-' + i + '" cols="' +
        trial.columns[i] + '" rows="' + trial.rows[i] +
         '" maxlength="'+trial.maxlength[i]+'" placeholder="'+trial.placeholder[i]+ '" oninput="removePlaceHolder(this)"'+'></textarea>');
     }
@@ -104,42 +107,67 @@ jsPsych.plugins['survey-text'] = (function() {
 
       num_questions = Object.keys(question_data).length
       ncompleted=0
+      nlongenough=0
       i = 0
       regexs_match = 0
       for (var q in question_data){
+
+        //
+        isblank = JSON.stringify(question_data[q])==JSON.stringify("")
+
         // make sure there is something entered
-        if (JSON.stringify(question_data[q])==JSON.stringify("")){
+        if (isblank){
           ncompleted+=0
+          $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","rgba(255,0,0,0.5)");
+          message = "You've left an answer blank."
         }else{
           ncompleted+=1
+          $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","white");
         }
-        // match regex
-        console.log(RegExp(trial.reg_ex[i]))
-        console.log(question_data[q])
-        console.log(RegExp(trial.reg_ex[i]).test(question_data[q]))
-        if (RegExp(trial.reg_ex[i]).test(question_data[q])){
-          regexs_match+=1
+
+        // check reg ex if not blank
+        if (isblank==false){
+          if (RegExp(trial.reg_ex[i]).test(question_data[q])){
+            regexs_match+=1
+            $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","white");
+          }else{
+            $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","rgba(255,0,0,0.5)");
+            message = "You've answered a question in the wrong format."
+          }
+        }
+
+        // check length if not blank
+        if (isblank==false){
+          if(JSON.stringify(question_data[q]).length<trial.length_check[i]){
+            $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","rgba(255,0,0,0.5)");
+            message = "You've responded with too few characters."
+            nlongenough+=0
+          }else{
+            console.log('passed this check')
+            if(trial.length_check[i]>0){
+                $("#id-jspsych-survey-text-response-"+String(i)).css("background-color","white");
+            }
+            nlongenough+=1
+          }
         }
         i+=1
       }
       console.log(ncompleted)
 
-      if (ncompleted==num_questions){
+      /// check for blank responses
+      if (ncompleted==num_questions && regexs_match==num_questions && nlongenough==num_questions ){
         completed=1
       }else{
         completed=0
       }
 
-      if (regexs_match==num_questions){
-        completed=1
-      }else{
-        completed=0
-      }
+
+
 
 
       if (completed ==0 && trial.check_completion){
         // d
-        $("#did-not-complete").html("<p>You have either left answer blank or entered an answer in the wrong format.<p>")
+        $("#did-not-complete").html("<p>"+message+"<p>")
 
       }else{
 

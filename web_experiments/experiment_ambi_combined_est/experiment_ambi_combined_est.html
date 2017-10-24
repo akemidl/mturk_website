@@ -1,0 +1,137 @@
+
+
+{% extends "site_base.html" %}
+{% load staticfiles %}
+
+{% block extra_js %}
+<script>
+$(window).on('load', function() {
+		console.log('window loaded')
+	 $("#wider_container").show();
+	 $("#navbaar").show();
+
+});
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="/web_experiments/static/js/jspsych-5.0.3/jspsych.js"></script>
+<script src="/web_experiments/experiment_ambi_combined_est/experiment_ambi_combined_est.js"></script>
+{% endblock %}
+
+{% block extra_css %}
+<link href="/web_experiments/static/css/jspsych.css" rel="stylesheet">
+<link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.min.css" rel="stylesheet" type="text/css"></link>
+<link href="/web_experiments/experiment_ambi_combined_est/experiment_ambi_est.css" rel="stylesheet">
+
+{% endblock %}
+
+{% block body_base %}
+
+
+<script>
+
+
+	var prop_left_t = "{{p_l|safe}}"
+	var prop_right_t = "{{p_r|safe}}"
+	var mag_left_t = "{{mag_l|safe}}"
+	var mag_right_t ="{{mag_r|safe}}"
+	var revealed_left_t = "{{r_l|safe}}"
+	var revealed_right_t = "{{r_r|safe}}"
+
+	var prop_left_p = "{{p_l_p|safe}}"
+	var prop_right_p = "{{p_r_p|safe}}"
+	var mag_left_p = "{{mag_l_p|safe}}"
+	var mag_right_p ="{{mag_r_p|safe}}"
+	var revealed_left_p = "{{r_l_p|safe}}"
+	var revealed_right_p = "{{r_r_p|safe}}"
+
+	prop_left_t = prop_left_t.replace("[", "").replace("]", "").split(",")
+	prop_right_t = prop_right_t.replace("[", "").replace("]", "").split(",")
+	mag_left_t = mag_left_t.replace("[", "").replace("]", "").split(",")
+	mag_right_t = mag_right_t.replace("[", "").replace("]", "").split(",")
+	revealed_left_t = revealed_left_t.replace("[", "").replace("]", "").split(",")
+	revealed_right_t = revealed_right_t.replace("[", "").replace("]", "").split(",")
+
+	prop_left_p = prop_left_p.replace("[", "").replace("]", "").split(",")
+	prop_right_p = prop_right_p.replace("[", "").replace("]", "").split(",")
+	mag_left_p = mag_left_p.replace("[", "").replace("]", "").split(",")
+	mag_right_p = mag_right_p.replace("[", "").replace("]", "").split(",")
+	revealed_left_p = revealed_left_p.replace("[", "").replace("]", "").split(",")
+	revealed_right_p = revealed_right_p.replace("[", "").replace("]", "").split(",")
+
+	var XOlist = "{{XOlist|safe}}"
+	var XOlist_p = "{{XOlist_p|safe}}"
+
+	var outcome_type = "{{outcome_type|safe}}"
+	var in_person = "{{in_person|safe}}"
+	//XOlist = XOlist.split("]")
+
+
+
+</script>
+
+
+<div id="wider_container" style="display:none">
+
+		<div id="instr_container">
+			<p class="exp_text" id="instruct"></p>
+			<a id="button_previous" href="#" class="btn btn-primary">Go Back</a>
+			<a id="button_continue" href="#" class="btn btn-primary">Continue</a>
+
+			<div class="exp_text" id="thanks"></div>
+				<p  id="thanks1">You have completed the experiment! </p>
+				<p  id="thanks2">Your bonus will be computed based on your performance relative to other participants. You will receive a bonus within 1 week.</p>
+			<a id="button_return_home" href="/" class="btn btn-primary">Home</a>
+
+		</div>
+
+
+		<div id="exp_container">
+
+				<div class="exp_text" id="fixation"><p>+<p></div>
+
+				<!--
+				<div class="exp_text" id="noresp"><p><p></div>
+				<div class="exp_text" id="outcome"><p><p></div>
+				<div class="exp_text" id="outcome5"><p><p></div>
+				<div class="exp_text" id="summary_text"><p><p></div>
+				-->
+
+				<p class="exp_text" id="trialcounter">Completed: 0/{{num_trials}}</p>
+				<p class="exp_text" id="pointscounter">Points: 0</p>
+				<!--
+				<p class="exp_text" id="mag_left">NA</p>
+				<p class="exp_text" id="mag_right">NA</p>
+				-->
+				<p id="urn_left"></p>
+				<p id="urn_right"></p>
+
+				<div style="position:relative; bottom:-90%; border-style:None">
+
+				<div id="slider" class="sim ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false" style="position:relative;">
+				<a id="sliderbutton" class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;visibility: visible;"></a></div>
+
+				<ul id="sliderlabels" class="sliderlabels" style="width: 100%; height: 3em; margin: 10px 0px 0px; padding: 0px; display: block; position: relative;">
+				<li style="display: inline-block; width: 399px; margin: 0px; padding: 0px; text-align: center; position: absolute; left: -170.5px;font-size:12">left urn more likely</li>
+				<li style="display: inline-block; width: 399px; margin: 0px; padding: 0px; text-align: center; position: absolute; left: 250.5px;font-size:12">right urn more likely</li></ul>
+				</div>
+
+				<div style="position:absolute; bottom:20%" id="trial_instructs"><p>How much more likely are you to get an 'X' from the left vs. right urn? Use the slider and then press 'Enter' to confirm your choice.</p></div>
+				<div style="position: absolute; bottom:5%; left:34%; margin:auto" id="slider_value">The right urn is 0x more likely.</div>
+
+		</div>
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}
+
+{% block footer %}
+
+
+{% endblock %}

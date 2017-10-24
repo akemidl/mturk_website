@@ -23,7 +23,7 @@ class Participant(models.Model):
     show_info_sheet = IntegerField(default=0)
     agreed_to_be_contacted = IntegerField(default=0)
     which_completion_message = IntegerField(default=0)
-    
+
 
 class Bandit_Trial(models.Model):
 
@@ -126,6 +126,9 @@ class Ambi_Trial(models.Model):
     revealed_x_r=models.CharField(max_length=200,default='NaN')
     revealed_x_l=models.CharField(max_length=200,default='NaN')
     practice = models.CharField(max_length=200,default='NaN')
+
+    # Estimation stuff
+    est_left_over_right = models.CharField(max_length=200,default='NaN')
 
     # 5 trial outcome stuff
     five_trial_outcome = models.CharField(max_length=200,default='NaN')

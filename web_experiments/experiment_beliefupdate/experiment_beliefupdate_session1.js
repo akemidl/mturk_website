@@ -62,7 +62,7 @@ var instructions_block_backstory = {
         "<li>design a new social media app (requiring social and creative skills)</li>"+
         "<li>code a working prototype of the app (requiring technical skills) </li>" +
         "<li>write a financial plan with projected cash flow, operating expense, income etc. (requiring analytic skills)</li>" +
-        "<li>present the app to a group of potential investors (requiring strong communication skills)</li>" +
+        "<li>present the app to a group of potential investors (requiring communication skills)</li>" +
         "</ul>"+
         "<p>In this experiment, both you and the other participants will be picking people to partner with for this project. We will ask you to provide information to help with this.</p>",
         "<p>In the first session of the experiment, we will ask you about your working style, and to provide other information (a short description of what you could bring to the internship, course grades and SAT scores) that we will make into a profile to be shown to other participants in Parts 2 and 3. "+
@@ -72,7 +72,7 @@ var instructions_block_backstory = {
         "The other participants will do the same for you. "+
         "Please again do the best job of this you can. "+
         "This will increase the value of the feedback we can give to other participants.</p>",
-        "<p>In the third session, you will see some of the profile pairs, as shown to other participants in session 2, in which your profile was included. "+
+        "<p>In the third session, you will see some of the cases in which your profile was paired with those of other participants. "+
         "For each one, we will tell you whether or not your profile was the one selected. "+
         "</p>"
       ],
@@ -129,7 +129,7 @@ tags = ['independent worker; group worker',
 'logical presenter; entertaining presenter',
 'strategic; adaptive']
 
-var scale_1 = ["1", "2", "3", "4"];
+var scale_1 = ["1", "2", "3", "4","5"];
 
 var aptitude_questions_intrs = {
     type: "instructions",
@@ -168,7 +168,7 @@ var aptitude_questions_page = {
 
 var self_describe_page = {
   type: 'survey-text',
-  preamble: "Next, using maximum of 500 characters, write what you think would make you a good candidate to work with. "+
+  preamble: "Next, using between 100 and 500 characters, write what you think would make you a good candidate to work with. "+
   "For example, you might include information about extracurriculars, past awards, or previous jobs." +
   " Please avoid using information in your response that other people could use to identify you so that your profile remains anonymous. ",
   questions: [""],
@@ -180,6 +180,7 @@ var self_describe_page = {
   "For the past summer, I worked as a market research analyst."],
   data: {trial_name: 'self_describe_page'},
   reg_ex: '.*',
+  length_check:[102],
   check_completion:true,
   on_finish: function(data){
             console.log('The trial just ended.');
@@ -207,7 +208,7 @@ var grade_page = {
   rows: [1,1,1,1,1,1],
   columns: [70,70,70,70,70,70],
   maxlength: [100,100,100,100,100,100],
-  placeholder: ['999', "999","999","Econ Theory Micro: G","Econ Theory Macro: G", "Financial Economics: G"],
+  placeholder: ['999', "999","999","Econ Theory Micro: B","Econ Theory Macro: A-", "Financial Economics: B-"],
   reg_ex: [patternSAT,patternSAT,patternSAT,patternGrade,patternGrade,patternGrade],
   data: {trial_name: 'sat_grades_entry'},
   check_completion:true,
@@ -318,7 +319,7 @@ var end_consent_html = "<div><p>Thanks! You have completed part 1 of the experim
   '<div class="table" style="display: table;">'+
   '<div class="row" style="display: table-row">'+
   '<div class="cell" style="display: table-cell; width:70%"><i>I would like to take parts in 2-3. &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </i></div>'+
-  '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group2"><br>I do not agree <input type="radio" name="group2"><br></div>'+
+  '<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group2"><br>I do not agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group2"><br></div>'+
   '</div>'+
   '</div>'+
 
@@ -349,7 +350,7 @@ var venmo_block = {
   reg_ex: '.*',
   check_completion:false,
   on_finish: function(data){
-    //save_data(jsPsych.data.getData())
+    save_data(jsPsych.data.getData())
     $(document).ready(function () {window.scrollTo(0,0);});}
 };
 
