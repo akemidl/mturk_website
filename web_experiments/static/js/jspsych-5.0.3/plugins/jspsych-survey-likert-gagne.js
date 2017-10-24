@@ -30,7 +30,7 @@ jsPsych.plugins['survey-likert'] = (function() {
     trial.preamble = typeof trial.preamble === 'undefined' ? "" : trial.preamble;
     trial.check_completion = trial.check_completion || false;
     trial.check_completion_but_allow_to_pass = trial.check_completion_but_allow_to_pass || false;
-
+    trial.radio_size = trial.radio_size || 1.5;
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
@@ -59,7 +59,7 @@ jsPsych.plugins['survey-likert'] = (function() {
 
 
       for (var j = 0; j < trial.labels[i].length; j++) {
-        options_string += '<li style="width:' + width + '%"><input type="radio" onclick="test_fun" id="Q' + i + '" name="Q' + i + '" value="' + j + '"><label class="jspsych-survey-likert-opt-label">' + trial.labels[i][j] + '</label></li>';
+        options_string += '<li style="width:' + width + '%"><input type="radio" style="transform:scale('+String(trial.radio_size)+')" onclick="test_fun" id="Q' + i + '" name="Q' + i + '" value="' + j + '"><label class="jspsych-survey-likert-opt-label">' + trial.labels[i][j] + '</label></li>';
       }
       options_string += '</ul>';
       form_element.append(options_string);

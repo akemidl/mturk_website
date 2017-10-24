@@ -1,6 +1,6 @@
 
 
-
+/// 32 questions
 
 ////////////////////
 var preamble_self_worth = "Please respond to each of the following statements by clicking the button above the answer that best describes your attitude. "+

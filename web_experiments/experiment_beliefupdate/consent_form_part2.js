@@ -44,7 +44,7 @@ var consent_part2_html = ""+
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
 '<div class="cell" style="display: table-cell; width:70%"><i>I consent to participate in Part 2 of this research study.&nbsp &nbsp &nbsp  &nbsp  &nbsp  &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp</i></div>'+
-'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group1"><br>I do not agree <input type="radio" name="group1"><br></div>'+
+'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group1"><br>I do not agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group1"><br></div>'+
 '</div>'+
 '</div>'+
 
@@ -62,7 +62,7 @@ var consent_part2_html = ""+
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
 '<div class="cell" style="display: table-cell; width:70%"><i>I agree for a key linking my name and contact information to the data collected within Part 1 and Part 2 of this study to be stored until after Part 3 is completed. (If you do not agree to the next statement, this key will be destroyed at the end of this study.)</i></div>'+
-'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group2"><br>I do not agree <input type="radio" name="group2"><br></div>'+
+'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group2"><br>I do not agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group2"><br></div>'+
 '</div>'+
 '</div>'+
 
@@ -71,7 +71,7 @@ var consent_part2_html = ""+
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
 '<div class="cell" style="display: table-cell; width:70%"><i>I am willing to be contacted with regard to potential participation in future studies and for a key linking my name and contact information to my questionnaire and experimental data to be stored in order for this information to be used to determine my suitability for future experiments and/or to be analyzed in conjunction with data collected in the future.</i></div>'+
-'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group3"><br>I do not agree <input type="radio" name="group3"><br></div>'+
+'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group3"><br>I do not agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group3"><br></div>'+
 '</div>'+
 '</div>'+
 
@@ -90,7 +90,7 @@ var consent_part2_html = ""+
 '<div class="table" style="display: table;">'+
 '<div class="row" style="display: table-row">'+
 '<div class="cell" style="display: table-cell; width:70%"><i>I consent to my answers from Part 2 being used to generate feedback to be presented to other participants in part 3 of this study. I understand that I will not be identified in this feedback.</i></div>'+
-'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree <input type="radio" name="group4"><br>I do not agree <input type="radio" name="group4"><br></div>'+
+'<div class="cell" style="display: table-cell; width:30%; text-align: right;">I agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group4"><br>I do not agree &nbsp<input style="transform:scale(1.5)" type="radio" name="group4"><br></div>'+
 '</div>'+
 '</div>'+
 

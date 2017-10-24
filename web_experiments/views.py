@@ -23,6 +23,7 @@ from shared_mscl import *
 # import experiments
 from experiment_example.experiment_example_views import exp_page_example
 from experiment_ambi_combined.experiment_ambi_combined_views import exp_page_ambi_combined
+from experiment_ambi_combined_est.experiment_ambi_combined_est_views import exp_page_ambi_combined_est
 from experiment_ambi.experiment_ambi_views import exp_page_ambi
 from experiment_bandit.experiment_bandit_views import bandit_task_counter_balancing, exp_page_bandit
 from experiment_horizon.experiment_horizon_views import exp_page_horizon
