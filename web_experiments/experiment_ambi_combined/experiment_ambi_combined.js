@@ -2,6 +2,29 @@
 var totalpoints = 1000
 var sign = 1.0
 
+// Storage vectors
+var store_response=[]
+var store_RT=[]
+var store_totalpoints=[]
+var store_currenttrials=[]
+var store_outcome=[]
+var store_received_mag=[]
+var store_startTrialTime=[]
+var store_noresp=[]
+var store_prop_left=[]
+var store_prop_right=[]
+var store_revealed_right=[]
+var store_revealed_left=[]
+var store_mag_left=[]
+var store_mag_right=[]
+var store_five_trial_outcome=[]
+var store_practice=[]
+var store_revealed_o_r=[]
+var store_revealed_o_l=[]
+var store_revealed_x_r=[]
+var store_revealed_x_l=[]
+var store_instruct_number=[]
+var store_whensaved=[]
 
 //XOlist
 
@@ -697,8 +720,30 @@ function Outcome(response){
 
 	// Store data (sends get query to django)
 
-		$.get("?resp="+response+"&rt="+RT+"&totalpoints="+totalpoints+"&currenttrial="+currenttrial+"&outcome="+outcome+"&received_mag="+received_mag+"&trialstart="+startTrialTime+"&noresp="+noresp+"&prop_left="+prop_left[currenttrial]+"&prop_right="+prop_right[currenttrial]+"&revealed_right="+revealed_right[currenttrial]+"&revealed_left="+revealed_left[currenttrial]+"&mag_left="+mag_left[currenttrial]+"&mag_right="+mag_right[currenttrial]+"&five_trial_outcome="+five_trial_outcome+"&practice="+practice+"&revealed_o_r="+revealed_o_r+"&revealed_o_l="+revealed_o_l+"&revealed_x_r="+revealed_x_r+"&revealed_x_l="+revealed_x_l+"&instruct_number="+currentnumber, function(response){});
+		$.get("?resp="+response+"&rt="+RT+"&totalpoints="+totalpoints+"&currenttrial="+currenttrial+"&outcome="+outcome+"&received_mag="+received_mag+"&trialstart="+startTrialTime+"&noresp="+noresp+"&prop_left="+prop_left[currenttrial]+"&prop_right="+prop_right[currenttrial]+"&revealed_right="+revealed_right[currenttrial]+"&revealed_left="+revealed_left[currenttrial]+"&mag_left="+mag_left[currenttrial]+"&mag_right="+mag_right[currenttrial]+"&five_trial_outcome="+five_trial_outcome+"&practice="+practice+"&revealed_o_r="+revealed_o_r+"&revealed_o_l="+revealed_o_l+"&revealed_x_r="+revealed_x_r+"&revealed_x_l="+revealed_x_l+"&instruct_number="+currentnumber+"&whensaved="+'withintrial', function(response){});
 
+		store_response.push(response)
+		store_RT.push(RT)
+		store_totalpoints.push(totalpoints)
+		store_currenttrials.push(currenttrial)
+		store_outcome.push(outcome)
+		store_received_mag.push(received_mag)
+		store_startTrialTime.push(startTrialTime)
+		store_noresp.push(noresp)
+		store_prop_left.push(prop_left[currenttrial])
+		store_prop_right.push(prop_right[currenttrial])
+		store_revealed_right.push(revealed_right[currenttrial])
+		store_revealed_left.push(revealed_left[currenttrial])
+		store_mag_left.push(mag_left[currenttrial])
+		store_mag_right.push(mag_right[currenttrial])
+		store_five_trial_outcome.push(five_trial_outcome)
+		store_practice.push(practice)
+		store_revealed_o_r.push(revealed_o_r)
+		store_revealed_o_l.push(revealed_o_l)
+		store_revealed_x_r.push(revealed_x_r)
+		store_revealed_x_l.push(revealed_x_l)
+		store_instruct_number.push(currentnumber)
+		store_whensaved.push('at_end')
 
 
 	//// Wait before displaying outcome
@@ -840,7 +885,7 @@ if(gain_or_loss=='neutral'){
 
 function record_instruct_sceen(currentnumber){
 
-$.get("?resp="+999+"&rt="+999+"&totalpoints="+999+"&currenttrial="+999+"&outcome="+999+"&received_mag="+999+"&trialstart="+999+"&noresp="+999+"&prop_left="+999+"&prop_right="+999+"&revealed_right="+999+"&revealed_left="+999+"&mag_left="+999+"&mag_right="+999+"&five_trial_outcome="+999+"&practice="+2+"&revealed_o_r="+999+"&revealed_o_l="+999+"&revealed_x_r="+999+"&revealed_x_l="+999+"&instruct_number="+currentnumber, function(response){});
+$.get("?resp="+999+"&rt="+999+"&totalpoints="+999+"&currenttrial="+999+"&outcome="+999+"&received_mag="+999+"&trialstart="+999+"&noresp="+999+"&prop_left="+999+"&prop_right="+999+"&revealed_right="+999+"&revealed_left="+999+"&mag_left="+999+"&mag_right="+999+"&five_trial_outcome="+999+"&practice="+2+"&revealed_o_r="+999+"&revealed_o_l="+999+"&revealed_x_r="+999+"&revealed_x_l="+999+"&instruct_number="+currentnumber+"&whensaved="+'withintrial', function(response){});
 
 }
 
@@ -1759,6 +1804,12 @@ function RunEndScreen(){
 // Store data (sends get query to django)
 	finished=1
 	$.get("?finished="+finished, function(response){});
+	for (var i = 0; i < store_response.length; i++){
+		console.log('saving trial')
+		$.get("?resp="+store_response[i]+"&rt="+store_RT[i]+"&totalpoints="+store_totalpoints[i]+"&currenttrial="+store_currenttrials[i]+"&outcome="+store_outcome[i]+"&received_mag="+store_received_mag[i]+"&trialstart="+store_startTrialTime[i]+"&noresp="+store_noresp[i]+"&prop_left="+store_prop_left[i]+"&prop_right="+store_prop_right[i]+"&revealed_right="+store_revealed_right[i]+
+		"&revealed_left="+store_revealed_left[i]+"&mag_left="+store_mag_left[i]+"&mag_right="+store_mag_right[i]+"&five_trial_outcome="+store_five_trial_outcome[i]+"&practice="+store_practice[i]+"&revealed_o_r="+store_revealed_o_r[i]+"&revealed_o_l="+store_revealed_o_l[i]+"&revealed_x_r="+store_revealed_x_r[i]+"&revealed_x_l="+store_revealed_x_l[i]+"&instruct_number="+store_instruct_number[i]+
+		"&whensaved="+'at_end', function(response){});
+	}
 
 
 
