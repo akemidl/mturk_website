@@ -88,6 +88,59 @@ class Horizon_Trial(models.Model):
     totalpoints = models.IntegerField(null=True)
 
 
+class Ambi_Estimation_Trial(models.Model):
+
+    MID = models.CharField(max_length=200,default='NaN')
+    AID = models.CharField(max_length=200,default='NaN')
+    HID = models.CharField(max_length=200,default='NaN')
+    session_id =models.CharField(max_length=200,default=None)
+
+    trial_number = models.CharField(max_length=200,default='NaN')
+    instruct_number = models.CharField(max_length=200,default='NaN')
+    # repon
+    resp = models.CharField(max_length=200,default='NaN')
+
+    loss_or_reward = models.CharField(max_length=200,default='gain')
+
+    # Timing Stuff
+    start_date = models.DateTimeField('start date')
+    trialstart  = BigIntegerField(default=0)
+
+    # Whether its saved during or at then end
+    whensaved = models.CharField(max_length=200,default='NaN')
+
+    # Outcomes
+
+    outcome  = models.CharField(max_length=200,default='NaN')
+    received_mag  = models.CharField(max_length=200,default='NaN')
+
+    # trial stuff
+    prop_left	 = models.CharField(max_length=200,default='NaN')
+    prop_right	 = models.CharField(max_length=200,default='NaN')
+    revealed_left	 = models.CharField(max_length=200,default='NaN')
+    revealed_right	 = models.CharField(max_length=200,default='NaN')
+    mag_left	 = models.CharField(max_length=200,default='NaN')
+    mag_right	 = models.CharField(max_length=200,default='NaN')
+    revealed_o_r=models.CharField(max_length=200,default='NaN')
+    revealed_o_l=models.CharField(max_length=200,default='NaN')
+    revealed_x_r=models.CharField(max_length=200,default='NaN')
+    revealed_x_l=models.CharField(max_length=200,default='NaN')
+    practice = models.CharField(max_length=200,default='NaN')
+
+    # Estimation stuff
+    est_left_over_right = models.CharField(max_length=200,default='NaN')
+
+    # 5 trial outcome stuff
+    five_trial_outcome = models.CharField(max_length=200,default='NaN')
+
+
+    reaction_time    = models.CharField(max_length=200,default='NaN')
+
+    totalpoints = models.CharField(max_length=200,default='NaN')
+
+    noresp = models.CharField(max_length=200,default='NaN')
+
+
 
 
 class Ambi_Trial(models.Model):
@@ -108,6 +161,8 @@ class Ambi_Trial(models.Model):
     start_date = models.DateTimeField('start date')
     trialstart  = BigIntegerField(default=0)
 
+    # Whether its saved during or at then end
+    whensaved = models.CharField(max_length=200,default='NaN')
 
     # Outcomes
 

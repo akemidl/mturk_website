@@ -79,9 +79,7 @@ def exp_page_ambi_combined(request):
     # save trial data
     resp = request.GET.get('resp')
 
-
     if resp is not None:
-	print('here')
         T = Ambi_Trial(trialstart=request.GET.get('trialstart'),
         start_date=datetime.datetime.now(),
         outcome = request.GET.get('outcome'),
@@ -95,21 +93,21 @@ def exp_page_ambi_combined(request):
         revealed_left=request.GET.get('revealed_left'),
         mag_right=request.GET.get('mag_right'),
         mag_left=request.GET.get('mag_left'),
-	practice=request.GET.get('practice'),
-	revealed_o_r=request.GET.get('revealed_o_r'),
-	revealed_o_l=request.GET.get('revealed_o_l'),
-	revealed_x_r=request.GET.get('revealed_x_r'),
-	revealed_x_l=request.GET.get('revealed_x_l'),
+    	practice=request.GET.get('practice'),
+    	revealed_o_r=request.GET.get('revealed_o_r'),
+    	revealed_o_l=request.GET.get('revealed_o_l'),
+    	revealed_x_r=request.GET.get('revealed_x_r'),
+    	revealed_x_l=request.GET.get('revealed_x_l'),
         MID=p.MID,
-	session_id=p.session_id,
-	AID=p.AID,
-	HID=p.HID,
-	loss_or_reward=outcome_type,
-	noresp=request.GET.get('noresp'),
-	five_trial_outcome = request.GET.get('five_trial_outcome'),
+    	session_id=p.session_id,
+    	AID=p.AID,
+    	HID=p.HID,
+    	loss_or_reward=outcome_type,
+    	noresp=request.GET.get('noresp'),
+    	five_trial_outcome = request.GET.get('five_trial_outcome'),
         totalpoints=request.GET.get('totalpoints'),
-	instruct_number=request.GET.get('instruct_number'))
-
+    	instruct_number=request.GET.get('instruct_number'),
+        whensaved=request.GET.get('whensaved'))
         T.save()
 
     finished=request.GET.get('finished')

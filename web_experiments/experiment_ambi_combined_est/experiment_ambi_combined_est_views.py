@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response, render
 
 # import shared stuff
-from web_experiments.models import Participant
+from web_experiments.models import Participant, Ambi_Estimation_Trial
 from web_experiments.views import *
 
 # import mscl
@@ -82,7 +82,7 @@ def exp_page_ambi_combined_est(request):
 
     if resp is not None:
 	print('here')
-        T = Ambi_Trial(trialstart=request.GET.get('trialstart'),
+        T = Ambi_Estimation_Trial(trialstart=request.GET.get('trialstart'),
         start_date=datetime.datetime.now(),
         outcome = request.GET.get('outcome'),
         resp = request.GET.get('resp'),
